@@ -3,6 +3,22 @@
 ## Project Overview
 E-commerce landing page and sales funnel for High Frequency Highway. Built with React + TypeScript + Vite + Tailwind CSS + Shopify integration.
 
+## Input Interpretation Rule — ALWAYS ACTIVE
+
+### All User Input → Read User Input Skill
+**Trigger:** Every single message from the user, before doing anything else.
+
+Before acting on ANY user input:
+1. Invoke `anthropic-skills:read-user-input` to interpret the message
+2. The user's input style is raw, unfiltered, stream-of-consciousness — expect nonlinear jumps, asides, and shorthand
+3. Extract the underlying goals, decisions, and action points
+4. Separate high-level strategy from mid-level plans and low-level execution details
+5. Preserve the user's voice and intent — don't over-polish or add corporate fluff
+6. Flag anything incomplete, contradictory, or vague — propose solutions or ask clarifying questions
+7. Default to making it more actionable
+
+This is the FIRST skill applied on every message. All other skill routing happens AFTER input is interpreted.
+
 ## Mandatory Skill Routing Rules
 
 All work on this project MUST be filtered through the appropriate skill before implementation. Never make design or copy decisions without consulting the relevant skill first.
@@ -41,6 +57,7 @@ This applies to: funnel page sequence, offer structure, pricing display, upsell/
 
 | Decision Type | Skill to Use | Key Focus |
 |---|---|---|
+| **All User Input** | `read-user-input` (FIRST — always) | Interpret raw input, extract intent, structure action items |
 | Visual/UI/UX | UI/UX Pro Max (`.claude/skills/ui-ux-pro-max/`) | Style, color, typography, layout, accessibility |
 | Copy/Text | `master-copywriting-persuasion-skill` | Headlines, CTAs, persuasion frameworks |
 | Funnel/Sales | `nepq-sales-coach` + `high-ticket-course-builder` | Offer structure, conversion, objection handling |

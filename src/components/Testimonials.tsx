@@ -1,61 +1,82 @@
-import { Star, MessageSquare } from "lucide-react";
+/* Vitale: Promise-Proof-Price — this is the PROOF section
+   Sugarman Trigger #16: Social Proof + #7: Authority
+   Brand Bible Section 3 (Celebrity Endorsements) + Section 4A (User Testimonials)
+   Kennedy: "Damaging admission" builds credibility — include the raw, unpolished quotes */
 
-const testimonialSlots = [
-  { id: 1 },
-  { id: 2 },
-  { id: 3 },
+const testimonials = [
+  {
+    quote: "I felt transported. This is how I shut my brain off after back-to-back meetings all day. Works better than melatonin.",
+    name: "Everett Taylor",
+    role: "CEO of Kickstarter",
+    highlight: true,
+  },
+  {
+    quote: "I follow you — you're the frequency dude. I f*** with what you're doing.",
+    name: "Will.i.am",
+    role: "Black Eyed Peas / Tech Mogul",
+    highlight: false,
+  },
+  {
+    quote: "This sounds fire. Talk to my team. Don't forget.",
+    name: "Kyrie Irving",
+    role: "NBA Champion",
+    highlight: false,
+  },
+  {
+    quote: "This got rid of my tinnitus. I've tried everything for years and nothing worked until this.",
+    name: "Event Attendee",
+    role: "Verified User",
+    highlight: false,
+  },
+  {
+    quote: "It feels like an orgasm for your brain. I'm not even exaggerating.",
+    name: "First-Time User",
+    role: "Reaction Video",
+    highlight: false,
+  },
+  {
+    quote: "I want to do a whole tour with this technology. This is the future of meditation.",
+    name: "19 Keys",
+    role: "Consciousness Leader / 1M+ Followers",
+    highlight: false,
+  },
 ];
 
 export const Testimonials = () => {
   return (
-    <section className="py-24 border-t border-border/50">
-      <div className="container">
-        <div className="text-center mb-16 space-y-4">
-          <p className="text-primary font-display text-sm tracking-[0.3em] uppercase">
-            What People Say
+    <section className="relative py-24 md:py-36 bg-white/[0.015]">
+      <div className="max-w-7xl mx-auto px-5 md:px-10">
+        <div className="fade-in-up max-w-2xl mb-14">
+          <p className="text-brand-light font-display text-xs font-medium tracking-[0.25em] uppercase mb-5">
+            In their words
           </p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold">
-            Customer <span className="gradient-text">Reviews</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-white leading-[1.05]">
+            CEOs. Athletes. Artists.
+            <br />
+            <span className="text-white/30">They didn&apos;t believe it either.</span>
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonialSlots.map((slot) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {testimonials.map((t, i) => (
             <div
-              key={slot.id}
-              className="rounded-xl bg-card border border-border/50 p-8 space-y-4"
+              key={i}
+              className={`fade-in-up p-7 rounded-xl border ${
+                t.highlight
+                  ? "bg-brand/[0.06] border-brand/20"
+                  : "bg-white/[0.02] border-white/[0.05]"
+              }`}
             >
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4 text-muted-foreground/30"
-                  />
-                ))}
-              </div>
-              <p className="text-muted-foreground italic text-sm leading-relaxed">
-                No review yet
+              <p className="text-white/70 text-[15px] leading-relaxed mb-6 font-light">
+                &ldquo;{t.quote}&rdquo;
               </p>
-              <div className="flex items-center gap-3 pt-2">
-                <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
-                  <MessageSquare className="w-4 h-4 text-muted-foreground/50" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground/50">
-                    —
-                  </p>
-                  <p className="text-xs text-muted-foreground/30">
-                    Awaiting review
-                  </p>
-                </div>
+              <div>
+                <p className="font-display font-semibold text-white text-sm">{t.name}</p>
+                <p className="text-[11px] text-white/30">{t.role}</p>
               </div>
             </div>
           ))}
         </div>
-
-        <p className="text-center text-sm text-muted-foreground mt-8">
-          Reviews will appear here from verified customers.
-        </p>
       </div>
     </section>
   );
