@@ -15,12 +15,14 @@ export const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-black/90 backdrop-blur-2xl border-b border-white/[0.06]"
+          ? "bg-white/90 backdrop-blur-2xl border-b border-gray-200 shadow-sm"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between h-16 md:h-[72px] px-5 md:px-10">
-        <a href="#" className="font-display text-[13px] md:text-[15px] font-semibold tracking-[0.18em] uppercase text-white/90">
+        <a href="#" className={`font-display text-[13px] md:text-[15px] font-semibold tracking-[0.18em] uppercase transition-colors duration-500 ${
+          scrolled ? "text-gray-900" : "text-white/90"
+        }`}>
           High Frequency Highway
         </a>
         <a

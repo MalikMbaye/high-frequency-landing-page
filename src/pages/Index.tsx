@@ -1,14 +1,16 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { SocialProofBar } from "@/components/SocialProofBar";
 import { ProblemAgitation } from "@/components/ProblemAgitation";
+import { FounderStory } from "@/components/FounderStory";
 import { ProductReveal } from "@/components/ProductReveal";
 import { ReactionVideoGrid } from "@/components/ReactionVideoGrid";
-import { AppShowcase } from "@/components/AppShowcase";
-import { ScienceCredibility } from "@/components/ScienceCredibility";
 import { Testimonials } from "@/components/Testimonials";
 import { OfferStack } from "@/components/OfferStack";
+import { AppShowcase } from "@/components/AppShowcase";
+import { ScienceCredibility } from "@/components/ScienceCredibility";
 import { UrgencyClose } from "@/components/UrgencyClose";
+import { FAQ } from "@/components/FAQ";
+import { FooterCTA } from "@/components/FooterCTA";
 import { Footer } from "@/components/Footer";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -19,15 +21,17 @@ const Index = () => {
     <div ref={scrollRef} className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <SocialProofBar />
       <ProblemAgitation />
+      <FounderStory />
       <ProductReveal />
       <ReactionVideoGrid />
-      <AppShowcase />
-      <ScienceCredibility />
       <Testimonials />
       <OfferStack />
+      <AppShowcase />
+      <ScienceCredibility />
       <UrgencyClose />
+      <FAQ />
+      <FooterCTA />
       <Footer />
     </div>
   );

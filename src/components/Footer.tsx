@@ -11,34 +11,34 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-white/[0.06] py-12 md:py-16">
+    <footer className="border-t border-gray-200 py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-10">
-          <p className="font-display text-[13px] font-semibold tracking-[0.18em] uppercase text-white/50">
+          <p className="font-display text-[13px] font-semibold tracking-[0.18em] uppercase text-gray-500">
             High Frequency Highway
           </p>
           <div className="flex items-center gap-3">
             <a href={HEADPHONES_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-9 px-5 bg-brand text-white font-display font-semibold text-xs rounded-full hover:bg-brand-light transition-all">
               Shop
             </a>
-            <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-9 px-5 border border-white/10 text-white/40 hover:text-white font-display font-medium text-xs rounded-full transition-all">
+            <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-9 px-5 border border-gray-200 text-gray-500 hover:text-gray-900 font-display font-medium text-xs rounded-full transition-all">
               Download App
             </a>
           </div>
         </div>
         <div className="flex items-center justify-center gap-4 mb-10">
           {socialLinks.map((s) => (
-            <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.name} className="flex items-center justify-center w-9 h-9 rounded-full text-white/20 hover:text-white/50 transition-colors">
+            <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.name} className="flex items-center justify-center w-9 h-9 rounded-full text-gray-300 hover:text-gray-500 transition-colors">
               {s.icon}
             </a>
           ))}
         </div>
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.04]">
-          <p className="text-[11px] text-white/15">&copy; {new Date().getFullYear()} High Frequency Highway. All rights reserved.</p>
-          <div className="flex gap-6 text-[11px] text-white/15">
-            <a href="#" className="hover:text-white/30 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white/30 transition-colors">Terms</a>
-            <a href="#" className="hover:text-white/30 transition-colors">Support</a>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-gray-100">
+          <p className="text-[11px] text-gray-300">&copy; {new Date().getFullYear()} High Frequency Highway. All rights reserved.</p>
+          <div className="flex gap-6 text-[11px] text-gray-300">
+            <a href="#" className="hover:text-gray-500 transition-colors">Privacy</a>
+            <a href="#" className="hover:text-gray-500 transition-colors">Terms</a>
+            <a href="#" className="hover:text-gray-500 transition-colors">Support</a>
           </div>
         </div>
       </div>
