@@ -47,6 +47,14 @@ export const Testimonials = () => {
           </p>
         </div>
 
+        <div className="fade-in-up max-w-md mx-auto mb-14">
+          <img
+            src="/images/marketing-they-came-to-us.png"
+            alt="They Came To Us — Will.i.am, Kickstarter CEO, Kyrie Irving, Conor McGregor, Steve Aoki, Jhene Aiko, 19 Keys. No PR firm. No paid endorsements. No pitch decks."
+            className="w-full h-auto rounded-2xl shadow-2xl shadow-brand/20"
+          />
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-8">
           {notables.map((n, i) => (
             <div

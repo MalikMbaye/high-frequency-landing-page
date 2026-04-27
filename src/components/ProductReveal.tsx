@@ -55,6 +55,14 @@ export const ProductReveal = () => {
           </p>
         </div>
 
+        <div className="fade-in-up max-w-md mx-auto mb-20">
+          <img
+            src="/images/marketing-resets-60s.png"
+            alt="High Frequency Highway — Resets your brain in under 60 seconds. Bone conduction frequency, 100 vibrations per second."
+            className="w-full h-auto rounded-2xl shadow-2xl shadow-brand/20"
+          />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
           {features.map((f, i) => (
             <div key={i} className="fade-in-up p-6 rounded-xl bg-white border border-gray-200">
@@ -82,9 +90,16 @@ export const ProductReveal = () => {
           <p className="text-brand font-display text-xs font-medium tracking-[0.25em] uppercase mb-6">
             The part that changes everything
           </p>
-          <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-[1.1] mb-6">
+          <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-[1.1] mb-8">
             The more you use this, the less you need it.
           </h3>
+          <div className="max-w-md mx-auto mb-8">
+            <img
+              src="/images/marketing-less-you-need.png"
+              alt="The more you use it, the less you need it. Every session builds neuroplasticity."
+              className="w-full h-auto rounded-2xl shadow-2xl shadow-brand/20"
+            />
+          </div>
           <p className="text-base text-gray-500 leading-relaxed mb-5">
             Every session builds neuroplasticity in your brain. You&apos;re not renting a temporary state. You&apos;re literally rewiring your brain&apos;s ability to focus, stay calm, and enter flow on its own. Without the device. Without a pill. Without anything.
           </p>

@@ -47,7 +47,7 @@ export const OfferStack = () => {
           </p>
         </div>
 
-        <div className="space-y-3 mb-8">
+        <div className="space-y-3 mb-14">
           {competitors.map((c, i) => (
             <div key={i} className="fade-in-up p-5 md:p-6 rounded-xl bg-gray-50 border border-gray-200">
               <div className="flex items-start justify-between mb-2">
@@ -57,6 +57,14 @@ export const OfferStack = () => {
               <p className="text-sm text-gray-400 leading-relaxed">{c.drawback}</p>
             </div>
           ))}
+        </div>
+
+        <div className="fade-in-up max-w-md mx-auto mb-14">
+          <img
+            src="/images/marketing-one-purchase.png"
+            alt="One purchase replaces all three. Coffee, Adderall, Nootropics. You're already paying for this."
+            className="w-full h-auto rounded-2xl shadow-2xl shadow-brand/20"
+          />
         </div>
 
         <div className="fade-in-up p-6 md:p-8 rounded-xl bg-brand/[0.06] border border-brand/20 mb-14">
