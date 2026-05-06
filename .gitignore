@@ -28,3 +28,6 @@ Pictures/
 
 # Claude local config
 .claude/
+
+# GenSpark reference export (source of truth, not part of build)
+code_sandbox_light_*/

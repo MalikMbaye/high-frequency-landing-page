@@ -1,38 +1,57 @@
-import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
-import { ProblemAgitation } from "@/components/ProblemAgitation";
-import { FounderStory } from "@/components/FounderStory";
-import { ProductReveal } from "@/components/ProductReveal";
-import { ReactionVideoGrid } from "@/components/ReactionVideoGrid";
-import { Testimonials } from "@/components/Testimonials";
-import { OfferStack } from "@/components/OfferStack";
-import { AppShowcase } from "@/components/AppShowcase";
-import { ScienceCredibility } from "@/components/ScienceCredibility";
-import { UrgencyClose } from "@/components/UrgencyClose";
-import { FAQ } from "@/components/FAQ";
-import { FooterCTA } from "@/components/FooterCTA";
-import { Footer } from "@/components/Footer";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import VideoProof from "@/components/VideoProof";
+import WrongTeardown from "@/components/WrongTeardown";
+import HowItWorks from "@/components/HowItWorks";
+import BeforeAfterScience from "@/components/BeforeAfterScience";
+import Neuroplasticity from "@/components/Neuroplasticity";
+import FounderStory from "@/components/FounderStory";
+import TaglineBlock from "@/components/TaglineBlock";
+import ProductReveal from "@/components/ProductReveal";
+import FiveStates from "@/components/FiveStates";
+import Generator from "@/components/Generator";
+import AIMeditation from "@/components/AIMeditation";
+import LibraryHubNetwork from "@/components/LibraryHubNetwork";
+import UseCases from "@/components/UseCases";
+import StatsBlock from "@/components/StatsBlock";
+import VehicleSwitch from "@/components/VehicleSwitch";
+import ReactionWall from "@/components/ReactionWall";
+import Captivation from "@/components/Captivation";
+import ProductBlock from "@/components/ProductBlock";
+import WhatsInBox from "@/components/WhatsInBox";
+import PriceReframe from "@/components/PriceReframe";
+import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
+import StickyBuyBar from "@/components/StickyBuyBar";
 
 const Index = () => {
-  const scrollRef = useScrollReveal();
-
   return (
-    <div ref={scrollRef} className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <ProblemAgitation />
+      <VideoProof />
+      <WrongTeardown />
+      <HowItWorks />
+      <BeforeAfterScience />
+      <Neuroplasticity />
       <FounderStory />
+      <TaglineBlock />
       <ProductReveal />
-      <ReactionVideoGrid />
-      <Testimonials />
-      <OfferStack />
-      <AppShowcase />
-      <ScienceCredibility />
-      <UrgencyClose />
+      <FiveStates />
+      <Generator />
+      <AIMeditation />
+      <LibraryHubNetwork />
+      <UseCases />
+      <StatsBlock />
+      <VehicleSwitch />
+      <ReactionWall />
+      <Captivation />
+      <ProductBlock />
+      <WhatsInBox />
+      <PriceReframe />
       <FAQ />
-      <FooterCTA />
       <Footer />
+      <StickyBuyBar />
     </div>
   );
 };

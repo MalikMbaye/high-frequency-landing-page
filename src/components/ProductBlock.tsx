@@ -1,0 +1,243 @@
+import { useState, useRef, useEffect } from "react";
+import { Check, ChevronLeft, ChevronRight, Star } from "lucide-react";
+
+type GalleryItem = { src: string; alt: string };
+
+const heroDefault: GalleryItem = {
+  src: "https://www.genspark.ai/api/files/s/OdGDQK5Y",
+  alt: "The more you use it, the less you need it — High Frequency Highway hero brand graphic",
+};
+
+const thumbs: GalleryItem[] = [
+  { src: "https://www.genspark.ai/api/files/s/Fd6JSPq6", alt: "First-time reaction — eyes wide open" },
+  { src: "https://www.genspark.ai/api/files/s/OdBtFzRX", alt: "Bone conduction vibration diagram showing frequency waves through the skull" },
+  { src: "https://www.genspark.ai/api/files/s/Pvt3alCs", alt: "HFH Frequency App state selector — Focus, Calm, Energy, Flow, Sleep" },
+  { src: "https://www.genspark.ai/api/files/s/G23hzTj3", alt: "Lifestyle — man at desk wearing HFH headphones, locked into deep work" },
+];
+
+const cycle: GalleryItem[] = [heroDefault, ...thumbs];
+
+const accordionItems = [
+  {
+    title: "What's the science behind HFH?",
+    body: (
+      <>
+        <p>Your brain operates on frequencies. When you're focused, it's on one frequency. When you're scattered, it's on another.</p>
+        <p>These headphones deliver the exact frequency you need, directly through your skull, using bone conduction and vibration at the same time. The transducers pulse 100 times per second through your bones. Your brain doesn't just hear the frequency. It physically feels it. And it locks in.</p>
+        <p>The technology is based on decades of government-funded neuroscience research, including the CIA's declassified Gateway Process, which proved sound frequencies can shift brain states on command.</p>
+      </>
+    ),
+  },
+  {
+    title: "How fast does it work?",
+    body: (
+      <>
+        <p>The first time you put them on, you'll feel the shift in under 60 seconds.</p>
+        <p>We've recorded over 300 first-time reactions on camera. The eyes widen. The spine straightens. Everyone says the same thing.</p>
+        <p>It's not subtle. Your brain recognizes the frequency immediately.</p>
+      </>
+    ),
+  },
+  {
+    title: "What does \"the more you use it, the less you need it\" mean?",
+    body: (
+      <>
+        <p>Every session builds neuroplasticity. Your brain forms stronger neural pathways for focus, calm, and flow.</p>
+        <p>Over time, your brain gets better at entering those states on its own, without the device.</p>
+        <p>Adderall and coffee create dependency. This builds independence. That's the entire point.</p>
+      </>
+    ),
+  },
+  {
+    title: "What's in the box?",
+    body: (
+      <ul className="pdp-checks">
+        <li>HFH Bone Conduction Frequency Headphones</li>
+        <li>Noise Isolation Earplugs</li>
+        <li>USB-C Charging Cable</li>
+        <li>Quick Start Guide</li>
+        <li>Lifetime Access to the HFH Frequency App (100,000+ downloads)</li>
+      </ul>
+    ),
+  },
+  {
+    title: "Technical specifications",
+    body: (
+      <dl className="pdp-spec-list">
+        <div><dt>Bone Conduction</dt><dd>Dual transducer, 100 Hz vibration delivery</dd></div>
+        <div><dt>Frequency Range</dt><dd>Full Rife frequency library + Gateway Process binaural patterns</dd></div>
+        <div><dt>Connectivity</dt><dd>Bluetooth 5.3, full hands-free</dd></div>
+        <div><dt>Battery Life</dt><dd>8 hours active use, 10 days standby</dd></div>
+        <div><dt>Charging</dt><dd>USB-C, 1.5 hours full charge</dd></div>
+        <div><dt>Materials</dt><dd>Aerospace-grade titanium frame, medical-grade silicone pads</dd></div>
+        <div><dt>Weight</dt><dd>29g</dd></div>
+        <div><dt>Water Resistance</dt><dd>IP55</dd></div>
+        <div><dt>Compatibility</dt><dd>iOS, Android, all Bluetooth devices</dd></div>
+      </dl>
+    ),
+  },
+  {
+    title: "The Frequency App",
+    body: (
+      <>
+        <p>Five brain states. One tap each.</p>
+        <p>
+          <strong>Focus</strong> — Lock into deep work for hours. No crash. No side effects.<br />
+          <strong>Calm</strong> — Drop your stress response in seconds.<br />
+          <strong>Energy</strong> — Replace the morning coffee. No jitters.<br />
+          <strong>Flow</strong> — Enter creative flow on demand.<br />
+          <strong>Sleep</strong> — Fall asleep faster, stay asleep longer.
+        </p>
+        <p>Every state runs on a precision frequency stack. Includes the full Rife frequency library, Gateway Process binaural patterns, and AI-powered personalized meditation that adapts to your brain in real time.</p>
+        <p>100,000+ downloads. 81% retention rate. Lifetime access included with every pair of headphones.</p>
+      </>
+    ),
+  },
+  {
+    title: "Shipping, warranty, and guarantee",
+    body: (
+      <>
+        <p>Ships worldwide. We've shipped to 25+ countries.</p>
+        <p>US orders ship free in 3–5 business days. International orders typically arrive in 7–14 business days.</p>
+        <p>30-day money-back guarantee. Full refund. No questions asked.</p>
+        <p>1-year manufacturer warranty included with every order.</p>
+      </>
+    ),
+  },
+];
+
+const ProductBlock = () => {
+  const [index, setIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const fadeTimer = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (fadeTimer.current) window.clearTimeout(fadeTimer.current);
+    };
+  }, []);
+
+  const setImage = (target: number) => {
+    let next = target;
+    if (next < 0) next = cycle.length - 1;
+    if (next >= cycle.length) next = 0;
+    if (next === index) return;
+    setIsFading(true);
+    if (fadeTimer.current) window.clearTimeout(fadeTimer.current);
+    fadeTimer.current = window.setTimeout(() => {
+      setIndex(next);
+      setIsFading(false);
+    }, 200);
+  };
+
+  const current = cycle[index];
+
+  return (
+    <section className="section pdp-section" id="buy" data-theme="light">
+      <div className="hfh-container">
+        <div className="pdp-grid">
+          {/* LEFT — Gallery */}
+          <div className="pdp-gallery">
+            <div className={`pdp-main-image ${isFading ? "is-fading" : ""}`}>
+              <img src={current.src} alt={current.alt} />
+              <button
+                className="pdp-arrow pdp-arrow-prev"
+                aria-label="Previous image"
+                onClick={() => setImage(index - 1)}
+              >
+                <ChevronLeft size={16} />
+              </button>
+              <button
+                className="pdp-arrow pdp-arrow-next"
+                aria-label="Next image"
+                onClick={() => setImage(index + 1)}
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
+
+            <div className="pdp-thumbs" role="tablist" aria-label="Product images">
+              {thumbs.map((t, i) => (
+                <button
+                  key={t.src}
+                  className={`pdp-thumb ${index === i + 1 ? "is-active" : ""}`}
+                  aria-label={`View image ${i + 1}`}
+                  onClick={() => setImage(i + 1)}
+                  type="button"
+                >
+                  <img src={t.src} alt="" />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT — Info */}
+          <div className="pdp-info">
+            <div className="pdp-rating">
+              <span className="pdp-stars" aria-label="5 out of 5 stars">
+                <Star size={14} fill="currentColor" />
+                <Star size={14} fill="currentColor" />
+                <Star size={14} fill="currentColor" />
+                <Star size={14} fill="currentColor" />
+                <Star size={14} fill="currentColor" />
+              </span>
+              <span className="pdp-rating-count">300+ RECORDED REACTIONS</span>
+            </div>
+
+            <h2 className="pdp-headline">HFH Bone Conduction Frequency Headphones with Lifetime App Access</h2>
+
+            <p className="pdp-subhead">Reset your brain in under 60 seconds. Bone conduction frequency headphones that shift your brain state on demand. Focus. Calm. Energy. Flow. Sleep. The more you use them, the less you need them.</p>
+
+            <ul className="pdp-bullets">
+              <li><span className="pdp-bullet-check"><Check size={12} /></span>Resets Brain State in Under 60 Seconds</li>
+              <li><span className="pdp-bullet-check"><Check size={12} /></span>Builds Neuroplasticity, Not Dependency</li>
+              <li><span className="pdp-bullet-check"><Check size={12} /></span>Backed by Decades of Neuroscience</li>
+              <li><span className="pdp-bullet-check"><Check size={12} /></span>Used in 25+ Countries Worldwide</li>
+            </ul>
+
+            <label className="pdp-price-box" htmlFor="pdpBuyOption">
+              <input type="radio" id="pdpBuyOption" name="pdp-buy-option" className="pdp-price-radio" defaultChecked />
+              <span className="pdp-price-radio-fake" aria-hidden="true"></span>
+              <span className="pdp-price-label">BUY 1</span>
+              <span className="pdp-save-badge">SAVE $50</span>
+              <span className="pdp-price-amounts">
+                <span className="pdp-price-now">$297</span>
+                <span className="pdp-price-was">$347</span>
+              </span>
+            </label>
+
+            <a href="https://highfrequencyhighway.com/products/headphones" className="pdp-cta">BUY NOW</a>
+
+            <p className="pdp-trust">
+              <span aria-hidden="true">📦</span> Ships in 48 Hours · Free US Shipping <span aria-hidden="true">📦</span>
+            </p>
+
+            <div className="pdp-accordion">
+              {accordionItems.map((item, i) => (
+                <details
+                  key={item.title}
+                  className="pdp-acc"
+                  open={openIndex === i}
+                  onToggle={(e) => {
+                    const el = e.currentTarget;
+                    if (el.open) setOpenIndex(i);
+                    else if (openIndex === i) setOpenIndex(null);
+                  }}
+                >
+                  <summary className="pdp-acc-summary">
+                    <span className="pdp-acc-title">{item.title}</span>
+                    <span className="pdp-acc-icon" aria-hidden="true"></span>
+                  </summary>
+                  <div className="pdp-acc-body">{item.body}</div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ProductBlock;

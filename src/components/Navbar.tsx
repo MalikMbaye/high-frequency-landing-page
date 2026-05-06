@@ -1,39 +1,77 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
-const HEADPHONES_URL = "https://www.highfrequencyhw.com/products/high-frequency-headphones";
-
-export const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const navHeight = 64;
+
+    const updateNavState = () => {
+      const probeY = navHeight + 4;
+      const sections = Array.from(document.querySelectorAll<HTMLElement>("section[data-theme]"));
+      let current: HTMLElement | null = null;
+      for (const sec of sections) {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top <= probeY && rect.bottom >= probeY) {
+          current = sec;
+          break;
+        }
+      }
+      if (!current) return;
+      setDark(current.dataset.theme === "dark");
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateNavState();
+        ticking = false;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    updateNavState();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
+  const closeMenu = () => setOpen(false);
+
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-2xl border-b border-gray-200 shadow-sm"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between h-16 md:h-[72px] px-5 md:px-10">
-        <a href="#" className={`font-display text-[13px] md:text-[15px] font-semibold tracking-[0.18em] uppercase transition-colors duration-500 ${
-          scrolled ? "text-gray-900" : "text-white/90"
-        }`}>
-          High Frequency Highway
-        </a>
-        <a
-          href={HEADPHONES_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center h-10 md:h-11 px-5 md:px-7 bg-brand text-white font-display font-semibold text-[13px] md:text-sm rounded-full transition-all duration-300 hover:bg-brand-light active:scale-[0.97]"
+    <header className={`top-nav ${dark ? "dark" : ""}`} id="topNav">
+      <div className="nav-inner">
+        <a href="#hero" className="brand-mark">HIGH FREQUENCY HIGHWAY</a>
+        <nav className="nav-links" aria-label="Primary">
+          <a href="#science">Science</a>
+          <a href="#product">Product</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#account">Account</a>
+        </nav>
+        <a href="#order" className="btn btn-purple btn-sm">ORDER NOW</a>
+        <button
+          className="nav-toggle"
+          aria-label={open ? "Close menu" : "Open menu"}
+          onClick={() => setOpen((o) => !o)}
         >
-          Get Headphones
-        </a>
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
-    </nav>
+      <div className={`mobile-menu ${open ? "open" : ""}`}>
+        <a href="#science" onClick={closeMenu}>Science</a>
+        <a href="#product" onClick={closeMenu}>Product</a>
+        <a href="#reviews" onClick={closeMenu}>Reviews</a>
+        <a href="#account" onClick={closeMenu}>Account</a>
+        <a href="#order" className="btn btn-purple" onClick={closeMenu}>ORDER NOW</a>
+      </div>
+    </header>
   );
 };
+
+export default Navbar;

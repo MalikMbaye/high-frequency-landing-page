@@ -13,9 +13,15 @@ export default {
       },
     },
     extend: {
+      screens: {
+        xs: "480px",
+        // Custom breakpoint matching original CSS sticky buy bar trigger
+        buy: "720px",
+      },
       fontFamily: {
-        display: ["'Outfit'", "sans-serif"],
-        body: ["'DM Sans'", "sans-serif"],
+        display: ["'Inter'", "sans-serif"],
+        body: ["'Inter'", "sans-serif"],
+        serif: ["'Playfair Display'", "Georgia", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -61,12 +67,31 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        brand: {
-          DEFAULT: "#8B5CF6",
-          light: "#A78BFA",
-          dark: "#7C3AED",
-          muted: "#6D28D9",
+        // High Frequency Highway brand palette
+        hfh: {
+          white: "#FFFFFF",
+          black: "#0D0D12",
+          grey: "#F5F3EE",
+          greyText: "#6B6B73",
+          gold: "#D4AF37",
+          goldSoft: "#E6C758",
+          purple: "#6B2EB8",
+          purpleDeep: "#4F1F8C",
+          purpleElectric: "#A855F7",
+          navy: "#0A1428",
+          navyDeep: "#060B1A",
+          navyMid: "#11203F",
+          red: "#C0392B",
         },
+        brand: {
+          DEFAULT: "#6B2EB8",
+          light: "#A855F7",
+          dark: "#4F1F8C",
+          muted: "#7C3AED",
+        },
+      },
+      backgroundImage: {
+        "hfh-dark": "linear-gradient(180deg, #0A1428 0%, #060B1A 100%)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -82,7 +107,7 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "float": {
+        "float-y": {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
@@ -90,17 +115,22 @@ export default {
           "0%, 100%": { opacity: "0.6" },
           "50%": { opacity: "1" },
         },
-        "shimmer": {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "pdp-fade-in": {
+          "0%": { opacity: "0", transform: "translateY(-4px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "float": "float 6s ease-in-out infinite",
+        "float-y": "float-y 6s ease-in-out infinite",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
-        "shimmer": "shimmer 3s ease-in-out infinite",
+        "fade-up": "fade-up 0.6s ease forwards",
+        "pdp-fade-in": "pdp-fade-in 0.25s ease",
       },
     },
   },
