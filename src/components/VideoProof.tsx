@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { ArrowRight, Play } from "lucide-react";
+import img_WXZ9J1Qx from "@/assets/genspark/WXZ9J1Qx.png";
 
 const VideoProof = () => {
   const frameRef = useRef<HTMLDivElement>(null);
@@ -34,7 +35,7 @@ const VideoProof = () => {
           onClick={handleClick}
           onKeyDown={handleKey}
         >
-          <img src="https://www.genspark.ai/api/files/s/WXZ9J1Qx" alt="Bone conduction frequency headphones EEG demonstration" />
+          <img src={img_WXZ9J1Qx} alt="Bone conduction frequency headphones EEG demonstration" />
           <div className="play-overlay">
             <Play fill="currentColor" />
           </div>

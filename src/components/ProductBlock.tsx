@@ -1,18 +1,23 @@
 import { useState, useRef, useEffect } from "react";
 import { Check, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import img_Fd6JSPq6 from "@/assets/genspark/Fd6JSPq6.png";
+import img_G23hzTj3 from "@/assets/genspark/G23hzTj3.png";
+import img_OdBtFzRX from "@/assets/genspark/OdBtFzRX.png";
+import img_OdGDQK5Y from "@/assets/genspark/OdGDQK5Y.jpg";
+import img_Pvt3alCs from "@/assets/genspark/Pvt3alCs.png";
 
 type GalleryItem = { src: string; alt: string };
 
 const heroDefault: GalleryItem = {
-  src: "https://www.genspark.ai/api/files/s/OdGDQK5Y",
+  src: img_OdGDQK5Y,
   alt: "The more you use it, the less you need it — High Frequency Highway hero brand graphic",
 };
 
 const thumbs: GalleryItem[] = [
-  { src: "https://www.genspark.ai/api/files/s/Fd6JSPq6", alt: "First-time reaction — eyes wide open" },
-  { src: "https://www.genspark.ai/api/files/s/OdBtFzRX", alt: "Bone conduction vibration diagram showing frequency waves through the skull" },
-  { src: "https://www.genspark.ai/api/files/s/Pvt3alCs", alt: "HFH Frequency App state selector — Focus, Calm, Energy, Flow, Sleep" },
-  { src: "https://www.genspark.ai/api/files/s/G23hzTj3", alt: "Lifestyle — man at desk wearing HFH headphones, locked into deep work" },
+  { src: img_Fd6JSPq6, alt: "First-time reaction — eyes wide open" },
+  { src: img_OdBtFzRX, alt: "Bone conduction vibration diagram showing frequency waves through the skull" },
+  { src: img_Pvt3alCs, alt: "HFH Frequency App state selector — Focus, Calm, Energy, Flow, Sleep" },
+  { src: img_G23hzTj3, alt: "Lifestyle — man at desk wearing HFH headphones, locked into deep work" },
 ];
 
 const cycle: GalleryItem[] = [heroDefault, ...thumbs];

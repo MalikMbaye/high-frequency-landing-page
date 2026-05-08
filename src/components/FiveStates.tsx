@@ -1,10 +1,11 @@
 import { ArrowRight, Bolt, Flower2, Moon, Target, Waves } from "lucide-react";
+import img_8kyfS5Ig from "@/assets/genspark/8kyfS5Ig.jpg";
 
 const FiveStates = () => {
   return (
     <section className="section section-dark full-bleed-tier" data-theme="dark">
       <div className="constellation-bg" aria-hidden="true">
-        <img src="https://www.genspark.ai/api/files/s/8kyfS5Ig" alt="" />
+        <img src={img_8kyfS5Ig} alt="" />
       </div>
       <div className="constellation-overlay" aria-hidden="true"></div>
       <div className="hfh-container constellation-content">

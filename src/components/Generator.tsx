@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import img_cmPVNmax from "@/assets/genspark/cmPVNmax.png";
 
 const Generator = () => {
   return (
@@ -15,7 +16,7 @@ const Generator = () => {
             <div className="ambient-halo halo-soft"></div>
             <div className="ambient-ribbon ribbon-purple"></div>
             <img
-              src="https://www.genspark.ai/api/files/s/cmPVNmax"
+              src={img_cmPVNmax}
               alt="The Generator app interface on a phone showing 7.83 Hz frequency dial with waveform and presets"
               loading="lazy"
             />

@@ -1,4 +1,7 @@
 import { ArrowRight } from "lucide-react";
+import img_0NZ0CLru from "@/assets/genspark/0NZ0CLru.jpg";
+import img_Xq82Mk5S from "@/assets/genspark/Xq82Mk5S.jpg";
+import img_cdI1KKwk from "@/assets/genspark/cdI1KKwk.jpg";
 
 const LibraryHubNetwork = () => {
   return (
@@ -13,7 +16,7 @@ const LibraryHubNetwork = () => {
         <div className="lhn-grid">
           <article className="lhn-panel">
             <div className="lhn-visual">
-              <img src="https://www.genspark.ai/api/files/s/Xq82Mk5S" alt="Floating library UI fragments with album art shapes, pill buttons, and frequency ribbon" />
+              <img src={img_Xq82Mk5S} alt="Floating library UI fragments with album art shapes, pill buttons, and frequency ribbon" />
             </div>
             <div className="lhn-copy">
               <span className="lhn-tag">THE LIBRARY</span>
@@ -24,7 +27,7 @@ const LibraryHubNetwork = () => {
 
           <article className="lhn-panel">
             <div className="lhn-visual">
-              <img src="https://www.genspark.ai/api/files/s/cdI1KKwk" alt="Floating community hub UI fragments with avatar orbs and connection lines" />
+              <img src={img_cdI1KKwk} alt="Floating community hub UI fragments with avatar orbs and connection lines" />
             </div>
             <div className="lhn-copy">
               <span className="lhn-tag">THE HUB</span>
@@ -35,7 +38,7 @@ const LibraryHubNetwork = () => {
 
           <article className="lhn-panel">
             <div className="lhn-visual">
-              <img src="https://www.genspark.ai/api/files/s/0NZ0CLru" alt="Floating network UI fragments with glowing globe and connection nodes" />
+              <img src={img_0NZ0CLru} alt="Floating network UI fragments with glowing globe and connection nodes" />
             </div>
             <div className="lhn-copy">
               <span className="lhn-tag">THE NETWORK</span>
