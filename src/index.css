@@ -437,7 +437,7 @@
   .how-bg-image {
     position: absolute;
     inset: 0;
-    background-image: url('https://www.genspark.ai/api/files/s/hfNsGMPr');
+    background-image: url('/src/assets/genspark/hfNsGMPr.jpg');
     background-size: cover;
     background-position: center;
     z-index: 0;
