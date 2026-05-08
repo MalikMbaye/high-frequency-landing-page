@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import img_w2bSNIr2 from "@/assets/genspark/w2bSNIr2.jpg";
 
 const Hero = () => {
   return (
@@ -22,7 +23,7 @@ const Hero = () => {
           <div className="ambient-ribbon ribbon-purple"></div>
           <div className="ambient-ribbon ribbon-gold"></div>
           <img
-            src="https://www.genspark.ai/api/files/s/w2bSNIr2"
+            src={img_w2bSNIr2}
             alt="High Frequency Highway bone conduction headphones with purple glow"
             className="hero-image"
           />

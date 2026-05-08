@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import img_C0hsxh35 from "@/assets/genspark/C0hsxh35.png";
 
 const AIMeditation = () => {
   return (
@@ -15,7 +16,7 @@ const AIMeditation = () => {
             <div className="ambient-halo halo-soft"></div>
             <div className="ambient-ribbon ribbon-gold"></div>
             <img
-              src="https://www.genspark.ai/api/files/s/C0hsxh35"
+              src={img_C0hsxh35}
               alt="AI Meditation app interface on a phone showing pulsing meditation orb, voice redirect microphone, and frequency overlay"
               loading="lazy"
             />

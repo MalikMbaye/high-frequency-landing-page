@@ -1,3 +1,5 @@
+import img_4Gc3icy1 from "@/assets/genspark/4Gc3icy1.jpg";
+import img_bCInaQuM from "@/assets/genspark/bCInaQuM.jpg";
 const FounderStory = () => {
   return (
     <section className="section section-dark founder-story" data-theme="dark">
@@ -10,7 +12,7 @@ const FounderStory = () => {
 
         <div className="founder-block">
           <figure className="founder-figure">
-            <img src="https://www.genspark.ai/api/files/s/bCInaQuM" alt="Jay Johnson Jr. on stage presenting High Frequency Highway" />
+            <img src={img_bCInaQuM} alt="Jay Johnson Jr. on stage presenting High Frequency Highway" />
           </figure>
           <div className="founder-copy">
             <p>By 21, he was making six figures in tech, had helped generate over 60 million views for an AI food delivery company, and served as head of growth for a fitness app — all while building one of the largest organic audiences in the frequency and wellness space. 500,000+ followers. 100 million organic impressions. He was already at the forefront of social media when most founders were still writing business plans.</p>
@@ -32,7 +34,7 @@ const FounderStory = () => {
             <p>Today he's training for the 2028 LA Olympics in flag football and the 100 meter dash. His brain is on a different frequency now. Literally.</p>
           </div>
           <figure className="founder-figure">
-            <img src="https://www.genspark.ai/api/files/s/4Gc3icy1" alt="Jay Johnson Jr. wearing HFH headphones in training" />
+            <img src={img_4Gc3icy1} alt="Jay Johnson Jr. wearing HFH headphones in training" />
           </figure>
         </div>
       </div>

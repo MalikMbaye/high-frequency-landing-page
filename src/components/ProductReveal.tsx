@@ -1,3 +1,5 @@
+import img_NpWJA0G8 from "@/assets/genspark/NpWJA0G8.jpg";
+import img_dAKCEFQK from "@/assets/genspark/dAKCEFQK.png";
 const ProductReveal = () => {
   return (
     <section className="section section-light product-reveal" id="product" data-theme="light">
@@ -11,7 +13,7 @@ const ProductReveal = () => {
             <div className="ambient-halo halo-soft"></div>
             <div className="ambient-ribbon ribbon-purple"></div>
             <img
-              src="https://www.genspark.ai/api/files/s/dAKCEFQK"
+              src={img_dAKCEFQK}
               alt="HFH bone conduction headphones with purple frequency ripples pulsing outward through a translucent skull silhouette"
               loading="lazy"
             />
@@ -30,7 +32,7 @@ const ProductReveal = () => {
             <div className="ambient-halo halo-soft"></div>
             <div className="ambient-ribbon ribbon-gold"></div>
             <img
-              src="https://www.genspark.ai/api/files/s/NpWJA0G8"
+              src={img_NpWJA0G8}
               alt="HFH precision frequency app on smartphone with floating UI fragments"
             />
             <span className="floating-pill pill-gold">FOCUS</span>

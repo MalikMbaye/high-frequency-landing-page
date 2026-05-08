@@ -1,4 +1,8 @@
 import { ArrowRight, Brain, Landmark, TrendingUp } from "lucide-react";
+import img_8LB4jvGU from "@/assets/genspark/8LB4jvGU.jpg";
+import img_Rp0TCgqL from "@/assets/genspark/Rp0TCgqL.jpg";
+import img_SmtUY9Nr from "@/assets/genspark/SmtUY9Nr.jpg";
+import img_xSGiWWRx from "@/assets/genspark/xSGiWWRx.jpg";
 
 const BeforeAfterScience = () => {
   return (
@@ -8,7 +12,7 @@ const BeforeAfterScience = () => {
         <p className="section-sub light">Validated by EEG testing with NYU students. The data tells the story.</p>
 
         <div className="ba-visual">
-          <img src="https://www.genspark.ai/api/files/s/xSGiWWRx" alt="Before and after brain state visualization showing chaotic red waves transforming to coherent purple waves" />
+          <img src={img_xSGiWWRx} alt="Before and after brain state visualization showing chaotic red waves transforming to coherent purple waves" />
         </div>
 
         <p className="big-stat-line">81% of users stay locked in past 30 minutes. Industry average is under 10%.</p>
@@ -21,7 +25,7 @@ const BeforeAfterScience = () => {
         <div className="research-grid">
           <article className="research-card">
             <div className="research-chart">
-              <img src="https://www.genspark.ai/api/files/s/SmtUY9Nr" alt="EEG power spectrum chart showing chaotic before signal and coherent after signal" />
+              <img src={img_SmtUY9Nr} alt="EEG power spectrum chart showing chaotic before signal and coherent after signal" />
             </div>
             <div className="research-copy">
               <span className="research-tag">EEG POWER SPECTRUM</span>
@@ -32,7 +36,7 @@ const BeforeAfterScience = () => {
 
           <article className="research-card reverse">
             <div className="research-chart">
-              <img src="https://www.genspark.ai/api/files/s/8LB4jvGU" alt="Cluster analysis scatter plot showing clear separation between before and after brain states" />
+              <img src={img_8LB4jvGU} alt="Cluster analysis scatter plot showing clear separation between before and after brain states" />
             </div>
             <div className="research-copy">
               <span className="research-tag">RECORDED BY NYU STUDENTS</span>
@@ -43,7 +47,7 @@ const BeforeAfterScience = () => {
 
           <article className="research-card">
             <div className="research-chart">
-              <img src="https://www.genspark.ai/api/files/s/Rp0TCgqL" alt="Bar chart showing 81 percent brainwave coherence after HFH versus 35 percent before" />
+              <img src={img_Rp0TCgqL} alt="Bar chart showing 81 percent brainwave coherence after HFH versus 35 percent before" />
             </div>
             <div className="research-copy">
               <span className="research-tag">COHERENCE INDEX</span>

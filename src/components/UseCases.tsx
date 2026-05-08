@@ -1,3 +1,8 @@
+import img_0bGQsqAQ from "@/assets/genspark/0bGQsqAQ.png";
+import img_33eRRyE9 from "@/assets/genspark/33eRRyE9.png";
+import img_TqT6saaC from "@/assets/genspark/TqT6saaC.png";
+import img_eyqqYZrK from "@/assets/genspark/eyqqYZrK.png";
+import img_ohrwRejH from "@/assets/genspark/ohrwRejH.png";
 const UseCases = () => {
   return (
     <section className="section section-light use-cases" data-theme="light">
@@ -6,7 +11,7 @@ const UseCases = () => {
 
         <article className="use-card">
           <div className="use-image use-app-shot">
-            <img src="https://www.genspark.ai/api/files/s/eyqqYZrK" alt="HFH app Focus mode showing amber-gold focus orb, 4-hour session timer, and 40 Hz Gamma frequency stack" loading="lazy" />
+            <img src={img_eyqqYZrK} alt="HFH app Focus mode showing amber-gold focus orb, 4-hour session timer, and 40 Hz Gamma frequency stack" loading="lazy" />
           </div>
           <div className="use-copy">
             <h4>For Focus</h4>
@@ -15,7 +20,7 @@ const UseCases = () => {
         </article>
         <article className="use-card reverse">
           <div className="use-image use-app-shot">
-            <img src="https://www.genspark.ai/api/files/s/TqT6saaC" alt="HFH app Sleep mode showing deep indigo crescent moon orb and 4 Hz Delta wave visualization" loading="lazy" />
+            <img src={img_TqT6saaC} alt="HFH app Sleep mode showing deep indigo crescent moon orb and 4 Hz Delta wave visualization" loading="lazy" />
           </div>
           <div className="use-copy">
             <h4>For Sleep</h4>
@@ -24,7 +29,7 @@ const UseCases = () => {
         </article>
         <article className="use-card">
           <div className="use-image use-app-shot">
-            <img src="https://www.genspark.ai/api/files/s/ohrwRejH" alt="HFH app Meditation mode showing violet meditation orb, voice redirect microphone, and 7.83 Hz Schumann overlay" loading="lazy" />
+            <img src={img_ohrwRejH} alt="HFH app Meditation mode showing violet meditation orb, voice redirect microphone, and 7.83 Hz Schumann overlay" loading="lazy" />
           </div>
           <div className="use-copy">
             <h4>For Meditation</h4>
@@ -33,7 +38,7 @@ const UseCases = () => {
         </article>
         <article className="use-card reverse">
           <div className="use-image use-app-shot">
-            <img src="https://www.genspark.ai/api/files/s/0bGQsqAQ" alt="HFH app Energy mode showing bright orange energy orb and 20 Hz Beta wave visualization" loading="lazy" />
+            <img src={img_0bGQsqAQ} alt="HFH app Energy mode showing bright orange energy orb and 20 Hz Beta wave visualization" loading="lazy" />
           </div>
           <div className="use-copy">
             <h4>For Energy</h4>
@@ -42,7 +47,7 @@ const UseCases = () => {
         </article>
         <article className="use-card">
           <div className="use-image use-app-shot">
-            <img src="https://www.genspark.ai/api/files/s/33eRRyE9" alt="HFH app Relief mode showing soft purple relief orb, head silhouette and 304 Hz tension frequency" loading="lazy" />
+            <img src={img_33eRRyE9} alt="HFH app Relief mode showing soft purple relief orb, head silhouette and 304 Hz tension frequency" loading="lazy" />
           </div>
           <div className="use-copy">
             <h4>For Headaches and Pain</h4>
