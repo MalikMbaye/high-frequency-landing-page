@@ -1,6 +1,6 @@
-const FounderStory = () => {
 import img_4Gc3icy1 from "@/assets/genspark/4Gc3icy1.jpg";
 import img_bCInaQuM from "@/assets/genspark/bCInaQuM.jpg";
+const FounderStory = () => {
   return (
     <section className="section section-dark founder-story" data-theme="dark">
       <div className="neural-mesh"></div>

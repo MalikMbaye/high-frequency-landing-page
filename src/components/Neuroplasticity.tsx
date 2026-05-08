@@ -1,5 +1,5 @@
-const Neuroplasticity = () => {
 import img_G1vHJv9R from "@/assets/genspark/G1vHJv9R.jpg";
+const Neuroplasticity = () => {
   return (
     <section className="section section-dark neuroplasticity" data-theme="dark">
       <div className="hfh-container">

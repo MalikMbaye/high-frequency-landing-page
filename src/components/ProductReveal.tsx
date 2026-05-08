@@ -1,6 +1,6 @@
-const ProductReveal = () => {
 import img_NpWJA0G8 from "@/assets/genspark/NpWJA0G8.jpg";
 import img_dAKCEFQK from "@/assets/genspark/dAKCEFQK.png";
+const ProductReveal = () => {
   return (
     <section className="section section-light product-reveal" id="product" data-theme="light">
       <div className="hfh-container">
