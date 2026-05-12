@@ -115,6 +115,18 @@ const ProductBlock = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const fadeTimer = useRef<number | null>(null);
 
+  const { data: products } = useShopifyProducts(1);
+  const product = products?.[0];
+  const addItem = useCartStore(state => state.addItem);
+  const isCartLoading = useCartStore(state => state.isLoading);
+  
+  const cycle = product?.node.images?.edges?.length ? product.node.images.edges.map(e => ({
+    src: e.node.url,
+    alt: e.node.altText || product.node.title
+  })) : cycleFallback;
+  
+  const thumbs = cycle.slice(1);
+
   useEffect(() => {
     return () => {
       if (fadeTimer.current) window.clearTimeout(fadeTimer.current);
@@ -143,7 +155,7 @@ const ProductBlock = () => {
           {/* LEFT — Gallery */}
           <div className="pdp-gallery">
             <div className={`pdp-main-image ${isFading ? "is-fading" : ""}`}>
-              <img src={current.src} alt={current.alt} />
+              <img src={current?.src} alt={current?.alt || ""} />
               <button
                 className="pdp-arrow pdp-arrow-prev"
                 aria-label="Previous image"
@@ -205,12 +217,34 @@ const ProductBlock = () => {
               <span className="pdp-price-label">BUY 1</span>
               <span className="pdp-save-badge">SAVE $50</span>
               <span className="pdp-price-amounts">
-                <span className="pdp-price-now">$297</span>
+                <span className="pdp-price-now">
+                  {product ? `${product.node.priceRange.minVariantPrice.currencyCode === 'USD' ? '$' : ''}${parseFloat(product.node.priceRange.minVariantPrice.amount).toFixed(0)}` : "$297"}
+                </span>
                 <span className="pdp-price-was">$347</span>
               </span>
             </label>
 
-            <a href="https://highfrequencyhighway.com/products/headphones" className="pdp-cta">BUY NOW</a>
+            <button 
+              className="pdp-cta w-full flex justify-center items-center"
+              onClick={async (e) => {
+                e.preventDefault();
+                if (!product) return;
+                const selectedVariant = product.node.variants.edges[0]?.node;
+                if (!selectedVariant) return;
+                
+                await addItem({
+                  product,
+                  variantId: selectedVariant.id,
+                  variantTitle: selectedVariant.title,
+                  price: selectedVariant.price,
+                  quantity: 1,
+                  selectedOptions: selectedVariant.selectedOptions || []
+                });
+              }}
+              disabled={isCartLoading || !product}
+            >
+              {isCartLoading ? <Loader2 className="animate-spin h-6 w-6" /> : "ADD TO CART"}
+            </button>
 
             <p className="pdp-trust">
               <span aria-hidden="true">📦</span> Ships in 48 Hours · Free US Shipping <span aria-hidden="true">📦</span>
