@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { CartDrawer } from "./CartDrawer";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
