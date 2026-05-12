@@ -1,26 +1,24 @@
 import { useState, useRef, useEffect } from "react";
-import { Check, ChevronLeft, ChevronRight, Star } from "lucide-react";
-import img_Fd6JSPq6 from "@/assets/genspark/Fd6JSPq6.png";
-import img_G23hzTj3 from "@/assets/genspark/G23hzTj3.png";
-import img_OdBtFzRX from "@/assets/genspark/OdBtFzRX.png";
+import { Check, ChevronLeft, ChevronRight, Star, Loader2 } from "lucide-react";
+import { useShopifyProducts } from "@/hooks/useShopifyProducts";
+import { useCartStore } from "@/stores/cartStore";
+
+// Fallback images in case Shopify data takes a moment to load
 import img_OdGDQK5Y from "@/assets/genspark/OdGDQK5Y.jpg";
+import img_Fd6JSPq6 from "@/assets/genspark/Fd6JSPq6.png";
+import img_OdBtFzRX from "@/assets/genspark/OdBtFzRX.png";
 import img_Pvt3alCs from "@/assets/genspark/Pvt3alCs.png";
+import img_G23hzTj3 from "@/assets/genspark/G23hzTj3.png";
 
 type GalleryItem = { src: string; alt: string };
 
-const heroDefault: GalleryItem = {
-  src: img_OdGDQK5Y,
-  alt: "The more you use it, the less you need it — High Frequency Highway hero brand graphic",
-};
-
-const thumbs: GalleryItem[] = [
-  { src: img_Fd6JSPq6, alt: "First-time reaction — eyes wide open" },
-  { src: img_OdBtFzRX, alt: "Bone conduction vibration diagram showing frequency waves through the skull" },
-  { src: img_Pvt3alCs, alt: "HFH Frequency App state selector — Focus, Calm, Energy, Flow, Sleep" },
-  { src: img_G23hzTj3, alt: "Lifestyle — man at desk wearing HFH headphones, locked into deep work" },
+const cycleFallback: GalleryItem[] = [
+  { src: img_OdGDQK5Y, alt: "Hero graphic" },
+  { src: img_Fd6JSPq6, alt: "Reaction" },
+  { src: img_OdBtFzRX, alt: "Diagram" },
+  { src: img_Pvt3alCs, alt: "App" },
+  { src: img_G23hzTj3, alt: "Lifestyle" },
 ];
-
-const cycle: GalleryItem[] = [heroDefault, ...thumbs];
 
 const accordionItems = [
   {
@@ -117,6 +115,18 @@ const ProductBlock = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const fadeTimer = useRef<number | null>(null);
 
+  const { data: products } = useShopifyProducts(1);
+  const product = products?.[0];
+  const addItem = useCartStore(state => state.addItem);
+  const isCartLoading = useCartStore(state => state.isLoading);
+  
+  const cycle = product?.node.images?.edges?.length ? product.node.images.edges.map(e => ({
+    src: e.node.url,
+    alt: e.node.altText || product.node.title
+  })) : cycleFallback;
+  
+  const thumbs = cycle.slice(1);
+
   useEffect(() => {
     return () => {
       if (fadeTimer.current) window.clearTimeout(fadeTimer.current);
@@ -145,7 +155,7 @@ const ProductBlock = () => {
           {/* LEFT — Gallery */}
           <div className="pdp-gallery">
             <div className={`pdp-main-image ${isFading ? "is-fading" : ""}`}>
-              <img src={current.src} alt={current.alt} />
+              <img src={current?.src} alt={current?.alt || ""} />
               <button
                 className="pdp-arrow pdp-arrow-prev"
                 aria-label="Previous image"
@@ -207,12 +217,34 @@ const ProductBlock = () => {
               <span className="pdp-price-label">BUY 1</span>
               <span className="pdp-save-badge">SAVE $50</span>
               <span className="pdp-price-amounts">
-                <span className="pdp-price-now">$297</span>
+                <span className="pdp-price-now">
+                  {product ? `${product.node.priceRange.minVariantPrice.currencyCode === 'USD' ? '$' : ''}${parseFloat(product.node.priceRange.minVariantPrice.amount).toFixed(0)}` : "$297"}
+                </span>
                 <span className="pdp-price-was">$347</span>
               </span>
             </label>
 
-            <a href="https://highfrequencyhighway.com/products/headphones" className="pdp-cta">BUY NOW</a>
+            <button 
+              className="pdp-cta w-full flex justify-center items-center"
+              onClick={async (e) => {
+                e.preventDefault();
+                if (!product) return;
+                const selectedVariant = product.node.variants.edges[0]?.node;
+                if (!selectedVariant) return;
+                
+                await addItem({
+                  product,
+                  variantId: selectedVariant.id,
+                  variantTitle: selectedVariant.title,
+                  price: selectedVariant.price,
+                  quantity: 1,
+                  selectedOptions: selectedVariant.selectedOptions || []
+                });
+              }}
+              disabled={isCartLoading || !product}
+            >
+              {isCartLoading ? <Loader2 className="animate-spin h-6 w-6" /> : "ADD TO CART"}
+            </button>
 
             <p className="pdp-trust">
               <span aria-hidden="true">📦</span> Ships in 48 Hours · Free US Shipping <span aria-hidden="true">📦</span>

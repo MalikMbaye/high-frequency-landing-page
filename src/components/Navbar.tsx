@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { CartDrawer } from "./CartDrawer";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -54,14 +55,17 @@ const Navbar = () => {
           <a href="#reviews">Reviews</a>
           <a href="#account">Account</a>
         </nav>
-        <a href="#order" className="btn btn-purple btn-sm">ORDER NOW</a>
-        <button
-          className="nav-toggle"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((o) => !o)}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-4">
+          <a href="#order" className="btn btn-purple btn-sm">ORDER NOW</a>
+          <CartDrawer />
+          <button
+            className="nav-toggle ml-2"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((o) => !o)}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
       <div className={`mobile-menu ${open ? "open" : ""}`}>
         <a href="#science" onClick={closeMenu}>Science</a>
