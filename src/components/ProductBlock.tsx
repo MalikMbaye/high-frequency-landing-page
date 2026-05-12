@@ -1,26 +1,24 @@
 import { useState, useRef, useEffect } from "react";
-import { Check, ChevronLeft, ChevronRight, Star } from "lucide-react";
-import img_Fd6JSPq6 from "@/assets/genspark/Fd6JSPq6.png";
-import img_G23hzTj3 from "@/assets/genspark/G23hzTj3.png";
-import img_OdBtFzRX from "@/assets/genspark/OdBtFzRX.png";
+import { Check, ChevronLeft, ChevronRight, Star, Loader2 } from "lucide-react";
+import { useShopifyProducts } from "@/hooks/useShopifyProducts";
+import { useCartStore } from "@/stores/cartStore";
+
+// Fallback images in case Shopify data takes a moment to load
 import img_OdGDQK5Y from "@/assets/genspark/OdGDQK5Y.jpg";
+import img_Fd6JSPq6 from "@/assets/genspark/Fd6JSPq6.png";
+import img_OdBtFzRX from "@/assets/genspark/OdBtFzRX.png";
 import img_Pvt3alCs from "@/assets/genspark/Pvt3alCs.png";
+import img_G23hzTj3 from "@/assets/genspark/G23hzTj3.png";
 
 type GalleryItem = { src: string; alt: string };
 
-const heroDefault: GalleryItem = {
-  src: img_OdGDQK5Y,
-  alt: "The more you use it, the less you need it — High Frequency Highway hero brand graphic",
-};
-
-const thumbs: GalleryItem[] = [
-  { src: img_Fd6JSPq6, alt: "First-time reaction — eyes wide open" },
-  { src: img_OdBtFzRX, alt: "Bone conduction vibration diagram showing frequency waves through the skull" },
-  { src: img_Pvt3alCs, alt: "HFH Frequency App state selector — Focus, Calm, Energy, Flow, Sleep" },
-  { src: img_G23hzTj3, alt: "Lifestyle — man at desk wearing HFH headphones, locked into deep work" },
+const cycleFallback: GalleryItem[] = [
+  { src: img_OdGDQK5Y, alt: "Hero graphic" },
+  { src: img_Fd6JSPq6, alt: "Reaction" },
+  { src: img_OdBtFzRX, alt: "Diagram" },
+  { src: img_Pvt3alCs, alt: "App" },
+  { src: img_G23hzTj3, alt: "Lifestyle" },
 ];
-
-const cycle: GalleryItem[] = [heroDefault, ...thumbs];
 
 const accordionItems = [
   {
