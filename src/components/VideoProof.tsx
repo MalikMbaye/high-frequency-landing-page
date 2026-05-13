@@ -1,44 +1,56 @@
-import { useRef } from "react";
-import { ArrowRight, Play } from "lucide-react";
-import img_WXZ9J1Qx from "@/assets/genspark/WXZ9J1Qx.png";
+import { useEffect, useRef } from "react";
+import { ArrowRight } from "lucide-react";
+
+const INSTAGRAM_URL = "https://www.instagram.com/reel/DW4OGBPjad3/";
 
 const VideoProof = () => {
-  const frameRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleClick = () => {
-    const el = frameRef.current;
-    if (!el) return;
-    el.style.transition = "transform 0.18s ease";
-    el.style.transform = "scale(0.985)";
-    setTimeout(() => {
-      el.style.transform = "";
-    }, 180);
-  };
-
-  const handleKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      handleClick();
+  useEffect(() => {
+    const existing = document.querySelector('script[src="//www.instagram.com/embed.js"]');
+    if (existing) {
+      if ((window as any).instgrm) {
+        (window as any).instgrm.Embeds.process();
+      }
+      return;
     }
-  };
+
+    const script = document.createElement("script");
+    script.src = "//www.instagram.com/embed.js";
+    script.async = true;
+    script.onload = () => {
+      if ((window as any).instgrm) {
+        (window as any).instgrm.Embeds.process();
+      }
+    };
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <section className="section section-light video-proof" data-theme="light">
       <div className="hfh-container narrow">
         <h2 className="section-header">Watch What Happens to Your Brain in 60 Seconds.</h2>
-        <div
-          ref={frameRef}
-          className="video-frame"
-          role="button"
-          tabIndex={0}
-          aria-label="Play EEG demonstration video"
-          onClick={handleClick}
-          onKeyDown={handleKey}
-        >
-          <img src={img_WXZ9J1Qx} alt="Bone conduction frequency headphones EEG demonstration" />
-          <div className="play-overlay">
-            <Play fill="currentColor" />
-          </div>
+        <div ref={containerRef} className="instagram-embed-container">
+          <blockquote
+            className="instagram-media"
+            data-instgrm-permalink={INSTAGRAM_URL}
+            data-instgrm-version="14"
+            style={{
+              background: "#FFF",
+              border: 0,
+              borderRadius: "12px",
+              boxShadow: "0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15)",
+              margin: "0 auto",
+              maxWidth: "540px",
+              minWidth: "326px",
+              padding: 0,
+              width: "99.375%",
+            }}
+          >
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
+              View this post on Instagram
+            </a>
+          </blockquote>
         </div>
         <p className="video-caption">Real EEG footage. No edits. No filters. Recorded with NYU students.</p>
         <div style={{ display: "flex", justifyContent: "center" }}>
