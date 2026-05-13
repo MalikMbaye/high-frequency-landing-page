@@ -14,6 +14,11 @@ import img07 from "@/assets/product/07-100x-per-second.png";
 import img08 from "@/assets/product/08-transported-me.png";
 import img09 from "@/assets/product/09-fall-asleep-without-melatonin.png";
 import img10 from "@/assets/product/10-not-chemicals-frequency.png";
+import img11 from "@/assets/product/11-coffee-dehydrates.png";
+import img12 from "@/assets/product/12-one-purchase-replaces.png";
+import img13 from "@/assets/product/13-spine-straightens.png";
+import img14 from "@/assets/product/14-lock-in-without-adderall.png";
+import img15 from "@/assets/product/15-from-adderall-to-frequency.png";
 
 type GalleryItem = { src: string; alt: string };
 
@@ -28,6 +33,11 @@ const brandGallery: GalleryItem[] = [
   { src: img08, alt: "This transported me — Everett Taylor, CEO of Kickstarter" },
   { src: img09, alt: "Fall asleep without melatonin" },
   { src: img10, alt: "Not chemicals. Frequency." },
+  { src: img11, alt: "Your coffee dehydrates your brain" },
+  { src: img12, alt: "One purchase replaces all three" },
+  { src: img13, alt: "The spine straightens. The eyes widen." },
+  { src: img14, alt: "Lock in for hours without Adderall" },
+  { src: img15, alt: "From Adderall to frequency" },
 ];
 
 const accordionItems = [
