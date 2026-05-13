@@ -1860,7 +1860,8 @@
   .tctu-grid { grid-template-columns: 1fr; }
   .pdp-section { padding: 56px 0; }
   .pdp-grid { gap: 32px; }
-  .pdp-thumbs { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .pdp-thumbs { gap: 8px; }
+  .pdp-thumb { flex: 0 0 72px; width: 72px; height: 72px; }
   .pdp-info { gap: 20px; }
   .pdp-headline { font-size: 28px; }
   .pdp-subhead { font-size: 15px; }
