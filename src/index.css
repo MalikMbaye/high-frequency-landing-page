@@ -1449,7 +1449,8 @@
     gap: 64px;
     align-items: flex-start;
   }
-  .pdp-gallery { position: sticky; top: 88px; }
+  .pdp-gallery { position: sticky; top: 88px; min-width: 0; }
+  .pdp-info { min-width: 0; }
   .pdp-main-image {
     position: relative;
     width: 100%;
