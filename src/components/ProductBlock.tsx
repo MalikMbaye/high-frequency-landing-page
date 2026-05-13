@@ -130,10 +130,7 @@ const ProductBlock = () => {
   const addItem = useCartStore(state => state.addItem);
   const isCartLoading = useCartStore(state => state.isLoading);
   
-  const cycle = product?.node.images?.edges?.length ? product.node.images.edges.map(e => ({
-    src: e.node.url,
-    alt: e.node.altText || product.node.title
-  })) : cycleFallback;
+  const cycle = brandGallery;
   
   const thumbs = cycle.slice(1);
 
