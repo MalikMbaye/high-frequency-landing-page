@@ -1487,12 +1487,23 @@
   .pdp-arrow-prev { left: 14px; }
   .pdp-arrow-next { right: 14px; }
   .pdp-thumbs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: nowrap;
     gap: 8px;
     margin-top: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: 6px;
   }
+  .pdp-thumbs::-webkit-scrollbar { height: 6px; }
+  .pdp-thumbs::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 3px; }
   .pdp-thumb {
+    flex: 0 0 88px;
+    width: 88px;
+    height: 88px;
     aspect-ratio: 1 / 1;
     border-radius: 12px;
     overflow: hidden;
@@ -1500,6 +1511,7 @@
     background: #0F1B3D;
     cursor: pointer;
     padding: 0;
+    scroll-snap-align: start;
     transition: border-color 0.18s ease, transform 0.18s ease;
   }
   .pdp-thumb:hover { transform: translateY(-1px); }
