@@ -3,21 +3,31 @@ import { Check, ChevronLeft, ChevronRight, Star, Loader2 } from "lucide-react";
 import { useShopifyProducts } from "@/hooks/useShopifyProducts";
 import { useCartStore } from "@/stores/cartStore";
 
-// Fallback images in case Shopify data takes a moment to load
-import img_OdGDQK5Y from "@/assets/genspark/OdGDQK5Y.jpg";
-import img_Fd6JSPq6 from "@/assets/genspark/Fd6JSPq6.png";
-import img_OdBtFzRX from "@/assets/genspark/OdBtFzRX.png";
-import img_Pvt3alCs from "@/assets/genspark/Pvt3alCs.png";
-import img_G23hzTj3 from "@/assets/genspark/G23hzTj3.png";
+// Branded product gallery images
+import img01 from "@/assets/product/01-resets-brain-60s.png";
+import img02 from "@/assets/product/02-meditation-works.png";
+import img03 from "@/assets/product/03-more-use-less-need.png";
+import img04 from "@/assets/product/04-frequency-dude.png";
+import img05 from "@/assets/product/05-no-pills-no-migraines.png";
+import img06 from "@/assets/product/06-tinnitus.png";
+import img07 from "@/assets/product/07-100x-per-second.png";
+import img08 from "@/assets/product/08-transported-me.png";
+import img09 from "@/assets/product/09-fall-asleep-without-melatonin.png";
+import img10 from "@/assets/product/10-not-chemicals-frequency.png";
 
 type GalleryItem = { src: string; alt: string };
 
-const cycleFallback: GalleryItem[] = [
-  { src: img_OdGDQK5Y, alt: "Hero graphic" },
-  { src: img_Fd6JSPq6, alt: "Reaction" },
-  { src: img_OdBtFzRX, alt: "Diagram" },
-  { src: img_Pvt3alCs, alt: "App" },
-  { src: img_G23hzTj3, alt: "Lifestyle" },
+const brandGallery: GalleryItem[] = [
+  { src: img01, alt: "Resets your brain in under 60 seconds" },
+  { src: img02, alt: "Meditation that actually works" },
+  { src: img03, alt: "The more you use it, the less you need it" },
+  { src: img04, alt: "Will.i.am quote — the frequency dude" },
+  { src: img05, alt: "No more pills, no more migraines" },
+  { src: img06, alt: "This got rid of my tinnitus" },
+  { src: img07, alt: "100x per second vibration through bone" },
+  { src: img08, alt: "This transported me — Everett Taylor, CEO of Kickstarter" },
+  { src: img09, alt: "Fall asleep without melatonin" },
+  { src: img10, alt: "Not chemicals. Frequency." },
 ];
 
 const accordionItems = [
