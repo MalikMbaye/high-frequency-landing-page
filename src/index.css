@@ -90,7 +90,9 @@
     color: var(--hfh-near-black);
     background: var(--hfh-white);
     padding-top: 64px;
+    overflow-x: hidden;
   }
+  html { overflow-x: hidden; }
 
   img { max-width: 100%; display: block; }
   a { color: inherit; text-decoration: none; }
