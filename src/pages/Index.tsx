@@ -15,7 +15,7 @@ import LibraryHubNetwork from "@/components/LibraryHubNetwork";
 import UseCases from "@/components/UseCases";
 import StatsBlock from "@/components/StatsBlock";
 import VehicleSwitch from "@/components/VehicleSwitch";
-import InstagramReactions from "@/components/InstagramReactions";
+import InstagramReactions, { ALL_INSTAGRAM_POSTS } from "@/components/InstagramReactions";
 import Captivation from "@/components/Captivation";
 import ProductBlock from "@/components/ProductBlock";
 import WhatsInBox from "@/components/WhatsInBox";
@@ -24,18 +24,36 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyBuyBar from "@/components/StickyBuyBar";
 
+// Split Instagram reactions across the 4 ProductBlock placements on the page
+const reactionSlices = [
+  ALL_INSTAGRAM_POSTS.slice(0, 5),
+  ALL_INSTAGRAM_POSTS.slice(5, 10),
+  ALL_INSTAGRAM_POSTS.slice(10, 14),
+  ALL_INSTAGRAM_POSTS.slice(14, 18),
+];
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
       <ProductBlock />
+      <InstagramReactions
+        posts={reactionSlices[0]}
+        title="Watch the Shift Happen"
+        subtitle="Real reactions the first time people put these on. Unscripted. Unpaid."
+      />
       <VideoProof />
       <WrongTeardown />
       <HowItWorks />
       <BeforeAfterScience />
       <Neuroplasticity />
       <ProductBlock />
+      <InstagramReactions
+        posts={reactionSlices[1]}
+        title="From Skeptic to Believer in 60 Seconds"
+        subtitle="Calm focus. Visible state shifts. Captured live."
+      />
       <TaglineBlock />
       <ProductReveal />
       <FiveStates />
@@ -43,12 +61,21 @@ const Index = () => {
       <AIMeditation />
       <LibraryHubNetwork />
       <ProductBlock />
+      <InstagramReactions
+        posts={reactionSlices[2]}
+        title="Founders, Students, Strangers — Same Reaction"
+        subtitle="Real people. Real moments. Public posts from the community."
+      />
       <UseCases />
       <StatsBlock />
       <VehicleSwitch />
-      <InstagramReactions />
       <Captivation />
       <ProductBlock />
+      <InstagramReactions
+        posts={reactionSlices[3]}
+        title="More Reactions, Straight from Instagram"
+        subtitle="A new feeling — in their own words."
+      />
       <WhatsInBox />
       <PriceReframe />
       <FAQ />
