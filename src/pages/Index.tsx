@@ -46,7 +46,7 @@ const Index = () => {
       <UseCases />
       <StatsBlock />
       <VehicleSwitch />
-      {/* <ReactionWall /> temporarily hidden — will return as Instagram carousel */}
+      <InstagramReactions />
       <Captivation />
       <ProductBlock />
       <WhatsInBox />
