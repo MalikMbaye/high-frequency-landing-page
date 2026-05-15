@@ -44,7 +44,7 @@ const Index = () => {
       <Neuroplasticity />
       <ProductBlock />
       <InstagramReactions
-        posts={reactionSlices[1]}
+        posts={reactionSlices[0]}
         title="From Skeptic to Believer in 60 Seconds"
         subtitle="Calm focus. Visible state shifts. Captured live."
       />
