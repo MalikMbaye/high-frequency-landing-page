@@ -15,7 +15,7 @@ import LibraryHubNetwork from "@/components/LibraryHubNetwork";
 import UseCases from "@/components/UseCases";
 import StatsBlock from "@/components/StatsBlock";
 import VehicleSwitch from "@/components/VehicleSwitch";
-import ReactionWall from "@/components/ReactionWall";
+import InstagramReactions from "@/components/InstagramReactions";
 import Captivation from "@/components/Captivation";
 import ProductBlock from "@/components/ProductBlock";
 import WhatsInBox from "@/components/WhatsInBox";
@@ -46,7 +46,7 @@ const Index = () => {
       <UseCases />
       <StatsBlock />
       <VehicleSwitch />
-      {/* <ReactionWall /> temporarily hidden — will return as Instagram carousel */}
+      <InstagramReactions />
       <Captivation />
       <ProductBlock />
       <WhatsInBox />
