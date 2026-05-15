@@ -1,4 +1,5 @@
 import { Coffee, Pill, Smartphone } from "lucide-react";
+import Expandable from "./Expandable";
 
 const WrongTeardown = () => {
   return (
