@@ -56,6 +56,7 @@ const Expandable = ({
           WebkitMaskImage: shouldClip
             ? "linear-gradient(to bottom, black 70%, transparent 100%)"
             : "none",
+          overflowX: "hidden",
         }}
       >
         {children}

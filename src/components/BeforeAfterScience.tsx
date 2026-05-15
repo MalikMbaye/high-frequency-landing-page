@@ -3,6 +3,7 @@ import img_8LB4jvGU from "@/assets/genspark/8LB4jvGU.jpg";
 import img_Rp0TCgqL from "@/assets/genspark/Rp0TCgqL.jpg";
 import img_SmtUY9Nr from "@/assets/genspark/SmtUY9Nr.jpg";
 import img_xSGiWWRx from "@/assets/genspark/xSGiWWRx.jpg";
+import Expandable from "./Expandable";
 
 const BeforeAfterScience = () => {
   return (
@@ -61,17 +62,23 @@ const BeforeAfterScience = () => {
           <div className="pillar">
             <div className="sci-icon"><Landmark size={22} /></div>
             <h5>Government-Funded Frequency Research</h5>
-            <p>Starting in the 1980s, the US government funded extensive research into how sound frequencies affect brain states. The resulting program, known as the Gateway Process, was classified for decades before being released to the public. The findings proved that specific binaural beats and frequency patterns can shift brainwave states on command.</p>
+            <Expandable collapsedHeight={100}>
+              <p>Starting in the 1980s, the US government funded extensive research into how sound frequencies affect brain states. The resulting program, known as the Gateway Process, was classified for decades before being released to the public. The findings proved that specific binaural beats and frequency patterns can shift brainwave states on command.</p>
+            </Expandable>
           </div>
           <div className="pillar">
             <div className="sci-icon"><Brain size={22} /></div>
             <h5>EEG Validation (NYU Student Testing)</h5>
-            <p>EEG testing conducted with NYU students showed that the technology keeps the brain in coherent brainwave states for longer periods. Jay's analogy: would you rather run in a straight line or a zigzag? A coherent brainwave state lets your brain compute faster and process faster.</p>
+            <Expandable collapsedHeight={100}>
+              <p>EEG testing conducted with NYU students showed that the technology keeps the brain in coherent brainwave states for longer periods. Jay's analogy: would you rather run in a straight line or a zigzag? A coherent brainwave state lets your brain compute faster and process faster.</p>
+            </Expandable>
           </div>
           <div className="pillar">
             <div className="sci-icon"><TrendingUp size={22} /></div>
             <h5>81% App Retention Rate</h5>
-            <p>Over 100,000 people have downloaded the HFH app. 81% of them kept using it. In an industry where the average app retention rate at 30 days is under 10%, that number tells you everything about whether this works.</p>
+            <Expandable collapsedHeight={80}>
+              <p>Over 100,000 people have downloaded the HFH app. 81% of them kept using it. In an industry where the average app retention rate at 30 days is under 10%, that number tells you everything about whether this works.</p>
+            </Expandable>
           </div>
         </div>
 
