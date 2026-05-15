@@ -38,11 +38,6 @@ const Index = () => {
       <Navbar />
       <Hero />
       <ProductBlock />
-      <InstagramReactions
-        posts={reactionSlices[0]}
-        title="Watch the Shift Happen"
-        subtitle="Real reactions the first time people put these on. Unscripted. Unpaid."
-      />
       <VideoProof />
       <WrongTeardown />
       <HowItWorks />
