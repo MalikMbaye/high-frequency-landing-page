@@ -10,8 +10,6 @@ const StatsBlock = () => {
           <span className="div-gold"></span>
           <span>200+ Countries Shipped</span>
           <span className="div-gold"></span>
-          <span>300+ Reactions Recorded</span>
-          <span className="div-gold"></span>
           <span>4.9/5 Star Rating</span>
         </div>
       </div>
