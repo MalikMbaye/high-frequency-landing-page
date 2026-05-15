@@ -3,6 +3,7 @@ import img_8LB4jvGU from "@/assets/genspark/8LB4jvGU.jpg";
 import img_Rp0TCgqL from "@/assets/genspark/Rp0TCgqL.jpg";
 import img_SmtUY9Nr from "@/assets/genspark/SmtUY9Nr.jpg";
 import img_xSGiWWRx from "@/assets/genspark/xSGiWWRx.jpg";
+import Expandable from "./Expandable";
 
 const BeforeAfterScience = () => {
   return (
