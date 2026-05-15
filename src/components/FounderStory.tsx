@@ -16,11 +16,13 @@ const FounderStory = () => {
             <img src={img_bCInaQuM} alt="Jay Johnson Jr. on stage presenting High Frequency Highway" />
           </figure>
           <div className="founder-copy">
+          <Expandable collapsedHeight={320}>
             <p>By 21, he was making six figures in tech, had helped generate over 60 million views for an AI food delivery company, and served as head of growth for a fitness app — all while building one of the largest organic audiences in the frequency and wellness space. 500,000+ followers. 100 million organic impressions. He was already at the forefront of social media when most founders were still writing business plans.</p>
             <p>He was also one of the fastest people in the country. His 100-meter time was 10.3 seconds, 0.8 seconds off Usain Bolt's world record. He ran a 4:25 in the 40-yard dash. He trained alongside Olympic gold medalists and world record holders. He could have gone pro.</p>
             <p>But when he pushed to the next level, his brain became the bottleneck. He'd dealt with ADHD his whole life, and at 17 he was prescribed Vyvanse. It worked for focus. But it stopped him from eating. If he couldn't eat, he couldn't train. If he couldn't train, he couldn't compete. The drug that was supposed to fix his brain was destroying his body.</p>
             <p className="founder-pull"><strong>So he made a decision that everyone around him thought was insane.</strong></p>
             <p>He walked away from the athletic career. He stopped taking Vyvanse. And he went looking for a real solution. Not a temporary fix. Not another pill. Something that would actually make his brain work the way it should.</p>
+          </Expandable>
           </div>
         </div>
 
