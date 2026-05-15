@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 declare global {
@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-const instagramReactionPosts = [
+export const ALL_INSTAGRAM_POSTS = [
   "https://www.instagram.com/reel/DMlrAnwyxKG/",
   "https://www.instagram.com/reel/DVez6jNgZI3/",
   "https://www.instagram.com/reel/DXhXhdtjv35/",
@@ -28,9 +28,20 @@ const instagramReactionPosts = [
   "https://www.instagram.com/reel/DVwly9tkgZ5/",
 ];
 
-const InstagramReactions = () => {
+interface Props {
+  posts?: string[];
+  title?: string;
+  subtitle?: string;
+  theme?: "light" | "dark";
+}
+
+const InstagramReactions = ({
+  posts = ALL_INSTAGRAM_POSTS,
+  title = "Watch the Shift Happen",
+  subtitle = "Real reactions from real people the first time they put on High Frequency Headphones.",
+  theme = "light",
+}: Props) => {
   const scrollerRef = useRef<HTMLDivElement>(null);
-  const [visibleCount, setVisibleCount] = useState(8);
 
   useEffect(() => {
     const process = () => window.instgrm?.Embeds?.process();
@@ -46,7 +57,7 @@ const InstagramReactions = () => {
     } else {
       process();
     }
-  }, [visibleCount]);
+  }, [posts]);
 
   const scrollBy = (dir: 1 | -1) => {
     const el = scrollerRef.current;
@@ -54,23 +65,25 @@ const InstagramReactions = () => {
     el.scrollBy({ left: dir * (el.clientWidth * 0.8), behavior: "smooth" });
   };
 
-  const visiblePosts = instagramReactionPosts.slice(0, visibleCount);
-
   return (
     <section
-      className="section section-light"
-      data-theme="light"
-      id="reactions"
-      style={{ paddingTop: 80, paddingBottom: 80 }}
+      className={`section ${theme === "dark" ? "section-dark" : "section-light"}`}
+      data-theme={theme}
+      style={{ paddingTop: 56, paddingBottom: 56 }}
     >
       <div className="hfh-container">
-        <h2 className="section-header">Watch the Shift Happen</h2>
-        <p className="section-sub">
-          Real reactions from real people the first time they put on High Frequency
-          Headphones. Unscripted. Unpaid. Unprompted.
-        </p>
+        {title && (
+          <h2 className={`section-header ${theme === "dark" ? "light" : ""}`}>
+            {title}
+          </h2>
+        )}
+        {subtitle && (
+          <p className={`section-sub ${theme === "dark" ? "light" : ""}`}>
+            {subtitle}
+          </p>
+        )}
 
-        <div style={{ position: "relative", marginTop: 32 }}>
+        <div style={{ position: "relative", marginTop: 24 }}>
           <button
             type="button"
             aria-label="Scroll left"
@@ -100,7 +113,7 @@ const InstagramReactions = () => {
               WebkitOverflowScrolling: "touch",
             }}
           >
-            {visiblePosts.map((url) => (
+            {posts.map((url) => (
               <div
                 key={url}
                 style={{
@@ -135,41 +148,6 @@ const InstagramReactions = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        {visibleCount < instagramReactionPosts.length && (
-          <div style={{ textAlign: "center", marginTop: 16 }}>
-            <button
-              type="button"
-              className="btn btn-outline"
-              onClick={() =>
-                setVisibleCount((c) =>
-                  Math.min(c + 6, instagramReactionPosts.length),
-                )
-              }
-            >
-              Load more reactions
-            </button>
-          </div>
-        )}
-
-        <p
-          style={{
-            textAlign: "center",
-            marginTop: 16,
-            fontSize: 14,
-            color: "var(--hfh-grey-text, #6B6B73)",
-            fontStyle: "italic",
-          }}
-        >
-          Real reactions and public Instagram posts from the High Frequency
-          Highway community.
-        </p>
-
-        <div style={{ textAlign: "center", marginTop: 24 }}>
-          <a href="#order" className="btn btn-purple btn-lg">
-            Try High Frequency Headphones <ArrowRight size={18} />
-          </a>
         </div>
       </div>
 
