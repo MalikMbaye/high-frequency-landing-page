@@ -24,12 +24,11 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyBuyBar from "@/components/StickyBuyBar";
 
-// Split Instagram reactions across the 4 ProductBlock placements on the page
+// Split Instagram reactions across 3 placements (after each remaining ProductBlock)
 const reactionSlices = [
-  ALL_INSTAGRAM_POSTS.slice(0, 5),
-  ALL_INSTAGRAM_POSTS.slice(5, 10),
-  ALL_INSTAGRAM_POSTS.slice(10, 14),
-  ALL_INSTAGRAM_POSTS.slice(14, 18),
+  ALL_INSTAGRAM_POSTS.slice(0, 6),
+  ALL_INSTAGRAM_POSTS.slice(6, 12),
+  ALL_INSTAGRAM_POSTS.slice(12, 18),
 ];
 
 const Index = () => {
@@ -38,11 +37,6 @@ const Index = () => {
       <Navbar />
       <Hero />
       <ProductBlock />
-      <InstagramReactions
-        posts={reactionSlices[0]}
-        title="Watch the Shift Happen"
-        subtitle="Real reactions the first time people put these on. Unscripted. Unpaid."
-      />
       <VideoProof />
       <WrongTeardown />
       <HowItWorks />
@@ -50,7 +44,7 @@ const Index = () => {
       <Neuroplasticity />
       <ProductBlock />
       <InstagramReactions
-        posts={reactionSlices[1]}
+        posts={reactionSlices[0]}
         title="From Skeptic to Believer in 60 Seconds"
         subtitle="Calm focus. Visible state shifts. Captured live."
       />
@@ -62,7 +56,7 @@ const Index = () => {
       <LibraryHubNetwork />
       <ProductBlock />
       <InstagramReactions
-        posts={reactionSlices[2]}
+        posts={reactionSlices[1]}
         title="Founders, Students, Strangers — Same Reaction"
         subtitle="Real people. Real moments. Public posts from the community."
       />
@@ -72,7 +66,7 @@ const Index = () => {
       <Captivation />
       <ProductBlock />
       <InstagramReactions
-        posts={reactionSlices[3]}
+        posts={reactionSlices[2]}
         title="More Reactions, Straight from Instagram"
         subtitle="A new feeling — in their own words."
       />
