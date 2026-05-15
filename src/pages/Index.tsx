@@ -56,7 +56,7 @@ const Index = () => {
       <LibraryHubNetwork />
       <ProductBlock />
       <InstagramReactions
-        posts={reactionSlices[2]}
+        posts={reactionSlices[1]}
         title="Founders, Students, Strangers — Same Reaction"
         subtitle="Real people. Real moments. Public posts from the community."
       />
