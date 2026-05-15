@@ -8,8 +8,7 @@ const StickyBuyBar = () => {
       const hero = document.getElementById("hero");
       if (!hero) return;
       const heroBottom = hero.getBoundingClientRect().bottom;
-      const isMobile = window.innerWidth <= 720;
-      setShow(isMobile && heroBottom < 0);
+      setShow(heroBottom < 0);
     };
 
     let ticking = false;
