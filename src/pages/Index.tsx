@@ -66,7 +66,7 @@ const Index = () => {
       <Captivation />
       <ProductBlock />
       <InstagramReactions
-        posts={reactionSlices[3]}
+        posts={reactionSlices[2]}
         title="More Reactions, Straight from Instagram"
         subtitle="A new feeling — in their own words."
       />
