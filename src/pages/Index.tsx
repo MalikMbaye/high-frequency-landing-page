@@ -35,22 +35,24 @@ const Index = () => {
       <HowItWorks />
       <BeforeAfterScience />
       <Neuroplasticity />
-      <FounderStory />
+      <ProductBlock />
       <TaglineBlock />
       <ProductReveal />
       <FiveStates />
       <Generator />
       <AIMeditation />
       <LibraryHubNetwork />
+      <ProductBlock />
       <UseCases />
       <StatsBlock />
       <VehicleSwitch />
-      <ReactionWall />
+      {/* <ReactionWall /> temporarily hidden — will return as Instagram carousel */}
       <Captivation />
       <ProductBlock />
       <WhatsInBox />
       <PriceReframe />
       <FAQ />
+      <FounderStory />
       <Footer />
       <StickyBuyBar />
     </div>
