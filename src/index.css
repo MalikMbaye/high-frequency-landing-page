@@ -1817,6 +1817,13 @@
 }
 
 @media (max-width: 720px) {
+  /* Mobile navbar — keep brand + cart + menu only; ORDER lives in mobile menu */
+  .nav-inner { padding: 12px 16px; gap: 12px; }
+  .brand-mark { font-size: 0.78rem; letter-spacing: 0.08em; }
+  .top-nav .btn-purple.btn-sm { display: none; }
+  .nav-toggle { margin-left: 0; }
+  .hfh-container { padding: 0 16px; }
+  .ig-scroller { padding-left: 16px !important; padding-right: 16px !important; }
   body { padding-top: 60px; padding-bottom: 64px; }
   .section { padding: 64px 0; }
   .hero { padding-top: 32px; }
