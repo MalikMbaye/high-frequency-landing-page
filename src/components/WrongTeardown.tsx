@@ -41,7 +41,7 @@ const WrongTeardown = () => {
             </Expandable>
           </article>
         </div>
-        <p className="transition-line">So what actually works? What if there was something that didn't just give you focus temporarily, but actually rebuilt your brain's ability to focus on its own? And what if decades of neuroscience research already proved it?</p>
+        <p className="transition-line">So what actually works?</p>
       </div>
     </section>
   );

@@ -42,44 +42,14 @@ const brandGallery: GalleryItem[] = [
 
 const accordionItems = [
   {
-    title: "What's the science behind HFH?",
-    body: (
-      <>
-        <p>Your brain operates on frequencies. When you're focused, it's on one frequency. When you're scattered, it's on another.</p>
-        <p>These headphones deliver the exact frequency you need, directly through your skull, using bone conduction and vibration at the same time. The transducers pulse 100 times per second through your bones. Your brain doesn't just hear the frequency. It physically feels it. And it locks in.</p>
-        <p>The technology is based on decades of government-funded neuroscience research, including the CIA's declassified Gateway Process, which proved sound frequencies can shift brain states on command.</p>
-      </>
-    ),
-  },
-  {
-    title: "How fast does it work?",
-    body: (
-      <>
-        <p>The first time you put them on, you'll feel the shift in under 60 seconds.</p>
-        <p>We've recorded over 300 first-time reactions on camera. The eyes widen. The spine straightens. Everyone says the same thing.</p>
-        <p>It's not subtle. Your brain recognizes the frequency immediately.</p>
-      </>
-    ),
-  },
-  {
-    title: "What does \"the more you use it, the less you need it\" mean?",
-    body: (
-      <>
-        <p>Every session builds neuroplasticity. Your brain forms stronger neural pathways for focus, calm, and flow.</p>
-        <p>Over time, your brain gets better at entering those states on its own, without the device.</p>
-        <p>Adderall and coffee create dependency. This builds independence. That's the entire point.</p>
-      </>
-    ),
-  },
-  {
-    title: "What's in the box?",
+    title: "What's in the box",
     body: (
       <ul className="pdp-checks">
         <li>HFH Bone Conduction Frequency Headphones</li>
         <li>Noise Isolation Earplugs</li>
         <li>USB-C Charging Cable</li>
         <li>Quick Start Guide</li>
-        <li>Lifetime Access to the HFH Frequency App (100,000+ downloads)</li>
+        <li>Lifetime Access to the HFH Frequency App</li>
       </ul>
     ),
   },
@@ -100,30 +70,11 @@ const accordionItems = [
     ),
   },
   {
-    title: "The Frequency App",
-    body: (
-      <>
-        <p>Five brain states. One tap each.</p>
-        <p>
-          <strong>Focus</strong> — Lock into deep work for hours. No crash. No side effects.<br />
-          <strong>Calm</strong> — Drop your stress response in seconds.<br />
-          <strong>Energy</strong> — Replace the morning coffee. No jitters.<br />
-          <strong>Flow</strong> — Enter creative flow on demand.<br />
-          <strong>Sleep</strong> — Fall asleep faster, stay asleep longer.
-        </p>
-        <p>Every state runs on a precision frequency stack. Includes the full Rife frequency library, Gateway Process binaural patterns, and AI-powered personalized meditation that adapts to your brain in real time.</p>
-        <p>100,000+ downloads. 81% retention rate. Lifetime access included with every pair of headphones.</p>
-      </>
-    ),
-  },
-  {
     title: "Shipping, warranty, and guarantee",
     body: (
       <>
-        <p>Ships worldwide. We've shipped to 25+ countries.</p>
-        <p>US orders ship free in 3–5 business days. International orders typically arrive in 7–14 business days.</p>
-        <p>30-day money-back guarantee. Full refund. No questions asked.</p>
-        <p>1-year manufacturer warranty included with every order.</p>
+        <p>Ships worldwide. Free US shipping in 3–5 business days. International typically 7–14 business days.</p>
+        <p>30-day money-back guarantee. 1-year manufacturer warranty.</p>
       </>
     ),
   },
