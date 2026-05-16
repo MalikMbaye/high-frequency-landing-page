@@ -4,11 +4,6 @@ const PriceReframe = () => {
   return (
     <section className="section section-light price-reframe" id="order" data-theme="light">
       <div className="hfh-container narrow">
-        <h2 className="section-header">You're Already Spending More Than This on Things That Don't Work</h2>
-        <p>Three dollars a day on coffee is over $1,000 a year. Adderall prescriptions run $200 a month or more. Annual Calm subscription. Energy drinks. Nootropic stacks. You're already spending hundreds, maybe thousands, on things that make you more dependent.</p>
-        <p className="emphasis"><strong>This is one purchase that makes you less dependent. Every single day.</strong></p>
-        <p>No subscription. No refills. No monthly dose increases. One device that delivers focus, calm, energy, flow, and sleep on demand, while simultaneously building your brain's ability to do it without help.</p>
-
         <div className="guarantee-row">
           <div className="guarantee-badge">
             <div className="seal">
@@ -17,10 +12,10 @@ const PriceReframe = () => {
               <strong>MONEY-BACK</strong>
               <span>GUARANTEE</span>
             </div>
-            <p>If you don't feel the shift, send them back. Full refund. No questions. We've recorded over 300 reactions. We know what happens when you put these on.</p>
+            <p>If you don't feel the shift, send them back. Full refund. No questions.</p>
           </div>
           <div className="urgency-close">
-            <p>Your brain isn't waiting for you to decide. It's getting rewired right now. Every scroll, every notification, every context-switch is training your brain to never focus again. The only question is whether you're going to control the direction.</p>
+            <p>Your brain isn't waiting for you to decide. Every scroll, every notification, every context-switch is training it to never focus again. The only question is whether you're going to control the direction.</p>
           </div>
         </div>
 
@@ -28,7 +23,7 @@ const PriceReframe = () => {
           <a href="#order" className="btn btn-purple btn-xl">
             Get Your High Frequency Highway Headphones <ArrowRight size={18} />
           </a>
-          <p className="sub-button">Start rebuilding your brain today. Ships worldwide.</p>
+          <p className="sub-button">Ships worldwide.</p>
         </div>
       </div>
     </section>

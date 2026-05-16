@@ -4,7 +4,7 @@ import VideoProof from "@/components/VideoProof";
 import WrongTeardown from "@/components/WrongTeardown";
 import HowItWorks from "@/components/HowItWorks";
 import BeforeAfterScience from "@/components/BeforeAfterScience";
-import Neuroplasticity from "@/components/Neuroplasticity";
+
 import FounderStory from "@/components/FounderStory";
 import TaglineBlock from "@/components/TaglineBlock";
 import ProductReveal from "@/components/ProductReveal";
@@ -12,7 +12,7 @@ import FiveStates from "@/components/FiveStates";
 import Generator from "@/components/Generator";
 import AIMeditation from "@/components/AIMeditation";
 import LibraryHubNetwork from "@/components/LibraryHubNetwork";
-import UseCases from "@/components/UseCases";
+
 import StatsBlock from "@/components/StatsBlock";
 import VehicleSwitch from "@/components/VehicleSwitch";
 import InstagramReactions, { ALL_INSTAGRAM_POSTS } from "@/components/InstagramReactions";
@@ -41,7 +41,7 @@ const Index = () => {
       <WrongTeardown />
       <HowItWorks />
       <BeforeAfterScience />
-      <Neuroplasticity />
+      
       <ProductBlock />
       <InstagramReactions
         posts={reactionSlices[0]}
@@ -60,7 +60,7 @@ const Index = () => {
         title="Founders, Students, Strangers — Same Reaction"
         subtitle="Real people. Real moments. Public posts from the community."
       />
-      <UseCases />
+      
       <StatsBlock />
       <VehicleSwitch />
       <Captivation />

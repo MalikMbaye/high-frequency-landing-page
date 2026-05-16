@@ -1,6 +1,5 @@
-import { ArrowRight, Brain, Landmark, TrendingUp } from "lucide-react";
+import { ArrowRight, Brain, Landmark } from "lucide-react";
 import img_8LB4jvGU from "@/assets/genspark/8LB4jvGU.jpg";
-import img_Rp0TCgqL from "@/assets/genspark/Rp0TCgqL.jpg";
 import img_SmtUY9Nr from "@/assets/genspark/SmtUY9Nr.jpg";
 import img_xSGiWWRx from "@/assets/genspark/xSGiWWRx.jpg";
 import Expandable from "./Expandable";
@@ -16,7 +15,7 @@ const BeforeAfterScience = () => {
           <img src={img_xSGiWWRx} alt="Before and after brain state visualization showing chaotic red waves transforming to coherent purple waves" />
         </div>
 
-        <p className="big-stat-line">81% of users stay locked in past 30 minutes. Industry average is under 10%.</p>
+        
 
         <div className="science-bridge">
           <h3 className="sub-section-header">Decades of Research. One Device That Delivers It.</h3>
@@ -46,16 +45,6 @@ const BeforeAfterScience = () => {
             </div>
           </article>
 
-          <article className="research-card">
-            <div className="research-chart">
-              <img src={img_Rp0TCgqL} alt="Bar chart showing 81 percent brainwave coherence after HFH versus 35 percent before" />
-            </div>
-            <div className="research-copy">
-              <span className="research-tag">COHERENCE INDEX</span>
-              <h4>81% Coherence. 30+ Minutes.</h4>
-              <p>Over 100,000 people have downloaded the HFH app. 81% of them stay locked in past 30 minutes. In an industry where the average meditation app retention rate at 30 days is under 10%, that number tells you everything about whether this works.</p>
-            </div>
-          </article>
         </div>
 
         <div className="science-pillars">
@@ -71,13 +60,6 @@ const BeforeAfterScience = () => {
             <h5>EEG Validation (NYU Student Testing)</h5>
             <Expandable collapsedHeight={100}>
               <p>EEG testing conducted with NYU students showed that the technology keeps the brain in coherent brainwave states for longer periods. Jay's analogy: would you rather run in a straight line or a zigzag? A coherent brainwave state lets your brain compute faster and process faster.</p>
-            </Expandable>
-          </div>
-          <div className="pillar">
-            <div className="sci-icon"><TrendingUp size={22} /></div>
-            <h5>81% App Retention Rate</h5>
-            <Expandable collapsedHeight={80}>
-              <p>Over 100,000 people have downloaded the HFH app. 81% of them kept using it. In an industry where the average app retention rate at 30 days is under 10%, that number tells you everything about whether this works.</p>
             </Expandable>
           </div>
         </div>

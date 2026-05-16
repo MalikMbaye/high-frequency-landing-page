@@ -32,7 +32,7 @@ const LibraryHubNetwork = () => {
             <div className="lhn-copy">
               <span className="lhn-tag">THE HUB</span>
               <h3>The community of frequency builders.</h3>
-              <p>Share your stacks. Discover what other people are using to focus, sleep, and recover. The Hub is where the 100,000+ download community trades the protocols that actually work.</p>
+              <p>Share your stacks. Discover what other people are using to focus, sleep, and recover. The Hub is where the community trades the protocols that actually work.</p>
             </div>
           </article>
 
@@ -42,8 +42,8 @@ const LibraryHubNetwork = () => {
             </div>
             <div className="lhn-copy">
               <span className="lhn-tag">THE NETWORK</span>
-              <h3>200+ countries. One frequency.</h3>
-              <p>The HFH Network connects users across 200+ countries running the same protocols at the same time. Group sessions, synchronized meditations, global focus blocks. A planet-wide brainwave coherence experiment, live every day.</p>
+              <h3>One frequency, everywhere.</h3>
+              <p>The HFH Network connects users running the same protocols at the same time. Group sessions, synchronized meditations, global focus blocks. A planet-wide brainwave coherence experiment, live every day.</p>
             </div>
           </article>
         </div>

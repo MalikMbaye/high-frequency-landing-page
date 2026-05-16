@@ -4,7 +4,7 @@ const VideoProof = () => {
   return (
     <section className="section section-light video-proof" data-theme="light">
       <div className="hfh-container narrow">
-        <h2 className="section-header">Watch What Happens to Your Brain in 60 Seconds.</h2>
+        <h2 className="section-header">Real EEG. NYU. No Edits.</h2>
         <div
           style={{
             margin: "0 auto 20px",
