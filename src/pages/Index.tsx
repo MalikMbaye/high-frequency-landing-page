@@ -41,7 +41,7 @@ const Index = () => {
       <WrongTeardown />
       <HowItWorks />
       <BeforeAfterScience />
-      <Neuroplasticity />
+      
       <ProductBlock />
       <InstagramReactions
         posts={reactionSlices[0]}
@@ -60,7 +60,7 @@ const Index = () => {
         title="Founders, Students, Strangers — Same Reaction"
         subtitle="Real people. Real moments. Public posts from the community."
       />
-      <UseCases />
+      
       <StatsBlock />
       <VehicleSwitch />
       <Captivation />
