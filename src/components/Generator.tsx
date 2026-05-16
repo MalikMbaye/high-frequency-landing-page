@@ -26,7 +26,6 @@ const Generator = () => {
           <div className="reveal-copy light">
             <h3>The full Rife library. The Gateway Process patterns. Anything you can imagine.</h3>
             <p>Type the frequency. Select the protocol. The generator delivers it through bone conduction in real time. Layer multiple frequencies. Save your own stacks. Build a personal library that adapts to whatever your brain needs that day.</p>
-            <p>This is what frequency apps wish they were. No beach sounds. No bird noises. Just precision, science, and a brain that listens.</p>
             <a href="#order" className="btn btn-gold">
               Open the Generator <ArrowRight size={18} />
             </a>
