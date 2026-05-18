@@ -29,8 +29,9 @@ const FounderStory = () => {
         <div className="founder-block reverse">
           <div className="founder-copy">
           <Expandable collapsedHeight={340}>
-            <p>He tried everything. Meditation. Supplements. Biohacks. Nothing worked the way he needed it to. Then he found the frequency research — decades of work proving that precise sound patterns can shift brainwave states on command.</p>
-            <p>Jay's realization: if frequency can shift your state, and your state controls everything you do, this is the answer for anyone whose brain is working against them.</p>
+            <p>He tried everything. Meditation. Supplements. Biohacks. Nothing worked the way he needed it to. Then he found something that changed the trajectory of his entire life.</p>
+            <p>Decades of government-funded neuroscience research had been studying how specific sound frequencies affect brain states. The findings, which had been classified and were later made public, proved that precise frequency patterns can shift brainwave states on command. Focus. Calm. Energy. Flow. All controllable through frequency.</p>
+            <p>Jay's realization: if this research proves frequency can shift your state, and your state controls everything you do, then this is the answer for anyone whose brain is working against them.</p>
             <p>But the technology to deliver it properly didn't exist. Nobody had combined frequency science with hardware that could deliver it directly through the skull.</p>
             <p>Jay had the exact knowledge intersection to build it. Years of frequency research. Three years of failed hardware development on a light technology company that taught him firmware, manufacturing, and product engineering. A deep understanding of neuroscience and brainwave states. After doing R&D on the best ways to transfer frequency, he discovered bone conduction headphones.</p>
             <p className="founder-pull"><strong>He ordered prototypes that same day. Three months later, he was on stage in front of 4,000 people.</strong></p>

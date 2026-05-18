@@ -41,6 +41,7 @@ const ProductReveal = () => {
           <div className="reveal-copy">
             <span className="row-label">THE SOFTWARE</span>
             <h3>A precision frequency app with 100,000+ downloads.</h3>
+            <p>Your brain operates on frequencies. When you're focused, your brain is on one frequency. When you're scattered, it's on another. These headphones deliver the exact frequency you need, directly through your skull, using both vibration and sound at the same time.</p>
             <p>Select your state. Focus. Calm. Energy. Flow. Sleep. The full Rife frequency library. The Gateway Process binaural patterns. AI-powered personalized meditation you can redirect in real time.</p>
           </div>
         </div>
