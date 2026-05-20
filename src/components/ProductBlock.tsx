@@ -79,7 +79,7 @@ const accordionItems = [
     title: "What's in the box?",
     body: (
       <ul className="pdp-checks">
-        <li>HFH Bone Conduction Frequency Headphones</li>
+        <li>HFH Frequency Headphones</li>
         <li>Noise Isolation Earplugs</li>
         <li>USB-C Charging Cable</li>
         <li>Quick Start Guide</li>
@@ -91,7 +91,7 @@ const accordionItems = [
     title: "Technical specifications",
     body: (
       <dl className="pdp-spec-list">
-        <div><dt>Bone Conduction</dt><dd>Dual transducer, 100 Hz vibration delivery</dd></div>
+        <div><dt>Transducers</dt><dd>Dual transducer, 100 Hz vibration delivery</dd></div>
         <div><dt>Frequency Range</dt><dd>Full Rife frequency library + Gateway Process binaural patterns</dd></div>
         <div><dt>Connectivity</dt><dd>Bluetooth 5.3, full hands-free</dd></div>
         <div><dt>Battery Life</dt><dd>8 hours active use, 10 days standby</dd></div>

@@ -1,7 +1,7 @@
 import { BookOpen, Headphones, LayoutGrid, Plug, VolumeX } from "lucide-react";
 
 const items = [
-  { Icon: Headphones, title: "HFH Bone Conduction Frequency Headphones" },
+  { Icon: Headphones, title: "HFH Frequency Headphones" },
   { Icon: VolumeX, title: "Noise Isolation Earplugs" },
   { Icon: Plug, title: "USB-C Charging Cable" },
   { Icon: BookOpen, title: "Quick Start Guide" },
