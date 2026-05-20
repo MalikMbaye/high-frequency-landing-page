@@ -1,11 +1,11 @@
 import { BookOpen, Headphones, LayoutGrid, Plug, VolumeX } from "lucide-react";
 
 const items = [
-  { Icon: Headphones, title: <>High Frequency Headphones<sup>™</sup></> },
-  { Icon: VolumeX, title: "Noise Isolation Earplugs" },
-  { Icon: Plug, title: "USB-C Charging Cable" },
-  { Icon: BookOpen, title: "Quick Start Guide" },
-  { Icon: LayoutGrid, title: "HFH Frequency App" },
+  { id: "headphones", Icon: Headphones, title: <>High Frequency Headphones<sup>™</sup></> },
+  { id: "earplugs", Icon: VolumeX, title: "Noise Isolation Earplugs" },
+  { id: "cable", Icon: Plug, title: "USB-C Charging Cable" },
+  { id: "guide", Icon: BookOpen, title: "Quick Start Guide" },
+  { id: "app", Icon: LayoutGrid, title: "HFH Frequency App" },
 ];
 
 const WhatsInBox = () => {
@@ -17,8 +17,8 @@ const WhatsInBox = () => {
           <p className="wib-sub">Everything you need to start rebuilding your brain. Nothing you don't.</p>
         </header>
         <div className="wib-grid">
-          {items.map(({ Icon, title }) => (
-            <div className="wib-item" key={title}>
+          {items.map(({ id, Icon, title }) => (
+            <div className="wib-item" key={id}>
               <div className="wib-icon"><Icon /></div>
               <p className="wib-title">{title}</p>
             </div>
