@@ -27,6 +27,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <ProductBlock />
+      <WhatsInBox />
       <VideoProof />
       <WrongTeardown />
       <HowItWorks />
