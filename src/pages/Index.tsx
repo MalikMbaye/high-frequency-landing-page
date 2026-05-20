@@ -9,27 +9,17 @@ import FounderStory from "@/components/FounderStory";
 import TaglineBlock from "@/components/TaglineBlock";
 import ProductReveal from "@/components/ProductReveal";
 import FiveStates from "@/components/FiveStates";
-import Generator from "@/components/Generator";
 import AIMeditation from "@/components/AIMeditation";
 import LibraryHubNetwork from "@/components/LibraryHubNetwork";
 import UseCases from "@/components/UseCases";
 import StatsBlock from "@/components/StatsBlock";
 import VehicleSwitch from "@/components/VehicleSwitch";
-import InstagramReactions, { ALL_INSTAGRAM_POSTS } from "@/components/InstagramReactions";
-import Captivation from "@/components/Captivation";
 import ProductBlock from "@/components/ProductBlock";
 import WhatsInBox from "@/components/WhatsInBox";
 import PriceReframe from "@/components/PriceReframe";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyBuyBar from "@/components/StickyBuyBar";
-
-// Split Instagram reactions across 3 placements (after each remaining ProductBlock)
-const reactionSlices = [
-  ALL_INSTAGRAM_POSTS.slice(0, 6),
-  ALL_INSTAGRAM_POSTS.slice(6, 12),
-  ALL_INSTAGRAM_POSTS.slice(12, 18),
-];
 
 const Index = () => {
   return (
@@ -43,33 +33,16 @@ const Index = () => {
       <BeforeAfterScience />
       <Neuroplasticity />
       <ProductBlock />
-      <InstagramReactions
-        posts={reactionSlices[0]}
-        title="From Skeptic to Believer in 60 Seconds"
-        subtitle="Calm focus. Visible state shifts. Captured live."
-      />
       <TaglineBlock />
       <ProductReveal />
       <FiveStates />
-      <Generator />
       <AIMeditation />
       <LibraryHubNetwork />
       <ProductBlock />
-      <InstagramReactions
-        posts={reactionSlices[1]}
-        title="Founders, Students, Strangers — Same Reaction"
-        subtitle="Real people. Real moments. Public posts from the community."
-      />
       <UseCases />
       <StatsBlock />
       <VehicleSwitch />
-      <Captivation />
       <ProductBlock />
-      <InstagramReactions
-        posts={reactionSlices[2]}
-        title="More Reactions, Straight from Instagram"
-        subtitle="A new feeling — in their own words."
-      />
       <WhatsInBox />
       <PriceReframe />
       <FAQ />
