@@ -120,17 +120,6 @@ const accordionItems = [
       </>
     ),
   },
-  {
-    title: "Shipping, warranty, and guarantee",
-    body: (
-      <>
-        <p>Ships worldwide. We've shipped to 25+ countries.</p>
-        <p>US orders ship free in 3–5 business days. International orders typically arrive in 7–14 business days.</p>
-        <p>30-day money-back guarantee. Full refund. No questions asked.</p>
-        <p>1-year manufacturer warranty included with every order.</p>
-      </>
-    ),
-  },
 ];
 
 const ProductBlock = () => {
