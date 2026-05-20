@@ -9,9 +9,12 @@ const StickyBuyBar = () => {
   useEffect(() => {
     const update = () => {
       const hero = document.getElementById("hero");
+      const buy = document.getElementById("buy");
       if (!hero) return;
       const heroBottom = hero.getBoundingClientRect().bottom;
-      setShow(heroBottom < 0);
+      const buyTop = buy ? buy.getBoundingClientRect().top : Infinity;
+      // Show only when hero is scrolled past AND buy section is not yet in view
+      setShow(heroBottom < 0 && buyTop > window.innerHeight);
     };
 
     let ticking = false;
