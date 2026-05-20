@@ -238,7 +238,7 @@ const ProductBlock = () => {
               <span className="pdp-save-badge">SAVE $50</span>
               <span className="pdp-price-amounts">
                 <span className="pdp-price-now">
-                  {product ? `${product.node.priceRange.minVariantPrice.currencyCode === 'USD' ? '$' : ''}${parseFloat(product.node.priceRange.minVariantPrice.amount).toFixed(0)}` : "$169"}
+                  {product ? `${product.node.priceRange.minVariantPrice.currencyCode === 'USD' ? '$' : ''}${Math.floor(parseFloat(product.node.priceRange.minVariantPrice.amount))}` : "$169"}
                 </span>
                 <span className="pdp-price-was">$347</span>
               </span>
@@ -270,7 +270,7 @@ const ProductBlock = () => {
             </button>
 
             <p className="pdp-trust">
-              <span aria-hidden="true">📦</span> Ships in 48 Hours · Free US Shipping <span aria-hidden="true">📦</span>
+              <span aria-hidden="true">⚡</span> Limited Stock Remaining · Ships With Next Batch <span aria-hidden="true">⚡</span>
             </p>
 
             <div className="pdp-accordion">
