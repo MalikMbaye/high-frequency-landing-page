@@ -44,7 +44,6 @@ const Index = () => {
       <StatsBlock />
       <VehicleSwitch />
       <ProductBlock />
-      <WhatsInBox />
       <PriceReframe />
       <FAQ />
       <FounderStory />
