@@ -206,7 +206,6 @@ const ProductBlock = () => {
                 <Star size={14} fill="currentColor" />
                 <Star size={14} fill="currentColor" />
               </span>
-              <span className="pdp-rating-count">300+ RECORDED REACTIONS</span>
             </div>
 
             <h2 className="pdp-headline">High Frequency Headphones<sup>™</sup></h2>
