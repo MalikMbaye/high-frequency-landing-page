@@ -6,7 +6,7 @@ import HowItWorks from "@/components/HowItWorks";
 import BeforeAfterScience from "@/components/BeforeAfterScience";
 import Neuroplasticity from "@/components/Neuroplasticity";
 import FounderStory from "@/components/FounderStory";
-import TaglineBlock from "@/components/TaglineBlock";
+
 import ProductReveal from "@/components/ProductReveal";
 import FiveStates from "@/components/FiveStates";
 import AIMeditation from "@/components/AIMeditation";
@@ -33,7 +33,7 @@ const Index = () => {
       <BeforeAfterScience />
       <Neuroplasticity />
       <ProductBlock />
-      <TaglineBlock />
+      
       <ProductReveal />
       <FiveStates />
       <AIMeditation />
