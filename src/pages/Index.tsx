@@ -34,8 +34,7 @@ const Index = () => {
       <BeforeAfterScience />
       <Neuroplasticity />
       <ProductBlock />
-      
-      <ProductReveal />
+      <UseCases />
       <FiveStates />
       <AIMeditation />
       <LibraryHubNetwork />
