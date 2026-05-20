@@ -79,7 +79,7 @@ const accordionItems = [
     title: "What's in the box?",
     body: (
       <ul className="pdp-checks">
-        <li>HFH Frequency Headphones</li>
+        <li>High Frequency Headphones<sup>™</sup></li>
         <li>Noise Isolation Earplugs</li>
         <li>USB-C Charging Cable</li>
         <li>Quick Start Guide</li>
@@ -209,7 +209,7 @@ const ProductBlock = () => {
               <span className="pdp-rating-count">300+ RECORDED REACTIONS</span>
             </div>
 
-            <h2 className="pdp-headline">HFH Frequency Headphones</h2>
+            <h2 className="pdp-headline">High Frequency Headphones<sup>™</sup></h2>
 
             <p className="pdp-subhead">Reset your brain in under 60 seconds. Frequency headphones that shift your brain state on demand. Focus. Calm. Energy. Flow. Sleep. The more you use them, the less you need them.</p>
 
