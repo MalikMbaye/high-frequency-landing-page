@@ -1360,6 +1360,9 @@
   .footer-links a:hover { color: var(--hfh-gold); }
   .footer-social { display: flex; gap: 16px; font-size: 1.1rem; }
   .footer-social a:hover { color: var(--hfh-gold); }
+  .footer-social-group { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .footer-social-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .footer-social-label { font-weight: 700; letter-spacing: 0.2em; color: var(--hfh-white); font-size: 0.72rem; text-transform: uppercase; }
   .copyright { font-size: 0.78rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin: 0; }
 
   /* ---------- STICKY PERSISTENT BUY BAR ---------- */
