@@ -5,7 +5,7 @@ const ProductReveal = () => {
     <section className="section section-light product-reveal" id="product" data-theme="light">
       <div className="hfh-container">
         <h2 className="section-header">Frequency Science. In a Pair of Headphones.</h2>
-        <p className="section-sub">High Frequency Highway. Bone conduction frequency headphones paired with a precision frequency app.</p>
+        <p className="section-sub">High Frequency Highway. Frequency headphones paired with a precision frequency app.</p>
 
         {/* Row 1: HARDWARE */}
         <div className="reveal-row">
@@ -20,7 +20,7 @@ const ProductReveal = () => {
           </div>
           <div className="reveal-copy">
             <span className="row-label">THE HARDWARE</span>
-            <h3>Bone conduction transducers that pulse 100 times per second through your skull.</h3>
+            <h3>Frequency transducers that pulse 100 times per second through your skull.</h3>
             <p>The transducers vibrate 100 times per second through your bones. Your brain doesn't just hear the frequency. It physically feels it. And it locks in. Instantly.</p>
             <p>Aerospace-grade titanium. Medical-grade silicone pads. 29 grams. Built like premium hardware, because it is premium hardware.</p>
           </div>

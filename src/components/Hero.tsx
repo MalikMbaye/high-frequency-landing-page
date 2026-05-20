@@ -13,7 +13,7 @@ const Hero = () => {
         <div className="hero-copy">
           <p className="pre-headline">Used by 100,000+ people in every country on earth. Backed by decades of neuroscience research.</p>
           <h1 className="display-headline">RESETS YOUR BRAIN IN UNDER 60 SECONDS</h1>
-          <p className="subhead">Bone conduction frequency headphones that shift your brain state on demand. Focus. Calm. Energy. Flow. No pills. No crash. No dependency.</p>
+          <p className="subhead">Frequency headphones that shift your brain state on demand. Focus. Calm. Energy. Flow. No pills. No crash. No dependency.</p>
           <a href="#order" className="btn btn-purple btn-lg">
             Get Your Headphones <ArrowRight size={18} />
           </a>

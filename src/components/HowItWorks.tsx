@@ -10,7 +10,7 @@ const HowItWorks = () => {
           <div className="how-callout how-callout-1">
             <span className="callout-num">1</span>
             <div>
-              <h4>Direct Bone Transmission</h4>
+              <h4>Direct Frequency Transmission</h4>
               <p>The transducer pulses 100 times per second through your temporal bone.</p>
             </div>
           </div>
