@@ -72,7 +72,7 @@ const BeforeAfterScience = () => {
             <div className="sci-icon"><Brain size={22} /></div>
             <h5>EEG Validation (NYU Student Testing)</h5>
             <Expandable collapsedHeight={100}>
-              <p>EEG testing conducted with NYU students showed that the technology keeps the brain in coherent brainwave states for longer periods. Jay's analogy: would you rather run in a straight line or a zigzag? A coherent brainwave state lets your brain compute faster and process faster.</p>
+              <p>EEG testing conducted with NYU students showed that the technology keeps the brain in coherent brainwave states for longer periods. J's analogy: would you rather run in a straight line or a zigzag? A coherent brainwave state lets your brain compute faster and process faster.</p>
             </Expandable>
           </div>
           <div className="pillar">
