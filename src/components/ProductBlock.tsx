@@ -220,9 +220,9 @@ const ProductBlock = () => {
               <span className="pdp-rating-count">300+ RECORDED REACTIONS</span>
             </div>
 
-            <h2 className="pdp-headline">HFH Bone Conduction Frequency Headphones with Lifetime App Access</h2>
+            <h2 className="pdp-headline">HFH Frequency Headphones with Lifetime App Access</h2>
 
-            <p className="pdp-subhead">Reset your brain in under 60 seconds. Bone conduction frequency headphones that shift your brain state on demand. Focus. Calm. Energy. Flow. Sleep. The more you use them, the less you need them.</p>
+            <p className="pdp-subhead">Reset your brain in under 60 seconds. Frequency headphones that shift your brain state on demand. Focus. Calm. Energy. Flow. Sleep. The more you use them, the less you need them.</p>
 
             <ul className="pdp-bullets">
               <li><span className="pdp-bullet-check"><Check size={12} /></span>Resets Brain State in Under 60 Seconds</li>
