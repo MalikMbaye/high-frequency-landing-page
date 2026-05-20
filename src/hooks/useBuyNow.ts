@@ -5,7 +5,7 @@ import { useCartStore } from "@/stores/cartStore";
 const LP_PRODUCT_HANDLE = "high-frequency-headphones-lp-test-169-99";
 
 export function useBuyNow() {
-  const { product } = useShopifyProductByHandle(LP_PRODUCT_HANDLE);
+  const { data: product } = useShopifyProductByHandle(LP_PRODUCT_HANDLE);
   const addItem = useCartStore((s) => s.addItem);
   const isLoading = useCartStore((s) => s.isLoading);
 
