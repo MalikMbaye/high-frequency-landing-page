@@ -40,6 +40,8 @@ const Hero = () => {
         <div className="proof-item"><span className="proof-num">200+</span><span className="proof-label">Countries</span></div>
         <span className="proof-divider"></span>
         <div className="proof-item"><span className="proof-num">81%</span><span className="proof-label">Retention</span></div>
+        <span className="proof-divider"></span>
+        <div className="proof-item"><span className="proof-num">1M+</span><span className="proof-label">Followers</span></div>
       </div>
     </section>
   );
