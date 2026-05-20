@@ -7,13 +7,13 @@ const FounderStory = () => {
       <div className="neural-mesh"></div>
       <div className="hfh-container">
         <header className="founder-header">
-          <h2 className="meet-jay-headline">MEET <span className="hl-purple">JAY.</span></h2>
+          <h2 className="meet-j-headline">MEET <span className="hl-purple">J.</span></h2>
           <p className="founder-tagline">Built by a serial entrepreneur who chose his brain over everything.</p>
         </header>
 
         <div className="founder-block">
           <figure className="founder-figure">
-            <img src={img_bCInaQuM} alt="Jay Johnson Jr. on stage presenting High Frequency Highway" />
+            <img src={img_bCInaQuM} alt="J Johnson Jr. on stage presenting High Frequency Highway" />
           </figure>
           <div className="founder-copy">
           <Expandable collapsedHeight={320}>
@@ -31,15 +31,15 @@ const FounderStory = () => {
           <Expandable collapsedHeight={340}>
             <p>He tried everything. Meditation. Supplements. Biohacks. Nothing worked the way he needed it to. Then he found something that changed the trajectory of his entire life.</p>
             <p>Decades of government-funded neuroscience research had been studying how specific sound frequencies affect brain states. The findings, which had been classified and were later made public, proved that precise frequency patterns can shift brainwave states on command. Focus. Calm. Energy. Flow. All controllable through frequency.</p>
-            <p>Jay's realization: if this research proves frequency can shift your state, and your state controls everything you do, then this is the answer for anyone whose brain is working against them.</p>
+            <p>J's realization: if this research proves frequency can shift your state, and your state controls everything you do, then this is the answer for anyone whose brain is working against them.</p>
             <p>But the technology to deliver it properly didn't exist. Nobody had combined frequency science with hardware that could deliver it directly through the skull.</p>
-            <p>Jay had the exact knowledge intersection to build it. Years of frequency research. Three years of failed hardware development on a light technology company that taught him firmware, manufacturing, and product engineering. A deep understanding of neuroscience and brainwave states. After doing R&D on the best ways to transfer frequency, he discovered bone conduction headphones.</p>
+            <p>J had the exact knowledge intersection to build it. Years of frequency research. Three years of failed hardware development on a light technology company that taught him firmware, manufacturing, and product engineering. A deep understanding of neuroscience and brainwave states. After doing R&D on the best ways to transfer frequency, he discovered bone conduction headphones.</p>
             <p className="founder-pull"><strong>He ordered prototypes that same day. Three months later, he was on stage in front of 4,000 people.</strong></p>
             <p>Today he's training for the 2028 LA Olympics in flag football and the 100 meter dash. His brain is on a different frequency now. Literally.</p>
           </Expandable>
           </div>
           <figure className="founder-figure">
-            <img src={img_4Gc3icy1} alt="Jay Johnson Jr. wearing HFH headphones in training" />
+            <img src={img_4Gc3icy1} alt="J Johnson Jr. wearing HFH headphones in training" />
           </figure>
         </div>
       </div>

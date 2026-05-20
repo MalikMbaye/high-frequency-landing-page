@@ -37,10 +37,10 @@ const Footer = () => {
           <div className="footer-social-block">
             <span className="footer-social-label">J</span>
             <div className="footer-social">
-              <a href="https://www.instagram.com/jstayclutch/" target="_blank" rel="noopener noreferrer" aria-label="Jay Instagram"><Instagram size={20} /></a>
-              <a href="https://www.tiktok.com/@jjohnsonjr" target="_blank" rel="noopener noreferrer" aria-label="Jay TikTok"><TikTokIcon /></a>
-              <a href="https://www.youtube.com/channel/UC1AaIjDyA6OQfD_FhDyMjVg" target="_blank" rel="noopener noreferrer" aria-label="Jay YouTube"><Youtube size={20} /></a>
-              <a href="https://www.linkedin.com/in/jjohnson-jr/" target="_blank" rel="noopener noreferrer" aria-label="Jay LinkedIn"><Linkedin size={20} /></a>
+              <a href="https://www.instagram.com/jstayclutch/" target="_blank" rel="noopener noreferrer" aria-label="J Instagram"><Instagram size={20} /></a>
+              <a href="https://www.tiktok.com/@jjohnsonjr" target="_blank" rel="noopener noreferrer" aria-label="J TikTok"><TikTokIcon /></a>
+              <a href="https://www.youtube.com/channel/UC1AaIjDyA6OQfD_FhDyMjVg" target="_blank" rel="noopener noreferrer" aria-label="J YouTube"><Youtube size={20} /></a>
+              <a href="https://www.linkedin.com/in/jjohnson-jr/" target="_blank" rel="noopener noreferrer" aria-label="J LinkedIn"><Linkedin size={20} /></a>
             </div>
           </div>
           <div className="footer-social-block">

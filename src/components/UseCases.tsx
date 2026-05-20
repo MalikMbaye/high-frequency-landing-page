@@ -51,7 +51,7 @@ const UseCases = () => {
           </div>
           <div className="use-copy">
             <h4>For Headaches and Pain</h4>
-            <p>Users have reported relief from tinnitus, migraines, headaches, and TMJ. The bone conduction vibration combined with targeted frequency creates a physical response. One woman at an event told Jay it got rid of her tinnitus. We didn't even market for that.</p>
+            <p>Users have reported relief from tinnitus, migraines, headaches, and TMJ. The bone conduction vibration combined with targeted frequency creates a physical response. One woman at an event told J it got rid of her tinnitus. We didn't even market for that.</p>
           </div>
         </article>
       </div>
