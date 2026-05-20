@@ -83,7 +83,7 @@ const accordionItems = [
         <li>Noise Isolation Earplugs</li>
         <li>USB-C Charging Cable</li>
         <li>Quick Start Guide</li>
-        <li>Lifetime Access to the HFH Frequency App (100,000+ downloads)</li>
+        <li>Access to the HFH Frequency App (100,000+ downloads)</li>
       </ul>
     ),
   },
@@ -116,7 +116,7 @@ const accordionItems = [
           <strong>Sleep</strong> — Fall asleep faster, stay asleep longer.
         </p>
         <p>Every state runs on a precision frequency stack. Includes the full Rife frequency library, Gateway Process binaural patterns, and AI-powered personalized meditation that adapts to your brain in real time.</p>
-        <p>100,000+ downloads. 81% retention rate. Lifetime access included with every pair of headphones.</p>
+        <p>100,000+ downloads. 81% retention rate.</p>
       </>
     ),
   },
@@ -220,7 +220,7 @@ const ProductBlock = () => {
               <span className="pdp-rating-count">300+ RECORDED REACTIONS</span>
             </div>
 
-            <h2 className="pdp-headline">HFH Frequency Headphones with Lifetime App Access</h2>
+            <h2 className="pdp-headline">HFH Frequency Headphones</h2>
 
             <p className="pdp-subhead">Reset your brain in under 60 seconds. Frequency headphones that shift your brain state on demand. Focus. Calm. Energy. Flow. Sleep. The more you use them, the less you need them.</p>
 
