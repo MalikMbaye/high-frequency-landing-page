@@ -1,6 +1,8 @@
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, Loader2 } from "lucide-react";
+import { useBuyNow } from "@/hooks/useBuyNow";
 
 const PriceReframe = () => {
+  const { buyNow, isLoading } = useBuyNow();
   return (
     <section className="section section-light price-reframe" id="order" data-theme="light">
       <div className="hfh-container narrow">
@@ -25,9 +27,9 @@ const PriceReframe = () => {
         </div>
 
         <div className="final-cta-area" style={{ textAlign: "center" }}>
-          <a href="#order" className="btn btn-purple btn-xl">
-            Get Your High Frequency Highway Headphones <ArrowRight size={18} />
-          </a>
+          <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-xl">
+            {isLoading ? <Loader2 className="animate-spin h-5 w-5" /> : <>Get Your High Frequency Highway Headphones <ArrowRight size={18} /></>}
+          </button>
           <p className="sub-button">Start rebuilding your brain today. Ships worldwide.</p>
         </div>
       </div>
