@@ -1,11 +1,13 @@
-import { ArrowRight, Brain, Landmark, TrendingUp } from "lucide-react";
+import { ArrowRight, Brain, Landmark, TrendingUp, Loader2 } from "lucide-react";
 import img_8LB4jvGU from "@/assets/genspark/8LB4jvGU.jpg";
 import img_Rp0TCgqL from "@/assets/genspark/Rp0TCgqL.jpg";
 import img_SmtUY9Nr from "@/assets/genspark/SmtUY9Nr.jpg";
 import img_xSGiWWRx from "@/assets/genspark/xSGiWWRx.jpg";
 import Expandable from "./Expandable";
+import { useBuyNow } from "@/hooks/useBuyNow";
 
 const BeforeAfterScience = () => {
+  const { buyNow, isLoading } = useBuyNow();
   return (
     <section className="section section-dark before-after-science" id="science" data-theme="dark">
       <div className="hfh-container">
@@ -84,9 +86,9 @@ const BeforeAfterScience = () => {
 
         <p className="pull-stat">The brain runs in a straight line, not a zigzag.</p>
         <div style={{ textAlign: "center" }}>
-          <a href="#order" className="btn btn-gold btn-lg">
-            Get Your Headphones <ArrowRight size={18} />
-          </a>
+          <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-gold btn-lg">
+            {isLoading ? <Loader2 className="animate-spin h-5 w-5" /> : <>Get Your Headphones <ArrowRight size={18} /></>}
+          </button>
         </div>
       </div>
     </section>
