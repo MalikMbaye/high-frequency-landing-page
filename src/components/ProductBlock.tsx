@@ -1,7 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import { Check, ChevronLeft, ChevronRight, Star, Loader2 } from "lucide-react";
-import { useShopifyProducts } from "@/hooks/useShopifyProducts";
+import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
+
+// Landing page price test — points at the duplicated $169.99 product.
+// Change this handle to swap which Shopify product this LP sells.
+const LP_PRODUCT_HANDLE = "high-frequency-headphones-lp-test-169-99";
 
 // Branded product gallery images
 import img01 from "@/assets/product/01-resets-brain-60s.png";
@@ -135,8 +139,7 @@ const ProductBlock = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const fadeTimer = useRef<number | null>(null);
 
-  const { data: products } = useShopifyProducts(1);
-  const product = products?.[0];
+  const { data: product } = useShopifyProductByHandle(LP_PRODUCT_HANDLE);
   const addItem = useCartStore(state => state.addItem);
   const isCartLoading = useCartStore(state => state.isLoading);
   
