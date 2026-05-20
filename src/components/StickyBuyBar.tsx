@@ -36,7 +36,7 @@ const StickyBuyBar = () => {
       id="stickyBuy"
       className={`sticky-buy-bar ${show ? "show" : ""}`}
     >
-      Get Your Headphones — $349
+      Get Your Headphones — $169
     </a>
   );
 };

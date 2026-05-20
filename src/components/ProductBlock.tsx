@@ -238,7 +238,7 @@ const ProductBlock = () => {
               <span className="pdp-save-badge">SAVE $50</span>
               <span className="pdp-price-amounts">
                 <span className="pdp-price-now">
-                  {product ? `${product.node.priceRange.minVariantPrice.currencyCode === 'USD' ? '$' : ''}${parseFloat(product.node.priceRange.minVariantPrice.amount).toFixed(0)}` : "$297"}
+                  {product ? `${product.node.priceRange.minVariantPrice.currencyCode === 'USD' ? '$' : ''}${parseFloat(product.node.priceRange.minVariantPrice.amount).toFixed(0)}` : "$169"}
                 </span>
                 <span className="pdp-price-was">$347</span>
               </span>
