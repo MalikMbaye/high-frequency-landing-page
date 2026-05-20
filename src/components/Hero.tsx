@@ -1,9 +1,7 @@
-import { ArrowRight, Loader2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import img_w2bSNIr2 from "@/assets/genspark/w2bSNIr2.jpg";
-import { useBuyNow } from "@/hooks/useBuyNow";
 
 const Hero = () => {
-  const { buyNow, isLoading } = useBuyNow();
   return (
     <section
       className="section section-light hero hero-tall"
