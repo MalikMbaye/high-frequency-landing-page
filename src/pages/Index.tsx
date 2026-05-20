@@ -33,7 +33,7 @@ const Index = () => {
       <HowItWorks />
       <BeforeAfterScience />
       <Neuroplasticity />
-      <UseCases />
+      <ProductReveal />
       <FiveStates />
       <AIMeditation />
       <LibraryHubNetwork />
