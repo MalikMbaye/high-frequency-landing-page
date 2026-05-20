@@ -27,6 +27,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <ProductBlock />
+      <WhatsInBox />
       <VideoProof />
       <WrongTeardown />
       <HowItWorks />
@@ -43,7 +44,6 @@ const Index = () => {
       <StatsBlock />
       <VehicleSwitch />
       <ProductBlock />
-      <WhatsInBox />
       <PriceReframe />
       <FAQ />
       <FounderStory />
