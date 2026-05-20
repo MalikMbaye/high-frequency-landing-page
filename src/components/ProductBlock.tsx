@@ -260,10 +260,13 @@ const ProductBlock = () => {
                   quantity: 1,
                   selectedOptions: selectedVariant.selectedOptions || []
                 });
+
+                const url = useCartStore.getState().getCheckoutUrl();
+                if (url) window.open(url, "_blank");
               }}
               disabled={isCartLoading || !product}
             >
-              {isCartLoading ? <Loader2 className="animate-spin h-6 w-6" /> : "ADD TO CART"}
+              {isCartLoading ? <Loader2 className="animate-spin h-6 w-6" /> : "BUY NOW"}
             </button>
 
             <p className="pdp-trust">

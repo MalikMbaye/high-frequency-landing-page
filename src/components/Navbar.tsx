@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Loader2 } from "lucide-react";
 import { CartDrawer } from "./CartDrawer";
+import { useBuyNow } from "@/hooks/useBuyNow";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
+  const { buyNow, isLoading } = useBuyNow();
 
   useEffect(() => {
     const navHeight = 64;
@@ -56,7 +58,7 @@ const Navbar = () => {
           <a href="#account">Account</a>
         </nav>
         <div className="flex items-center gap-4">
-          <a href="#order" className="btn btn-purple btn-sm">ORDER NOW</a>
+          <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-sm">{isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}</button>
           <CartDrawer />
           <button
             className="nav-toggle ml-2"
@@ -72,7 +74,7 @@ const Navbar = () => {
         <a href="#product" onClick={closeMenu}>Product</a>
         <a href="#reviews" onClick={closeMenu}>Reviews</a>
         <a href="#account" onClick={closeMenu}>Account</a>
-        <a href="#order" className="btn btn-purple" onClick={closeMenu}>ORDER NOW</a>
+        <button type="button" onClick={() => { closeMenu(); buyNow(); }} disabled={isLoading} className="btn btn-purple">{isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}</button>
       </div>
     </header>
   );

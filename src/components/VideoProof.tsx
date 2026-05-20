@@ -1,6 +1,8 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
+import { useBuyNow } from "@/hooks/useBuyNow";
 
 const VideoProof = () => {
+  const { buyNow, isLoading } = useBuyNow();
   return (
     <section className="section section-light video-proof" data-theme="light">
       <div className="hfh-container narrow">
@@ -27,9 +29,9 @@ const VideoProof = () => {
           Real EEG footage. No edits. No filters. Recorded with NYU students.
         </p>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <a href="#order" className="btn btn-purple btn-lg">
-            Get Your Headphones <ArrowRight size={18} />
-          </a>
+          <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-lg">
+            {isLoading ? <Loader2 className="animate-spin h-5 w-5" /> : <>Get Your Headphones <ArrowRight size={18} /></>}
+          </button>
         </div>
       </div>
     </section>
