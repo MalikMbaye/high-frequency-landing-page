@@ -5,7 +5,7 @@ const items = [
   { Icon: VolumeX, title: "Noise Isolation Earplugs" },
   { Icon: Plug, title: "USB-C Charging Cable" },
   { Icon: BookOpen, title: "Quick Start Guide" },
-  { Icon: LayoutGrid, title: "Lifetime Access to the HFH Frequency App" },
+  { Icon: LayoutGrid, title: "HFH Frequency App" },
 ];
 
 const WhatsInBox = () => {
