@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { Loader2 } from "lucide-react";
+import { useBuyNow } from "@/hooks/useBuyNow";
 
 const StickyBuyBar = () => {
   const [show, setShow] = useState(false);
+  const { buyNow, isLoading } = useBuyNow();
 
   useEffect(() => {
     const update = () => {
@@ -31,13 +34,15 @@ const StickyBuyBar = () => {
   }, []);
 
   return (
-    <a
-      href="#order"
+    <button
+      type="button"
+      onClick={() => buyNow()}
+      disabled={isLoading}
       id="stickyBuy"
       className={`sticky-buy-bar ${show ? "show" : ""}`}
     >
-      Get Your Headphones — $169
-    </a>
+      {isLoading ? <Loader2 className="animate-spin h-5 w-5" /> : "Get Your Headphones — $169"}
+    </button>
   );
 };
 
