@@ -50,7 +50,7 @@ const accordionItems = [
     body: (
       <>
         <p>Your brain operates on frequencies. When you're focused, it's on one frequency. When you're scattered, it's on another.</p>
-        <p>These headphones deliver the exact frequency you need, directly through your skull, using bone conduction and vibration at the same time. The transducers pulse 100 times per second through your bones. Your brain doesn't just hear the frequency. It physically feels it. And it locks in.</p>
+        <p>These headphones deliver the exact frequency you need, directly through your skull, using frequency technology and vibration at the same time. The transducers pulse 100 times per second through your bones. Your brain doesn't just hear the frequency. It physically feels it. And it locks in.</p>
         <p>The technology is based on decades of government-funded neuroscience research, including the CIA's declassified Gateway Process, which proved sound frequencies can shift brain states on command.</p>
       </>
     ),

@@ -14,7 +14,7 @@ const ProductReveal = () => {
             <div className="ambient-ribbon ribbon-purple"></div>
             <img
               src={img_dAKCEFQK}
-              alt="HFH bone conduction headphones with purple frequency ripples pulsing outward through a translucent skull silhouette"
+              alt="HFH frequency technology headphones with purple frequency ripples pulsing outward through a translucent skull silhouette"
               loading="lazy"
             />
           </div>

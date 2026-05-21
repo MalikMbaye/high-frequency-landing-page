@@ -30,7 +30,7 @@ const Hero = () => {
           <div className="ambient-ribbon ribbon-gold"></div>
           <img
             src={img_w2bSNIr2}
-            alt="High Frequency Highway bone conduction headphones with purple glow"
+            alt="High Frequency Highway frequency technology headphones with purple glow"
             className="hero-image"
           />
           <span className="floating-pill pill-purple">FOCUS</span>
