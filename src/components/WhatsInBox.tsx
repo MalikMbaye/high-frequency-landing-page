@@ -3,7 +3,7 @@ import { BookOpen, Headphones, LayoutGrid, Plug, VolumeX } from "lucide-react";
 const items = [
   { id: "headphones", Icon: Headphones, title: <>High Frequency Headphones<sup>™</sup></> },
   { id: "earplugs", Icon: VolumeX, title: "Noise Isolation Earplugs" },
-  { id: "cable", Icon: Plug, title: "USB-C Charging Cable" },
+  { id: "cable", Icon: Plug, title: "Magnetic Charger" },
   { id: "guide", Icon: BookOpen, title: "Quick Start Guide" },
   { id: "app", Icon: LayoutGrid, title: "HFH Frequency App" },
 ];

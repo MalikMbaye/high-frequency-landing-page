@@ -15,7 +15,7 @@ const UseCases = () => {
           </div>
           <div className="use-copy">
             <h4>For Focus</h4>
-            <p>Select Focus in the app. Put on the headphones. Your brain locks in for the next four, six, eight hours. No coffee. No pills. No crash. Just your mind operating the way it was supposed to before your phone rewired it.</p>
+            <p>Select Focus in the app. Put on the headphones. Your brain locks in for four hours. No coffee. No pills. No crash. Just your mind operating the way it was supposed to before your phone rewired it.</p>
           </div>
         </article>
         <article className="use-card reverse">

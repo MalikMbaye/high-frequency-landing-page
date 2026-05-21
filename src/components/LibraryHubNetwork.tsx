@@ -49,7 +49,7 @@ const LibraryHubNetwork = () => {
         </div>
 
         <div style={{ textAlign: "center" }}>
-          <a href="#order" className="btn btn-purple btn-lg">
+          <a href="https://highfrequency.onelink.me/lwuw/mkogg00s" className="btn btn-purple btn-lg" target="_blank" rel="noopener noreferrer">
             Get Inside the Ecosystem <ArrowRight size={18} />
           </a>
         </div>
