@@ -12,7 +12,7 @@ const Neuroplasticity = () => {
             <p className="body-light">Adderall makes you more dependent every month. Coffee makes you more dependent every morning. This does the opposite. It makes your brain stronger. And eventually, your brain can do it without help.</p>
           </div>
           <div className="neuro-visual">
-            <img src={img_G1vHJv9R} alt="High Frequency Highway bone conduction headphones on dark background" />
+            <img src={img_G1vHJv9R} alt="High Frequency Highway frequency technology headphones on dark background" />
           </div>
         </div>
         <blockquote className="pull-quote">"Name one other product on the planet that works itself out of a job because it actually fixed the problem."</blockquote>

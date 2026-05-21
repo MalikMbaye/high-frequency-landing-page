@@ -11,7 +11,7 @@ const items: Item[] = [
   {
     Icon: Headphones,
     q: "How is this different from binaural beats on YouTube or Spotify?",
-    a: "Two things. First, you don't know the exact frequency you're getting on those platforms. There's no quality control, no precision. Second, those are audio-only. Our headphones use bone conduction transducers that vibrate 100 times per second. Your brain doesn't just hear the frequency through your ears. It physically feels it through your skull. That's why the shift is instant and that's why every reaction video looks the same.",
+    a: "Two things. First, you don't know the exact frequency you're getting on those platforms. There's no quality control, no precision. Second, those are audio-only. Our headphones use frequency technology transducers that vibrate 100 times per second. Your brain doesn't just hear the frequency through your ears. It physically feels it through your skull. That's why the shift is instant and that's why every reaction video looks the same.",
   },
   {
     Icon: FlaskConical,

@@ -33,7 +33,7 @@ const BeforeAfterScience = () => {
             <div className="research-copy">
               <span className="research-tag">EEG POWER SPECTRUM</span>
               <h4>Chaos Becomes Coherence</h4>
-              <p>Before HFH, brainwave activity is noisy and fragmented across frequency bands. After 60 seconds of bone conduction frequency delivery, the signal organizes into clean, coherent peaks at the alpha and beta bands. Your brain stops zigzagging and starts running in a straight line.</p>
+              <p>Before HFH, brainwave activity is noisy and fragmented across frequency bands. After 60 seconds of frequency technology frequency delivery, the signal organizes into clean, coherent peaks at the alpha and beta bands. Your brain stops zigzagging and starts running in a straight line.</p>
             </div>
           </article>
 
