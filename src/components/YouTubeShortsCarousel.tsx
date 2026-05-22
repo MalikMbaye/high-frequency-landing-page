@@ -6,6 +6,7 @@ interface Props {
   title?: string;
   subtitle?: string;
   theme?: "light" | "dark";
+  id?: string;
 }
 
 const getId = (url: string) => {
