@@ -55,7 +55,6 @@ const Navbar = () => {
           <a href="#science">Science</a>
           <a href="#product">Product</a>
           <a href="#reviews">Reviews</a>
-          <a href="#account">Account</a>
         </nav>
         <div className="flex items-center gap-4">
           <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-sm">{isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}</button>
@@ -73,7 +72,6 @@ const Navbar = () => {
         <a href="#science" onClick={closeMenu}>Science</a>
         <a href="#product" onClick={closeMenu}>Product</a>
         <a href="#reviews" onClick={closeMenu}>Reviews</a>
-        <a href="#account" onClick={closeMenu}>Account</a>
         <button type="button" onClick={() => { closeMenu(); buyNow(); }} disabled={isLoading} className="btn btn-purple">{isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}</button>
       </div>
     </header>

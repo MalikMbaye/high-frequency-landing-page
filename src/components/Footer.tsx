@@ -23,7 +23,7 @@ const AppleIcon = () => (
 
 const Footer = () => {
   return (
-    <footer className="page-footer" id="account" data-theme="dark">
+    <footer className="page-footer" data-theme="dark">
       <div className="hfh-container footer-inner">
         <div className="footer-brand">HIGH FREQUENCY HIGHWAY</div>
         <nav className="footer-links">
