@@ -19,6 +19,7 @@ const YouTubeShortsCarousel = ({
   title = "See It In Action",
   subtitle,
   theme = "light",
+  id,
 }: Props) => {
   const scrollerRef = useRef<HTMLDivElement>(null);
 
@@ -30,6 +31,7 @@ const YouTubeShortsCarousel = ({
 
   return (
     <section
+      id={id}
       className={`section ${theme === "dark" ? "section-dark" : "section-light"}`}
       data-theme={theme}
       style={{ paddingTop: 56, paddingBottom: 56 }}
