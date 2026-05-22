@@ -106,6 +106,7 @@ const InstagramReactions = ({
             className="ig-scroller"
             style={{
               display: "flex",
+              justifyContent: "center",
               gap: 20,
               overflowX: "auto",
               scrollSnapType: "x mandatory",
