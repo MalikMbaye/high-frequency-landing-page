@@ -222,8 +222,8 @@ const ProductBlock = () => {
             <label className="pdp-price-box" htmlFor="pdpBuyOption">
               <input type="radio" id="pdpBuyOption" name="pdp-buy-option" className="pdp-price-radio" defaultChecked />
               <span className="pdp-price-radio-fake" aria-hidden="true"></span>
-              <span className="pdp-price-label">BUY 1</span>
-              <span className="pdp-save-badge">SAVE $50</span>
+              <span className="pdp-price-label">1 PAIR OF HIGH FREQUENCY HEADPHONES</span>
+              <span className="pdp-save-badge">SAVE $178</span>
               <span className="pdp-price-amounts">
                 <span className="pdp-price-now">
                   {product ? `${product.node.priceRange.minVariantPrice.currencyCode === 'USD' ? '$' : ''}${Math.floor(parseFloat(product.node.priceRange.minVariantPrice.amount))}` : "$169"}
