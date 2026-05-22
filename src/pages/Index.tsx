@@ -46,6 +46,7 @@ const Index = () => {
       <VideoProof />
       <ProductBlock />
       <WhatsInBox />
+      <YouTubeShortsCarousel videos={shortsAfterFirstPDP} />
       <WrongTeardown />
       <HowItWorks />
       <BeforeAfterScience />
@@ -55,10 +56,12 @@ const Index = () => {
       <AIMeditation />
       <LibraryHubNetwork />
       <ProductBlock />
+      <YouTubeShortsCarousel videos={shortsAfterSecondPDP} />
       <UseCases />
       <StatsBlock />
       <VehicleSwitch />
       <ProductBlock />
+      <YouTubeShortsCarousel videos={shortsAfterThirdPDP} />
       <PriceReframe />
       <FAQ />
       <FounderStory />
