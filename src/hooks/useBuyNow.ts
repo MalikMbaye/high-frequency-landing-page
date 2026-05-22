@@ -26,7 +26,12 @@ export function useBuyNow() {
       });
 
       const url = useCartStore.getState().getCheckoutUrl();
-      if (url) window.open(url, "_blank");
+      if (url) {
+        const win = window.open(url, "_blank");
+        if (!win || win.closed || typeof win.closed === "undefined") {
+          window.location.href = url;
+        }
+      }
     },
     [product, addItem]
   );
