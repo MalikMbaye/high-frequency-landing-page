@@ -46,17 +46,17 @@ const Index = () => {
       <VideoProof />
       <ProductBlock />
       <WhatsInBox />
-      <YouTubeShortsCarousel videos={shortsAfterFirstPDP} />
+      <YouTubeShortsCarousel videos={shortsAfterFirstPDP} id="reviews" />
       <WrongTeardown />
       <HowItWorks />
       <BeforeAfterScience />
+      <YouTubeShortsCarousel videos={shortsAfterSecondPDP} />
       <Neuroplasticity />
       <ProductReveal />
       <FiveStates />
       <AIMeditation />
       <LibraryHubNetwork />
       <ProductBlock />
-      <YouTubeShortsCarousel videos={shortsAfterSecondPDP} />
       <UseCases />
       <StatsBlock />
       <VehicleSwitch />
