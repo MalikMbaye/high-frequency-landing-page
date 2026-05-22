@@ -1,22 +1,29 @@
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import VideoProof from "@/components/VideoProof";
-import WrongTeardown from "@/components/WrongTeardown";
-import HowItWorks from "@/components/HowItWorks";
-import BeforeAfterScience from "@/components/BeforeAfterScience";
-import Neuroplasticity from "@/components/Neuroplasticity";
-import FounderStory from "@/components/FounderStory";
-
-import ProductReveal from "@/components/ProductReveal";
-import FiveStates from "@/components/FiveStates";
-import AIMeditation from "@/components/AIMeditation";
-import LibraryHubNetwork from "@/components/LibraryHubNetwork";
-import UseCases from "@/components/UseCases";
-import StatsBlock from "@/components/StatsBlock";
-import VehicleSwitch from "@/components/VehicleSwitch";
 import ProductBlock from "@/components/ProductBlock";
 import WhatsInBox from "@/components/WhatsInBox";
-import YouTubeShortsCarousel from "@/components/YouTubeShortsCarousel";
+import LazySection from "@/components/LazySection";
+
+// Below-the-fold: code-split so the JS for these sections is fetched only when needed.
+const YouTubeShortsCarousel = lazy(() => import("@/components/YouTubeShortsCarousel"));
+const WrongTeardown = lazy(() => import("@/components/WrongTeardown"));
+const HowItWorks = lazy(() => import("@/components/HowItWorks"));
+const BeforeAfterScience = lazy(() => import("@/components/BeforeAfterScience"));
+const Neuroplasticity = lazy(() => import("@/components/Neuroplasticity"));
+const ProductReveal = lazy(() => import("@/components/ProductReveal"));
+const FiveStates = lazy(() => import("@/components/FiveStates"));
+const AIMeditation = lazy(() => import("@/components/AIMeditation"));
+const LibraryHubNetwork = lazy(() => import("@/components/LibraryHubNetwork"));
+const UseCases = lazy(() => import("@/components/UseCases"));
+const StatsBlock = lazy(() => import("@/components/StatsBlock"));
+const VehicleSwitch = lazy(() => import("@/components/VehicleSwitch"));
+const PriceReframe = lazy(() => import("@/components/PriceReframe"));
+const FAQ = lazy(() => import("@/components/FAQ"));
+const FounderStory = lazy(() => import("@/components/FounderStory"));
+const Footer = lazy(() => import("@/components/Footer"));
+const StickyBuyBar = lazy(() => import("@/components/StickyBuyBar"));
 
 const shortsAfterFirstPDP = [
   "https://www.youtube.com/shorts/BUUBmswVNRE",
@@ -33,40 +40,83 @@ const shortsAfterThirdPDP = [
   "https://www.youtube.com/shorts/7VFIVBJaRog",
   "https://www.youtube.com/shorts/2R_YkaOhlsQ",
 ];
-import PriceReframe from "@/components/PriceReframe";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
-import StickyBuyBar from "@/components/StickyBuyBar";
+
+const Fallback = ({ h = 400 }: { h?: number }) => <div style={{ minHeight: h }} />;
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      {/* Above-the-fold: render eagerly so the top paints instantly */}
       <Navbar />
       <Hero />
       <VideoProof />
       <ProductBlock />
       <WhatsInBox />
-      <YouTubeShortsCarousel videos={shortsAfterFirstPDP} id="reviews" />
-      <WrongTeardown />
-      <HowItWorks />
-      <BeforeAfterScience />
-      <YouTubeShortsCarousel videos={shortsAfterSecondPDP} />
-      <Neuroplasticity />
-      <ProductReveal />
-      <FiveStates />
-      <AIMeditation />
-      <LibraryHubNetwork />
-      <ProductBlock />
-      <UseCases />
-      <StatsBlock />
-      <VehicleSwitch />
-      <ProductBlock />
-      <YouTubeShortsCarousel videos={shortsAfterThirdPDP} />
-      <PriceReframe />
-      <FAQ />
-      <FounderStory />
-      <Footer />
-      <StickyBuyBar />
+
+      {/* Below-the-fold: mount as user scrolls down */}
+      <Suspense fallback={<Fallback />}>
+        <LazySection>
+          <YouTubeShortsCarousel videos={shortsAfterFirstPDP} id="reviews" />
+        </LazySection>
+        <LazySection>
+          <WrongTeardown />
+        </LazySection>
+        <LazySection>
+          <HowItWorks />
+        </LazySection>
+        <LazySection>
+          <BeforeAfterScience />
+        </LazySection>
+        <LazySection>
+          <YouTubeShortsCarousel videos={shortsAfterSecondPDP} />
+        </LazySection>
+        <LazySection>
+          <Neuroplasticity />
+        </LazySection>
+        <LazySection>
+          <ProductReveal />
+        </LazySection>
+        <LazySection>
+          <FiveStates />
+        </LazySection>
+        <LazySection>
+          <AIMeditation />
+        </LazySection>
+        <LazySection>
+          <LibraryHubNetwork />
+        </LazySection>
+        <LazySection>
+          <ProductBlock />
+        </LazySection>
+        <LazySection>
+          <UseCases />
+        </LazySection>
+        <LazySection>
+          <StatsBlock />
+        </LazySection>
+        <LazySection>
+          <VehicleSwitch />
+        </LazySection>
+        <LazySection>
+          <ProductBlock />
+        </LazySection>
+        <LazySection>
+          <YouTubeShortsCarousel videos={shortsAfterThirdPDP} />
+        </LazySection>
+        <LazySection>
+          <PriceReframe />
+        </LazySection>
+        <LazySection>
+          <FAQ />
+        </LazySection>
+        <LazySection>
+          <FounderStory />
+        </LazySection>
+        <LazySection>
+          <Footer />
+        </LazySection>
+        <StickyBuyBar />
+      </Suspense>
     </div>
   );
 };
