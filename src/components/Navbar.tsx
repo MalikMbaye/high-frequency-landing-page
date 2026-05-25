@@ -50,7 +50,7 @@ const Navbar = () => {
   return (
     <header className={`top-nav ${dark ? "dark" : ""}`} id="topNav">
       <div className="nav-inner">
-        <a href="#hero" className="brand-mark">HIGH FREQUENCY HIGHWAY</a>
+        <a href="#hero" className="brand-mark">HIGH FREQUENCY HEADPHONES</a>
         <nav className="nav-links" aria-label="Primary">
           <a href="#science">Science</a>
           <a href="#product">Product</a>
