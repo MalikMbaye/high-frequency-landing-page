@@ -263,8 +263,9 @@ const ProductBlock = () => {
               }}
               disabled={isCartLoading || !product}
             >
-              {isCartLoading ? <Loader2 className="animate-spin h-6 w-6" /> : "BUY NOW"}
+              {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : "BUY NOW"}
             </button>
+            </div>
 
             <p className="pdp-trust">
               <span aria-hidden="true">⚡</span> Limited Stock Remaining · Ships With Next Batch <span aria-hidden="true">⚡</span>
