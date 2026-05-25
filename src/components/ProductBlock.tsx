@@ -223,32 +223,25 @@ const ProductBlock = () => {
             </ul>
 
             <div className="pdp-purchase-card">
-              <div className="pdp-purchase-row">
-                <span className="pdp-purchase-name">High Frequency Headphones</span>
-                <span className="pdp-save-badge">SAVE $178</span>
-              </div>
-              <div className="pdp-purchase-row pdp-purchase-row-bottom">
+              <div className="pdp-price-row">
+                <span className="pdp-price-now">
+                  ${product ? Math.floor(parseFloat(product.node.priceRange.minVariantPrice.amount)) * quantity : 169 * quantity}
+                </span>
+                <span className="pdp-price-was">${347 * quantity}</span>
+                <span className="pdp-save-badge">SAVE $178 · 51%</span>
                 <div className="pdp-qty" role="group" aria-label="Quantity">
                   <button type="button" aria-label="Decrease quantity" onClick={() => setQuantity((q) => Math.max(1, q - 1))} disabled={quantity <= 1}>
-                    <Minus size={14} />
+                    <Minus size={12} />
                   </button>
                   <span className="pdp-qty-value" aria-live="polite">{quantity}</span>
                   <button type="button" aria-label="Increase quantity" onClick={() => setQuantity((q) => Math.min(10, q + 1))}>
-                    <Plus size={14} />
+                    <Plus size={12} />
                   </button>
                 </div>
-                <span className="pdp-price-amounts">
-                  <span className="pdp-price-now">
-                    {product ? `${product.node.priceRange.minVariantPrice.currencyCode === 'USD' ? '$' : ''}${Math.floor(parseFloat(product.node.priceRange.minVariantPrice.amount)) * quantity}` : `$${169 * quantity}`}
-                  </span>
-                  <span className="pdp-price-was">${347 * quantity}</span>
-                </span>
               </div>
-            </div>
 
-
-            <button 
-              className="pdp-cta w-full flex justify-center items-center"
+              <button
+                className="pdp-cta"
               onClick={async (e) => {
                 e.preventDefault();
                 if (!product) return;
