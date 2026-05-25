@@ -1934,8 +1934,10 @@
 .pdp-price-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
+  text-align: center;
 }
 .pdp-price-row .pdp-price-now {
   font-size: 31px;
