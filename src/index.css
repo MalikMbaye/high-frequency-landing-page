@@ -1912,7 +1912,60 @@
   .wib-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
   .wib-item:nth-child(5) { grid-column: 1 / -1; }
   .wib-icon { width: 72px; height: 72px; }
+  .pdp-purchase-card { padding: 14px 16px; gap: 12px; border-radius: 16px; }
+  .pdp-purchase-name { font-size: 13px; }
 }
+
+/* PDP purchase card with quantity selector */
+.pdp-purchase-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px 22px;
+  background: #F5F1E8;
+  border: 1px solid #E5DCC8;
+  border-radius: 20px;
+}
+.pdp-purchase-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pdp-purchase-name {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #000;
+  text-transform: uppercase;
+}
+.pdp-qty {
+  display: inline-flex;
+  align-items: center;
+  background: #FFF;
+  border: 1px solid #E5DCC8;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.pdp-qty button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 0;
+  color: #000;
+  cursor: pointer;
+}
+.pdp-qty button:disabled { opacity: 0.35; cursor: not-allowed; }
+.pdp-qty-value {
+  min-width: 28px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
