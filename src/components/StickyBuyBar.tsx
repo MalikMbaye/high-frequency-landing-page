@@ -7,7 +7,14 @@ const StickyBuyBar = () => {
   const { buyNow, isLoading } = useBuyNow();
 
   useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 720px)");
+
     const update = () => {
+      if (mobileQuery.matches) {
+        setShow(true);
+        return;
+      }
+
       const hero = document.getElementById("hero");
       const buy = document.getElementById("buy");
       if (!hero) return;
@@ -29,10 +36,13 @@ const StickyBuyBar = () => {
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
+    mobileQuery.addEventListener("change", update);
     update();
+
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      mobileQuery.removeEventListener("change", update);
     };
   }, []);
 
