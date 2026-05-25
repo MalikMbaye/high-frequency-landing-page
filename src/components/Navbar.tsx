@@ -56,7 +56,7 @@ const Navbar = () => {
           <a href="#product">Product</a>
           <a href="#reviews">Reviews</a>
         </nav>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 ml-auto">
           <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-sm">{isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}</button>
           <CartDrawer />
           <button
