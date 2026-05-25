@@ -5,7 +5,7 @@ const ProductReveal = () => {
     <section className="section section-light product-reveal" id="product" data-theme="light">
       <div className="hfh-container">
         <h2 className="section-header">Frequency Science. In a Pair of Headphones.</h2>
-        <p className="section-sub">High Frequency Highway. Frequency headphones paired with a precision frequency app.</p>
+        <p className="section-sub">High Frequency Headphones. Frequency headphones paired with a precision frequency app.</p>
 
         {/* Row 1: HARDWARE */}
         <div className="reveal-row">

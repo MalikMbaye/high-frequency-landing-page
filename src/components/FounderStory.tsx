@@ -13,7 +13,7 @@ const FounderStory = () => {
 
         <div className="founder-block">
           <figure className="founder-figure">
-            <img src={img_bCInaQuM} alt="J Johnson Jr. on stage presenting High Frequency Highway" />
+            <img src={img_bCInaQuM} alt="J Johnson Jr. on stage presenting High Frequency Headphones" />
           </figure>
           <div className="founder-copy">
           <Expandable collapsedHeight={320}>
