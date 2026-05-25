@@ -1,8 +1,8 @@
 import { ArrowRight, Brain, Landmark, TrendingUp, Loader2 } from "lucide-react";
-import img_8LB4jvGU from "@/assets/genspark/8LB4jvGU.jpg";
-import img_Rp0TCgqL from "@/assets/genspark/Rp0TCgqL.jpg";
-import img_SmtUY9Nr from "@/assets/genspark/SmtUY9Nr.jpg";
-import img_xSGiWWRx from "@/assets/genspark/xSGiWWRx.jpg";
+import img_8LB4jvGU from "@/assets/genspark/8LB4jvGU.webp";
+import img_Rp0TCgqL from "@/assets/genspark/Rp0TCgqL.webp";
+import img_SmtUY9Nr from "@/assets/genspark/SmtUY9Nr.webp";
+import img_xSGiWWRx from "@/assets/genspark/xSGiWWRx.webp";
 import Expandable from "./Expandable";
 import { useBuyNow } from "@/hooks/useBuyNow";
 

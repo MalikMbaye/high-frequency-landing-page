@@ -1,8 +1,8 @@
-import img_0bGQsqAQ from "@/assets/genspark/0bGQsqAQ.png";
-import img_33eRRyE9 from "@/assets/genspark/33eRRyE9.png";
-import img_TqT6saaC from "@/assets/genspark/TqT6saaC.png";
-import img_eyqqYZrK from "@/assets/genspark/eyqqYZrK.png";
-import img_ohrwRejH from "@/assets/genspark/ohrwRejH.png";
+import img_0bGQsqAQ from "@/assets/genspark/0bGQsqAQ.webp";
+import img_33eRRyE9 from "@/assets/genspark/33eRRyE9.webp";
+import img_TqT6saaC from "@/assets/genspark/TqT6saaC.webp";
+import img_eyqqYZrK from "@/assets/genspark/eyqqYZrK.webp";
+import img_ohrwRejH from "@/assets/genspark/ohrwRejH.webp";
 const UseCases = () => {
   return (
     <section className="section section-light use-cases" data-theme="light">

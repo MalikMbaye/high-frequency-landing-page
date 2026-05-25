@@ -8,21 +8,21 @@ import { useCartStore } from "@/stores/cartStore";
 const LP_PRODUCT_HANDLE = "high-frequency-headphones-lp-test-169-99";
 
 // Branded product gallery images
-import img01 from "@/assets/product/01-resets-brain-60s.png";
-import img02 from "@/assets/product/02-meditation-works.png";
-import img03 from "@/assets/product/03-more-use-less-need.png";
-import img04 from "@/assets/product/04-frequency-dude.png";
-import img05 from "@/assets/product/05-no-pills-no-migraines.png";
-import img06 from "@/assets/product/06-tinnitus.png";
-import img07 from "@/assets/product/07-100x-per-second.png";
-import img08 from "@/assets/product/08-transported-me.png";
-import img09 from "@/assets/product/09-fall-asleep-without-melatonin.png";
-import img10 from "@/assets/product/10-not-chemicals-frequency.png";
-import img11 from "@/assets/product/11-coffee-dehydrates.png";
-import img12 from "@/assets/product/12-one-purchase-replaces.png";
-import img13 from "@/assets/product/13-spine-straightens.png";
-import img14 from "@/assets/product/14-lock-in-without-adderall.png";
-import img15 from "@/assets/product/15-from-adderall-to-frequency.png";
+import img01 from "@/assets/product/01-resets-brain-60s.webp";
+import img02 from "@/assets/product/02-meditation-works.webp";
+import img03 from "@/assets/product/03-more-use-less-need.webp";
+import img04 from "@/assets/product/04-frequency-dude.webp";
+import img05 from "@/assets/product/05-no-pills-no-migraines.webp";
+import img06 from "@/assets/product/06-tinnitus.webp";
+import img07 from "@/assets/product/07-100x-per-second.webp";
+import img08 from "@/assets/product/08-transported-me.webp";
+import img09 from "@/assets/product/09-fall-asleep-without-melatonin.webp";
+import img10 from "@/assets/product/10-not-chemicals-frequency.webp";
+import img11 from "@/assets/product/11-coffee-dehydrates.webp";
+import img12 from "@/assets/product/12-one-purchase-replaces.webp";
+import img13 from "@/assets/product/13-spine-straightens.webp";
+import img14 from "@/assets/product/14-lock-in-without-adderall.webp";
+import img15 from "@/assets/product/15-from-adderall-to-frequency.webp";
 
 type GalleryItem = { src: string; alt: string };
 

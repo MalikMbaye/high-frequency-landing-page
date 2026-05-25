@@ -1,5 +1,5 @@
 import { ArrowRight, Bolt, Flower2, Moon, Target, Waves } from "lucide-react";
-import img_8kyfS5Ig from "@/assets/genspark/8kyfS5Ig.jpg";
+import img_8kyfS5Ig from "@/assets/genspark/8kyfS5Ig.webp";
 
 const FiveStates = () => {
   return (

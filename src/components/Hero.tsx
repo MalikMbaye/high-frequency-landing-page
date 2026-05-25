@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import img_w2bSNIr2 from "@/assets/genspark/w2bSNIr2.jpg";
+import img_w2bSNIr2 from "@/assets/genspark/w2bSNIr2.webp";
 
 const Hero = () => {
   return (

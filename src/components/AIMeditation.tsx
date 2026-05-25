@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import img_C0hsxh35 from "@/assets/genspark/C0hsxh35.png";
+import img_C0hsxh35 from "@/assets/genspark/C0hsxh35.webp";
 
 const AIMeditation = () => {
   return (
