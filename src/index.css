@@ -1961,32 +1961,33 @@
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
-.pdp-price-row .pdp-qty {
-  margin-left: auto;
-  display: inline-flex;
+.pdp-qty {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   background: #FFF;
   border: 1px solid #E5DCC8;
   border-radius: 999px;
   overflow: hidden;
 }
-.pdp-price-row .pdp-qty button {
+.pdp-qty button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 44px;
+  height: 40px;
   background: transparent;
   border: 0;
   color: #000;
   cursor: pointer;
+  flex-shrink: 1;
 }
-.pdp-price-row .pdp-qty button:disabled { opacity: 0.35; cursor: not-allowed; }
-.pdp-price-row .pdp-qty-value {
-  min-width: 20px;
+.pdp-qty button:disabled { opacity: 0.35; cursor: not-allowed; }
+.pdp-qty-value {
+  min-width: 32px;
   text-align: center;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 15px;
 }
 .pdp-purchase-card .pdp-cta {
   padding: 13px 22px;

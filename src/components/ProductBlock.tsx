@@ -229,15 +229,16 @@ const ProductBlock = () => {
                 </span>
                 <span className="pdp-price-was">${347 * quantity}</span>
                 <span className="pdp-save-badge">SAVE $178 · 51%</span>
-                <div className="pdp-qty" role="group" aria-label="Quantity">
-                  <button type="button" aria-label="Decrease quantity" onClick={() => setQuantity((q) => Math.max(1, q - 1))} disabled={quantity <= 1}>
-                    <Minus size={12} />
-                  </button>
-                  <span className="pdp-qty-value" aria-live="polite">{quantity}</span>
-                  <button type="button" aria-label="Increase quantity" onClick={() => setQuantity((q) => Math.min(10, q + 1))}>
-                    <Plus size={12} />
-                  </button>
-                </div>
+              </div>
+
+              <div className="pdp-qty" role="group" aria-label="Quantity">
+                <button type="button" aria-label="Decrease quantity" onClick={() => setQuantity((q) => Math.max(1, q - 1))} disabled={quantity <= 1}>
+                  <Minus size={14} />
+                </button>
+                <span className="pdp-qty-value" aria-live="polite">{quantity}</span>
+                <button type="button" aria-label="Increase quantity" onClick={() => setQuantity((q) => Math.min(10, q + 1))}>
+                  <Plus size={14} />
+                </button>
               </div>
 
               <button
