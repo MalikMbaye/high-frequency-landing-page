@@ -28,7 +28,7 @@ const PriceReframe = () => {
 
         <div className="final-cta-area" style={{ textAlign: "center" }}>
           <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-xl">
-            {isLoading ? <Loader2 className="animate-spin h-5 w-5" /> : <>Get Your High Frequency Highway Headphones <ArrowRight size={18} /></>}
+            {isLoading ? <Loader2 className="animate-spin h-5 w-5" /> : <>Get Your High Frequency Headphones Headphones <ArrowRight size={18} /></>}
           </button>
           <p className="sub-button">Start rebuilding your brain today. Ships worldwide.</p>
         </div>

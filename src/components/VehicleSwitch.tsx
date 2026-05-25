@@ -51,7 +51,7 @@ const VehicleSwitch = () => {
           <div className="ledger-row hfh-row">
             <div className="prod-icon hfh-icon"><Headphones size={26} /></div>
             <div className="prod-info">
-              <h5>High Frequency Highway</h5>
+              <h5>High Frequency Headphones</h5>
               <span className="cost-good">One Purchase <Check size={16} /></span>
             </div>
             <p className="prod-drawback">No subscription. No side effects. No crash. No dependency. Focus, calm, flow, or sleep on demand. Builds neuroplasticity with every session.</p>
