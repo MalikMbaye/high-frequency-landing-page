@@ -260,9 +260,10 @@ const ProductBlock = () => {
                   variantId: selectedVariant.id,
                   variantTitle: selectedVariant.title,
                   price: selectedVariant.price,
-                  quantity: 1,
+                  quantity,
                   selectedOptions: selectedVariant.selectedOptions || []
                 });
+
 
                 const url = useCartStore.getState().getCheckoutUrl();
                 if (url) window.open(url, "_blank");
