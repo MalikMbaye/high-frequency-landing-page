@@ -1921,19 +1921,22 @@
   .pdp-purchase-name { font-size: 13px; }
 }
 
-/* PDP purchase card — slim/compact */
+/* PDP purchase card — slim/compact, centered */
 .pdp-purchase-card {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 12px;
-  padding: 13px;
+  padding: 16px 13px;
   background: #F5F1E8;
   border: 1px solid #E5DCC8;
   border-radius: 14px;
+  text-align: center;
 }
 .pdp-price-row {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
 }
@@ -1945,7 +1948,7 @@
   letter-spacing: -0.01em;
 }
 .pdp-price-row .pdp-price-was {
-  font-size: 16px;
+  font-size: 18px;
   color: #888;
   text-decoration: line-through;
   margin: 0;
@@ -1956,13 +1959,12 @@
   color: #FFF;
   font-size: 11px;
   font-weight: 700;
-  padding: 5px 9px;
-  border-radius: 6px;
-  letter-spacing: 0.03em;
+  padding: 5px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 .pdp-price-row .pdp-qty {
-  margin-left: auto;
   display: inline-flex;
   align-items: center;
   background: #FFF;
@@ -1974,8 +1976,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   background: transparent;
   border: 0;
   color: #000;
@@ -1983,12 +1985,13 @@
 }
 .pdp-price-row .pdp-qty button:disabled { opacity: 0.35; cursor: not-allowed; }
 .pdp-price-row .pdp-qty-value {
-  min-width: 20px;
+  min-width: 18px;
   text-align: center;
   font-weight: 700;
   font-size: 13px;
 }
 .pdp-purchase-card .pdp-cta {
+  width: 100%;
   padding: 13px 22px;
   font-size: 15px;
   border-radius: 999px;
