@@ -1941,19 +1941,19 @@
   font-size: 31px;
   font-weight: 800;
   line-height: 1;
-  color: #000;
+  color: #1a7f3c;
   letter-spacing: -0.01em;
 }
 .pdp-price-row .pdp-price-was {
   font-size: 16px;
-  color: #888;
+  color: #c0392b;
   text-decoration: line-through;
   margin: 0;
   font-weight: 500;
 }
 .pdp-price-row .pdp-save-badge {
-  background: #000;
-  color: #FFF;
+  background: #d4f0dc;
+  color: #1a7f3c;
   font-size: 11px;
   font-weight: 700;
   padding: 5px 9px;
