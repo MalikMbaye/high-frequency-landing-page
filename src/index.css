@@ -258,8 +258,13 @@
     border: none;
     margin-left: auto;
     color: inherit;
-    padding: 4px;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
   }
+
   .mobile-menu {
     display: none;
     flex-direction: column;
