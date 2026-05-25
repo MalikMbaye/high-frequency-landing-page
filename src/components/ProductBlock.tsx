@@ -127,7 +127,9 @@ const ProductBlock = () => {
   const [index, setIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [quantity, setQuantity] = useState(1);
   const fadeTimer = useRef<number | null>(null);
+
 
   const { data: product } = useShopifyProductByHandle(LP_PRODUCT_HANDLE);
   const addItem = useCartStore(state => state.addItem);
