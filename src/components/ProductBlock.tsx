@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { Check, ChevronLeft, ChevronRight, Star, Loader2 } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Star, Loader2, Minus, Plus } from "lucide-react";
+
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
 
@@ -126,7 +127,9 @@ const ProductBlock = () => {
   const [index, setIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [quantity, setQuantity] = useState(1);
   const fadeTimer = useRef<number | null>(null);
+
 
   const { data: product } = useShopifyProductByHandle(LP_PRODUCT_HANDLE);
   const addItem = useCartStore(state => state.addItem);
@@ -219,18 +222,30 @@ const ProductBlock = () => {
               <li><span className="pdp-bullet-check"><Check size={12} /></span>Used in 25+ Countries Worldwide</li>
             </ul>
 
-            <label className="pdp-price-box" htmlFor="pdpBuyOption">
-              <input type="radio" id="pdpBuyOption" name="pdp-buy-option" className="pdp-price-radio" defaultChecked />
-              <span className="pdp-price-radio-fake" aria-hidden="true"></span>
-              <span className="pdp-price-label">1 PAIR OF HIGH FREQUENCY HEADPHONES</span>
-              <span className="pdp-save-badge">SAVE $178</span>
-              <span className="pdp-price-amounts">
-                <span className="pdp-price-now">
-                  {product ? `${product.node.priceRange.minVariantPrice.currencyCode === 'USD' ? '$' : ''}${Math.floor(parseFloat(product.node.priceRange.minVariantPrice.amount))}` : "$169"}
+            <div className="pdp-purchase-card">
+              <div className="pdp-purchase-row">
+                <span className="pdp-purchase-name">High Frequency Headphones</span>
+                <span className="pdp-save-badge">SAVE $178</span>
+              </div>
+              <div className="pdp-purchase-row pdp-purchase-row-bottom">
+                <div className="pdp-qty" role="group" aria-label="Quantity">
+                  <button type="button" aria-label="Decrease quantity" onClick={() => setQuantity((q) => Math.max(1, q - 1))} disabled={quantity <= 1}>
+                    <Minus size={14} />
+                  </button>
+                  <span className="pdp-qty-value" aria-live="polite">{quantity}</span>
+                  <button type="button" aria-label="Increase quantity" onClick={() => setQuantity((q) => Math.min(10, q + 1))}>
+                    <Plus size={14} />
+                  </button>
+                </div>
+                <span className="pdp-price-amounts">
+                  <span className="pdp-price-now">
+                    {product ? `${product.node.priceRange.minVariantPrice.currencyCode === 'USD' ? '$' : ''}${Math.floor(parseFloat(product.node.priceRange.minVariantPrice.amount)) * quantity}` : `$${169 * quantity}`}
+                  </span>
+                  <span className="pdp-price-was">${347 * quantity}</span>
                 </span>
-                <span className="pdp-price-was">$347</span>
-              </span>
-            </label>
+              </div>
+            </div>
+
 
             <button 
               className="pdp-cta w-full flex justify-center items-center"
@@ -245,9 +260,10 @@ const ProductBlock = () => {
                   variantId: selectedVariant.id,
                   variantTitle: selectedVariant.title,
                   price: selectedVariant.price,
-                  quantity: 1,
+                  quantity,
                   selectedOptions: selectedVariant.selectedOptions || []
                 });
+
 
                 const url = useCartStore.getState().getCheckoutUrl();
                 if (url) window.open(url, "_blank");

@@ -60,12 +60,14 @@ const Navbar = () => {
           <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-sm">{isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}</button>
           <CartDrawer />
           <button
-            className="nav-toggle ml-2"
+            type="button"
+            className="nav-toggle"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((o) => !o)}
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
+
         </div>
       </div>
       <div className={`mobile-menu ${open ? "open" : ""}`}>
