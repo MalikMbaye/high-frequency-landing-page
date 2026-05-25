@@ -1921,30 +1921,48 @@
   .pdp-purchase-name { font-size: 13px; }
 }
 
-/* PDP purchase card with quantity selector */
+/* PDP purchase card — slim/compact */
 .pdp-purchase-card {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: 18px 22px;
+  gap: 12px;
+  padding: 13px;
   background: #F5F1E8;
   border: 1px solid #E5DCC8;
-  border-radius: 20px;
+  border-radius: 14px;
 }
-.pdp-purchase-row {
+.pdp-price-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-.pdp-purchase-name {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+.pdp-price-row .pdp-price-now {
+  font-size: 31px;
+  font-weight: 800;
+  line-height: 1;
   color: #000;
+  letter-spacing: -0.01em;
+}
+.pdp-price-row .pdp-price-was {
+  font-size: 16px;
+  color: #888;
+  text-decoration: line-through;
+  margin: 0;
+  font-weight: 500;
+}
+.pdp-price-row .pdp-save-badge {
+  background: #000;
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 9px;
+  border-radius: 6px;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
 }
-.pdp-qty {
+.pdp-price-row .pdp-qty {
+  margin-left: auto;
   display: inline-flex;
   align-items: center;
   background: #FFF;
@@ -1952,23 +1970,28 @@
   border-radius: 999px;
   overflow: hidden;
 }
-.pdp-qty button {
+.pdp-price-row .pdp-qty button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   background: transparent;
   border: 0;
   color: #000;
   cursor: pointer;
 }
-.pdp-qty button:disabled { opacity: 0.35; cursor: not-allowed; }
-.pdp-qty-value {
-  min-width: 28px;
+.pdp-price-row .pdp-qty button:disabled { opacity: 0.35; cursor: not-allowed; }
+.pdp-price-row .pdp-qty-value {
+  min-width: 20px;
   text-align: center;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
+}
+.pdp-purchase-card .pdp-cta {
+  padding: 13px 22px;
+  font-size: 15px;
+  border-radius: 999px;
 }
 
 
