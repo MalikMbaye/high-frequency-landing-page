@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import img_cmPVNmax from "@/assets/genspark/cmPVNmax.png";
+import img_cmPVNmax from "@/assets/genspark/cmPVNmax.webp";
 
 const Generator = () => {
   return (

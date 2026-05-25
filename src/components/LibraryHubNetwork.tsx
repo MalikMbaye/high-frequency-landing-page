@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
-import img_0NZ0CLru from "@/assets/genspark/0NZ0CLru.jpg";
-import img_Xq82Mk5S from "@/assets/genspark/Xq82Mk5S.jpg";
-import img_cdI1KKwk from "@/assets/genspark/cdI1KKwk.jpg";
+import img_0NZ0CLru from "@/assets/genspark/0NZ0CLru.webp";
+import img_Xq82Mk5S from "@/assets/genspark/Xq82Mk5S.webp";
+import img_cdI1KKwk from "@/assets/genspark/cdI1KKwk.webp";
 
 const LibraryHubNetwork = () => {
   return (

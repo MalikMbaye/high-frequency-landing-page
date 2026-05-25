@@ -1,5 +1,5 @@
-import img_NpWJA0G8 from "@/assets/genspark/NpWJA0G8.jpg";
-import img_dAKCEFQK from "@/assets/genspark/dAKCEFQK.png";
+import img_NpWJA0G8 from "@/assets/genspark/NpWJA0G8.webp";
+import img_dAKCEFQK from "@/assets/genspark/dAKCEFQK.webp";
 const ProductReveal = () => {
   return (
     <section className="section section-light product-reveal" id="product" data-theme="light">

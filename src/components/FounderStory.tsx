@@ -1,5 +1,5 @@
-import img_4Gc3icy1 from "@/assets/genspark/4Gc3icy1.jpg";
-import img_bCInaQuM from "@/assets/genspark/bCInaQuM.jpg";
+import img_4Gc3icy1 from "@/assets/genspark/4Gc3icy1.webp";
+import img_bCInaQuM from "@/assets/genspark/bCInaQuM.webp";
 import Expandable from "./Expandable";
 const FounderStory = () => {
   return (

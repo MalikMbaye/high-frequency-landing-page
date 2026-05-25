@@ -1,4 +1,4 @@
-import img_G1vHJv9R from "@/assets/genspark/G1vHJv9R.jpg";
+import img_G1vHJv9R from "@/assets/genspark/G1vHJv9R.webp";
 const Neuroplasticity = () => {
   return (
     <section className="section section-dark neuroplasticity" data-theme="dark">
