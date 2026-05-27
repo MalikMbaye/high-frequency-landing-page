@@ -87,9 +87,6 @@ const Index = () => {
         <LibraryHubNetwork />
       </LazySection>
       <LazySection>
-        <ProductBlock />
-      </LazySection>
-      <LazySection>
         <UseCases />
       </LazySection>
       <LazySection>
