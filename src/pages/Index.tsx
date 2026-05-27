@@ -53,68 +53,70 @@ const Index = () => {
       <ProductBlock />
       <WhatsInBox />
 
-      {/* Below-the-fold: mount as user scrolls down */}
-      <Suspense fallback={<Fallback />}>
-        <LazySection>
-          <YouTubeShortsCarousel videos={shortsAfterFirstPDP} id="reviews" />
-        </LazySection>
-        <LazySection>
-          <WrongTeardown />
-        </LazySection>
-        <LazySection>
-          <HowItWorks />
-        </LazySection>
-        <LazySection>
-          <BeforeAfterScience />
-        </LazySection>
-        <LazySection>
-          <YouTubeShortsCarousel videos={shortsAfterSecondPDP} />
-        </LazySection>
-        <LazySection>
-          <Neuroplasticity />
-        </LazySection>
-        <LazySection>
-          <ProductReveal />
-        </LazySection>
-        <LazySection>
-          <FiveStates />
-        </LazySection>
-        <LazySection>
-          <AIMeditation />
-        </LazySection>
-        <LazySection>
-          <LibraryHubNetwork />
-        </LazySection>
-        <LazySection>
-          <ProductBlock />
-        </LazySection>
-        <LazySection>
-          <UseCases />
-        </LazySection>
-        <LazySection>
-          <StatsBlock />
-        </LazySection>
-        <LazySection>
-          <VehicleSwitch />
-        </LazySection>
-        <LazySection>
-          <ProductBlock />
-        </LazySection>
-        <LazySection>
-          <YouTubeShortsCarousel videos={shortsAfterThirdPDP} />
-        </LazySection>
-        <LazySection>
-          <PriceReframe />
-        </LazySection>
-        <LazySection>
-          <FAQ />
-        </LazySection>
-        <LazySection>
-          <FounderStory />
-        </LazySection>
-        <LazySection>
-          <Footer />
-        </LazySection>
+      {/* Below-the-fold: mount as user scrolls down. Each LazySection has its
+          own Suspense boundary so loading one chunk does not collapse the
+          others (which previously caused mid-scroll jumps to the top). */}
+      <LazySection>
+        <YouTubeShortsCarousel videos={shortsAfterFirstPDP} id="reviews" />
+      </LazySection>
+      <LazySection>
+        <WrongTeardown />
+      </LazySection>
+      <LazySection>
+        <HowItWorks />
+      </LazySection>
+      <LazySection>
+        <BeforeAfterScience />
+      </LazySection>
+      <LazySection>
+        <YouTubeShortsCarousel videos={shortsAfterSecondPDP} />
+      </LazySection>
+      <LazySection>
+        <Neuroplasticity />
+      </LazySection>
+      <LazySection>
+        <ProductReveal />
+      </LazySection>
+      <LazySection>
+        <FiveStates />
+      </LazySection>
+      <LazySection>
+        <AIMeditation />
+      </LazySection>
+      <LazySection>
+        <LibraryHubNetwork />
+      </LazySection>
+      <LazySection>
+        <ProductBlock />
+      </LazySection>
+      <LazySection>
+        <UseCases />
+      </LazySection>
+      <LazySection>
+        <StatsBlock />
+      </LazySection>
+      <LazySection>
+        <VehicleSwitch />
+      </LazySection>
+      <LazySection>
+        <ProductBlock />
+      </LazySection>
+      <LazySection>
+        <YouTubeShortsCarousel videos={shortsAfterThirdPDP} />
+      </LazySection>
+      <LazySection>
+        <PriceReframe />
+      </LazySection>
+      <LazySection>
+        <FAQ />
+      </LazySection>
+      <LazySection>
+        <FounderStory />
+      </LazySection>
+      <LazySection>
+        <Footer />
+      </LazySection>
+      <Suspense fallback={null}>
         <StickyBuyBar />
       </Suspense>
     </div>
