@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, ReactNode } from "react";
+import { Suspense, useEffect, useRef, useState, ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
@@ -10,7 +10,8 @@ interface Props {
 
 /**
  * Mounts its children only when the placeholder nears the viewport.
- * Used to defer below-the-fold sections so the top of the page paints fast.
+ * Each instance has its own Suspense boundary so a chunk loading below
+ * does not collapse already-rendered sections above.
  */
 const LazySection = ({ children, minHeight = 400, rootMargin = "600px 0px" }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -44,7 +45,9 @@ const LazySection = ({ children, minHeight = 400, rootMargin = "600px 0px" }: Pr
 
   return (
     <div ref={ref} style={!visible ? { minHeight } : undefined}>
-      {visible ? children : null}
+      {visible ? (
+        <Suspense fallback={<div style={{ minHeight }} />}>{children}</Suspense>
+      ) : null}
     </div>
   );
 };
