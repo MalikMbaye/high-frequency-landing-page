@@ -28,6 +28,7 @@ const Footer = () => {
         <div className="footer-brand">HIGH FREQUENCY HIGHWAY</div>
         <nav className="footer-links">
           <a href="/contact">CONTACT</a>
+          <a href="/shipping-policy">SHIPPING & RETURNS</a>
         </nav>
 
         <div className="footer-social-group">
