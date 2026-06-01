@@ -2002,3 +2002,63 @@
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* Policy pages (Shipping, Returns, etc.) */
+.policy-page h2 {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+.policy-page h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 1.75rem;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.policy-page p,
+.policy-page li {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0.85rem;
+}
+.policy-page ul,
+.policy-page ol {
+  padding-left: 1.4rem;
+  margin-bottom: 1rem;
+}
+.policy-page a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.policy-table-wrap {
+  overflow-x: auto;
+  margin: 1rem 0 1.5rem;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
+}
+.policy-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.policy-table th,
+.policy-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  vertical-align: top;
+}
+.policy-table th {
+  background: rgba(0,0,0,0.04);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.policy-table tr:last-child td { border-bottom: 0; }
