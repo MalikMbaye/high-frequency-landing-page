@@ -17,12 +17,12 @@ const VideoProof = () => {
             background: "var(--hfh-navy-deep)",
           }}
         >
-          <video
-            src="/videos/brain-test.mp4"
-            controls
-            playsInline
-            preload="metadata"
-            style={{ width: "100%", height: "auto", display: "block" }}
+          <iframe
+            src="https://www.youtube.com/embed/CXjLAr6SPmE?rel=0&modestbranding=1&playsinline=1"
+            title="Brain Test Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            style={{ width: "100%", aspectRatio: "9/16", border: 0, display: "block" }}
           />
         </div>
         <p className="video-caption">
