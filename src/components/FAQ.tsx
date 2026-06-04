@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Brain, ChevronDown, FlaskConical, Globe, Headphones, Music, Shield, Timer } from "lucide-react";
+import { Brain, ChevronDown, FlaskConical, Globe, Headphones, Music, Package, RefreshCw, Shield, Timer, Truck, Wrench } from "lucide-react";
 
 type Item = {
   Icon: typeof Brain;
@@ -34,16 +34,37 @@ const items: Item[] = [
     a: "The first time you put them on, you'll feel the shift in under 60 seconds. We've recorded over 300 first-time reactions on camera. The eyes widen. The spine straightens. Everyone says the same thing.",
   },
   {
+    Icon: Truck,
+    q: "How long does shipping take?",
+    a: "In-stock orders are processed in 1-3 business days and typically arrive within 7-14 business days from your order date. International orders ship within 3-5 business days of processing and arrive in 14-28 business days depending on destination. High-demand and pre-order units are clearly noted on the product page and ship within 2-4 weeks. Every order receives a tracking number by email once it leaves our fulfillment center.",
+  },
+  {
+    Icon: Package,
+    q: "What happens after I place my order?",
+    a: "You get an order confirmation email immediately. If your order falls in a high-demand window, we email you within 48 hours with an updated ship date. When your unit leaves the fulfillment center, you get a shipping confirmation with tracking. If your order hasn't shipped within 30 days and you haven't received a shipping notification, you're entitled to a full refund on request.",
+  },
+  {
     Icon: Globe,
     q: "Do you ship internationally?",
-    a: "We've shipped to over 25 countries. Yes, we ship worldwide.",
+    a: "Yes. We've shipped to over 25 countries. International orders take 3-5 business days to process and 14-28 business days to arrive depending on destination. Shipping is calculated at checkout. International return shipping is the responsibility of the customer.",
   },
   {
     Icon: Shield,
     q: "What if it doesn't work for me?",
-    a: "30-day money-back guarantee. Full refund. No questions. We've done this demo hundreds of times, in person, on camera, at events, with celebrities, with regular people. The reaction is the same every time.",
+    a: "30-day money-back guarantee, starting on the date your order is delivered. Try them, use them, push them. If they're not for you, email support@highfrequencyhighway.com with your order number and we'll send a prepaid return label within 24 hours (domestic). Refund hits your original payment method within 5-10 business days of us receiving the return. Original shipping costs are not refunded.",
+  },
+  {
+    Icon: RefreshCw,
+    q: "Can I exchange for a different model or cancel my order?",
+    a: "We don't offer direct exchanges right now. Return your original order using the 30-day process and place a new order for the model you want. If your order hasn't shipped yet, you can cancel anytime for a full refund — email support@highfrequencyhighway.com with \"Cancel\" in the subject line and your order number, and we'll confirm within 48 hours.",
+  },
+  {
+    Icon: Wrench,
+    q: "What if my headphones arrive damaged or defective?",
+    a: "Email support@highfrequencyhighway.com immediately with your order number, photos of the damage, and a brief description. We'll ship a replacement at no cost, or issue a full refund including original shipping if a replacement isn't available. You don't need to send the damaged unit back unless we ask. Defective claims must be made within 60 days of delivery.",
   },
 ];
+
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
