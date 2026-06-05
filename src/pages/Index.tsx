@@ -48,8 +48,8 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Above-the-fold: render eagerly so the top paints instantly */}
       <Navbar />
-      <VideoProof />
       <Hero />
+      <VideoProof />
       <ProductBlock />
       <WhatsInBox />
 
