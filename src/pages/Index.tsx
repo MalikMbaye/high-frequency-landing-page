@@ -26,6 +26,7 @@ const Footer = lazy(() => import("@/components/Footer"));
 const StickyBuyBar = lazy(() => import("@/components/StickyBuyBar"));
 
 const shortsAfterFirstPDP = [
+  "https://www.youtube.com/watch?v=CXjLAr6SPmE",
   "https://www.youtube.com/shorts/BUUBmswVNRE",
   "https://www.youtube.com/shorts/ab0egzOwL4w",
   "https://www.youtube.com/shorts/ZZc5cOMMu3A",
