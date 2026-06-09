@@ -50,7 +50,7 @@ const Index = () => {
       {/* Above-the-fold: render eagerly so the top paints instantly */}
       <Navbar />
       <Hero />
-      <VideoProof />
+      
       <ProductBlock />
       <WhatsInBox />
 
