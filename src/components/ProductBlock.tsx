@@ -121,6 +121,17 @@ const accordionItems = [
       </>
     ),
   },
+  {
+    title: "Shipping & Delivery",
+    body: (
+      <>
+        <p>Orders are processed and shipped from our fulfillment center in the United States.</p>
+        <p><strong>Estimated delivery:</strong> 14 business days from order date for standard domestic shipping.</p>
+        <p>You will receive a tracking number by email once your order ships. If you have not received tracking within the estimated window, contact us at <a href="mailto:support@highfrequencyhighway.com">support@highfrequencyhighway.com</a> and we will respond within 24 hours.</p>
+        <p>Full shipping and return policy details are available on our <a href="/shipping">Shipping & Return Policy</a> page.</p>
+      </>
+    ),
+  },
 ];
 
 const ProductBlock = () => {
@@ -270,6 +281,9 @@ const ProductBlock = () => {
 
             <p className="pdp-trust">
               <span aria-hidden="true">⚡</span> Limited Stock Remaining · Ships With Next Batch <span aria-hidden="true">⚡</span>
+            </p>
+            <p className="pdp-delivery-estimate">
+              <span aria-hidden="true">📦</span> Estimated delivery: 14 business days
             </p>
 
             <div className="pdp-accordion">
