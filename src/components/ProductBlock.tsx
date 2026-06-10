@@ -282,6 +282,9 @@ const ProductBlock = () => {
             <p className="pdp-trust">
               <span aria-hidden="true">⚡</span> Limited Stock Remaining · Ships With Next Batch <span aria-hidden="true">⚡</span>
             </p>
+            <p className="pdp-delivery-estimate">
+              <span aria-hidden="true">📦</span> Estimated delivery: 14 business days
+            </p>
 
             <div className="pdp-accordion">
               {accordionItems.map((item, i) => (
