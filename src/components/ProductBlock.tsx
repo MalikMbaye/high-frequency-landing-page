@@ -134,19 +134,6 @@ const accordionItems = [
       </>
     ),
   },
-  {
-    title: "Shipping & Delivery",
-    body: (
-      <>
-        <p>Orders are processed and shipped from our U.S. fulfillment center. Each unit is hand-assembled, individually tested, and quality-inspected before shipping.</p>
-        <p><strong>Estimated delivery (current batch):</strong> 2-4 weeks from order date. Ships with the next production batch.</p>
-        <p><strong>In-stock orders:</strong> 1-3 business days processing, 7-14 business days delivery.</p>
-        <p><strong>International:</strong> 14-28 business days depending on destination.</p>
-        <p>You will receive a tracking number by email once your order ships. Questions? <a href="mailto:support@highfrequencyhighway.com">support@highfrequencyhighway.com</a> — we respond within 24 hours.</p>
-        <p>Full details on our <a href="/shipping">Shipping & Return Policy</a> page.</p>
-      </>
-    ),
-  },
 ];
 
 const ProductBlock = () => {
