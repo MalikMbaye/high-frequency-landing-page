@@ -47,19 +47,6 @@ const brandGallery: GalleryItem[] = [
 
 const accordionItems = [
   {
-    title: "Shipping & Delivery",
-    body: (
-      <>
-        <p>Orders ship from our U.S. fulfillment center. Each unit is hand-assembled, individually tested, and quality-inspected before shipping.</p>
-        <p><strong>Current batch (pre-order):</strong> 10-20 business days from order date. Ships with the next production batch.</p>
-        <p><strong>In-stock orders:</strong> Within 7 business days from order date.</p>
-        <p><strong>International:</strong> 14-28 business days depending on destination.</p>
-        <p>You will receive a tracking number by email once your order ships. Questions? <a href="mailto:support@highfrequencyhighway.com">support@highfrequencyhighway.com</a> — we respond within 24 hours.</p>
-        <p>Full details on our <a href="/shipping">Shipping & Return Policy</a> page.</p>
-      </>
-    ),
-  },
-  {
     title: "What's the science behind HFH?",
     body: (
       <>
@@ -131,6 +118,19 @@ const accordionItems = [
         </p>
         <p>Every state runs on a precision frequency stack. Includes the full Rife frequency library, Gateway Process binaural patterns, and AI-powered personalized meditation that adapts to your brain in real time.</p>
         <p>100,000+ downloads. 81% retention rate.</p>
+      </>
+    ),
+  },
+  {
+    title: "Shipping & Delivery",
+    body: (
+      <>
+        <p>Orders ship from our U.S. fulfillment center. Each unit is hand-assembled, individually tested, and quality-inspected before shipping.</p>
+        <p><strong>Current batch (pre-order):</strong> 10-20 business days from order date. Ships with the next production batch.</p>
+        <p><strong>In-stock orders:</strong> Within 7 business days from order date.</p>
+        <p><strong>International:</strong> 14-28 business days depending on destination.</p>
+        <p>You will receive a tracking number by email once your order ships. Questions? <a href="mailto:support@highfrequencyhighway.com">support@highfrequencyhighway.com</a> — we respond within 24 hours.</p>
+        <p>Full details on our <a href="/shipping">Shipping & Return Policy</a> page.</p>
       </>
     ),
   },
