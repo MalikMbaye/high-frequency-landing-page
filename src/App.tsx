@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import NotFound from "./pages/NotFound";
+import EmailCapturePopup from "./components/EmailCapturePopup";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const AppContent = () => {
         <Route path="/shipping-policy" element={<ShippingPolicy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <EmailCapturePopup />
     </BrowserRouter>
   );
 };
