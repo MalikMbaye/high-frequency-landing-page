@@ -7,6 +7,7 @@ import { useCartSync } from "@/hooks/useCartSync";
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import ShippingPolicy from "./pages/ShippingPolicy";
+import ShopifyInstalled from "./pages/ShopifyInstalled";
 import NotFound from "./pages/NotFound";
 import EmailCapturePopup from "./components/EmailCapturePopup";
 
