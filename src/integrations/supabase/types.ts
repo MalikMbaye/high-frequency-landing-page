@@ -14,7 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      shopify_tokens: {
+        Row: {
+          access_token: string
+          installed_at: string
+          scope: string | null
+          shop_domain: string
+          updated_at: string
+        }
+        Insert: {
+          access_token: string
+          installed_at?: string
+          scope?: string | null
+          shop_domain: string
+          updated_at?: string
+        }
+        Update: {
+          access_token?: string
+          installed_at?: string
+          scope?: string | null
+          shop_domain?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

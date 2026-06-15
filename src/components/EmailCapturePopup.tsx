@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const STORAGE_KEY = "hfh_email_popup_v1";
-// Avg engagement on landing pages ~25s — fire after user has had a moment to taste the brand
 const DELAY_MS = 25_000;
 const CODE = "FREQUENCYFAM";
 
@@ -14,6 +14,8 @@ const EmailCapturePopup = () => {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -24,7 +26,6 @@ const EmailCapturePopup = () => {
 
     const t = window.setTimeout(() => setOpen(true), DELAY_MS);
 
-    // Exit-intent fallback — desktop only
     const onExit = (e: MouseEvent) => {
       if (e.clientY <= 0) setOpen((o) => o || true);
     };
@@ -43,19 +44,37 @@ const EmailCapturePopup = () => {
     setOpen(next);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg(null);
     if (!isValidEmail(email)) {
-      toast.error("Please enter a valid email address.");
+      setErrorMsg("Please enter a valid email address.");
       return;
     }
+
+    setSubmitting(true);
     try {
-      localStorage.setItem(STORAGE_KEY, "subscribed");
-      const list = JSON.parse(localStorage.getItem("hfh_email_list") || "[]");
-      list.push({ email: email.trim().toLowerCase(), ts: Date.now() });
-      localStorage.setItem("hfh_email_list", JSON.stringify(list));
-    } catch {}
-    setSubmitted(true);
+      const { data, error } = await supabase.functions.invoke("subscribe-email", {
+        body: { email: email.trim().toLowerCase(), source: "landing-popup" },
+      });
+
+      if (error || !data?.success) {
+        const msg = data?.message || "Hmm, something went wrong. Try again in a moment.";
+        setErrorMsg(msg);
+        setSubmitting(false);
+        return;
+      }
+
+      try {
+        localStorage.setItem(STORAGE_KEY, "subscribed");
+      } catch {}
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      setErrorMsg("Hmm, something went wrong. Try again in a moment.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const copyCode = async () => {
@@ -81,7 +100,7 @@ const EmailCapturePopup = () => {
                 Join the Frequency Fam
               </div>
               <DialogTitle className="text-2xl md:text-3xl font-semibold leading-tight mb-2">
-                Tune in. Save <span className="text-purple-300">$50</span> on your headphones.
+                Tune in. Save <span className="text-purple-300">10%</span> on your headphones.
               </DialogTitle>
               <DialogDescription className="text-white/70 text-sm leading-relaxed mb-5">
                 Drop your email and we'll unlock your <strong className="text-white">FREQUENCYFAM</strong> insider code —
@@ -94,16 +113,28 @@ const EmailCapturePopup = () => {
                   required
                   autoFocus
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => { setEmail(e.target.value); if (errorMsg) setErrorMsg(null); }}
+                  disabled={submitting}
                   placeholder="you@frequency.com"
-                  className="w-full rounded-lg bg-white/5 border border-white/15 px-4 py-3 text-sm placeholder:text-white/40 focus:outline-none focus:border-purple-400/70 focus:bg-white/10 transition"
+                  className="w-full rounded-lg bg-white/5 border border-white/15 px-4 py-3 text-sm placeholder:text-white/40 focus:outline-none focus:border-purple-400/70 focus:bg-white/10 transition disabled:opacity-60"
                 />
                 <button
                   type="submit"
-                  className="w-full rounded-lg bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-400 hover:to-fuchsia-400 py-3 text-sm font-semibold uppercase tracking-wider transition"
+                  disabled={submitting}
+                  className="w-full flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-400 hover:to-fuchsia-400 py-3 text-sm font-semibold uppercase tracking-wider transition disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  Unlock My Code
+                  {submitting ? (
+                    <>
+                      <Loader2 className="animate-spin" size={16} />
+                      Unlocking…
+                    </>
+                  ) : (
+                    "Unlock My 10% Code"
+                  )}
                 </button>
+                {errorMsg && (
+                  <p className="text-xs text-red-300/90 text-center pt-1">{errorMsg}</p>
+                )}
               </form>
 
               <p className="text-[10px] text-white/40 mt-4 text-center">
@@ -116,10 +147,10 @@ const EmailCapturePopup = () => {
                 Welcome to the Fam
               </div>
               <DialogTitle className="text-2xl md:text-3xl font-semibold leading-tight mb-2">
-                You're in. Here's your code.
+                You're in. Here's your 10% code.
               </DialogTitle>
               <DialogDescription className="text-white/70 text-sm mb-5">
-                Apply <strong className="text-white">FREQUENCYFAM</strong> at checkout to save on your order.
+                Apply <strong className="text-white">FREQUENCYFAM</strong> at checkout to save 10% on your order.
               </DialogDescription>
 
               <button
