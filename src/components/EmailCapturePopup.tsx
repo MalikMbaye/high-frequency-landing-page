@@ -96,15 +96,11 @@ const EmailCapturePopup = () => {
 
           {!submitted ? (
             <>
-              <div className="text-[11px] tracking-[0.25em] uppercase text-purple-300/80 mb-3">
-                Join the Frequency Fam
-              </div>
               <DialogTitle className="text-2xl md:text-3xl font-semibold leading-tight mb-2">
-                Tune in. Save <span className="text-purple-300">10%</span> on your headphones.
+                Free app trial + <span className="text-purple-300">10% off</span> your order today.
               </DialogTitle>
               <DialogDescription className="text-white/70 text-sm leading-relaxed mb-5">
-                Drop your email and we'll unlock your <strong className="text-white">FREQUENCYFAM</strong> insider code —
-                plus first access to new frequencies, restocks, and founder drops. No spam, just signal.
+                Drop your email to get a free trial of the app and unlock 10% off your headphones.
               </DialogDescription>
 
               <form onSubmit={handleSubmit} className="space-y-3">
@@ -115,7 +111,7 @@ const EmailCapturePopup = () => {
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); if (errorMsg) setErrorMsg(null); }}
                   disabled={submitting}
-                  placeholder="you@frequency.com"
+                  placeholder="you@email.com"
                   className="w-full rounded-lg bg-white/5 border border-white/15 px-4 py-3 text-sm placeholder:text-white/40 focus:outline-none focus:border-purple-400/70 focus:bg-white/10 transition disabled:opacity-60"
                 />
                 <button
@@ -129,7 +125,7 @@ const EmailCapturePopup = () => {
                       Unlocking…
                     </>
                   ) : (
-                    "Unlock My 10% Code"
+                    "Start my free trial"
                   )}
                 </button>
                 {errorMsg && (
@@ -138,19 +134,16 @@ const EmailCapturePopup = () => {
               </form>
 
               <p className="text-[10px] text-white/40 mt-4 text-center">
-                We respect your inbox. Unsubscribe anytime.
+                No spam. Unsubscribe anytime.
               </p>
             </>
           ) : (
             <>
-              <div className="text-[11px] tracking-[0.25em] uppercase text-purple-300/80 mb-3">
-                Welcome to the Fam
-              </div>
               <DialogTitle className="text-2xl md:text-3xl font-semibold leading-tight mb-2">
-                You're in. Here's your 10% code.
+                You're in. Here's your 10% off.
               </DialogTitle>
               <DialogDescription className="text-white/70 text-sm mb-5">
-                Apply <strong className="text-white">FREQUENCYFAM</strong> at checkout to save 10% on your order.
+                Tap to copy — it'll apply at checkout. Your free trial is on its way to your inbox.
               </DialogDescription>
 
               <button
@@ -164,10 +157,16 @@ const EmailCapturePopup = () => {
               </button>
 
               <button
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  if (!copied) {
+                    copyCode();
+                  } else {
+                    setOpen(false);
+                  }
+                }}
                 className="w-full mt-4 rounded-lg bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-400 hover:to-fuchsia-400 py-3 text-sm font-semibold uppercase tracking-wider transition"
               >
-                Continue Shopping
+                {copied ? "Shop now" : "Copy code"}
               </button>
             </>
           )}
