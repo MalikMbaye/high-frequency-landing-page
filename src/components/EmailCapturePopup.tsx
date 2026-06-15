@@ -5,7 +5,7 @@ import { Copy, Check, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const STORAGE_KEY = "hfh_email_popup_v1";
-const DELAY_MS = 25_000;
+const DELAY_MS = 30_000;
 const CODE = "FREQUENCYFAM";
 
 const isValidEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
