@@ -21,6 +21,7 @@ const AppContent = () => {
         <Route path="/" element={<Index />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/shipping-policy" element={<ShippingPolicy />} />
+        <Route path="/shopify-installed" element={<ShopifyInstalled />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <EmailCapturePopup />
