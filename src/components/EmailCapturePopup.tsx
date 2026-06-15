@@ -139,14 +139,11 @@ const EmailCapturePopup = () => {
             </>
           ) : (
             <>
-              <div className="text-[11px] tracking-[0.25em] uppercase text-purple-300/80 mb-3">
-                Welcome to the Fam
-              </div>
               <DialogTitle className="text-2xl md:text-3xl font-semibold leading-tight mb-2">
-                You're in. Here's your 10% code.
+                You're in. Here's your 10% off.
               </DialogTitle>
               <DialogDescription className="text-white/70 text-sm mb-5">
-                Apply <strong className="text-white">FREQUENCYFAM</strong> at checkout to save 10% on your order.
+                Tap to copy — it'll apply at checkout. Your free trial is on its way to your inbox.
               </DialogDescription>
 
               <button
@@ -160,10 +157,16 @@ const EmailCapturePopup = () => {
               </button>
 
               <button
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  if (!copied) {
+                    copyCode();
+                  } else {
+                    setOpen(false);
+                  }
+                }}
                 className="w-full mt-4 rounded-lg bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-400 hover:to-fuchsia-400 py-3 text-sm font-semibold uppercase tracking-wider transition"
               >
-                Continue Shopping
+                {copied ? "Shop now" : "Copy code"}
               </button>
             </>
           )}
