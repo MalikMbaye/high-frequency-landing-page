@@ -3,6 +3,9 @@ import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors'
 
 const SHOPIFY_CLIENT_ID = 'f21428a8b33f84605264812dc1185954'
 const SHOPIFY_SHOP_DOMAIN = '86z1ah-wz.myshopify.com'
+const SHOPIFY_CALLBACK_URL = 'https://mvgwectctjiklltqasgq.supabase.co/functions/v1/shopify-oauth-callback'
+const SHOPIFY_SCOPES = 'read_customers,write_customers'
+const STATE_COOKIE_NAME = 'shopify_oauth_state'
 
 async function verifyHmac(params: URLSearchParams, secret: string): Promise<boolean> {
   const hmac = params.get('hmac')
@@ -36,6 +39,48 @@ async function verifyHmac(params: URLSearchParams, secret: string): Promise<bool
   return mismatch === 0
 }
 
+async function createHmacHex(message: string, secret: string): Promise<string> {
+  const key = await crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign'],
+  )
+  const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(message))
+  return Array.from(new Uint8Array(sig))
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('')
+}
+
+function timingSafeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false
+  let mismatch = 0
+  for (let i = 0; i < a.length; i++) mismatch |= a.charCodeAt(i) ^ b.charCodeAt(i)
+  return mismatch === 0
+}
+
+async function signState(state: string, shop: string, secret: string): Promise<string> {
+  const signature = await createHmacHex(`${state}.${shop}`, secret)
+  return `${state}.${signature}`
+}
+
+async function verifyStateCookie(cookieHeader: string | null, state: string, shop: string, secret: string): Promise<boolean> {
+  if (!cookieHeader || !state) return false
+  const cookieValue = cookieHeader
+    .split(';')
+    .map((part) => part.trim())
+    .find((part) => part.startsWith(`${STATE_COOKIE_NAME}=`))
+    ?.slice(STATE_COOKIE_NAME.length + 1)
+
+  if (!cookieValue) return false
+  const [storedState, storedSignature] = decodeURIComponent(cookieValue).split('.')
+  if (!storedState || !storedSignature || storedState !== state) return false
+
+  const expectedSignature = await createHmacHex(`${state}.${shop}`, secret)
+  return timingSafeEqual(storedSignature, expectedSignature)
+}
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
@@ -47,7 +92,7 @@ Deno.serve(async (req) => {
     const code = params.get('code')
     const shop = params.get('shop')
 
-    if (!code || !shop) {
+    if (!shop) {
       return new Response('Missing required parameters', { status: 400, headers: corsHeaders })
     }
 
@@ -57,7 +102,7 @@ Deno.serve(async (req) => {
       return new Response('Server misconfiguration', { status: 500, headers: corsHeaders })
     }
 
-    // 1. Verify HMAC
+    // 1. Verify HMAC for both install-init and OAuth callback requests
     const hmacValid = await verifyHmac(params, clientSecret)
     if (!hmacValid) {
       console.error('HMAC verification failed for shop:', shop)
@@ -68,6 +113,34 @@ Deno.serve(async (req) => {
     if (shop !== SHOPIFY_SHOP_DOMAIN) {
       console.error('Shop mismatch:', shop, 'expected:', SHOPIFY_SHOP_DOMAIN)
       return new Response('Unauthorized shop', { status: 401, headers: corsHeaders })
+    }
+
+    // Branch A: Shopify install initiation. Redirect merchant to Shopify's approval screen.
+    if (!code) {
+      const state = crypto.randomUUID()
+      const signedState = await signState(state, shop, clientSecret)
+      const authorizeUrl = new URL(`https://${shop}/admin/oauth/authorize`)
+      authorizeUrl.searchParams.set('client_id', SHOPIFY_CLIENT_ID)
+      authorizeUrl.searchParams.set('scope', SHOPIFY_SCOPES)
+      authorizeUrl.searchParams.set('redirect_uri', SHOPIFY_CALLBACK_URL)
+      authorizeUrl.searchParams.set('state', state)
+
+      return new Response(null, {
+        status: 302,
+        headers: {
+          Location: authorizeUrl.toString(),
+          'Set-Cookie': `${STATE_COOKIE_NAME}=${encodeURIComponent(signedState)}; Max-Age=600; Path=/; HttpOnly; Secure; SameSite=Lax`,
+          ...corsHeaders,
+        },
+      })
+    }
+
+    // Branch B: Shopify OAuth callback. Verify state before exchanging the code.
+    const state = params.get('state')
+    const stateValid = await verifyStateCookie(req.headers.get('cookie'), state ?? '', shop, clientSecret)
+    if (!stateValid) {
+      console.error('OAuth state verification failed for shop:', shop)
+      return new Response('Invalid OAuth state', { status: 401, headers: corsHeaders })
     }
 
     // 3. Exchange code for access token
@@ -119,9 +192,14 @@ Deno.serve(async (req) => {
     console.log('Successfully stored Shopify token for shop:', shop)
 
     // 5. Redirect merchant browser to success page
-    const successUrl = `https://${url.host.replace(/^[^.]+\./, '').includes('supabase') ? 'highfrequencyheadphones.com' : url.host}/shopify-installed`
-    // Safer fallback: redirect back to the storefront
-    return Response.redirect('https://highfrequencyheadphones.com/shopify-installed', 302)
+    return new Response(null, {
+      status: 302,
+      headers: {
+        Location: 'https://highfrequencyheadphones.com/shopify-installed',
+        'Set-Cookie': `${STATE_COOKIE_NAME}=; Max-Age=0; Path=/; HttpOnly; Secure; SameSite=Lax`,
+        ...corsHeaders,
+      },
+    })
   } catch (e) {
     console.error('Unhandled error in shopify-oauth-callback:', e)
     return new Response('Internal server error', { status: 500, headers: corsHeaders })
