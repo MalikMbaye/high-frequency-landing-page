@@ -30,7 +30,7 @@ const VideoProof = () => {
         </p>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-lg">
-            {isLoading ? <Loader2 className="animate-spin h-5 w-5" /> : <>Get Your Headphones <ArrowRight size={18} /></>}
+            {isLoading ? <Loader2 className="animate-spin h-5 w-5" /> : <>Reserve Your Headphones <ArrowRight size={18} /></>}
           </button>
         </div>
       </div>
