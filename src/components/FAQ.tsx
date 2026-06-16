@@ -36,7 +36,7 @@ const items: Item[] = [
   {
     Icon: Truck,
     q: "How long does shipping take?",
-    a: "In-stock orders are processed in 1-3 business days and typically arrive within the month of July from your order date. International orders ship within 3-5 business days of processing and arrive in 14-28 business days depending on destination. High-demand and pre-order units are clearly noted on the product page and ship within 2-4 weeks. Every order receives a tracking number by email once it leaves our fulfillment center.",
+    a: "In-stock orders are processed in 1-3 business days and typically arrive in July 2026 from your order date. International orders ship within 3-5 business days of processing and arrive in 14-28 business days depending on destination. High-demand and pre-order units are clearly noted on the product page and ship within 2-4 weeks. Every order receives a tracking number by email once it leaves our fulfillment center.",
   },
   {
     Icon: Package,
