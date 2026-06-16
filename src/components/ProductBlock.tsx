@@ -277,7 +277,7 @@ const ProductBlock = () => {
               }}
               disabled={isCartLoading || !product}
             >
-              {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : "BUY NOW"}
+              {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : "Pre-Order Now"}
             </button>
             </div>
 

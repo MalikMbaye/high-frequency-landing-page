@@ -21,7 +21,7 @@ const Hero = () => {
             }}
             className="btn btn-purple btn-lg"
           >
-            <>Get Your Headphones <ArrowRight size={18} /></>
+            <>Reserve Your Headphones <ArrowRight size={18} /></>
           </button>
         </div>
         <div className="hero-visual tier-2-visual">
