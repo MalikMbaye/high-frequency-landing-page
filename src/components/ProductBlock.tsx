@@ -272,8 +272,7 @@ const ProductBlock = () => {
                 });
 
 
-                const url = useCartStore.getState().getCheckoutUrl();
-                if (url) window.open(url, "_blank");
+                useCartStore.getState().openDrawer();
               }}
               disabled={isCartLoading || !product}
             >
