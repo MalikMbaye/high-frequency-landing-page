@@ -22,9 +22,9 @@ export const CartDrawer = () => {
   };
 
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+    <Sheet open={isDrawerOpen} onOpenChange={(o) => (o ? openDrawer() : closeDrawer())}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="relative text-current hover:bg-transparent">
+        <Button variant="ghost" size="icon" className="relative text-current hover:bg-transparent" onClick={() => openDrawer()}>
           <ShoppingCart className="h-5 w-5" />
           {totalItems > 0 && (
             <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px] bg-cyan-400 text-black">
