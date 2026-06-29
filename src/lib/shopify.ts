@@ -1,9 +1,18 @@
 import { toast } from "sonner";
 
-const SHOPIFY_API_VERSION = '2025-07';
-const SHOPIFY_STORE_PERMANENT_DOMAIN = '86z1ah-wz.myshopify.com';
+const SHOPIFY_API_VERSION = "2025-07";
+export const SHOPIFY_STORE_PERMANENT_DOMAIN = "86z1ah-wz.myshopify.com";
 const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
-const SHOPIFY_STOREFRONT_TOKEN = 'c7974177ac686c3fdf129c6b37c5d336';
+const SHOPIFY_STOREFRONT_TOKEN = "c7974177ac686c3fdf129c6b37c5d336";
+
+// Covrly Supabase functions base (calculate-premium, etc.)
+export const COVRLY_FUNCTIONS_BASE = "https://kojezikjpqgynmadzpll.supabase.co/functions/v1";
+
+// A Shopify cart line attribute (line-item property), e.g. the protection tags.
+export interface CartAttribute {
+  key: string;
+  value: string;
+}
 
 export interface ShopifyProduct {
   node: {
@@ -51,10 +60,10 @@ export interface ShopifyProduct {
 
 export async function storefrontApiRequest(query: string, variables: Record<string, unknown> = {}) {
   const response = await fetch(SHOPIFY_STOREFRONT_URL, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN
+      "Content-Type": "application/json",
+      "X-Shopify-Storefront-Access-Token": SHOPIFY_STOREFRONT_TOKEN,
     },
     body: JSON.stringify({ query, variables }),
   });
@@ -72,7 +81,7 @@ export async function storefrontApiRequest(query: string, variables: Record<stri
 
   const data = await response.json();
   if (data.errors) {
-    throw new Error(`Error calling Shopify: ${data.errors.map((e: { message: string }) => e.message).join(', ')}`);
+    throw new Error(`Error calling Shopify: ${data.errors.map((e: { message: string }) => e.message).join(", ")}`);
   }
 
   return data;
@@ -181,13 +190,23 @@ const CART_QUERY = `
   }
 `;
 
+const CART_LINES_QUERY = `
+  query cartLines($id: ID!) {
+    cart(id: $id) {
+      lines(first: 100) {
+        edges { node { id merchandise { ... on ProductVariant { id } } attributes { key value } } }
+      }
+    }
+  }
+`;
+
 const CART_CREATE_MUTATION = `
   mutation cartCreate($input: CartInput!) {
     cartCreate(input: $input) {
       cart {
         id
         checkoutUrl
-        lines(first: 100) { edges { node { id merchandise { ... on ProductVariant { id } } } } }
+        lines(first: 100) { edges { node { id merchandise { ... on ProductVariant { id } } attributes { key value } } } }
       }
       userErrors { field message }
     }
@@ -199,7 +218,7 @@ const CART_LINES_ADD_MUTATION = `
     cartLinesAdd(cartId: $cartId, lines: $lines) {
       cart {
         id
-        lines(first: 100) { edges { node { id merchandise { ... on ProductVariant { id } } } } }
+        lines(first: 100) { edges { node { id merchandise { ... on ProductVariant { id } } attributes { key value } } } }
       }
       userErrors { field message }
     }
@@ -227,7 +246,7 @@ const CART_LINES_REMOVE_MUTATION = `
 function formatCheckoutUrl(checkoutUrl: string): string {
   try {
     const url = new URL(checkoutUrl);
-    url.searchParams.set('channel', 'online_store');
+    url.searchParams.set("channel", "online_store");
     return url.toString();
   } catch {
     return checkoutUrl;
@@ -240,7 +259,9 @@ interface UserError {
 }
 
 function isCartNotFoundError(userErrors: UserError[]): boolean {
-  return userErrors.some(e => e.message.toLowerCase().includes('cart not found') || e.message.toLowerCase().includes('does not exist'));
+  return userErrors.some(
+    (e) => e.message.toLowerCase().includes("cart not found") || e.message.toLowerCase().includes("does not exist"),
+  );
 }
 
 export interface CartItem {
@@ -253,13 +274,15 @@ export interface CartItem {
   selectedOptions: Array<{ name: string; value: string }>;
 }
 
-export async function createShopifyCart(item: CartItem): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
+export async function createShopifyCart(
+  item: CartItem,
+): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
   const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
     input: { lines: [{ quantity: item.quantity, merchandiseId: item.variantId }] },
   });
 
   if (data?.data?.cartCreate?.userErrors?.length > 0) {
-    console.error('Cart creation failed:', data.data.cartCreate.userErrors);
+    console.error("Cart creation failed:", data.data.cartCreate.userErrors);
     return null;
   }
 
@@ -271,7 +294,10 @@ export async function createShopifyCart(item: CartItem): Promise<{ cartId: strin
   return { cartId: cart.id, checkoutUrl: formatCheckoutUrl(cart.checkoutUrl), lineId };
 }
 
-export async function addLineToShopifyCart(cartId: string, item: CartItem): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean }> {
+export async function addLineToShopifyCart(
+  cartId: string,
+  item: CartItem,
+): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean }> {
   const data = await storefrontApiRequest(CART_LINES_ADD_MUTATION, {
     cartId,
     lines: [{ quantity: item.quantity, merchandiseId: item.variantId }],
@@ -282,11 +308,17 @@ export async function addLineToShopifyCart(cartId: string, item: CartItem): Prom
   if (userErrors.length > 0) return { success: false };
 
   const lines = data?.data?.cartLinesAdd?.cart?.lines?.edges || [];
-  const newLine = lines.find((l: { node: { id: string; merchandise: { id: string } } }) => l.node.merchandise.id === item.variantId);
+  const newLine = lines.find(
+    (l: { node: { id: string; merchandise: { id: string } } }) => l.node.merchandise.id === item.variantId,
+  );
   return { success: true, lineId: newLine?.node?.id };
 }
 
-export async function updateShopifyCartLine(cartId: string, lineId: string, quantity: number): Promise<{ success: boolean; cartNotFound?: boolean }> {
+export async function updateShopifyCartLine(
+  cartId: string,
+  lineId: string,
+  quantity: number,
+): Promise<{ success: boolean; cartNotFound?: boolean }> {
   const data = await storefrontApiRequest(CART_LINES_UPDATE_MUTATION, {
     cartId,
     lines: [{ id: lineId, quantity }],
@@ -298,7 +330,10 @@ export async function updateShopifyCartLine(cartId: string, lineId: string, quan
   return { success: true };
 }
 
-export async function removeLineFromShopifyCart(cartId: string, lineId: string): Promise<{ success: boolean; cartNotFound?: boolean }> {
+export async function removeLineFromShopifyCart(
+  cartId: string,
+  lineId: string,
+): Promise<{ success: boolean; cartNotFound?: boolean }> {
   const data = await storefrontApiRequest(CART_LINES_REMOVE_MUTATION, {
     cartId,
     lineIds: [lineId],
@@ -312,4 +347,51 @@ export async function removeLineFromShopifyCart(cartId: string, lineId: string):
 
 export async function fetchCartStatus(cartId: string) {
   return storefrontApiRequest(CART_QUERY, { id: cartId });
+}
+
+type RawLineEdge = { node: { id: string; merchandise?: { id?: string }; attributes?: CartAttribute[] } };
+
+/**
+ * Fetch all lines on a cart with their merchandise id + attributes.
+ * Used to find/remove the Covrly protection line (matched by the
+ * `_shipping_protection` attribute, since the variant is band-dependent).
+ */
+export async function fetchCartLines(
+  cartId: string,
+): Promise<Array<{ id: string; merchandiseId: string; attributes: CartAttribute[] }>> {
+  const data = await storefrontApiRequest(CART_LINES_QUERY, { id: cartId });
+  const edges: RawLineEdge[] = data?.data?.cart?.lines?.edges || [];
+  return edges.map((e) => ({
+    id: e.node.id,
+    merchandiseId: e.node.merchandise?.id ?? "",
+    attributes: e.node.attributes ?? [],
+  }));
+}
+
+/**
+ * Add a single line to an existing cart by variant id, carrying line
+ * attributes (the protection tags). Lower-level than addLineToShopifyCart
+ * (which takes a full CartItem) — used for the delivery-protection line.
+ */
+export async function addCartLineRaw(
+  cartId: string,
+  merchandiseId: string,
+  quantity: number,
+  attributes: CartAttribute[],
+): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean }> {
+  const data = await storefrontApiRequest(CART_LINES_ADD_MUTATION, {
+    cartId,
+    lines: [{ quantity, merchandiseId, attributes }],
+  });
+
+  const userErrors = data?.data?.cartLinesAdd?.userErrors || [];
+  if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
+  if (userErrors.length > 0) {
+    console.error("addCartLineRaw failed:", userErrors);
+    return { success: false };
+  }
+
+  const lines: RawLineEdge[] = data?.data?.cartLinesAdd?.cart?.lines?.edges || [];
+  const newLine = lines.find((l) => l.node.merchandise?.id === merchandiseId);
+  return { success: true, lineId: newLine?.node?.id };
 }
