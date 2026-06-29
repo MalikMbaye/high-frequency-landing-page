@@ -7,6 +7,7 @@ const LP_PRODUCT_HANDLE = "high-frequency-headphones-lp-test-169-99";
 export function useBuyNow() {
   const { data: product } = useShopifyProductByHandle(LP_PRODUCT_HANDLE);
   const addItem = useCartStore((s) => s.addItem);
+  const openDrawer = useCartStore((s) => s.openDrawer);
   const isLoading = useCartStore((s) => s.isLoading);
 
   const buyNow = useCallback(
@@ -25,15 +26,9 @@ export function useBuyNow() {
         selectedOptions: variant.selectedOptions || [],
       });
 
-      const url = useCartStore.getState().getCheckoutUrl();
-      if (url) {
-        const win = window.open(url, "_blank");
-        if (!win || win.closed || typeof win.closed === "undefined") {
-          window.location.href = url;
-        }
-      }
+      openDrawer();
     },
-    [product, addItem]
+    [product, addItem, openDrawer]
   );
 
   return { buyNow, isLoading, ready: !!product };

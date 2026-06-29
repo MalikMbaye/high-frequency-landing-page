@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -6,26 +6,25 @@ import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2 } from "lucide
 import { useCartStore } from "@/stores/cartStore";
 
 export const CartDrawer = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const { items, isLoading, isSyncing, updateQuantity, removeItem, getCheckoutUrl, syncCart } = useCartStore();
+  const { items, isLoading, isSyncing, isDrawerOpen, openDrawer, closeDrawer, updateQuantity, removeItem, getCheckoutUrl, syncCart } = useCartStore();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
 
   // Sync cart with Shopify when drawer opens (catches edge cases)
-  useEffect(() => { if (isOpen) syncCart(); }, [isOpen, syncCart]);
+  useEffect(() => { if (isDrawerOpen) syncCart(); }, [isDrawerOpen, syncCart]);
 
   const handleCheckout = () => {
     const checkoutUrl = getCheckoutUrl();
     if (checkoutUrl) {
       window.open(checkoutUrl, '_blank');
-      setIsOpen(false);
+      closeDrawer();
     }
   };
 
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+    <Sheet open={isDrawerOpen} onOpenChange={(o) => (o ? openDrawer() : closeDrawer())}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="relative text-current hover:bg-transparent">
+        <Button variant="ghost" size="icon" className="relative text-current hover:bg-transparent" onClick={() => openDrawer()}>
           <ShoppingCart className="h-5 w-5" />
           {totalItems > 0 && (
             <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px] bg-cyan-400 text-black">
