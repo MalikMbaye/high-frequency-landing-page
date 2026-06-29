@@ -37,6 +37,10 @@ export const useCartStore = create<CartStore>()(
       checkoutUrl: null,
       isLoading: false,
       isSyncing: false,
+      isDrawerOpen: false,
+      openDrawer: () => set({ isDrawerOpen: true }),
+      closeDrawer: () => set({ isDrawerOpen: false }),
+
 
       addItem: async (item) => {
         const { items, cartId, clearCart } = get();
