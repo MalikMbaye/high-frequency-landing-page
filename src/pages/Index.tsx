@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import VideoProof from "@/components/VideoProof";
 import ProductBlock from "@/components/ProductBlock";
+import TestimonialGallery from "@/components/TestimonialGallery";
 import WhatsInBox from "@/components/WhatsInBox";
 import LazySection from "@/components/LazySection";
 
@@ -52,6 +53,7 @@ const Index = () => {
       <Hero />
       
       <ProductBlock />
+      <TestimonialGallery />
       <WhatsInBox />
 
       {/* Below-the-fold: mount as user scrolls down. Each LazySection has its
