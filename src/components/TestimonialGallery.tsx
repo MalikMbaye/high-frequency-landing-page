@@ -37,19 +37,32 @@ const TestimonialGallery = () => {
         </header>
 
         <div className="tg-grid">
-          {items.map((item, i) => (
-            <figure className="tg-card" key={i}>
-              <div className="tg-card-inner">
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span className="tg-badge">{item.source}</span>
-              </div>
-            </figure>
-          ))}
+          <div className="tg-grid-main">
+            {items.slice(0, 8).map((item, i) => (
+              <figure className="tg-card" key={i}>
+                <div className="tg-card-inner">
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="tg-badge">{item.source}</span>
+                </div>
+              </figure>
+            ))}
+          </div>
+          <figure className="tg-card tg-card-feature">
+            <div className="tg-card-inner">
+              <img
+                src={items[8].src}
+                alt={items[8].alt}
+                loading="lazy"
+                decoding="async"
+              />
+              <span className="tg-badge">{items[8].source}</span>
+            </div>
+          </figure>
         </div>
 
         <p className="tg-footnote">
