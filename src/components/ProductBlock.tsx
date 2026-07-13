@@ -13,17 +13,12 @@ import img01 from "@/assets/product/01-resets-brain-60s.webp";
 import img02 from "@/assets/product/02-meditation-works.webp";
 import img03 from "@/assets/product/03-more-use-less-need.webp";
 import img04 from "@/assets/product/04-frequency-dude.webp";
-import img05 from "@/assets/product/05-no-pills-no-migraines.webp";
-import img06 from "@/assets/product/06-tinnitus.webp";
 import img07 from "@/assets/product/07-100x-per-second.webp";
 import img08 from "@/assets/product/08-transported-me.webp";
-import img09 from "@/assets/product/09-fall-asleep-without-melatonin.webp";
 import img10 from "@/assets/product/10-not-chemicals-frequency.webp";
 import img11 from "@/assets/product/11-coffee-dehydrates.webp";
 import img12 from "@/assets/product/12-one-purchase-replaces.webp";
 import img13 from "@/assets/product/13-spine-straightens.webp";
-import img14 from "@/assets/product/14-lock-in-without-adderall.webp";
-import img15 from "@/assets/product/15-from-adderall-to-frequency.webp";
 
 type GalleryItem = { src: string; alt: string };
 
@@ -32,17 +27,12 @@ const brandGallery: GalleryItem[] = [
   { src: img02, alt: "Meditation that actually works" },
   { src: img03, alt: "The more you use it, the less you need it" },
   { src: img04, alt: "Will.i.am quote — the frequency dude" },
-  { src: img05, alt: "User testimonial card" },
-  { src: img06, alt: "User testimonial card" },
   { src: img07, alt: "100x per second vibration through bone" },
   { src: img08, alt: "This transported me — Everett Taylor, CEO of Kickstarter" },
-  { src: img09, alt: "User testimonial card" },
   { src: img10, alt: "Not chemicals. Frequency." },
   { src: img11, alt: "Your coffee dehydrates your brain" },
   { src: img12, alt: "One purchase replaces all three" },
   { src: img13, alt: "The spine straightens. The eyes widen." },
-  { src: img14, alt: "User testimonial card" },
-  { src: img15, alt: "User testimonial card" },
 ];
 
 const accordionItems = [
