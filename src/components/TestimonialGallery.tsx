@@ -8,18 +8,18 @@ import t46 from "@/assets/testimonials/testimonial_46.jpeg.asset.json";
 import t47 from "@/assets/testimonials/testimonial_47.png.asset.json";
 import t48 from "@/assets/testimonials/testimonial_48.png.asset.json";
 
-type Item = { src: string; alt: string; source: "Instagram" | "DM" | "TikTok" };
+type Item = { src: string; alt: string };
 
 const items: Item[] = [
-  { src: t42.url, alt: "It's the coolest technology!! Def legit I love mine.", source: "Instagram" },
-  { src: t38.url, alt: "I have it and loOove it!! Amazing product", source: "Instagram" },
-  { src: t40.url, alt: "I love mine! Such a game changer", source: "Instagram" },
-  { src: t44.url, alt: "I absolutely love mine. You are awesome to invented such a wonderful product.", source: "Instagram" },
-  { src: t45.url, alt: "Within 5 minutes my mindset is changed", source: "TikTok" },
-  { src: t39.url, alt: "A positive showing of how tech should be created", source: "Instagram" },
-  { src: t46.url, alt: "They exceeded my expectations! You can feel the beats and frequencies.", source: "TikTok" },
-  { src: t47.url, alt: "Something I've never experienced before. Hard to explain — you'll have to just see for yourself.", source: "Instagram" },
-  { src: t48.url, alt: "Nurse Bridget here to report your product is VERY COOL. Integrated it into morning meditations.", source: "DM" },
+  { src: t42.url, alt: "It's the coolest technology!! Def legit I love mine." },
+  { src: t38.url, alt: "I have it and loOove it!! Amazing product" },
+  { src: t40.url, alt: "I love mine! Such a game changer" },
+  { src: t44.url, alt: "I absolutely love mine. You are awesome to invented such a wonderful product." },
+  { src: t45.url, alt: "Within 5 minutes my mindset is changed" },
+  { src: t39.url, alt: "A positive showing of how tech should be created" },
+  { src: t46.url, alt: "They exceeded my expectations! You can feel the beats and frequencies." },
+  { src: t47.url, alt: "Something I've never experienced before. Hard to explain — you'll have to just see for yourself." },
+  { src: t48.url, alt: "Nurse Bridget here to report your product is VERY COOL. Integrated it into morning meditations." },
 ];
 
 const TestimonialGallery = () => {
@@ -47,7 +47,7 @@ const TestimonialGallery = () => {
                     loading="lazy"
                     decoding="async"
                   />
-                  <span className="tg-badge">{item.source}</span>
+                  
                 </div>
               </figure>
             ))}
@@ -60,7 +60,7 @@ const TestimonialGallery = () => {
                 loading="lazy"
                 decoding="async"
               />
-              <span className="tg-badge">{items[8].source}</span>
+              
             </div>
           </figure>
         </div>

@@ -3240,7 +3240,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, auto);
-  gap: 28px 0;
+  gap: 28px 28px;
 }
 @media (max-width: 900px) {
   .tg-grid {
@@ -3250,7 +3250,7 @@
   .tg-grid-main {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, auto);
-    gap: 18px 0;
+    gap: 18px 18px;
   }
 }
 @media (max-width: 560px) {
@@ -3288,22 +3288,6 @@
   display: block;
   width: 100%;
   height: auto;
-}
-.tg-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #0a0a0c;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  padding: 5px 9px;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 .tg-footnote {
   text-align: center;
