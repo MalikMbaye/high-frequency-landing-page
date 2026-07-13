@@ -3230,13 +3230,20 @@
 }
 .tg-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: column;
   gap: 28px;
   max-width: 1100px;
   margin: 0 auto;
 }
 @media (max-width: 900px) {
-  .tg-grid { gap: 18px; }
+  .tg-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+    gap: 18px;
+  }
 }
 @media (max-width: 560px) {
   .tg-grid { grid-template-columns: 1fr; gap: 16px; }
