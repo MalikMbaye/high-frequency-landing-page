@@ -18,6 +18,8 @@ const items: Item[] = [
   { src: t45.url, alt: "Within 5 minutes my mindset is changed", source: "TikTok" },
   { src: t39.url, alt: "A positive showing of how tech should be created", source: "Instagram" },
   { src: t46.url, alt: "They exceeded my expectations! You can feel the beats and frequencies.", source: "TikTok" },
+  { src: t47.url, alt: "Something I've never experienced before. Hard to explain — you'll have to just see for yourself.", source: "Instagram" },
+  { src: t48.url, alt: "Nurse Bridget here to report your product is VERY COOL. Integrated it into morning meditations.", source: "DM" },
 ];
 
 const TestimonialGallery = () => {
