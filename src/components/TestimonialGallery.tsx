@@ -5,6 +5,8 @@ import t42 from "@/assets/testimonials/testimonial_42.jpeg.asset.json";
 import t44 from "@/assets/testimonials/testimonial_44.jpeg.asset.json";
 import t45 from "@/assets/testimonials/testimonial_45.jpeg.asset.json";
 import t46 from "@/assets/testimonials/testimonial_46.jpeg.asset.json";
+import t47 from "@/assets/testimonials/testimonial_47.png.asset.json";
+import t48 from "@/assets/testimonials/testimonial_48.jpg.asset.json";
 
 type Item = { src: string; alt: string; source: "Instagram" | "DM" | "TikTok" };
 
