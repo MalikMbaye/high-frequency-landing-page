@@ -6,7 +6,7 @@ const VideoProof = () => {
   return (
     <section className="section section-light video-proof" data-theme="light">
       <div className="hfh-container narrow">
-        <h2 className="section-header">Watch What Happens to Your Brain in 60 Seconds.</h2>
+        <h2 className="section-header">Watch What People Feel in 60 Seconds.</h2>
         <div
           style={{
             margin: "0 auto 20px",
@@ -19,14 +19,14 @@ const VideoProof = () => {
         >
           <iframe
             src="https://www.youtube.com/embed/CXjLAr6SPmE?rel=0&modestbranding=1&playsinline=1"
-            title="Brain Test Video"
+            title="First-Reaction Video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             style={{ width: "100%", aspectRatio: "9/16", border: 0, display: "block" }}
           />
         </div>
         <p className="video-caption">
-          Real EEG footage. No edits. No filters. Recorded with NYU students.
+          Real footage from an informal pilot session. No edits. No filters.
         </p>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-lg">

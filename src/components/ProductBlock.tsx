@@ -28,21 +28,21 @@ import img15 from "@/assets/product/15-from-adderall-to-frequency.webp";
 type GalleryItem = { src: string; alt: string };
 
 const brandGallery: GalleryItem[] = [
-  { src: img01, alt: "Resets your brain in under 60 seconds" },
+  { src: img01, alt: "Feel a shift in under 60 seconds" },
   { src: img02, alt: "Meditation that actually works" },
   { src: img03, alt: "The more you use it, the less you need it" },
   { src: img04, alt: "Will.i.am quote — the frequency dude" },
-  { src: img05, alt: "No more pills, no more migraines" },
-  { src: img06, alt: "This got rid of my tinnitus" },
+  { src: img05, alt: "User testimonial card" },
+  { src: img06, alt: "User testimonial card" },
   { src: img07, alt: "100x per second vibration through bone" },
   { src: img08, alt: "This transported me — Everett Taylor, CEO of Kickstarter" },
-  { src: img09, alt: "Fall asleep without melatonin" },
+  { src: img09, alt: "User testimonial card" },
   { src: img10, alt: "Not chemicals. Frequency." },
   { src: img11, alt: "Your coffee dehydrates your brain" },
   { src: img12, alt: "One purchase replaces all three" },
   { src: img13, alt: "The spine straightens. The eyes widen." },
-  { src: img14, alt: "Lock in for hours without Adderall" },
-  { src: img15, alt: "From Adderall to frequency" },
+  { src: img14, alt: "User testimonial card" },
+  { src: img15, alt: "User testimonial card" },
 ];
 
 const accordionItems = [
@@ -52,7 +52,7 @@ const accordionItems = [
       <>
         <p>Your brain operates on frequencies. When you're focused, it's on one frequency. When you're scattered, it's on another.</p>
         <p>These headphones deliver the exact frequency you need, directly through your skull, using frequency technology and vibration at the same time. The transducers pulse 100 times per second through your bones. Your brain doesn't just hear the frequency. It physically feels it. And it locks in.</p>
-        <p>The technology is based on decades of government-funded neuroscience research, including the CIA's declassified Gateway Process, which proved sound frequencies can shift brain states on command.</p>
+        <p>The technology is inspired by decades of research into sound frequencies and brain states, including the CIA's declassified Gateway Process, which explored how frequency patterns can influence brainwave activity.</p>
       </>
     ),
   },
@@ -70,9 +70,9 @@ const accordionItems = [
     title: "What does \"the more you use it, the less you need it\" mean?",
     body: (
       <>
-        <p>Every session builds neuroplasticity. Your brain forms stronger neural pathways for focus, calm, and flow.</p>
-        <p>Over time, your brain gets better at entering those states on its own, without the device.</p>
-        <p>Adderall and coffee create dependency. This builds independence. That's the entire point.</p>
+        <p>Every session helps train your brain toward stronger focus, calm, and flow.</p>
+        <p>Over time, many users find it easier to enter those states on their own, without the device.</p>
+        <p>Stimulants create dependency. This is designed to build independence. That's the entire point.</p>
       </>
     ),
   },
@@ -226,13 +226,13 @@ const ProductBlock = () => {
 
             <h2 className="pdp-headline">High Frequency Headphones<sup>™</sup></h2>
 
-            <p className="pdp-subhead">Reset your brain in under 60 seconds. Frequency headphones that shift your brain state on demand. Focus. Calm. Energy. Flow. Sleep. The more you use them, the less you need them.</p>
+            <p className="pdp-subhead">Feel a shift in under 60 seconds. Frequency headphones that help you shift your brain state on demand. Focus. Calm. Energy. Flow. Sleep. The more you use them, the less you need them.</p>
 
             <ul className="pdp-bullets">
-              <li><span className="pdp-bullet-check"><Check size={12} /></span>Resets Brain State in Under 60 Seconds</li>
-              <li><span className="pdp-bullet-check"><Check size={12} /></span>Builds Neuroplasticity, Not Dependency</li>
-              <li><span className="pdp-bullet-check"><Check size={12} /></span>Backed by Decades of Neuroscience</li>
-              <li><span className="pdp-bullet-check"><Check size={12} /></span>Used in 25+ Countries Worldwide</li>
+              <li><span className="pdp-bullet-check"><Check size={12} /></span>Feel a Shift in Under 60 Seconds</li>
+              <li><span className="pdp-bullet-check"><Check size={12} /></span>Builds a Habit, Not a Dependency</li>
+              <li><span className="pdp-bullet-check"><Check size={12} /></span>Inspired by Decades of Frequency Research</li>
+              <li><span className="pdp-bullet-check"><Check size={12} /></span>Used in 200+ Countries Worldwide</li>
             </ul>
 
             <div className="pdp-purchase-card">
