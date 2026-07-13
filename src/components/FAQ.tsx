@@ -16,7 +16,7 @@ const items: Item[] = [
   {
     Icon: FlaskConical,
     q: "Is this actually backed by science?",
-    a: "The US government spent decades researching frequency's effect on brain states. The findings, now publicly available, proved that specific frequencies shift brainwave states on command. We've also conducted EEG testing with NYU students that showed increased brainwave coherence while using the technology. This is neuroscience delivered through hardware.",
+    a: "The US government funded decades of research into how frequency affects brain states, later declassified as the Gateway Process. We've also run informal EEG pilot sessions that showed more organized brainwave patterns during use. HFH is inspired by that body of work — we don't claim to treat any medical condition.",
   },
   {
     Icon: Music,
@@ -26,7 +26,7 @@ const items: Item[] = [
   {
     Icon: Brain,
     q: "What does \"the more you use it, the less you need it\" actually mean?",
-    a: "Every session builds neuroplasticity. Your brain forms stronger neural pathways for focus, calm, and flow. Over time, your brain gets better at entering those states on its own, without the device. Adderall and coffee create dependency. This builds independence.",
+    a: "Every session helps train your brain toward focus, calm, and flow. Over time, many users find it easier to reach those states on their own. Stimulants tend to build dependency — this is designed to build the opposite.",
   },
   {
     Icon: Timer,

@@ -15,7 +15,7 @@ const UseCases = () => {
           </div>
           <div className="use-copy">
             <h4>For Focus</h4>
-            <p>Select Focus in the app. Put on the headphones. Your brain locks in for four hours. No coffee. No pills. No crash. Just your mind operating the way it was supposed to before your phone rewired it.</p>
+            <p>Select Focus. Put the headphones on. Give yourself a long, uninterrupted work block — no coffee run, no crash, just a state that's easier to settle into.</p>
           </div>
         </article>
         <article className="use-card reverse">
@@ -24,7 +24,7 @@ const UseCases = () => {
           </div>
           <div className="use-copy">
             <h4>For Sleep</h4>
-            <p>Select Calm. The frequency downregulates your brain from the day's chaos. Your racing thoughts quiet. You fall asleep without melatonin, without grogginess the next morning, without another pill your body will learn to depend on.</p>
+            <p>Select Calm. The frequency helps quiet the day's noise so it's easier to wind down before bed.</p>
           </div>
         </article>
         <article className="use-card">
@@ -42,16 +42,16 @@ const UseCases = () => {
           </div>
           <div className="use-copy">
             <h4>For Energy</h4>
-            <p>Replace the 2 PM coffee run. Replace the energy drink. Select Energy. Feel the vibration lock your brain into an alert state. No chemicals. No crash. Your brain generating its own sustained energy through frequency.</p>
+            <p>Skip the 2 PM coffee run. Select Energy. Feel the vibration help you settle into a more alert state — no jitters, no crash.</p>
           </div>
         </article>
         <article className="use-card">
           <div className="use-image use-app-shot">
-            <img src={img_33eRRyE9} alt="HFH app Relief mode showing soft purple relief orb, head silhouette and 304 Hz tension frequency" loading="lazy" />
+            <img src={img_33eRRyE9} alt="HFH app Tension mode showing soft purple orb and 304 Hz frequency visualization" loading="lazy" />
           </div>
           <div className="use-copy">
-            <h4>For Headaches and Pain</h4>
-            <p>Users have reported relief from tinnitus, migraines, headaches, and TMJ. The frequency technology vibration combined with targeted frequency creates a physical response. One woman at an event told J it got rid of her tinnitus. We didn't even market for that.</p>
+            <h4>For Tension</h4>
+            <p>Some users report feeling less tense and more relaxed after use. That's a subjective experience, not a medical claim — we don't treat conditions, we help you feel a shift.</p>
           </div>
         </article>
       </div>

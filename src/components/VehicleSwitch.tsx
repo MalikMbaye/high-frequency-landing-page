@@ -19,10 +19,10 @@ const VehicleSwitch = () => {
           <div className="ledger-row competitor">
             <div className="prod-icon"><Pill size={26} /></div>
             <div className="prod-info">
-              <h5>Adderall / Vyvanse</h5>
+              <h5>Prescription Stimulants</h5>
               <span className="cost-strike">$2,400+/year</span>
             </div>
-            <p className="prod-drawback">Rents focus and charges with side effects, dependency, and withdrawal. Makes you MORE reliant every month.</p>
+            <p className="prod-drawback">Prescription stimulants can carry side effects, dependency, and withdrawal — a monthly cost that doesn't build anything long-term.</p>
           </div>
           <div className="ledger-row competitor">
             <div className="prod-icon"><Smartphone size={26} /></div>
@@ -38,7 +38,7 @@ const VehicleSwitch = () => {
               <h5>Nootropic Stacks</h5>
               <span className="cost-strike">$2,400+/year</span>
             </div>
-            <p className="prod-drawback">Expensive supplement combinations that still don't rebuild your brain. Zero neuroplasticity building.</p>
+            <p className="prod-drawback">Expensive supplement combinations that don't build anything long-term.</p>
           </div>
           <div className="ledger-row competitor">
             <div className="prod-icon"><Droplet size={26} /></div>
@@ -46,7 +46,7 @@ const VehicleSwitch = () => {
               <h5>Energy Drinks</h5>
               <span className="cost-strike">$1,460+/year</span>
             </div>
-            <p className="prod-drawback">Your heart detects them as poison. Crash cycle. Chemical dependency. Zero cognitive benefit.</p>
+            <p className="prod-drawback">Crash cycle. Chemical dependency. Zero long-term benefit.</p>
           </div>
           <div className="ledger-row hfh-row">
             <div className="prod-icon hfh-icon"><Headphones size={26} /></div>
@@ -54,7 +54,7 @@ const VehicleSwitch = () => {
               <h5>High Frequency Headphones</h5>
               <span className="cost-good">One Purchase <Check size={16} /></span>
             </div>
-            <p className="prod-drawback">No subscription. No side effects. No crash. No dependency. Focus, calm, flow, or sleep on demand. Builds neuroplasticity with every session.</p>
+            <p className="prod-drawback">No subscription. No jitters. No crash. Focus, calm, flow, or sleep on demand. Designed to help your brain get better at finding these states on its own.</p>
           </div>
         </div>
 

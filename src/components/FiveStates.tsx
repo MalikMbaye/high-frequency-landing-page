@@ -21,7 +21,7 @@ const FiveStates = () => {
           <div className="state-orb orb-sleep">
             <div className="s-icon"><Moon size={22} /></div>
             <h4>SLEEP</h4>
-            <p>Fall asleep faster, deeper. No melatonin needed.</p>
+            <p>Wind down faster before bed.</p>
           </div>
           <div className="state-orb orb-meditation">
             <div className="s-icon"><Flower2 size={22} /></div>
@@ -35,8 +35,8 @@ const FiveStates = () => {
           </div>
           <div className="state-orb orb-relief">
             <div className="s-icon"><Waves size={22} /></div>
-            <h4>RELIEF</h4>
-            <p>Alleviate tension and pain. Reported relief from tinnitus, migraines, TMJ.</p>
+            <h4>TENSION</h4>
+            <p>Help your body feel less tense and more relaxed.</p>
           </div>
         </div>
 

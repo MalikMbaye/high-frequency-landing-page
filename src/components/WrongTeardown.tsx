@@ -24,9 +24,9 @@ const WrongTeardown = () => {
               <span className="strike-line"></span>
             </div>
             <span className="tag tag-wrong">WRONG</span>
-            <h3 className="card-title">Adderall actually works though. Right? <span className="hl-purple">Wrong.</span></h3>
+            <h3 className="card-title">Prescription stimulants actually work though. Right? <span className="hl-purple">Wrong.</span></h3>
             <Expandable collapsedHeight={80}>
-              <p>Adderall and Vyvanse rent you a few hours of focus and charge you with side effects, dependency, and withdrawal. You can't eat. You can't sleep. Every month you need a higher dose just to feel normal. That's a subscription to a pharmaceutical company.</p>
+              <p>Prescription stimulants can borrow you a few hours of focus and charge you back with dependency, tolerance, and rough comedowns. Over time many people need more just to feel normal. That's a subscription, not a solution.</p>
             </Expandable>
           </article>
           <article className="light-card">
