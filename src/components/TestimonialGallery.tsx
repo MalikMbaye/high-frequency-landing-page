@@ -5,6 +5,8 @@ import t42 from "@/assets/testimonials/testimonial_42.jpeg.asset.json";
 import t44 from "@/assets/testimonials/testimonial_44.jpeg.asset.json";
 import t45 from "@/assets/testimonials/testimonial_45.jpeg.asset.json";
 import t46 from "@/assets/testimonials/testimonial_46.jpeg.asset.json";
+import t47 from "@/assets/testimonials/testimonial_47.png.asset.json";
+import t48 from "@/assets/testimonials/testimonial_48.jpg.asset.json";
 
 type Item = { src: string; alt: string; source: "Instagram" | "DM" | "TikTok" };
 
@@ -16,6 +18,8 @@ const items: Item[] = [
   { src: t45.url, alt: "Within 5 minutes my mindset is changed", source: "TikTok" },
   { src: t39.url, alt: "A positive showing of how tech should be created", source: "Instagram" },
   { src: t46.url, alt: "They exceeded my expectations! You can feel the beats and frequencies.", source: "TikTok" },
+  { src: t47.url, alt: "Something I've never experienced before. Hard to explain — you'll have to just see for yourself.", source: "Instagram" },
+  { src: t48.url, alt: "Nurse Bridget here to report your product is VERY COOL. Integrated it into morning meditations.", source: "DM" },
 ];
 
 const TestimonialGallery = () => {
