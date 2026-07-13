@@ -29,7 +29,7 @@ const TestimonialGallery = () => {
         <header className="tg-header">
           <span className="tg-eyebrow">Unsolicited · Unpaid · Unfiltered</span>
           <h2 className="tg-headline">
-            The Receipts.
+            Customer Reviews
           </h2>
           <p className="tg-sub">
             Real DMs. Real comments. Real people who tried it and came back to tell us.
