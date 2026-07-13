@@ -10,12 +10,12 @@ type Item = { src: string; alt: string; source: "Instagram" | "DM" | "TikTok" };
 
 const items: Item[] = [
   { src: t42.url, alt: "It's the coolest technology!! Def legit I love mine.", source: "Instagram" },
-  { src: t46.url, alt: "They exceeded my expectations! You can feel the beats and frequencies.", source: "TikTok" },
   { src: t38.url, alt: "I have it and loOove it!! Amazing product", source: "Instagram" },
   { src: t40.url, alt: "I love mine! Such a game changer", source: "Instagram" },
   { src: t44.url, alt: "I absolutely love mine. You are awesome to invented such a wonderful product.", source: "Instagram" },
   { src: t45.url, alt: "Within 5 minutes my mindset is changed", source: "TikTok" },
   { src: t39.url, alt: "A positive showing of how tech should be created", source: "Instagram" },
+  { src: t46.url, alt: "They exceeded my expectations! You can feel the beats and frequencies.", source: "TikTok" },
 ];
 
 const TestimonialGallery = () => {
