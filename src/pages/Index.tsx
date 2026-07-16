@@ -53,8 +53,9 @@ const Index = () => {
       <Hero />
       
       <ProductBlock />
-      <TestimonialGallery />
       <WhatsInBox />
+      <TestimonialGallery />
+
 
       {/* Below-the-fold: mount as user scrolls down. Each LazySection has its
           own Suspense boundary so loading one chunk does not collapse the
