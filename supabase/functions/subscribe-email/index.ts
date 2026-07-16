@@ -21,7 +21,9 @@ Deno.serve(async (req) => {
   try {
     const body = await req.json().catch(() => null) as { email?: unknown; source?: unknown } | null
     const email = typeof body?.email === 'string' ? body.email.trim().toLowerCase() : ''
-    const source = typeof body?.source === 'string' && body.source ? body.source : 'landing-popup'
+    const ALLOWED_SOURCES = new Set(['landing-popup', 'footer-form'])
+    const rawSource = typeof body?.source === 'string' ? body.source : ''
+    const source = ALLOWED_SOURCES.has(rawSource) ? rawSource : 'landing-popup'
 
     if (!email || email.length > 254 || !EMAIL_RE.test(email)) {
       return new Response(JSON.stringify({ success: false, message: 'Invalid email' }), {
