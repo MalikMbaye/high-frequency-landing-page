@@ -59,12 +59,12 @@ const ShippingPolicy = () => {
                 <tr>
                   <td>In-Stock Orders</td>
                   <td>1-3 business days</td>
-                  <td>Within 7 business days from order date</td>
+                  <td>5-10 business days from order date</td>
                 </tr>
                 <tr>
-                  <td>High-Demand / Pre-Order</td>
-                  <td>10-20 business days</td>
-                  <td>Clearly noted on product page at time of purchase</td>
+                  <td>High-Demand Orders</td>
+                  <td>1-3 business days</td>
+                  <td>5-10 business days from order date</td>
                 </tr>
                 <tr>
                   <td>International Orders</td>
