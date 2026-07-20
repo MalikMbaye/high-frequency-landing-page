@@ -265,14 +265,14 @@ const ProductBlock = () => {
               }}
               disabled={isCartLoading || !product}
             >
-              {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : "Pre-Order Now"}
+              {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : "Order Now"}
             </button>
             </div>
 
             <p className="pdp-trust">
-              <span aria-hidden="true">⚡</span> Limited Stock Remaining · Ships With Next Batch <span aria-hidden="true">⚡</span>
+              <span aria-hidden="true">⚡</span> In Stock · Ships in 5-10 Business Days <span aria-hidden="true">⚡</span>
             </p>
-            <p className="pdp-delivery-estimate">📦 Estimated delivery: July 2026</p>
+            <p className="pdp-delivery-estimate">📦 Estimated delivery: 5-10 business days</p>
 
             <div className="pdp-accordion">
               {accordionItems.map((item, i) => (
