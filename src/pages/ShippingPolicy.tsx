@@ -85,9 +85,8 @@ const ShippingPolicy = () => {
           <h3>What Happens After You Order</h3>
           <ol>
             <li><strong>Order confirmed.</strong> You receive an order confirmation email immediately after purchase.</li>
-            <li><strong>Production update.</strong> If your order is in a high-demand window, you will receive an email within 48 hours with your estimated ship date.</li>
             <li><strong>Shipped.</strong> When your order leaves our fulfillment center, you receive a shipping confirmation with tracking information.</li>
-            <li><strong>Delivered.</strong> Your tracking number will show delivery status. Most domestic orders arrive within 5-7 business days of shipping.</li>
+            <li><strong>Delivered.</strong> Your tracking number will show delivery status. Most domestic orders arrive within 5-10 business days from order date.</li>
           </ol>
 
           <h3>Shipping Rates</h3>
