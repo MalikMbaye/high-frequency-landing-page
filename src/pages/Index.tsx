@@ -6,6 +6,7 @@ import ProductBlock from "@/components/ProductBlock";
 import TestimonialGallery from "@/components/TestimonialGallery";
 import WhatsInBox from "@/components/WhatsInBox";
 import LazySection from "@/components/LazySection";
+import StockBanner from "@/components/StockBanner";
 
 // Below-the-fold: code-split so the JS for these sections is fetched only when needed.
 const YouTubeShortsCarousel = lazy(() => import("@/components/YouTubeShortsCarousel"));
@@ -48,6 +49,8 @@ const Fallback = ({ h = 400 }: { h?: number }) => <div style={{ minHeight: h }} 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      {/* Back-in-stock announcement banner */}
+      <StockBanner />
       {/* Above-the-fold: render eagerly so the top paints instantly */}
       <Navbar />
       <Hero />

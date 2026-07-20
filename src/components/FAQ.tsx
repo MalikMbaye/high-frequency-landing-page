@@ -36,12 +36,12 @@ const items: Item[] = [
   {
     Icon: Truck,
     q: "How long does shipping take?",
-    a: "In-stock orders are processed in 1-3 business days and typically arrive in July 2026 from your order date. International orders ship within 3-5 business days of processing and arrive in 14-28 business days depending on destination. High-demand and pre-order units are clearly noted on the product page and ship within 2-4 weeks. Every order receives a tracking number by email once it leaves our fulfillment center.",
+    a: "In-stock orders are processed in 1-3 business days and typically arrive within 5-10 business days from your order date. International orders ship within 3-5 business days of processing and arrive in 14-28 business days depending on destination. Every order receives a tracking number by email once it leaves our fulfillment center.",
   },
   {
     Icon: Package,
     q: "What happens after I place my order?",
-    a: "You get an order confirmation email immediately. If your order falls in a high-demand window, we email you within 48 hours with an updated ship date. When your unit leaves the fulfillment center, you get a shipping confirmation with tracking. If your order hasn't shipped within 30 days and you haven't received a shipping notification, you're entitled to a full refund on request.",
+    a: "You get an order confirmation email immediately. When your unit leaves the fulfillment center, you get a shipping confirmation with tracking. If your order hasn't shipped within 10 business days and you haven't received a shipping notification, you're entitled to a full refund on request.",
   },
   {
     Icon: Globe,

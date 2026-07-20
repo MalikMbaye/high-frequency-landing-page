@@ -116,8 +116,7 @@ const accordionItems = [
     body: (
       <>
         <p>Orders ship from our U.S. fulfillment center. Each unit is hand-assembled, individually tested, and quality-inspected before shipping.</p>
-        <p><strong>Current batch (pre-order):</strong> 10-20 business days from order date. Ships with the next production batch.</p>
-        <p><strong>In-stock orders:</strong> Within 7 business days from order date.</p>
+        <p><strong>In-stock orders:</strong> 5-10 business days from order date.</p>
         <p><strong>International:</strong> 14-28 business days depending on destination.</p>
         <p>You will receive a tracking number by email once your order ships. Questions? <a href="mailto:support@highfrequencyhighway.com">support@highfrequencyhighway.com</a> — we respond within 24 hours.</p>
         <p>Full details on our <a href="/shipping">Shipping & Return Policy</a> page.</p>
@@ -266,14 +265,14 @@ const ProductBlock = () => {
               }}
               disabled={isCartLoading || !product}
             >
-              {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : "Pre-Order Now"}
+              {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : "Order Now"}
             </button>
             </div>
 
             <p className="pdp-trust">
-              <span aria-hidden="true">⚡</span> Limited Stock Remaining · Ships With Next Batch <span aria-hidden="true">⚡</span>
+              <span aria-hidden="true">⚡</span> In Stock · Ships in 5-10 Business Days <span aria-hidden="true">⚡</span>
             </p>
-            <p className="pdp-delivery-estimate">📦 Estimated delivery: July 2026</p>
+            <p className="pdp-delivery-estimate">📦 Estimated delivery: 5-10 business days</p>
 
             <div className="pdp-accordion">
               {accordionItems.map((item, i) => (

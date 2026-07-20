@@ -59,12 +59,12 @@ const ShippingPolicy = () => {
                 <tr>
                   <td>In-Stock Orders</td>
                   <td>1-3 business days</td>
-                  <td>Within 7 business days from order date</td>
+                  <td>5-10 business days from order date</td>
                 </tr>
                 <tr>
-                  <td>High-Demand / Pre-Order</td>
-                  <td>10-20 business days</td>
-                  <td>Clearly noted on product page at time of purchase</td>
+                  <td>High-Demand Orders</td>
+                  <td>1-3 business days</td>
+                  <td>5-10 business days from order date</td>
                 </tr>
                 <tr>
                   <td>International Orders</td>
@@ -85,9 +85,8 @@ const ShippingPolicy = () => {
           <h3>What Happens After You Order</h3>
           <ol>
             <li><strong>Order confirmed.</strong> You receive an order confirmation email immediately after purchase.</li>
-            <li><strong>Production update.</strong> If your order is in a high-demand window, you will receive an email within 48 hours with your estimated ship date.</li>
             <li><strong>Shipped.</strong> When your order leaves our fulfillment center, you receive a shipping confirmation with tracking information.</li>
-            <li><strong>Delivered.</strong> Your tracking number will show delivery status. Most domestic orders arrive within 5-7 business days of shipping.</li>
+            <li><strong>Delivered.</strong> Your tracking number will show delivery status. Most domestic orders arrive within 5-10 business days from order date.</li>
           </ol>
 
           <h3>Shipping Rates</h3>
