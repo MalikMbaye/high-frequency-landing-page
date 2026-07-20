@@ -357,6 +357,103 @@
     font-weight: 600;
   }
 
+  /* ---------- BACK-IN-STOCK BANNER ---------- */
+  .stock-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 110;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 16px;
+    background: linear-gradient(90deg, var(--hfh-navy) 0%, var(--hfh-navy-deep) 100%);
+    color: var(--hfh-white);
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .stock-banner:hover {
+    background: linear-gradient(90deg, var(--hfh-navy-mid) 0%, var(--hfh-navy-deep) 100%);
+  }
+  .stock-banner-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    animation: stockPulse 2s infinite;
+    flex-shrink: 0;
+  }
+  @keyframes stockPulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+  }
+  .stock-banner-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--hfh-gold);
+    flex-shrink: 0;
+  }
+  .stock-banner-text {
+    opacity: 0.9;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .stock-banner-mobile {
+    display: none;
+  }
+  .stock-banner-cta {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: var(--hfh-gold);
+    flex-shrink: 0;
+  }
+  @media (max-width: 720px) {
+    .stock-banner {
+      height: auto;
+      min-height: 40px;
+      padding: 8px 12px;
+      font-size: 12px;
+      gap: 8px;
+      white-space: normal;
+    }
+    .stock-banner-desktop {
+      display: none;
+    }
+    .stock-banner-mobile {
+      display: inline;
+    }
+    .stock-banner-text {
+      white-space: normal;
+    }
+  }
+
+  body.has-banner {
+    padding-top: 100px;
+  }
+  .has-banner .top-nav {
+    top: 36px;
+  }
+  .has-banner .hero {
+    padding-top: 108px;
+  }
+
   /* ---------- HERO ---------- */
   .hero {
     padding-top: 72px;
