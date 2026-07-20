@@ -41,7 +41,7 @@ const items: Item[] = [
   {
     Icon: Package,
     q: "What happens after I place my order?",
-    a: "You get an order confirmation email immediately. If your order falls in a high-demand window, we email you within 48 hours with an updated ship date. When your unit leaves the fulfillment center, you get a shipping confirmation with tracking. If your order hasn't shipped within 30 days and you haven't received a shipping notification, you're entitled to a full refund on request.",
+    a: "You get an order confirmation email immediately. When your unit leaves the fulfillment center, you get a shipping confirmation with tracking. If your order hasn't shipped within 10 business days and you haven't received a shipping notification, you're entitled to a full refund on request.",
   },
   {
     Icon: Globe,
