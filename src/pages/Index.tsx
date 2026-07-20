@@ -49,6 +49,8 @@ const Fallback = ({ h = 400 }: { h?: number }) => <div style={{ minHeight: h }} 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      {/* Back-in-stock announcement banner */}
+      <StockBanner />
       {/* Above-the-fold: render eagerly so the top paints instantly */}
       <Navbar />
       <Hero />
