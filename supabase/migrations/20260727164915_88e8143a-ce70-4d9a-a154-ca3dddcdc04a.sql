@@ -1,0 +1,1 @@
+revoke execute on function public.recompute_queue() from anon, authenticated;

@@ -14,6 +14,113 @@ export type Database = {
   }
   public: {
     Tables: {
+      batches: {
+        Row: {
+          batch_code: string
+          created_at: string
+          eta_date: string | null
+          id: string
+          quantity: number
+          ship_buffer_days: number
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          batch_code: string
+          created_at?: string
+          eta_date?: string | null
+          id?: string
+          quantity: number
+          ship_buffer_days?: number
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          batch_code?: string
+          created_at?: string
+          eta_date?: string | null
+          id?: string
+          quantity?: number
+          ship_buffer_days?: number
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          assigned_batch_id: string | null
+          created_at: string
+          customer_name: string | null
+          customer_status: string | null
+          email: string
+          est_ship_date: string | null
+          financial_status: string | null
+          fulfillment_status: string | null
+          id: string
+          order_number: string
+          placed_at: string
+          position_in_batch: number | null
+          quantity: number
+          shipped_at: string | null
+          shopify_order_id: number | null
+          tracking_company: string | null
+          tracking_number: string | null
+          tracking_url: string | null
+          updated_at: string
+        }
+        Insert: {
+          assigned_batch_id?: string | null
+          created_at?: string
+          customer_name?: string | null
+          customer_status?: string | null
+          email: string
+          est_ship_date?: string | null
+          financial_status?: string | null
+          fulfillment_status?: string | null
+          id?: string
+          order_number: string
+          placed_at?: string
+          position_in_batch?: number | null
+          quantity?: number
+          shipped_at?: string | null
+          shopify_order_id?: number | null
+          tracking_company?: string | null
+          tracking_number?: string | null
+          tracking_url?: string | null
+          updated_at?: string
+        }
+        Update: {
+          assigned_batch_id?: string | null
+          created_at?: string
+          customer_name?: string | null
+          customer_status?: string | null
+          email?: string
+          est_ship_date?: string | null
+          financial_status?: string | null
+          fulfillment_status?: string | null
+          id?: string
+          order_number?: string
+          placed_at?: string
+          position_in_batch?: number | null
+          quantity?: number
+          shipped_at?: string | null
+          shopify_order_id?: number | null
+          tracking_company?: string | null
+          tracking_number?: string | null
+          tracking_url?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_assigned_batch_id_fkey"
+            columns: ["assigned_batch_id"]
+            isOneToOne: false
+            referencedRelation: "batches"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       shopify_tokens: {
         Row: {
           access_token: string
@@ -43,7 +150,22 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      recompute_queue: { Args: never; Returns: undefined }
+      track_order: {
+        Args: { p_email: string; p_order_number: string }
+        Returns: {
+          batch_code: string
+          batch_status: string
+          customer_status: string
+          est_ship_date: string
+          order_number: string
+          position_in_batch: number
+          shipped_at: string
+          tracking_company: string
+          tracking_number: string
+          tracking_url: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
