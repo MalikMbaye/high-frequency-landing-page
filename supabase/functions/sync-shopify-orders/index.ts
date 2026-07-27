@@ -33,13 +33,29 @@ type ShopifyOrder = {
   }>
 }
 
-async function getAccessToken(admin: ReturnType<typeof createClient>) {
+async function getTokens(admin: ReturnType<typeof createClient>) {
+  const tokens: string[] = []
+  const envToken = Deno.env.get('SHOPIFY_ACCESS_TOKEN')
+  if (envToken) tokens.push(envToken)
   const { data } = await admin
     .from('shopify_tokens')
-    .select('access_token')
+    .select('access_token, scope')
     .eq('shop_domain', SHOPIFY_SHOP_DOMAIN)
     .maybeSingle()
-  return (data?.access_token as string | undefined) ?? Deno.env.get('SHOPIFY_ACCESS_TOKEN') ?? ''
+  const stored = data?.access_token as string | undefined
+  if (stored && !tokens.includes(stored)) tokens.push(stored)
+  return tokens
+}
+
+async function pickToken(tokens: string[]) {
+  for (const t of tokens) {
+    const res = await fetch(
+      `https://${SHOPIFY_SHOP_DOMAIN}/admin/api/${SHOPIFY_API_VERSION}/orders.json?status=any&limit=1`,
+      { headers: { 'X-Shopify-Access-Token': t } },
+    )
+    if (res.ok) return t
+  }
+  return ''
 }
 
 let lastRun = 0
@@ -62,8 +78,13 @@ Deno.serve(async (req) => {
     { auth: { persistSession: false } },
   )
 
-  const token = await getAccessToken(admin)
-  if (!token) return json({ success: false, message: 'Missing Shopify access token' }, 500)
+  const token = await pickToken(await getTokens(admin))
+  if (!token) {
+    return json({
+      success: false,
+      message: 'No Shopify token with read_orders access. Reconnect the Shopify app with the read_orders scope.',
+    }, 403)
+  }
 
   const body = (await req.json().catch(() => ({}))) as { since?: string; limit?: number }
   const since = typeof body.since === 'string' ? body.since : '2020-01-01T00:00:00Z'
