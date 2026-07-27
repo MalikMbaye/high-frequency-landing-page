@@ -1,1 +1,4 @@
 project_id = "mvgwectctjiklltqasgq"
+
+[functions.sync-shopify-orders]
+verify_jwt = false
