@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import { ArrowLeft, Check, Loader2, Package, Truck } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -65,6 +65,17 @@ const Track = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<TrackResult | null>(null);
+
+  useEffect(() => {
+    document.title = "Track Your Order | High Frequency Headphones";
+    const meta = document.createElement("meta");
+    meta.name = "robots";
+    meta.content = "noindex, nofollow";
+    document.head.appendChild(meta);
+    return () => {
+      meta.remove();
+    };
+  }, []);
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
