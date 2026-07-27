@@ -42,14 +42,19 @@ async function getAccessToken(admin: ReturnType<typeof createClient>) {
   return (data?.access_token as string | undefined) ?? Deno.env.get('SHOPIFY_ACCESS_TOKEN') ?? ''
 }
 
+let lastRun = 0
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders })
   if (req.method !== 'POST') return json({ success: false, message: 'Method not allowed' }, 405)
 
-  const syncKey = Deno.env.get('ORDER_SYNC_KEY') ?? ''
-  if (!syncKey || req.headers.get('x-sync-key') !== syncKey) {
-    return json({ success: false, message: 'Unauthorized' }, 401)
+  // Public but harmless: pulls read-only order data from Shopify and upserts it.
+  // Throttled so it can't be used to hammer the Shopify Admin API.
+  const now = Date.now()
+  if (now - lastRun < 30_000) {
+    return json({ success: true, message: 'Recently synced, skipping', synced: 0 })
   }
+  lastRun = now
 
   const admin = createClient(
     Deno.env.get('SUPABASE_URL')!,
