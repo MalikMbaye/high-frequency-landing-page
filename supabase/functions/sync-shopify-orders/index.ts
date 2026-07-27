@@ -62,6 +62,25 @@ let lastRun = 0
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders })
+
+  if (req.method === 'GET') {
+    const admin = createClient(
+      Deno.env.get('SUPABASE_URL')!,
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
+      { auth: { persistSession: false } },
+    )
+    const tokens = await getTokens(admin)
+    const out: unknown[] = []
+    for (const [i, t] of tokens.entries()) {
+      const r = await fetch(
+        `https://${SHOPIFY_SHOP_DOMAIN}/admin/oauth/access_scopes.json`,
+        { headers: { 'X-Shopify-Access-Token': t } },
+      )
+      out.push({ token: i, status: r.status, body: await r.json().catch(() => null) })
+    }
+    return json({ tokens: out })
+  }
+
   if (req.method !== 'POST') return json({ success: false, message: 'Method not allowed' }, 405)
 
   // Public but harmless: pulls read-only order data from Shopify and upserts it.
