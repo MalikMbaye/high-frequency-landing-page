@@ -73,7 +73,7 @@ Deno.serve(async (req) => {
     const out: unknown[] = []
     for (const [i, t] of tokens.entries()) {
       const r = await fetch(
-        `https://${SHOPIFY_SHOP_DOMAIN}/admin/api/${SHOPIFY_API_VERSION}/oauth/access_scopes.json`,
+        `https://${SHOPIFY_SHOP_DOMAIN}/admin/oauth/access_scopes.json`,
         { headers: { 'X-Shopify-Access-Token': t } },
       )
       out.push({ token: i, status: r.status, body: await r.json().catch(() => null) })
