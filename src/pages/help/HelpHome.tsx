@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HelpLayout from "@/components/help/HelpLayout";
+import HelpVideos from "@/components/help/HelpVideos";
 import { StillStuck } from "@/components/help/HelpParts";
 import { getArticle, helpMeta, sections } from "@/lib/helpCenter";
 
@@ -60,6 +61,8 @@ const HelpHome = () => {
           </div>
         </section>
       )}
+
+      <HelpVideos />
 
       <section>
         <h2 style={{ marginBottom: 14 }}>Browse every section</h2>
