@@ -14,8 +14,8 @@ const addBusinessDays = (start: Date, days: number) => {
 const fmt = (d: Date) =>
   d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
 
-const BEST_CASE_DAYS = 3;
-const WORST_CASE_DAYS = 10;
+const BEST_CASE_DAYS = 8;
+const WORST_CASE_DAYS = 13;
 
 type Step = { key: string; label: string; caption: string; date: Date };
 
@@ -27,9 +27,9 @@ const DeliveryTimeline = () => {
     return {
       steps: [
         { key: "order", label: "Order placed", caption: "Payment confirmed instantly", date: today },
-        { key: "pack", label: "Packed & tested", caption: "Hand-assembled and QC'd", date: addBusinessDays(today, 1) },
-        { key: "ship", label: "Shipped", caption: "Tracking number emailed", date: addBusinessDays(today, 2) },
-        { key: "deliver", label: "Now shipping", caption: "Best case delivery window", date: addBusinessDays(today, BEST_CASE_DAYS) },
+        { key: "pack", label: "Packed & tested", caption: "Hand-assembled and QC'd", date: addBusinessDays(today, 3) },
+        { key: "ship", label: "Shipped", caption: "Tracking number emailed", date: addBusinessDays(today, 5) },
+        { key: "deliver", label: "Now shipping", caption: "Local delivery window", date: addBusinessDays(today, BEST_CASE_DAYS) },
       ],
       worstCaseDate: addBusinessDays(today, WORST_CASE_DAYS),
     };
@@ -71,7 +71,7 @@ const DeliveryTimeline = () => {
 
       <p className="dlv-note">
         <strong>Estimated delivery window:</strong> {fmt(steps[3].date)} — {fmt(worstCaseDate)}.
-        Most orders arrive in 3–10 business days. Dates are estimates and update automatically as your order moves.
+        Transit is 5–10 business days after packing and testing for local orders, 10–20 business days for international. Dates are estimates and update automatically as your order moves.
       </p>
     </div>
   );
