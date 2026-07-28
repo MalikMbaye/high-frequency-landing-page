@@ -43,7 +43,9 @@ const Track = () => {
       );
       return;
     }
-    navigate("/track/result", { state: { order: row } });
+    navigate("/track/result", {
+      state: { order: row, email, orderNumber: orderNumber.trim() || undefined },
+    });
   };
 
   return (
