@@ -116,6 +116,7 @@ const HelpLayout = ({ children, rail, activeRailId, hideSidebar }: Props) => {
             );
           })}
         </nav>
+        )}
 
         <main className="hc-main" id="hc-main">
           {children}
