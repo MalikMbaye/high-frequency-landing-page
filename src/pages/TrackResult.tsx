@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft, Check, ChevronDown, Info, Mail, Truck } from "lucide-react";
 import {
   FAQS,
-  PILL_LABEL,
   STAGES,
   SURGE_END,
   SURGE_START,
