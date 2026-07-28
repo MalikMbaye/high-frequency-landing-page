@@ -159,9 +159,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      recompute_queue:
-        | { Args: never; Returns: undefined }
-        | { Args: { c?: number }; Returns: undefined }
+      recompute_queue: { Args: { c?: number }; Returns: undefined }
       track_order: {
         Args: { p_email: string; p_order_number: string }
         Returns: {
