@@ -27,6 +27,7 @@ export const STAGES = [
     caption: "Locked into the queue",
     description:
       "Your order is confirmed and locked into the queue in the order it came in. Nothing else you need to do.",
+    eta: "Same day",
   },
   {
     key: "processing",
@@ -34,6 +35,7 @@ export const STAGES = [
     caption: "Prepped and packed",
     description:
       "Your order reached the front of the line and our warehouse is prepping and packing it now.",
+    eta: "1–3 business days",
   },
   {
     key: "tracking_added",
@@ -41,6 +43,7 @@ export const STAGES = [
     caption: "Tracking number issued",
     description:
       "Your shipping label and tracking number are created and your package is being handed to the carrier.",
+    eta: "Within 1 business day",
   },
   {
     key: "in_transit",
@@ -48,6 +51,7 @@ export const STAGES = [
     caption: "On the way",
     description:
       "Your package is with the carrier and moving. Follow it live below. Delivery usually takes 3–7 business days from here.",
+    eta: "3–7 business days",
   },
   {
     key: "delivered",
@@ -55,6 +59,7 @@ export const STAGES = [
     caption: "At your door",
     description:
       "Delivered. Time to plug in and shift your state. Anything off? Reach out and we'll make it right.",
+    eta: "Complete",
   },
 ] as const;
 
