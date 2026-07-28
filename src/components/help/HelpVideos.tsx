@@ -4,16 +4,16 @@ export type HelpVideo = { id: string; title: string };
 
 /** Short YouTube walkthroughs embedded straight into the help center. */
 export const VIDEO_WALKTHROUGHS: HelpVideo[] = [
-  { id: "CXjLAr6SPmE", title: "Start here: what the headphones actually do" },
-  { id: "BUUBmswVNRE", title: "Your first session, step by step" },
-  { id: "ab0egzOwL4w", title: "Choosing the right frequency for you" },
-  { id: "ZZc5cOMMu3A", title: "Fit, comfort, and getting the sound right" },
+  { id: "CXjLAr6SPmE", title: "Can headphones really shift your state?" },
+  { id: "BUUBmswVNRE", title: "A medical student tries the frequency headphones" },
+  { id: "ab0egzOwL4w", title: "Six months in: a founder's experience" },
+  { id: "ZZc5cOMMu3A", title: "Strangers try it on the street for the first time" },
 ];
 
 const HelpVideos = ({
   videos = VIDEO_WALKTHROUGHS,
   heading = "Watch the walkthrough",
-  blurb = "Short videos that take you through setup, your first session, and how to pick a frequency.",
+  blurb = "See the headphones in real sessions before you set up your own.",
 }: {
   videos?: HelpVideo[];
   heading?: string;
