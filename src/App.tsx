@@ -12,6 +12,8 @@ import Track from "./pages/Track";
 import TrackResult from "./pages/TrackResult";
 import NotFound from "./pages/NotFound";
 import EmailCapturePopup from "./components/EmailCapturePopup";
+import BackInStockSplash from "./components/BackInStockSplash";
+
 
 const queryClient = new QueryClient();
 
