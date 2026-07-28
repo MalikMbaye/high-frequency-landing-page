@@ -1,0 +1,1113 @@
+{
+  "meta": {
+    "title": "High Frequency Highway Help Center",
+    "version": "1.0",
+    "product_facts": {
+      "product": "High Frequency Highway",
+      "hardware": "Bone conduction headphones with noise isolation earplugs included",
+      "battery_life_hours": 6,
+      "premium_price": "$59 per year via App Store or Google Play",
+      "promo_code_offer": "6 months free premium, individually generated codes",
+      "septa_sync_price": "$39 one-time, separate from subscription",
+      "hardware_guarantee": "30-day money-back guarantee",
+      "shipping": "Ships worldwide, 25+ countries to date",
+      "core_concept": "A sound is a streamed audio file. A frequency is generated hertz created on-device in real time and is what makes the headphones vibrate.",
+      "paywall_provider": "Superwall",
+      "founder": "J (Jay Johnson Jr.), built after his own experience with ADHD and Vyvanse",
+      "support_email": "support@highfrequencyhighway.com",
+      "support_response_time": "Within 24 hours, Monday through Friday",
+      "order_tracker": "Public tracker at /track, lookup by order number plus checkout email",
+      "return_window": "30 days from confirmed delivery date, opened and used products accepted",
+      "defect_window": "60 days from delivery for damaged or defective claims",
+      "return_shipping": "Free for domestic orders, customer pays for international",
+      "processing_time": "1 to 3 business days in stock, 3 to 5 business days international",
+      "transit_time": "3 to 7 business days domestic after ship",
+      "current_throughput": "~142 orders per day as of July 28, 2026",
+      "backlog_clear_date": "August 4, 2026 for the June 1 to July 27 surge window",
+      "next_batch": "2,500 units expected August 17, 2026"
+    },
+    "source_conflicts": [
+      {
+        "topic": "Support email address",
+        "source_a": "Shipping and Return Policy page: support@highfrequencyhighway.com",
+        "source_b": "Order tracker page: highfrequencyhighway@gmail.com",
+        "resolved_as": "support@highfrequencyhighway.com used throughout.",
+        "action": "Confirm which inbox is monitored, then correct the tracker page. A gmail.com address on a checkout flow reads as unprofessional and raises chargeback risk."
+      },
+      {
+        "topic": "Return condition",
+        "source_a": "Shipping and Return Policy page: products may be opened and used, normal wear accepted",
+        "source_b": "Order tracker page: unused items in original packaging only",
+        "resolved_as": "The policy page wording is used, since it matches the 30-day money-back guarantee in the ads and the landing page.",
+        "action": "Correct the tracker page copy. The two versions currently promise different things and the restrictive one contradicts the advertised guarantee."
+      },
+      {
+        "topic": "Address change cutoff",
+        "source_a": "Order tracker page: cutoff is the Tracking Added stage",
+        "source_b": "Order Tracker Master build doc: cutoff is the Label Printed stage",
+        "resolved_as": "Tracking Added, matching the live tracker stage names.",
+        "action": "Confirm the live stage list is Order Received, Processing and Handling, Tracking Added, In Transit, Delivered. The master doc lists a different five."
+      },
+      {
+        "topic": "Return shipping cost",
+        "source_a": "Shipping and Return Policy page: free return label domestic, customer pays international",
+        "source_b": "Order tracker page: silent on who pays",
+        "resolved_as": "Policy page terms used.",
+        "action": "Add the return shipping terms to the tracker FAQ so the two pages match."
+      }
+    ],
+    "time_sensitive": [
+      {
+        "review_by": "2026-08-05",
+        "note": "orders-shipping / surge-backlog article and the matching FAQ name August 4 as the backlog clear date. Rewrite or remove once the wave has shipped."
+      },
+      {
+        "review_by": "2026-08-05",
+        "note": "The 142 orders per day throughput figure is a snapshot. Update or drop it once the backlog clears and the pack rate drops to steady state."
+      },
+      {
+        "review_by": "2026-08-18",
+        "note": "The August 17 batch of 2,500 units is referenced in a FAQ. Update with the next batch date once it lands."
+      },
+      {
+        "review_by": "2026-09-30",
+        "note": "Create Your Frequency is described as releasing soon. Update once it ships."
+      },
+      {
+        "review_by": "2026-09-30",
+        "note": "Several articles reference known bugs (leaderboard load, Sound Setting reminders, Read Your Frequency stability). Remove each line as it is fixed."
+      }
+    ],
+    "verify_before_publish": [
+      "Charging time and cable type for the headphones (not stated in any source).",
+      "Water and sweat resistance rating (help center currently says splash resistant, not waterproof).",
+      "Hardware warranty length and terms, separate from the 30-day money-back guarantee.",
+      "Confirm Google Play availability and whether feature parity with iOS holds.",
+      "Confirm whether a monthly premium plan exists alongside the $59 annual plan, and its price.",
+      "Confirm exact free-tier boundaries: which sounds and which Generator tabs are free.",
+      "Confirm free trial length, if any, before the paid subscription starts.",
+      "Confirm the pre-order and high-demand processing window of 10 to 20 business days is still accurate given the current batch cadence.",
+      "Confirm whether customs and duties language for international orders has been legally reviewed.",
+      "Confirm the physical button map for the current headphone revision, for the device guide article.",
+      "Legal review of the Frequency Library / Rife section and every health-adjacent line before publishing."
+    ]
+  },
+  "sections": [
+    {
+      "slug": "start-here",
+      "title": "Start Here",
+      "summary": "What the product is, the one concept that makes everything else click, and your first session.",
+      "articles": [
+        {
+          "slug": "what-is-hfh",
+          "title": "What High Frequency Highway is",
+          "body": "High Frequency Highway is two things working together.\n\nThe first is a pair of bone conduction headphones. They rest on your cheekbones instead of going in or over your ears, and they transmit sound as vibration through the bone of your skull directly to your inner ear.\n\nThe second is the app. It generates precise hertz frequencies in real time on your phone and streams a library of sounds. When you play a frequency through the headphones, the transducers physically vibrate against your face at that rate. A 100 Hz frequency means the transducer vibrates 100 times per second. You hear it and you feel it at the same time.\n\nPeople use it to fall asleep faster, lock into focused work, calm anxiety, meditate, recover, and shift out of a state they are stuck in. Founder J built it after being prescribed Vyvanse for ADHD and disliking what the medication did to his appetite and training.\n\nYou can use the app on its own without the headphones. You get the sounds, the AI meditations, and the audible frequency tones. What you do not get without bone conduction headphones is the physical vibration, which is the part most people describe as the shift."
+        },
+        {
+          "slug": "sounds-vs-frequencies",
+          "title": "Sounds and frequencies are two different things",
+          "body": "This is the single most important thing to understand, and everything else in the app makes sense once you have it.\n\n**A sound is an audio file.** Rain, a fireplace, a sound bath, a piece of ambient music. It streams from our servers, or plays from your device if you downloaded it. It needs a connection unless you have saved it offline. Sounds live under Discover Sounds, Sound Healers, and the daily recommendation on your home screen.\n\n**A frequency is a generated tone measured in hertz.** Your phone creates it in real time. No streaming, no Wi-Fi, no cellular. This is what makes the headphones vibrate. Frequencies live in the Generator, in the Frequency Library, and inside the combined presets on the home screen.\n\nSome parts of the app play both at once. The preset combinations on the home screen, for example, layer a calm sound over two generated tones. Quantum Calm plays its sound while generating 110 Hz in your left ear and 103 Hz in your right.\n\n**Quick test:** if you put the headphones on and feel nothing, you are almost certainly playing a sound with no frequency behind it. Open the Generator and start a frequency, then overlay the sound on top."
+        },
+        {
+          "slug": "first-session",
+          "title": "Your first session, step by step",
+          "body": "Ten minutes, start to finish.\n\n1. Charge the headphones fully before the first use.\n2. Open your phone's Bluetooth settings and pair the headphones the same way you would pair AirPods. They connect through standard Bluetooth.\n3. Download the High Frequency Highway app and create an account.\n4. Answer the onboarding questions. When it asks what you want to achieve, pick the one thing you actually care about most right now. That answer drives what the app recommends to you.\n5. Put the headphones on so the pads rest on your cheekbones, just in front of your ears. Not on your ears.\n6. Go to the Generator tab and pick a state. Alpha if you want calm focus. Theta or Delta if you want to wind down.\n7. Turn the volume up slowly until you feel a light buzz on your cheekbones. That vibration is the frequency doing its work.\n8. Sit with it for at least ten minutes. Most people notice something in the first minute, but the state change settles in over ten to twenty.\n9. When you want the experience to be less clinical, tap the plus button to overlay a sound on top of the frequency.\n\nThat is the whole loop. Frequency for the state, sound for the atmosphere, headphones so you feel it."
+        },
+        {
+          "slug": "onboarding-questions",
+          "title": "The onboarding questions and why they matter",
+          "body": "Onboarding asks you a small number of questions and each one changes what you see afterward.\n\n**Your name.** Used to personalize the app header.\n\n**What would you like to achieve.** Single select on purpose. The app uses this one answer to pick the frequency it recommends on the education screen right after, and to drive the Frequency For You recommendation on your home screen. Choosing three goals would make the recommendation less precise, so we ask for your top priority.\n\n**Do you own the High Frequency Headphones.** Answer yes and the headphone icon appears on your home screen for quick access to pairing and device settings. Answer not yet and the app still works, you just will not feel the vibration. Choose I'd like to know more and it takes you to the website.\n\n**Notifications.** Turn these on if you want a daily affirmation or a nudge to tune in. You can change this later in Settings.\n\nIf your priorities change, you can update your goal later without reinstalling."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Do I need the headphones to use the app?",
+          "a": "No. The app works on its own and you can listen through any headphones or your phone speaker. You will hear the frequencies and sounds, and the AI meditation generator works fully. The physical vibration through your cheekbones only happens with bone conduction headphones, and that vibration is what most people describe as the noticeable shift."
+        },
+        {
+          "q": "Can I use regular headphones or AirPods with the app?",
+          "a": "Yes for listening. Binaural frequencies still work through any stereo headphones because the effect comes from a different tone reaching each ear. You will not get the bone conduction vibration. Do not use a single speaker for binaural content, because both tones mixing in the air before they reach you cancels the effect."
+        },
+        {
+          "q": "How long does it take to feel something?",
+          "a": "Most people notice the vibration immediately and a state change within the first minute. Give any session at least ten minutes before you judge it. Sleep and deep relaxation states usually take longer to settle than focus states."
+        },
+        {
+          "q": "What if I feel nothing at all?",
+          "a": "Three usual causes. You are playing a sound rather than a frequency, so open the Generator and start an actual frequency. The headphones are sitting on your ears instead of your cheekbones. Or the volume is too low, since the vibration scales with volume and lower frequencies vibrate more noticeably than higher ones."
+        },
+        {
+          "q": "Is this the same as binaural beats on YouTube?",
+          "a": "The mechanism is related and the delivery is not. On YouTube you have no way to verify the exact frequency you are receiving, and the file has been compressed and re-encoded. The app generates the exact hertz value on your device in real time. Bone conduction then delivers it as physical vibration through your skull rather than only as audio into your ears."
+        },
+        {
+          "q": "Do I need Wi-Fi or cell service?",
+          "a": "Not for frequencies. The Generator, the Solfeggio tab, the Infinity tab, and the Frequency Library all create tones on your device with no connection at all. Sounds are streamed, so those need a connection unless you have downloaded them for offline listening. AI meditations need a connection to generate."
+        },
+        {
+          "q": "Is the app on Android and iPhone?",
+          "a": "The app is available on both the App Store and Google Play. Some features roll out on iOS first."
+        },
+        {
+          "q": "Is it free?",
+          "a": "There is a free tier that gives you access to core sounds and frequencies. Premium unlocks the full library and the AI meditation generator. See the Premium and Billing section for what sits behind the paywall."
+        },
+        {
+          "q": "Can children use it?",
+          "a": "The frequencies and sounds themselves are gentle audio, and plenty of parents use calming tracks with kids. Keep volume low, supervise use, and do not use it with a child who has a seizure disorder without asking their doctor first. The app account and subscription are intended for adults."
+        },
+        {
+          "q": "Can I use it while driving?",
+          "a": "No. Do not use focus, sleep, or relaxation frequencies while driving or operating anything that requires your full attention. Bone conduction leaves your ears open, which makes the headphones safer for ambient awareness, and that does not make it appropriate to shift your brain state behind the wheel."
+        }
+      ]
+    },
+    {
+      "slug": "headphones",
+      "title": "The Headphones",
+      "summary": "Pairing, wearing them correctly, the physical buttons, charging, and care.",
+      "articles": [
+        {
+          "slug": "how-bone-conduction-works",
+          "title": "How bone conduction works",
+          "body": "Standard headphones push air into your ear canal. Your eardrum vibrates, and that vibration travels through three small bones to your inner ear.\n\nBone conduction skips the first half of that. The transducers rest against your cheekbones and vibrate the bone directly. The vibration travels through your skull to your inner ear, and your brain receives it as sound.\n\nTwo things follow from that.\n\nYour ear canals stay open. You hear the room, your surroundings, and anyone talking to you. If you want full immersion instead, use the noise isolation earplugs included with the headphones.\n\nYou feel the frequency physically. Lower frequencies produce stronger, more obvious vibration against the skin and bone. Higher frequencies carry more clarity and vibrate less noticeably. A 40 Hz gamma tone feels different on your face than a 528 Hz Solfeggio tone, and both are working."
+        },
+        {
+          "slug": "pairing",
+          "title": "Pairing your headphones",
+          "body": "The headphones pair through standard Bluetooth. There is no special pairing mode inside the app.\n\n1. Charge the headphones before first use.\n2. Power them on and hold the power button until you hear the pairing prompt or see the indicator light blinking.\n3. Open Bluetooth in your phone settings.\n4. Select the High Frequency Headphones from the available devices list.\n5. Return to the app.\n\nInside the app, Settings has a headphones section that confirms the connection, opens the device guide for the physical buttons, and lets you program the quick action buttons.\n\nIf they will not appear in your Bluetooth list, see Troubleshooting."
+        },
+        {
+          "slug": "wearing-them",
+          "title": "Wearing them correctly",
+          "body": "Position matters more than it does with normal headphones. Get this wrong and the product feels broken.\n\nThe pads sit on your cheekbones, just forward of your ear canal, resting on bone rather than soft tissue. The band goes around the back of your head or over your ears depending on the model fit.\n\nCheck three things:\n\n**Contact.** The pads should press lightly and consistently against bone. Loose contact means weak vibration.\n\n**Placement.** If the pads are sitting on your ears, on your temples, or over your jaw muscle, move them forward and up until you find bone.\n\n**Hair and glasses.** Thick hair between the pad and your skin dampens the vibration. Glasses arms can push the pads out of position. Adjust so the pads have direct contact.\n\nIf you want to block outside noise, put in the included earplugs. The frequency still reaches your inner ear through bone, and the outside world drops away. Most people find this the strongest version of the experience."
+        },
+        {
+          "slug": "device-buttons",
+          "title": "The physical buttons and quick actions",
+          "body": "The headphones have physical controls covered in the in-app device guide under Settings. Open Settings, go to the headphones section, and tap Device Guide to see what each button does on your model.\n\nTwo of those buttons are programmable quick actions, one on the left side and one on the right.\n\n**What a quick action does.** You assign a frequency to a button. Press the button and the app generates that exact frequency. Press it again and it stops. No unlocking your phone, no navigating the app.\n\n**How to set them up.** Settings, headphones, Customize. The left button currently asks you to type a raw frequency number. The right button offers emotion and state categories instead. Both buttons perform the same function, so you can program two different on-demand frequencies. A common setup is one button for focus and one for sleep.\n\n**A note on the current build.** The two configuration screens ask for the same thing in two different ways, which is a leftover from launch. It is on the list to make consistent."
+        },
+        {
+          "slug": "charging-care",
+          "title": "Charging, battery, and care",
+          "body": "**Battery life.** Roughly 6 hours of continuous playback.\n\n**Charging.** Use the cable that came in the box. The indicator light shows charging status and changes when charging completes. Charge fully before the first use.\n\n**Preserving battery.** Continuous frequency generation at high volume uses more power than quiet background sound. If you fall asleep with them on regularly, expect to charge daily.\n\n**Cleaning.** Wipe the pads with a slightly damp cloth and dry them. The pads sit against your skin for hours, so clean them regularly. Do not submerge the headphones and do not use alcohol or solvents on the transducer pads.\n\n**Storage.** Keep them in the case. The band holds its shape better when it is not compressed under other things in a bag.\n\n**Sweat and water.** Treat them as splash resistant rather than waterproof. Wipe them down after a workout. Do not shower or swim with them."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How long does the battery last?",
+          "a": "About 6 hours of continuous playback. Heavy frequency generation at high volume drains faster than low volume ambient sound."
+        },
+        {
+          "q": "Can I use them as normal Bluetooth headphones?",
+          "a": "Yes. Full Bluetooth connectivity for music, podcasts, and calls. They work as everyday headphones with the frequency technology built in."
+        },
+        {
+          "q": "Can I use them while working out or running?",
+          "a": "Yes, and this is one of the better use cases because your ears stay open and you can hear traffic. Wipe them down afterward. They are splash resistant, not waterproof."
+        },
+        {
+          "q": "Why do my cheekbones tingle or feel numb?",
+          "a": "That is the transducer vibration and it is expected, especially with low frequencies at higher volume. If it becomes uncomfortable, lower the volume, shift the pads slightly, or take a break. There is no benefit to pushing through discomfort."
+        },
+        {
+          "q": "Can other people hear what I am listening to?",
+          "a": "At normal volume, barely. At high volume there is some audible leakage, similar to open-back headphones. In a quiet shared room, keep the volume moderate."
+        },
+        {
+          "q": "Do the earplugs come in the box?",
+          "a": "Yes. Noise isolation earplugs are included. Use them when you want full frequency immersion without outside noise."
+        },
+        {
+          "q": "Can I wear them with glasses?",
+          "a": "Yes, though the arms of your glasses can push the pads out of position. Put the headphones on first, then the glasses, and adjust until the pads sit flat on your cheekbones."
+        },
+        {
+          "q": "Do they work with hearing aids or if I have hearing loss?",
+          "a": "Bone conduction bypasses the outer and middle ear, which is why it is used in some medical hearing devices, so people with certain types of conduction-related hearing loss can often hear it well. Results vary by the type of hearing loss. If you use hearing aids or a cochlear implant, ask your audiologist before using them."
+        },
+        {
+          "q": "Can two people share one pair?",
+          "a": "One pair connects to one phone at a time. For a shared session, each person needs their own pair, and each pair pairs to the phone running the app for that person."
+        },
+        {
+          "q": "Can I connect them to a laptop or TV?",
+          "a": "Yes, they pair to any standard Bluetooth source. The app and its frequency generation run on your phone, so for frequency sessions keep them paired to the phone."
+        }
+      ]
+    },
+    {
+      "slug": "home-and-sounds",
+      "title": "Home Screen and Sounds",
+      "summary": "The daily recommendation, the sound library, mixing, and the creator tracks.",
+      "articles": [
+        {
+          "slug": "frequency-for-you",
+          "title": "Frequency For You",
+          "body": "The large button at the top of your home screen. Tap it and it plays a recommended track for you.\n\nThe recommendation is based on the goal you selected during onboarding and what you have been listening to. It refreshes daily, so there is a new one waiting each day. Treat it as your starting point when you open the app and do not know what you want.\n\nOne thing to know about the current version: this button plays a sound rather than a generated frequency, despite the name. If you want the physical vibration, go to the Generator. Renaming this is on the roadmap."
+        },
+        {
+          "slug": "discover-sounds",
+          "title": "Discover Sounds and the categories",
+          "body": "Below the recommendation sits the sound library, organized into categories including sleep, focus, nature, and more. Scroll the category row sideways, there are more categories than fit on screen.\n\nEvery item here is an audio file. Rain, fireplaces, ambient music, sound baths, tones recorded by artists. The most played track in the app is Abundance.\n\nTap any sound to open the player. From the player you can read the full description, favorite it, change the output device, download it for offline listening, and share it.\n\nUse search at the top of the home screen to look across everything in the app at once."
+        },
+        {
+          "slug": "mixing-sounds",
+          "title": "Mixing multiple sounds",
+          "body": "Layering is the feature most people never find, and it is the reason the app sounds different from anything else you have used.\n\n**How to start a mix.** Play one sound. Then tap a second sound. A prompt appears asking whether you want to switch to the new sound or mix it with the current one. Choose mix.\n\n**Adjusting the mix.** A mixer button appears next to the favorite icon. Tap it to open the layer list, where each sound has its own volume slider. Pull the fireplace down, bring the rain up, find your balance.\n\n**Adding more layers.** Inside the mixer, tap the plus button. It takes you back to browse, and whatever you pick gets added to the stack.\n\n**Stopping.** Tap the X to end the whole mix, or lower a single layer to zero.\n\n**Adding a frequency underneath.** From the Generator, start a frequency and tap the plus button to layer a sound over it. Now you have a generated tone driving the state and your own soundscape on top.\n\nA realistic setup: 4 Hz difference in the Generator for deep rest, rain at 70 percent, low fireplace at 30 percent, earplugs in."
+        },
+        {
+          "slug": "read-your-frequency",
+          "title": "Read Your Frequency",
+          "body": "A partner feature that reads your state from your voice and recommends what to listen to.\n\nTap Read Your Frequency on the home screen. It gives you an affirmation to read aloud, for example: my energy is clear, balanced, flowing with ease. Say it out loud in a normal voice.\n\nIt analyzes your vocal tone, tells you the state it detected, and recommends a track. Tap play.\n\nUse it when you know you want to listen to something but cannot name what you need. It gives you an entry point instead of a blank library.\n\nThis feature depends on microphone permission. If nothing happens when you speak, check that the app has microphone access in your phone settings."
+        },
+        {
+          "slug": "combined-presets",
+          "title": "Sound and frequency presets",
+          "body": "A section on the home screen holds presets that play a sound and a frequency at the same time. This is the fastest route to the full experience.\n\nQuantum Calm, for example, plays a calm ambient bed while generating 110 Hz in your left ear and 103 Hz in your right. You get the atmosphere from the sound and the physical vibration and entrainment from the frequency, in one tap.\n\nThe hertz values are printed on the preset so you can see exactly what you are receiving. Tap the X to stop both together.\n\nIf you are new and want the shortest path to understanding what this product does, start here rather than in the sound library."
+        },
+        {
+          "slug": "sound-healers",
+          "title": "Sound Healers and creator tracks",
+          "body": "Further down the home screen you will find tracks uploaded by sound healers and practitioners using the app.\n\nThese come from people recording their own work. Sound bowls, gongs, sound baths, produced soundscapes built in tools like FL Studio, affirmations, and subliminals. Every upload is reviewed and approved by our team before it appears, so nothing goes live unchecked.\n\nTap a creator's name to open their profile and their Instagram, so you can follow the practitioners whose work you like.\n\nYou can upload your own work too. See Your Profile and Community."
+        },
+        {
+          "slug": "septa-sync",
+          "title": "Septa Sync",
+          "body": "Septa Sync is a separate paid playlist inside the app, priced at $39 as a one-time purchase.\n\nIt is a set of seven frequencies designed to induce a waking sleep state, and it is currently the subject of a research study with MIT. High Frequency Highway is the only app licensed to sell it.\n\nIt sits highlighted on the home screen. The purchase is separate from a premium subscription, and once you buy it, it stays in your account.\n\nIf you have already paid and it is not showing, use Restore Purchase in Settings."
+        },
+        {
+          "slug": "favorites-downloads",
+          "title": "Favorites and offline listening",
+          "body": "**Favorites.** Tap the heart on any player screen. Favorited tracks collect on your profile so you can get back to them without searching.\n\n**Downloads.** Tap the download icon on a player screen to save the audio to your device. Downloaded tracks play with no connection at all, which matters on flights, in basements, and anywhere with weak signal.\n\nFind everything you have saved under Settings, in the downloads section.\n\nRemember that frequencies never need downloading. Every tone in the Generator, the Solfeggio tab, the Infinity tab, and the Frequency Library is generated on your device in real time and works offline by default."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How many sounds can I mix at once?",
+          "a": "There is no hard limit in the current build. Practically, three to four layers gives you control without turning to mud. If you stack a large number of layers and hear distortion, pull individual volumes down or remove layers."
+        },
+        {
+          "q": "Why is it called Frequency For You if it plays a sound?",
+          "a": "Fair catch, and you are right. The daily recommendation currently serves a sound rather than a generated frequency. The naming is being corrected. For a generated frequency, go to the Generator tab."
+        },
+        {
+          "q": "How do I stop a mix without closing the app?",
+          "a": "Tap the X on the player to stop everything at once, or open the mixer and pull individual layers to zero to keep the rest running."
+        },
+        {
+          "q": "Can I overlay a sound on top of a frequency, not just sound on sound?",
+          "a": "Yes. Start your frequency in the Generator, then tap the plus button. It sends you back to browse so you can pick a sound, and that sound layers over the running frequency. The navigation there is being made clearer."
+        },
+        {
+          "q": "How often does the daily recommendation change?",
+          "a": "Every day. A new recommendation is waiting each time you open the app on a new day."
+        },
+        {
+          "q": "Read Your Frequency said I was sad and I am not. Is it broken?",
+          "a": "It reads vocal tone, so a flat delivery, a tired voice, a cold, or background noise can all shift the read. Say the affirmation aloud at a normal speaking volume in a quiet room. Treat the result as a suggestion rather than a diagnosis, and ignore it if it does not match how you feel."
+        },
+        {
+          "q": "Is Septa Sync included with premium?",
+          "a": "No. Septa Sync is a separate one-time purchase at $39 and sits outside the subscription."
+        },
+        {
+          "q": "Can I listen through my phone speaker?",
+          "a": "You can for sounds and meditations. Avoid it for binaural frequency content, because the two tones need to reach each ear separately and a single speaker mixes them in the air before they get to you."
+        },
+        {
+          "q": "Do downloaded sounds expire?",
+          "a": "Downloads stay on your device as long as the app is installed and your account is in good standing. Reinstalling the app clears them and you will need to download again."
+        },
+        {
+          "q": "Can I play sounds in the background while using other apps?",
+          "a": "Yes. Playback continues when you leave the app or lock your phone."
+        }
+      ]
+    },
+    {
+      "slug": "generator",
+      "title": "The Frequency Generator",
+      "summary": "The core of the product. Brainwave states, Solfeggio tones, custom hertz, and the frequency library.",
+      "articles": [
+        {
+          "slug": "generator-overview",
+          "title": "How the Generator works",
+          "body": "The Generator is where the headphones earn their keep. Everything here is created live on your device, which means it works offline and it is precise to the decimal point.\n\nIt has three tabs and one library.\n\n**Brainwave.** Preset brain states. Start here if you want a state and do not care about the numbers.\n\n**Solfeggio.** The nine ancient tones people recognize from frequency content online.\n\n**Infinity.** Type any hertz value you want and it generates instantly.\n\n**Frequency Library.** Opens from the top right of the Infinity tab. Hundreds of preset frequency pairs organized by outcome and by category.\n\nShared controls across the tabs: independent left and right ear volume, a reset that returns everything to zero, play and pause, and a brain icon that makes the frequencies modulate rather than hold steady. An eye icon opens a short write-up on what each state does."
+        },
+        {
+          "slug": "brainwave-tab",
+          "title": "Brainwave states explained",
+          "body": "Your brain runs at different speeds depending on what you are doing. Those speeds are measured in hertz, meaning cycles per second. When your neurons fire around 40 times per second you are in gamma. When they slow to about 4 times per second you are in deep rest.\n\nThe app produces these states through the frequency following effect. It plays one tone in your left ear and a slightly different tone in your right. The two meet in your brain and the difference between them is the frequency your brain begins to follow. Play 50 Hz on one side and 46 Hz on the other and the difference is 4 Hz, which is theta.\n\nThe exact numbers matter less than the gap between them. 54 and 50 produces the same 4 Hz difference as 46 and 42.\n\n**Delta, roughly 0.5 to 4 Hz.** Deep sleep and physical recovery. The slowest state.\n\n**Theta, roughly 4 to 8 Hz.** Drowsiness, deep meditation, the edge of sleep, creative drift.\n\n**Alpha, roughly 8 to 12 Hz.** Calm alertness. Relaxed but awake. Good for reading, light work, and winding down without falling asleep.\n\n**Beta, roughly 12 to 30 Hz.** Active thinking, problem solving, engaged conversation.\n\n**Gamma, roughly 30 to 100 Hz.** Peak cognition and flow. The state associated with heavy mental load.\n\n**Balance.** A preset aimed at internal coherence rather than a single named state.\n\nTap a state to start it. Use the left and right sliders to shift emphasis toward one side. Tap reset to zero everything out."
+        },
+        {
+          "slug": "brain-modulation",
+          "title": "The brain icon and dynamic frequencies",
+          "body": "A steady pure tone works for some people and feels flat to others.\n\nTap the brain icon on the Generator and the frequencies start to modulate, moving up and down together rather than holding a fixed value. Your brain is receiving continuous change instead of one constant tone, which many people find more engaging and more effective.\n\nTap the icon again to stop the modulation and return to a steady tone. Pause stops playback entirely. Reset returns both ears to zero.\n\nTry both. Some people sleep better on a steady delta tone, others need the movement. There is no wrong answer."
+        },
+        {
+          "slug": "solfeggio-tab",
+          "title": "Solfeggio tones and the sync button",
+          "body": "Solfeggio refers to a set of nine specific tones with a long history in sound healing traditions. If you have searched frequencies online, these are almost certainly what you found. 528 Hz is the best known of them.\n\nThey work differently from the brainwave tab. Brainwave states come from the difference between two tones. Solfeggio work is usually about receiving one pure tone at a specific value.\n\n**The middle button syncs both ears.** Tap it before you select a tone and both ears play the same frequency, giving you one pure tone. Leave it off and only one ear plays.\n\nThat distinction is not obvious in the current interface and it confuses almost everyone the first time. If you selected a Solfeggio tone and it sounded lopsided, that is why. Tap the sync button.\n\nUse one pure tone when you want the effect of that specific frequency. Use two different tones when you want to shift your brain state."
+        },
+        {
+          "slug": "infinity-tab",
+          "title": "Infinity: type any frequency",
+          "body": "Infinity is the manual control. Type any value you want, down to the decimal, and it generates in real time.\n\nSet the left ear and the right ear independently. Enter 250.9 on one side and 200 on the other and it plays exactly that, immediately, with no connection required.\n\nThis is the tab for people who already know what they are looking for. If you have read research that specifies a value, or you have found a combination that works for you, this is where you enter it.\n\nThe top right button opens the Frequency Library, which is the answer for everyone who wants precision without already knowing the numbers."
+        },
+        {
+          "slug": "frequency-library",
+          "title": "The Frequency Library",
+          "body": "One button, easy to miss, and it opens the deepest part of the app.\n\nFrom the Infinity tab, tap the icon in the top right. The Frequency Library opens with hundreds of preset frequency pairs organized by name. Calm Focus. Lucid Theta. The Gateway Experience series with its levels. A long list of specific entries drawn from the Royal Rife research catalog.\n\nTap any entry and it loads those exact values into the Generator and starts playing. You can then edit them by hand if you want to adjust.\n\n**Where the entries come from.** Royal Rife was a researcher who catalogued frequencies associated with specific biological states. His library is where a large portion of these presets originate, and the names in the list reflect his original categories rather than any claim by us.\n\n**Why some entries have multiple options.** Several entries offer more than one frequency pair. The practical difference between them is intensity and range. Start with the first option, and if you want a different feel, try another. The interface does not currently label them, and that labeling is coming.\n\n**Important.** The names in this library describe historical research categories. They are not treatments, and the app does not diagnose or cure anything. Read the Safety section before using condition-named entries, and never use this library in place of medical care."
+        },
+        {
+          "slug": "overlay-from-generator",
+          "title": "Adding a sound to a frequency",
+          "body": "Pure tones are effective and not always pleasant to sit with for an hour.\n\nWhile a frequency is playing, tap the plus button. The app returns you to the sound library so you can pick something to layer on top. Choose your sound and it plays over the running frequency.\n\nThe navigation there feels abrupt right now, because the app drops you on the home screen with no explanation. It is working correctly. A clearer picker is on the roadmap.\n\nOnce you have both running, use the mixer to balance them. Most people want the frequency loud enough to feel and the sound loud enough to be pleasant, which usually means the sound sits higher in the mix than you would expect."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is the difference between Brainwave, Solfeggio, and Infinity?",
+          "a": "Brainwave gives you preset brain states like alpha and theta and uses the difference between two tones. Solfeggio gives you the nine traditional healing tones, usually as a single pure tone with both ears synced. Infinity lets you type any exact value yourself. Same engine, three levels of control."
+        },
+        {
+          "q": "What does binaural actually mean?",
+          "a": "Two tones, one per ear, slightly different from each other. Your brain perceives a third tone at the difference between them and begins to follow it. Play 100 Hz and 104 Hz and your brain follows 4 Hz. This only works with stereo separation, so you need headphones."
+        },
+        {
+          "q": "Which frequency should I use for sleep?",
+          "a": "Delta or theta in the Brainwave tab, which puts the difference between your ears in the 0.5 to 8 Hz range. Start with theta if you want to drift off gradually and delta if you want deep rest. Keep the volume low and overlay a soft sound if pure tones keep you alert."
+        },
+        {
+          "q": "Which frequency should I use for focus?",
+          "a": "Alpha for calm sustained focus, which is where most people should start. Beta for active problem solving. Gamma for heavy cognitive load and flow, though some people find gamma agitating, so try alpha first."
+        },
+        {
+          "q": "Why does the Solfeggio tone only play in one ear?",
+          "a": "The sync button in the middle of the Solfeggio tab is off. Tap it and both ears play the same pure tone. It is the least obvious control in the app and it catches almost everyone."
+        },
+        {
+          "q": "What does the brain icon do?",
+          "a": "It makes the frequencies modulate up and down instead of holding steady. Some people find the movement more effective than a constant tone. Tap it again to go back to steady."
+        },
+        {
+          "q": "The Frequency Library gives me three options for the same entry. Which do I pick?",
+          "a": "The difference is intensity and range. Start with the first, and if you want a different feel, try the others. Labeling for those options is being added."
+        },
+        {
+          "q": "Can the frequencies treat a medical condition?",
+          "a": "No. The app is a wellness tool and not a medical device. It does not diagnose, treat, or cure any disease. The names in the Frequency Library come from the historical Rife research catalog and describe the category the entry was filed under. Do not stop or delay medical treatment, and talk to your doctor about anything you are managing."
+        },
+        {
+          "q": "Can I feel the frequency without headphones?",
+          "a": "You will hear it through any speaker or headphones. You will only feel it as vibration through bone conduction headphones, because that vibration is the transducer moving against your cheekbone."
+        },
+        {
+          "q": "How loud should I set it?",
+          "a": "Loud enough to feel a light buzz on your cheekbones and no louder. Volume is how you control vibration intensity, so the temptation to push it is real. Long sessions at high volume are hard on your hearing and can leave your face feeling numb. Moderate volume for longer works better than high volume for a short burst."
+        },
+        {
+          "q": "Are the sliders hard to control on purpose?",
+          "a": "No, that is a known issue. The left and right sliders are difficult to tap and drag precisely, particularly with larger hands, and improved controls are part of the redesign."
+        },
+        {
+          "q": "Do frequencies work while I sleep?",
+          "a": "Yes, and set a low volume and consider whether you want to wear headphones all night. Many people run a delta or theta session for 30 to 60 minutes as they fall asleep rather than through the whole night."
+        }
+      ]
+    },
+    {
+      "slug": "ai-meditation",
+      "title": "AI Meditation Generator",
+      "summary": "Generate a guided meditation about anything in seconds, adapt it live, and turn it into affirmations.",
+      "articles": [
+        {
+          "slug": "meditation-overview",
+          "title": "What the meditation generator does",
+          "body": "Most meditation apps hand you a library of pre-recorded sessions and hope one of them matches your life. This generates a guided meditation about whatever you are actually dealing with, in about two to three seconds.\n\nType or speak what you need. A meditation for the presentation tomorrow. A meditation about letting go of a relationship. A meditation for building a company. It writes and narrates it on the spot.\n\nYou can also start from presets: joy, heart chakra, root chakra, inner alchemy, divine wisdom, peaceful rest, and others.\n\nThis is a premium feature and it works without the headphones, which makes it the reason many people subscribe even before they own hardware."
+        },
+        {
+          "slug": "generate-a-meditation",
+          "title": "Generating your first meditation",
+          "body": "1. Open the meditation tab, the second icon in the navigation.\n2. Either tap a preset at the bottom, type into the field at the top, or tap the microphone and speak what you want.\n3. Tap done. Generation takes two to three seconds.\n4. It begins narrating. Settle in.\n5. While it plays, use the sound selector at the bottom to overlay a soundtrack underneath the voice. You can mix more than one, and adjust levels live.\n\n**The entry point is easy to miss.** Most of the screen is animation and the input is a thin line near the top. If you looked at this screen and assumed it was another list of sounds, you are not alone. The input field is the feature.\n\n**Speaking works better than typing** for most people, because you tend to say more than you would type, and more detail produces a more specific meditation."
+        },
+        {
+          "slug": "adaptive-meditation",
+          "title": "Changing the meditation while it plays",
+          "body": "The meditation listens while it runs.\n\nSpeak during the session and it adapts in real time. Ask it to go longer. Ask it to slow down. Ask it to bring in a different theme. Tell it to focus on your breathing instead of visualization. It adjusts and continues.\n\nThat is the difference between this and a recording. You are in a conversation with the session rather than sitting through a fixed track.\n\nIf you do not want it listening, mute your microphone and it plays straight through."
+        },
+        {
+          "slug": "transcript-affirmations",
+          "title": "Transcripts, summaries, and affirmations",
+          "body": "When a meditation ends, you get more than the audio.\n\n**Summary.** A short write-up of what the session covered.\n\n**Transcript.** The full text of what was narrated, so you can read back anything that landed.\n\n**Affirmations.** Tap to generate affirmations drawn directly from that specific meditation. They are read aloud and they loop, so you can put them on repeat while you work, drive, or fall asleep. Because they come from your meditation rather than a generic list, they use your language and your situation.\n\n**History.** The icon in the top right opens every meditation you have generated. Open any one to replay the audio, reread the transcript, or generate fresh affirmations from it.\n\nA pattern worth trying: generate a meditation about a specific goal, listen once, generate the affirmations from it, and loop those affirmations for a week."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Do I need the headphones for AI meditations?",
+          "a": "No. This works on any headphones or your phone speaker. Bone conduction adds the physical layer if you overlay a frequency underneath, and the meditation itself works without any special hardware."
+        },
+        {
+          "q": "Is the meditation generator free?",
+          "a": "No. It sits entirely behind the premium paywall."
+        },
+        {
+          "q": "How long does it take to generate?",
+          "a": "Two to three seconds."
+        },
+        {
+          "q": "Can I ask for anything?",
+          "a": "Effectively yes. Type or say the situation and it writes for that. The more specific you are, the more useful the result. A meditation for my performance review Friday beats a meditation for stress."
+        },
+        {
+          "q": "Can I make it longer?",
+          "a": "Yes. Speak during the session and ask it to go longer, and it extends. You can also ask it to slow down or change direction mid-session."
+        },
+        {
+          "q": "Where do my past meditations go?",
+          "a": "The icon in the top right of the meditation screen opens your history. Every session you have generated is there with its audio, transcript, and summary."
+        },
+        {
+          "q": "Can I save or export a meditation?",
+          "a": "You can replay any past meditation from your history and read its transcript. Once the Create Your Frequency studio releases, you will be able to import a meditation you recorded in the app into a custom track."
+        },
+        {
+          "q": "How do affirmations work?",
+          "a": "After a meditation ends, tap generate affirmations. It writes a set of affirmations based on that specific session, reads them aloud, and loops them. Use them for repeat listening when you want the message to stick."
+        },
+        {
+          "q": "Can I add sounds under the meditation?",
+          "a": "Yes, and you can mix several. The sound selector sits at the bottom of the meditation screen and works live while the voice plays."
+        },
+        {
+          "q": "Why did it stop or cut out mid-session?",
+          "a": "Generation and adaptation need a connection. A dropped signal can interrupt the session. Check your connection and start again. If it repeats on a strong connection, contact support with your device model and OS version."
+        }
+      ]
+    },
+    {
+      "slug": "create-your-frequency",
+      "title": "Create Your Frequency",
+      "summary": "The studio for building your own frequency and sound sequences. Releasing soon.",
+      "articles": [
+        {
+          "slug": "studio-overview",
+          "title": "What Create Your Frequency does",
+          "body": "A studio inside the app for building your own sessions, in the spirit of a music production tool.\n\nInstead of playing one frequency for as long as you sit there, you sequence them. 111 Hz and 100 Hz for five seconds, then 220 Hz and 200 Hz for seven seconds, with a sound layered underneath the whole thing. You are composing a session rather than selecting one.\n\nWhat you can put on the timeline:\n\n- Generated frequency segments with set durations\n- Sounds from the app library\n- Audio imported from your phone\n- Meditations you recorded in the app\n- Live recordings you make on the spot\n\nDrag any segment to change its length, adjust volume per layer, and delete what is not working.\n\n**Presets give you a starting point.** Pick a focus template and it loads a sequence already built with frequencies and sounds, which you then edit rather than starting from an empty timeline.\n\nThis feature is in development and releases soon."
+        },
+        {
+          "slug": "sharing-creations",
+          "title": "Sharing what you build",
+          "body": "Finished tracks can be published for other people to find.\n\nAdd an image, a description, and a category, then share. Your track appears in the discovery hub where anyone in the app can open it, play it, and see who made it.\n\nThe hub is being rebuilt around this. News articles are being retired and the hub becomes a place to find creator work: custom frequency sequences, sound baths, guided sessions, and uploaded tracks all in one browsable space, with creator profiles linking out to Instagram.\n\n**A marketplace is planned.** Sound healers and creators will be able to price their tracks, and revenue is split with the creator. Pricing, splits, and the approval process are still being worked out.\n\nIf you make sound healing content and want to be an early creator on the platform, contact us."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "When does Create Your Frequency release?",
+          "a": "It is in active development and releasing soon. Watch for the in-app announcement and the Instagram account."
+        },
+        {
+          "q": "Do I need production experience to use it?",
+          "a": "No. Presets load a complete sequence you can edit, so you can start by changing a template rather than building from nothing."
+        },
+        {
+          "q": "Can I sell what I make?",
+          "a": "A creator marketplace is planned with revenue sharing. Pricing and the approval process are not finalized."
+        },
+        {
+          "q": "What is the difference between uploading a track and building one in the studio?",
+          "a": "Uploading is for audio you already recorded elsewhere and want to bring in. The studio is for building inside the app, with generated frequencies you cannot produce anywhere else. Both are being consolidated into one hub."
+        },
+        {
+          "q": "Can I import my own audio?",
+          "a": "Yes. You can import a track from your phone, bring in a meditation you recorded in the app, or record live audio directly into the timeline."
+        }
+      ]
+    },
+    {
+      "slug": "profile-community",
+      "title": "Your Profile and Community",
+      "summary": "Streaks, listening time, the leaderboard, and uploading your own tracks.",
+      "articles": [
+        {
+          "slug": "profile",
+          "title": "Your profile",
+          "body": "Tap your profile picture on the home screen to open it.\n\n**Time tuned in.** Total listening time across the app.\n\n**Daily streak.** Counts a day when you open the app and listen to something. Miss a day and it resets.\n\n**Favorites.** Everything you have hearted.\n\n**Uploaded sounds.** Tracks you have submitted, including anything still awaiting approval.\n\n**Edit profile.** Change your profile picture, name, and email, and add your Instagram handle so people who find your uploads can follow you."
+        },
+        {
+          "slug": "leaderboard",
+          "title": "The leaderboard",
+          "body": "Ranks listeners by time tuned in, with all time, weekly, and monthly boards.\n\nOpen it from the top right of the settings area. Giveaways for top monthly listeners are planned.\n\nThe leaderboard is currently slow to load and the team is working on it. If it sits on a loading screen, close it and try again shortly."
+        },
+        {
+          "slug": "upload-a-sound",
+          "title": "Uploading your own track",
+          "body": "If you record sound healing work, meditations, affirmations, or soundscapes, you can put them in the app.\n\n1. Tap the upload button at the top right of the home screen, or go through Settings.\n2. Select a cover image.\n3. Select your audio file.\n4. Add a title and a description.\n5. Tap add sound.\n\n**Every upload is reviewed before it goes live.** A person on the team checks it, which protects the library from anything harmful or off-brand. Approval takes some time, and there is a review backlog right now, so give it a while before following up.\n\n**What we are looking for.** Sound bath and sound bowl recordings, produced soundscapes, guided meditations, affirmations, subliminals, and original frequency work.\n\n**Cover images.** Screenshots and selfies make the browse experience look messy. Templated cover art by category is coming, and until then, use a clean image with no text."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How is my daily streak calculated?",
+          "a": "Open the app and listen to something on a given day and that day counts. Opening without listening does not."
+        },
+        {
+          "q": "Why is the leaderboard taking forever to load?",
+          "a": "Known issue and being worked on. Close it and try again in a few minutes."
+        },
+        {
+          "q": "How long does upload approval take?",
+          "a": "Every track is reviewed by a person before it appears. There is a review backlog at the moment, so expect a wait. Your submission stays visible in your profile under uploaded sounds while it waits."
+        },
+        {
+          "q": "Why was my track not approved?",
+          "a": "Common reasons are poor audio quality, content that does not fit a wellness library, missing or unclear titles and descriptions, or material you do not hold the rights to. Fix the issue and resubmit, or contact support for specifics."
+        },
+        {
+          "q": "Can I upload music I did not make?",
+          "a": "No. Only upload audio you created or hold the rights to."
+        },
+        {
+          "q": "Can people follow me in the app?",
+          "a": "You have a creator profile with your tracks and a link to your Instagram, which is where most creators build their following today. A fuller in-app follow system is part of the hub roadmap."
+        },
+        {
+          "q": "Do I earn anything from uploads?",
+          "a": "Not currently. A marketplace with revenue sharing for paid creator tracks is planned."
+        },
+        {
+          "q": "Can I delete a track I uploaded?",
+          "a": "Contact support with the track title and we will remove it."
+        },
+        {
+          "q": "Can I change my name or email?",
+          "a": "Yes, under edit profile. If you cannot access the email on the account, contact support."
+        }
+      ]
+    },
+    {
+      "slug": "settings",
+      "title": "Settings, Reminders and Extras",
+      "summary": "Notifications, scheduled listening, downloads, the breathing exercise, and the smaller features people miss.",
+      "articles": [
+        {
+          "slug": "notifications",
+          "title": "Notifications and daily affirmations",
+          "body": "Settings holds two notification controls.\n\n**Daily reminder.** A nudge to tune in.\n\n**Motivational messages.** A daily affirmation delivered as a notification each morning.\n\nToggle either on or off at any time. If you declined notifications during onboarding, you can turn them on here, and you may also need to allow notifications for the app in your phone's system settings.\n\nMore control over timing and affirmation type is planned."
+        },
+        {
+          "slug": "sound-setting",
+          "title": "Sound Setting: scheduling a listening reminder",
+          "body": "Sound Setting lets you schedule a reminder to listen at a specific time. Set it for 9 AM and you get prompted to tune in every morning. Choose the sound and whether it repeats.\n\nTreat it as a habit builder. The people who get the most from the product are the ones who use it at the same time each day rather than only when they are already struggling.\n\nThis feature is currently buggy and being fixed. If your reminder does not fire, that is the known issue rather than something wrong with your setup."
+        },
+        {
+          "slug": "breathing-exercise",
+          "title": "The breathing exercise",
+          "body": "A guided breathing session with an animation that paces you through inhale, hold, and exhale.\n\nIt lives in Settings under the downloaded sounds area, which is further from the surface than it should be. It is a good thirty to sixty second reset on its own, and it works well underneath a frequency: start alpha or theta in the Generator, then open the breathing exercise and follow the pacing.\n\nMoving this closer to the surface came up directly in the design review and it is part of the redesign."
+        },
+        {
+          "slug": "other-settings",
+          "title": "Downloads, tour, tutorial, and support",
+          "body": "**Downloads.** Everything you have saved for offline listening.\n\n**App tour.** Replays the walkthrough of the main menu.\n\n**Video tutorial.** Links to a walkthrough on our YouTube channel. The version currently linked is out of date and a new one is coming.\n\n**Restore purchase.** Use this if you paid on another device or reinstalled the app and your premium access is missing.\n\n**Contact us.** Emails our team directly.\n\n**Terms and privacy.** Opens the policies on our website."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "My daily reminder is not going off.",
+          "a": "Sound Setting reminders have a known bug that the team is fixing. In the meantime, check that notifications are enabled for the app in your phone's system settings, which resolves it for some people."
+        },
+        {
+          "q": "How do I turn off the daily affirmation notification?",
+          "a": "Settings, notifications, and toggle motivational messages off."
+        },
+        {
+          "q": "Where is the breathing exercise?",
+          "a": "Settings, in the downloaded sounds area. It is buried in the current build and is being brought forward in the redesign."
+        },
+        {
+          "q": "The video tutorial looks old.",
+          "a": "It is. The linked walkthrough predates several features and a current version is being produced. This help center is the up to date reference until then."
+        },
+        {
+          "q": "How do I contact support from inside the app?",
+          "a": "Settings, contact us. That opens an email to our team. Include your account email, your device model, and what happened."
+        }
+      ]
+    },
+    {
+      "slug": "premium-billing",
+      "title": "Premium, Billing and Promo Codes",
+      "summary": "What premium unlocks, what it costs, redeeming codes, and managing your subscription.",
+      "articles": [
+        {
+          "slug": "what-premium-unlocks",
+          "title": "What premium unlocks",
+          "body": "The free tier gives you access to core sounds and frequencies so you can find out whether the product does anything for you.\n\nPremium unlocks the full experience, including the AI meditation generator, which is entirely a paid feature and is the reason most subscribers convert.\n\nPremium runs at $59 per year. Billing is handled through the App Store or Google Play, so your subscription lives in your Apple or Google account rather than with us directly.\n\nSepta Sync is separate. It is a $39 one-time purchase and sits outside the subscription."
+        },
+        {
+          "slug": "promo-codes",
+          "title": "Promo codes and free premium",
+          "body": "We issue codes for six months of free premium, most often through customer service when someone has waited on an order or run into a problem.\n\n**Redeeming a code in the app.** Settings, promo codes, enter the code, submit. Premium activates on your account.\n\n**On iPhone we often send a link instead.** Tap the link, and the App Store shows six months free followed by $59 per year. Tap redeem offer and your subscription starts with the free period applied.\n\nCodes are generated individually and are not reusable. If a code will not work, contact support with the code and your account email.\n\nAt the end of a promotional period the subscription continues at the standard rate unless you cancel first, and you can cancel any time through your Apple or Google account."
+        },
+        {
+          "slug": "manage-subscription",
+          "title": "Managing, restoring, and cancelling",
+          "body": "**Restore a purchase.** Settings, restore purchase. Use this after reinstalling the app, switching phones, or if premium content is locked when it should not be. You must be signed in to the same Apple or Google account that made the original purchase.\n\n**Cancel on iPhone.** Phone Settings, tap your name, Subscriptions, select High Frequency Highway, cancel. Access continues until the end of the paid period.\n\n**Cancel on Android.** Google Play, profile icon, Payments and subscriptions, Subscriptions, select High Frequency Highway, cancel.\n\n**Refunds on a subscription.** App Store and Google Play subscription refunds are handled by Apple and Google under their policies. We can help with account access and premium codes, and we cannot process a store refund on your behalf.\n\n**Hardware refunds.** The headphones carry a 30-day money-back guarantee that runs from the confirmed delivery date, separate from the app subscription. Email support@highfrequencyhighway.com with your order number to start a return. See the Orders, Shipping and Tracking section for the full process."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How much is premium?",
+          "a": "$59 per year, billed through the App Store or Google Play."
+        },
+        {
+          "q": "What is free without paying?",
+          "a": "Core sounds and frequencies. The AI meditation generator is fully behind the paywall."
+        },
+        {
+          "q": "Does buying the headphones include premium?",
+          "a": "The app and subscription are separate from the hardware. If you were told your purchase included a premium period, contact support with your order number and we will apply a code."
+        },
+        {
+          "q": "I have a promo code. Where do I enter it?",
+          "a": "Settings, promo codes, enter the code and submit. On iPhone you may instead receive a direct redemption link that opens the App Store."
+        },
+        {
+          "q": "My promo code is not working.",
+          "a": "Codes are single use and generated individually. Check for typos and extra spaces, then contact support with the code and your account email and we will issue a new one."
+        },
+        {
+          "q": "I paid but premium content is still locked.",
+          "a": "Settings, restore purchase, while signed in to the same Apple or Google account that made the purchase. If it stays locked, contact support with the receipt from Apple or Google."
+        },
+        {
+          "q": "I switched from iPhone to Android. Does my subscription carry over?",
+          "a": "Subscriptions are tied to the store that sold them, so an App Store subscription does not transfer to Google Play. Contact support before buying twice and we will work it out."
+        },
+        {
+          "q": "How do I cancel?",
+          "a": "Through your Apple or Google account rather than inside the app. On iPhone: Settings, your name, Subscriptions. On Android: Google Play, Payments and subscriptions."
+        },
+        {
+          "q": "Do I lose my downloads and history if I cancel?",
+          "a": "Your account, favorites, streak, and meditation history stay. Premium content locks when the paid period ends."
+        },
+        {
+          "q": "Is Septa Sync included in premium?",
+          "a": "No. It is a $39 one-time purchase, separate from the subscription, and it stays in your account once bought."
+        },
+        {
+          "q": "Can I get a refund on the headphones?",
+          "a": "Yes, within 30 days of the confirmed delivery date under the money-back guarantee. Email support@highfrequencyhighway.com with your order number. Domestic return shipping is free and the full process is in the Orders, Shipping and Tracking section."
+        }
+      ]
+    },
+    {
+      "slug": "orders-shipping",
+      "title": "Orders, Shipping and Tracking",
+      "summary": "Where your order is, how the estimate is calculated, and what happens if it takes longer than expected.",
+      "articles": [
+        {
+          "slug": "track-your-order",
+          "title": "Tracking your order",
+          "body": "Go to the order tracker, enter your order number and the email you used at checkout, and you get a live status page.\n\nThe tracker shows five stages, an estimated delivery range, and a live carrier link once your package is moving. It updates on its own, so there is no need to check in with us for a status.\n\n**Where to find your order number.** It is in your order confirmation email, in the subject line and at the top of the receipt.\n\n**If the tracker cannot find your order,** the email you entered is almost certainly different from the one used at checkout. Try any other address you use, including one a partner may have ordered under. If it still comes back empty, email support@highfrequencyhighway.com with your order number.\n\nYou also receive a shipping confirmation email with tracking as soon as your package leaves our fulfillment center."
+        },
+        {
+          "slug": "order-stages",
+          "title": "What each tracker stage means",
+          "body": "**1. Order Received.** Same day. Your order is confirmed and locked into the queue in the order it came in. Nothing else you need to do.\n\n**2. Processing and Handling.** 1 to 3 business days. Your order reached the front of the line and our warehouse is prepping and packing it now.\n\n**3. Tracking Added.** Within 1 business day. Your shipping label and tracking number are created and your package is being handed to the carrier.\n\n**4. In Transit.** 3 to 7 business days. Your package is with the carrier and moving. Follow it live from the tracker. Delivery usually takes 3 to 7 business days from this point.\n\n**5. Delivered.** Complete. Time to plug in and shift your state. Anything off, reach out and we will make it right.\n\nThe first three stages are calculated from your position in the queue and our current stock. Once the carrier has your package, the tracker stops estimating and shows you real carrier data instead. We never contradict the carrier."
+        },
+        {
+          "slug": "delivery-estimate",
+          "title": "How your delivery estimate is calculated",
+          "body": "It is arithmetic rather than a guess.\n\nThree inputs go into it: your order date and the resulting place in line, the inventory we currently have on hand, and how many orders we pack and hand off per day. Add carrier transit of 3 to 7 business days and that is your range.\n\nWe ship first in, first out. The oldest unshipped order is position one and everything fills forward from there. As the queue clears, your estimate tightens.\n\nWe build a small buffer into the date you see, so it is a date we are confident we can beat rather than one we are hoping to hit.\n\n**Why the estimate moves.** Receiving a new batch, changing how many orders we pack per day, or clearing the backlog faster than planned all shift the math. The tracker recalculates rather than holding on to an old promise."
+        },
+        {
+          "slug": "batch-model",
+          "title": "Why we ship in batches",
+          "body": "The headphones are hand assembled, individually tested, and quality inspected before they leave. Units arrive from our manufacturer in waves rather than continuously.\n\nOrders fill in the order they came in. When a batch runs out, new orders are reserved against the next one and you see that batch's arrival estimate instead of a ship date.\n\nYou are never lost in a pile. Your position and your estimate update automatically as each batch clears, and you can check either at any time on the tracker.\n\nDuring periods of high demand, production timelines can extend past standard estimates. If your order is affected, we email you within 48 hours of purchase with an updated delivery estimate, and we send production updates at least once a week until it ships."
+        },
+        {
+          "slug": "surge-backlog",
+          "title": "If you ordered between June 1 and July 27, 2026",
+          "body": "You ordered during the biggest demand surge in the company's history. For a stretch, orders came in faster than we could restock.\n\nThat is fixed. A fresh shipment landed and we are shipping around 142 orders a day. Every order from that window is in the current wave and ships by August 4, arriving within 3 to 7 business days after that.\n\nYour tracker already reflects this. The estimate you see accounts for the backlog rather than assuming a normal week.\n\nIf your order was placed in that window and has not shipped by the date your tracker shows, email support@highfrequencyhighway.com with your order number and we will look at it directly.\n\nYou can request a full refund at any point before your order ships. No questions asked."
+        },
+        {
+          "slug": "processing-shipping-times",
+          "title": "Standard processing and delivery times",
+          "body": "All orders ship from our fulfillment center in the United States.\n\n| Order type | Processing | Estimated delivery |\n|---|---|---|\n| In stock | 1 to 3 business days | Within 7 business days of the order date |\n| High demand or pre-order | 10 to 20 business days | Noted on the product page at the time of purchase |\n| International | 3 to 5 business days | 14 to 28 business days depending on destination |\n\n**Shipping rates** are calculated at checkout for both domestic and international orders. Shipping costs are not refunded on a return.\n\n**After you order,** the sequence is: order confirmation email immediately, a production update within 48 hours if you are in a high demand window, a shipping confirmation with tracking when the package leaves us, and delivery. Most domestic orders arrive within 5 to 7 business days of shipping."
+        },
+        {
+          "slug": "change-cancel",
+          "title": "Changing your address or cancelling",
+          "body": "**Changing your shipping address.** If your order has not reached the Tracking Added stage, email support@highfrequencyhighway.com with your order number and the correct address and we will update it before it ships. Once tracking is issued, the address is locked and we cannot change it.\n\n**Cancelling before it ships.** Email support@highfrequencyhighway.com with your order number and write Cancel in the subject line. We confirm the cancellation and issue your refund within 48 hours. You can cancel at any point before your order ships, no questions asked.\n\n**Cancelling after it ships.** Once a package is with the carrier we cannot pull it back. Wait for delivery and use the standard return process.\n\n**If your order has not shipped within 30 days of purchase** and you have not received a shipping notification, you are entitled to a full refund on request."
+        },
+        {
+          "slug": "returns",
+          "title": "Returns and the 30-day guarantee",
+          "body": "You can return the headphones within 30 days of delivery for a full refund of the product purchase price.\n\nThe 30 days start on the date the carrier confirms delivery. Not the order date, not the ship date. The day it arrived at your door.\n\n**How to return.**\n\n1. Email support@highfrequencyhighway.com with your order number and the reason for the return. We respond within 24 hours with instructions and a return shipping label.\n2. Pack the headphones in the original packaging, or equivalent protective packaging, with every accessory that came in the box.\n3. Ship it back using the label we provide.\n4. Once we receive and inspect it, your refund is issued within 5 to 10 business days to the original payment method.\n\n**You are allowed to open and use them.** Trying the headphones is the only way to know whether they work for you, and normal wear from doing that is accepted. Send them back if they are not for you.\n\n**What is refunded.** The full product purchase price. Original shipping costs are not refunded. If you bought at a discount or promotional price, the refund reflects what you actually paid.\n\n**What is not eligible.** Returns started more than 30 days after confirmed delivery, products physically damaged through misuse, neglect or modification, and returns shipped back without contacting support first, since we need your order number to process it.\n\n**Return shipping** is free for domestic orders. International return shipping is the customer's responsibility.\n\n**Exchanges.** We do not offer direct exchanges. Return the original order and place a new one."
+        },
+        {
+          "slug": "refund-timeline",
+          "title": "Refund timeline",
+          "body": "| Step | Timeline |\n|---|---|\n| Return initiated | We respond within 24 hours |\n| Return received at our facility | 1 to 5 business days after you ship |\n| Inspection and processing | 1 to 3 business days after receipt |\n| Refund issued to payment method | 5 to 10 business days after processing |\n| Total, initiation to refund | Roughly 10 to 20 business days |\n\nYour bank or card issuer controls the last step, so the money can take a few extra days to appear after we issue it."
+        },
+        {
+          "slug": "damaged-defective",
+          "title": "Damaged or defective on arrival",
+          "body": "Email support@highfrequencyhighway.com straight away with your order number, photos of the damage or defect, and a short description of what is wrong.\n\nWe send a replacement at no cost to you. If a replacement is not available, we issue a full refund including the original shipping cost.\n\nYou do not need to send the damaged product back unless we specifically ask for it.\n\nDefective product claims must be made within 60 days of delivery, which is a longer window than the 30-day return guarantee."
+        },
+        {
+          "slug": "disputes",
+          "title": "Before you file a chargeback",
+          "body": "Contact us first. Every email gets a response within 24 hours, and we offer full refunds within the 30-day window.\n\nA chargeback filed before you have contacted us slows the resolution down for everyone, including you. In almost every case we can sort it out faster than the dispute process can.\n\nEmail support@highfrequencyhighway.com with your order number and what went wrong."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Where is my order?",
+          "a": "Use the order tracker with your order number and the email you used at checkout. It shows your stage, your estimated delivery range, and a live carrier link once the package is moving."
+        },
+        {
+          "q": "I ordered between June 1 and July 27 and it has not shipped.",
+          "a": "You ordered during the largest demand surge in the company's history and for a period orders came in faster than we could restock. New stock has landed and we are shipping around 142 orders a day. Every order from that window is in the current wave and ships by August 4, arriving 3 to 7 business days after that. You can request a full refund at any point before your order ships."
+        },
+        {
+          "q": "Why is my order taking longer than usual?",
+          "a": "Demand outran supply for a few weeks. We ship in batches, units arrive from the manufacturer in waves, and orders fill in the order they came in. When a batch sells out, new orders wait for the next one. Your position and estimate update automatically as each batch clears."
+        },
+        {
+          "q": "How is my delivery estimate calculated?",
+          "a": "Your order date and your place in line, our inventory on hand, and how many orders we ship per day, plus carrier transit of 3 to 7 business days. As the backlog clears the estimate tightens. We build in a small buffer, so the date you see is one we are confident we can beat."
+        },
+        {
+          "q": "Why did my estimated date change?",
+          "a": "The estimate recalculates when a new batch arrives, when our daily shipping rate changes, or when the queue clears faster than planned. We would rather update the number than hold on to a date we can no longer hit."
+        },
+        {
+          "q": "How long does shipping take?",
+          "a": "In-stock orders process in 1 to 3 business days and arrive within 7 business days of the order date. Most domestic orders arrive 5 to 7 business days after shipping. International orders process in 3 to 5 business days and take 14 to 28 business days depending on destination."
+        },
+        {
+          "q": "Do you ship internationally?",
+          "a": "Yes. We have shipped to more than 25 countries. International processing takes 3 to 5 business days and delivery runs 14 to 28 business days depending on the destination. Rates are calculated at checkout."
+        },
+        {
+          "q": "Am I responsible for customs and import duties?",
+          "a": "International orders may be subject to customs charges, duties, or taxes set by your country. Those are separate from what you paid us and are the customer's responsibility."
+        },
+        {
+          "q": "How much is shipping?",
+          "a": "Calculated at checkout based on your destination. Shipping costs are not refunded on a return."
+        },
+        {
+          "q": "I have not received a tracking number.",
+          "a": "Tracking is emailed as soon as your package leaves our fulfillment center, and it also appears on the tracker. If you have not received one within the estimated processing window, email support@highfrequencyhighway.com and we will update you within 24 hours."
+        },
+        {
+          "q": "The tracker cannot find my order.",
+          "a": "The email entered has to match the one used at checkout exactly. Try any other address you use, including one a family member may have ordered under. If it still comes up empty, email support@highfrequencyhighway.com with your order number."
+        },
+        {
+          "q": "My tracking has not moved in several days.",
+          "a": "Carrier scans can go quiet in transit, particularly across long domestic legs and international borders. If there has been no movement for more than 5 business days, email us with your order number and we will chase the carrier."
+        },
+        {
+          "q": "Can I change my shipping address?",
+          "a": "Yes, if your order has not reached the Tracking Added stage. Email support@highfrequencyhighway.com with your order number and the correct address. Once tracking is issued the address is locked."
+        },
+        {
+          "q": "Can I cancel my order?",
+          "a": "Yes, at any point before it ships, no questions asked. Email support@highfrequencyhighway.com with your order number and Cancel in the subject line. We confirm and refund within 48 hours."
+        },
+        {
+          "q": "My order has not shipped in over 30 days.",
+          "a": "If 30 days have passed since purchase and you have not received a shipping notification, you are entitled to a full refund on request. Email support@highfrequencyhighway.com with your order number."
+        },
+        {
+          "q": "What is your return policy?",
+          "a": "30 days from the confirmed delivery date for a full refund of the product purchase price. You are allowed to open and use them, since trying them is the only way to know. Return everything that came in the box. Domestic return shipping is free and international return shipping is the customer's responsibility."
+        },
+        {
+          "q": "Can I return them if I already used them?",
+          "a": "Yes. We want you to try them. Normal wear from trying the product is accepted. Physical damage from misuse, neglect, or modification is not."
+        },
+        {
+          "q": "How do I start a return?",
+          "a": "Email support@highfrequencyhighway.com with your order number and the reason. We reply within 24 hours with instructions and a return shipping label. Do not ship anything back before contacting us, because we need your order number to process it."
+        },
+        {
+          "q": "How long until I get my refund?",
+          "a": "Roughly 10 to 20 business days from when you start the return. We respond within 24 hours, transit back takes 1 to 5 business days, inspection takes 1 to 3, and the refund issues within 5 to 10 business days after that. Your bank controls the final step."
+        },
+        {
+          "q": "Do I get my shipping cost back?",
+          "a": "No. Original shipping costs are not refunded on a return. The exception is a damaged or defective product, where we refund shipping too."
+        },
+        {
+          "q": "Can I exchange for a different product or color?",
+          "a": "We do not offer direct exchanges. Return the original order through the standard process and place a new one."
+        },
+        {
+          "q": "My headphones arrived damaged or do not work.",
+          "a": "Email support@highfrequencyhighway.com with your order number, photos of the issue, and a short description. We send a replacement at no cost, or a full refund including original shipping if a replacement is not available. You usually do not need to send the damaged product back. Defective claims must be made within 60 days of delivery."
+        },
+        {
+          "q": "Something is missing from my box.",
+          "a": "Email support@highfrequencyhighway.com with your order number and a photo of everything that arrived, and we will send the missing item."
+        },
+        {
+          "q": "My package says delivered and I do not have it.",
+          "a": "Check with anyone else at the address and look in the usual carrier hiding places, then check with your neighbours. Carriers sometimes scan a package as delivered a day early. If it has not appeared after 48 hours, email us with your order number and we will open a carrier trace."
+        },
+        {
+          "q": "I want to file a chargeback.",
+          "a": "Contact us first at support@highfrequencyhighway.com. We respond within 24 hours and we refund in full within the 30-day window. A dispute filed before contacting us slows resolution down, and we can almost always fix it faster directly."
+        },
+        {
+          "q": "Does buying the headphones give me app premium?",
+          "a": "The hardware purchase and the app subscription are separate. If you were told your order included a premium period, email support with your order number and we will apply a code."
+        },
+        {
+          "q": "When is the next batch arriving?",
+          "a": "The next production batch of 2,500 units is expected on August 17, 2026. If your order is reserved against it, your tracker shows that batch's estimate rather than a ship date."
+        },
+        {
+          "q": "How do I contact you about an order?",
+          "a": "Email support@highfrequencyhighway.com. Put your order number in the subject line for the fastest response. We reply within 24 hours, Monday through Friday."
+        }
+      ]
+    },
+    {
+      "slug": "use-cases",
+      "title": "What to Use, and When",
+      "summary": "Practical starting points for sleep, focus, anxiety, meditation, training, and recovery.",
+      "articles": [
+        {
+          "slug": "sleep",
+          "title": "For sleep",
+          "body": "**Start with:** Delta or Theta in the Generator.\n\nTheta if you want to drift down gradually. Delta if you want to drop straight toward deep rest.\n\n**Build the session.** Start the frequency, keep the volume low, and overlay a soft sound like rain or a fireplace so a pure tone is not the last thing your brain is tracking. Many people run 30 to 60 minutes rather than the whole night.\n\n**Add the breathing exercise** for the first minute to slow your breath before the frequency does its work.\n\n**If your mind is racing,** generate an AI meditation about whatever is keeping you up and let it run first, then move to a delta session.\n\n**A note on wearing them all night.** The battery gives you about 6 hours and the pads press against your face. Most people find a timed session before sleep more comfortable than sleeping in them."
+        },
+        {
+          "slug": "focus",
+          "title": "For focus and deep work",
+          "body": "**Start with:** Alpha in the Generator.\n\nAlpha is calm alertness, which is what sustained work actually needs. Beta suits active problem solving and conversation. Gamma is for heavy cognitive load and it makes some people jittery, so try alpha before you reach for it.\n\n**Build the session.** Alpha frequency, brown or white noise or a low ambient sound over the top, earplugs in if the room is noisy.\n\n**Program a quick action button** with your focus frequency so a single press starts your session without unlocking your phone.\n\n**Session length.** Work in blocks of 45 to 90 minutes. Reset between blocks rather than running the same tone for six hours straight."
+        },
+        {
+          "slug": "anxiety-stress",
+          "title": "For anxiety and stress",
+          "body": "**Start with:** Alpha, or the Calm Focus entry in the Frequency Library.\n\nAlpha slows things down without putting you to sleep, which is usually what you want in the middle of a day that has gotten away from you.\n\n**Build the session.** Frequency first, then the breathing exercise, then a nature sound layered underneath. Ten minutes is enough to change something.\n\n**Read Your Frequency** is useful here, because when you are anxious you often cannot name what you need. Say the affirmation, take the recommendation, and start.\n\n**If the anxiety is about something specific,** generate an AI meditation naming that thing directly. Specific beats general.\n\nIf you are dealing with anxiety that interferes with your daily life, work with a clinician. This is a tool alongside care, not a replacement for it."
+        },
+        {
+          "slug": "meditation-practice",
+          "title": "For meditation",
+          "body": "**If you already have a practice:** run theta in the Generator underneath your usual sitting. Sync a Solfeggio tone if you prefer a single pure frequency to two.\n\n**If you are new to it:** use the AI meditation generator. Speak what is on your mind and let it guide you rather than sitting in silence trying to do it correctly.\n\n**For a deeper session:** the Gateway Experience entries in the Frequency Library work through progressive levels and are worth exploring once you are comfortable with theta.\n\n**After the session,** generate affirmations from the meditation and loop them through the day."
+        },
+        {
+          "slug": "training-recovery",
+          "title": "For training, energy, and recovery",
+          "body": "**Before training:** Beta or Gamma for activation, with the headphones on and your ears open so you can hear the room and stay aware of your surroundings.\n\n**During training:** the headphones work as normal Bluetooth headphones, so play your music. Your ears stay open, which matters if you are running outside.\n\n**After training:** Alpha or Theta to come down, or Delta for a recovery nap.\n\n**For soreness and rest,** low delta with a long sound bed. Keep the volume low and let the session run while you lie still."
+        },
+        {
+          "slug": "adhd-and-attention",
+          "title": "For attention and restlessness",
+          "body": "J built the product around his own experience with ADHD and Vyvanse, so this is the use case the company knows best.\n\n**Start with:** Alpha for calm focus. If alpha feels too soft, try beta.\n\n**Try the modulating option.** Tap the brain icon so the frequencies move rather than hold steady. Many people who find a constant tone boring or easy to tune out respond better to movement.\n\n**Program a quick action button** so starting a session takes one press instead of a chain of decisions that gives you an opportunity to get distracted.\n\n**Consistency matters more than intensity.** Same time, same setup, every day.\n\nThis is a wellness tool. It is not a treatment for ADHD and it does not replace medication or medical advice. Do not change a prescription without talking to your prescriber."
+        },
+        {
+          "slug": "how-often",
+          "title": "How often and how long",
+          "body": "**Session length.** Ten minutes is the floor for anything to register. Twenty to forty-five minutes is the range most people settle into. Focus blocks can run longer.\n\n**Frequency of use.** Daily beats intense. A short session every day does more than a two-hour session once a week.\n\n**Building the habit.** Attach it to something you already do. First coffee, start of a work block, lights out. Use the Sound Setting reminder to prompt you.\n\n**Can you overdo it.** Long sessions at high volume are hard on your hearing and can leave your face feeling numb. If you feel headachy, wired, or uncomfortable, stop and lower the volume next time. More is not better."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What should I use for studying?",
+          "a": "Alpha with a low ambient sound over it, in 45 to 90 minute blocks. Beta if the material demands active problem solving rather than absorption."
+        },
+        {
+          "q": "What should I use before a presentation or interview?",
+          "a": "Alpha for ten minutes to settle, or an AI meditation naming the specific event. Save gamma for after, since it can add to the buzz rather than calm it."
+        },
+        {
+          "q": "Can I use it at work with people around?",
+          "a": "Yes. Bone conduction leaves your ears open so you can hear someone speaking to you. Keep the volume moderate, since there is some audible leakage at high volume."
+        },
+        {
+          "q": "Can I listen while reading or writing?",
+          "a": "Yes. Pure tones distract some people while they read. Overlay a sound, or use a Solfeggio tone with both ears synced, which many people find easier to ignore."
+        },
+        {
+          "q": "How long before I see real results?",
+          "a": "The in-session effect is usually immediate. Lasting change comes from repetition, so give it two to four weeks of daily use before you judge it."
+        },
+        {
+          "q": "Can I use it more than once a day?",
+          "a": "Yes. A common pattern is focus in the morning, a reset in the afternoon, and delta before sleep. Watch your volume across the day."
+        },
+        {
+          "q": "Does it work for tinnitus?",
+          "a": "Some people with tinnitus find sound and frequency masking helpful and some find it makes things worse. Start at very low volume and stop if it aggravates the ringing. Speak to an audiologist about tinnitus specifically."
+        },
+        {
+          "q": "Can I use it for pain?",
+          "a": "People use low frequency sessions for relaxation while dealing with discomfort. The app does not treat pain and is not a medical device. See a doctor about pain that persists."
+        }
+      ]
+    },
+    {
+      "slug": "troubleshooting",
+      "title": "Troubleshooting",
+      "summary": "Fixes for the problems people actually run into.",
+      "articles": [
+        {
+          "slug": "no-vibration",
+          "title": "I cannot feel any vibration",
+          "body": "Work through these in order.\n\n1. **Check what you are playing.** Sounds do not vibrate the transducers on their own. Open the Generator and start an actual frequency.\n2. **Check placement.** The pads must sit on your cheekbones, on bone, just in front of your ears. On the ear or on soft tissue kills the vibration.\n3. **Check contact.** Thick hair, a hat, or glasses arms between the pad and your skin dampen it.\n4. **Raise the volume slowly.** Vibration intensity scales with volume.\n5. **Try a lower frequency.** Low frequencies vibrate far more noticeably than high ones. If you were on a 528 Hz tone, try delta or theta and compare.\n6. **Confirm the audio is routing to the headphones,** not your phone speaker. Check the output selector on the player screen."
+        },
+        {
+          "slug": "wont-pair",
+          "title": "The headphones will not pair",
+          "body": "1. Confirm the headphones are charged. Low battery causes intermittent pairing failures.\n2. Power them on and hold the power button until the indicator shows pairing mode.\n3. Open Bluetooth in your phone settings, not the app. Pairing happens at the system level.\n4. If the headphones appear as connected but produce no sound, tap forget this device in your Bluetooth settings and pair again from scratch.\n5. Turn Bluetooth off and back on, or restart your phone.\n6. Disconnect them from any other device. They connect to one source at a time.\n\nStill stuck: contact support with your phone model, OS version, and what you see in your Bluetooth list."
+        },
+        {
+          "slug": "no-sound",
+          "title": "No sound at all",
+          "body": "1. Check your phone is not muted and the media volume is up. Ringer volume and media volume are separate.\n2. Check the output routing on the player screen and select the headphones.\n3. If a sound will not stream, check your connection. Frequencies work offline, sounds do not unless downloaded.\n4. Force close the app and reopen it.\n5. Confirm the app has permission to play audio and is not being throttled by battery saver mode.\n6. If only one ear plays on a Solfeggio tone, that is the sync button rather than a fault. Tap the middle button to sync both ears."
+        },
+        {
+          "slug": "app-issues",
+          "title": "App crashes, slow screens, and stuck loading",
+          "body": "**Leaderboard stuck loading.** Known issue and being fixed. Close it and try again shortly.\n\n**Reminders not firing.** Sound Setting has a known bug. Confirm notifications are enabled for the app in your phone settings while it is being fixed.\n\n**Read Your Frequency not responding.** Check microphone permission for the app. This feature has also been unstable in test builds.\n\n**General crashes.** Force close and reopen, then check the App Store or Google Play for an update. If it persists, delete and reinstall, then use restore purchase to bring your premium back.\n\n**Distorted audio when mixing.** Pull individual layer volumes down or remove layers. There is no hard limit on how many sounds you can stack, and large stacks have not been fully tested.\n\nWhen you contact support, include your phone model, OS version, app version, and what you were doing when it happened. That combination is what lets the engineering team reproduce it."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "I feel the vibration in one ear only.",
+          "a": "On the Solfeggio tab, tap the middle sync button so both ears play the same tone. In the Generator, check that both the left and right sliders are above zero, since they are independent. If it persists across every tab, contact support because it may be a hardware fault."
+        },
+        {
+          "q": "The volume sliders are hard to grab.",
+          "a": "Known issue with the current controls, particularly on smaller screens. Improved controls are part of the redesign."
+        },
+        {
+          "q": "I lost my streak and I did listen.",
+          "a": "A streak day counts when you open the app and play something. Very short plays or a session that did not sync can miss. Contact support with the date and we will look at it."
+        },
+        {
+          "q": "My favorites or downloads disappeared.",
+          "a": "Confirm you are signed in to the right account. Reinstalling clears downloads and you will need to save them again. Favorites are tied to your account, so if those are gone, contact support."
+        },
+        {
+          "q": "The app is draining my battery.",
+          "a": "Real-time frequency generation with the screen on uses more power than streaming audio. Lock your screen during sessions, close the app when you are done, and download rather than stream where you can."
+        },
+        {
+          "q": "How do I update the app?",
+          "a": "Through the App Store or Google Play like any other app. Turn on automatic updates so you get bug fixes as they ship."
+        },
+        {
+          "q": "One side of my headphones stopped working.",
+          "a": "Unpair and repair first, and try them with a different device to isolate whether the issue is the headphones or the phone. If one transducer stays silent, contact support with your order number."
+        }
+      ]
+    },
+    {
+      "slug": "safety",
+      "title": "Safety and Who Should Be Careful",
+      "summary": "Read this before your first session, particularly if you have a seizure disorder or a medical condition.",
+      "articles": [
+        {
+          "slug": "safety-basics",
+          "title": "Using it safely",
+          "body": "High Frequency Highway is a wellness product. It does not diagnose, treat, cure, or prevent any disease, and it is not a medical device.\n\n**Talk to your doctor first if any of these apply to you.**\n\n- Epilepsy or any seizure disorder, or a history of seizures in your family. Rhythmic audio stimulation can be a trigger for some people.\n- A pacemaker, cochlear implant, or any implanted electronic device.\n- Pregnancy.\n- A diagnosed psychiatric condition, or if you are currently in treatment.\n- Hearing loss, tinnitus, or you wear hearing aids.\n\n**Never use it while driving, cycling, or operating machinery.** Focus, sleep, and relaxation states are not compatible with anything that needs your full attention.\n\n**Protect your hearing.** Volume is how you control vibration intensity, which creates pressure to turn it up. Long sessions at high volume damage hearing regardless of how the sound is delivered. Set it just high enough to feel a light buzz.\n\n**Stop if you feel unwell.** Headache, dizziness, nausea, agitation, or visual disturbance means stop the session. If it happens again, stop using the product and speak to a doctor.\n\n**Do not use it in place of medical care.** If you are managing a condition, keep working with your clinician. Do not change or stop a prescription because of anything you experience with this product."
+        },
+        {
+          "slug": "rife-disclaimer",
+          "title": "About the condition names in the Frequency Library",
+          "body": "The Frequency Library contains entries named after specific health conditions. That naming comes from the historical Royal Rife research catalog, which is where a large portion of these frequency pairs originate.\n\nThose names describe the category the frequency was filed under in that original research. They are not claims about what the frequency does, and they are not treatments.\n\nThe app does not diagnose, treat, cure, or prevent any disease. Nothing in the Frequency Library is a substitute for medical care, and no one should delay seeing a doctor because of it.\n\nUse the library as a starting point for a listening session. Manage your health with a clinician."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Is it safe if I have epilepsy?",
+          "a": "Talk to your doctor before using it. Rhythmic audio stimulation can be a seizure trigger for some people and we cannot assess your individual risk."
+        },
+        {
+          "q": "Is it safe during pregnancy?",
+          "a": "There is no evidence of harm from listening to audio at moderate volume, and we are not in a position to give medical advice. Check with your doctor or midwife."
+        },
+        {
+          "q": "Can it damage my hearing?",
+          "a": "Any audio at high volume for long periods can. Bone conduction is no exception. Keep the volume just high enough to feel a light buzz on your cheekbones and take breaks."
+        },
+        {
+          "q": "Can it cure or treat a medical condition?",
+          "a": "No. This is a wellness product and not a medical device. It does not diagnose, treat, cure, or prevent any disease. The condition names in the Frequency Library come from a historical research catalog and are not treatment claims."
+        },
+        {
+          "q": "Why do I get a headache after using it?",
+          "a": "Usually volume that is too high, a session that ran too long, or a frequency that does not suit you. Lower the volume, shorten the session, and try a different state. If headaches continue, stop and speak to a doctor."
+        },
+        {
+          "q": "Can I use it with my medication?",
+          "a": "Listening to audio does not interact with medication. Do not change or stop any prescription because of anything you experience with this product. Talk to your prescriber about your treatment."
+        },
+        {
+          "q": "Is it safe for children?",
+          "a": "Keep the volume low and supervise use. Do not use it with a child who has a seizure disorder without their doctor's guidance."
+        }
+      ]
+    },
+    {
+      "slug": "glossary",
+      "title": "Glossary",
+      "summary": "Plain-language definitions for every term the app uses.",
+      "articles": [
+        {
+          "slug": "terms",
+          "title": "Terms you will see in the app",
+          "body": "**Sound.** An audio file, streamed or downloaded. Rain, a fireplace, a sound bath, ambient music.\n\n**Frequency.** A tone measured in hertz, generated live on your device. This is what vibrates the headphones.\n\n**Hertz (Hz).** Cycles per second. 100 Hz means 100 vibrations per second.\n\n**Bone conduction.** Sound delivered as vibration through the bones of your skull to your inner ear, bypassing the eardrum.\n\n**Transducer.** The part of the headphone that rests on your cheekbone and vibrates.\n\n**Binaural beats.** Two slightly different tones, one per ear. Your brain perceives a third tone at the difference between them.\n\n**Frequency following effect.** Your brainwaves shifting to match the difference between the two tones you are hearing.\n\n**Entrainment.** The process of your brain synchronizing to an external rhythm.\n\n**Brainwave state.** The speed your neurons are firing at, grouped into named ranges: delta, theta, alpha, beta, gamma.\n\n**Delta.** Roughly 0.5 to 4 Hz. Deep sleep and recovery.\n\n**Theta.** Roughly 4 to 8 Hz. Drowsiness, deep meditation, creative drift.\n\n**Alpha.** Roughly 8 to 12 Hz. Calm alertness.\n\n**Beta.** Roughly 12 to 30 Hz. Active thinking.\n\n**Gamma.** Roughly 30 to 100 Hz. Peak cognition and flow.\n\n**Solfeggio.** A set of nine tones from historical sound healing traditions, including 528 Hz.\n\n**Pure tone.** One frequency playing in both ears at the same value, rather than two different tones.\n\n**Rife library.** A catalog of frequency pairs drawn from Royal Rife's research, organized by category name.\n\n**Gateway Experience.** A structured series of frequency levels included in the Frequency Library.\n\n**Mixer.** The control for layering multiple sounds with individual volume.\n\n**Overlay.** Playing a sound on top of a running frequency, or a frequency under a sound.\n\n**Modulation.** Frequencies moving up and down instead of holding steady. Toggled with the brain icon.\n\n**Septa Sync.** A separately purchased playlist of seven frequencies, $39, currently in a research study with MIT.\n\n**Batch.** A production run of headphones arriving from the manufacturer. Orders are filled against batches in the order they were placed.\n\n**Queue position.** Where your order sits in line against every other unshipped order, oldest first. It drives your ship date.\n\n**In transit.** Your package is with the carrier. From this point the tracker shows live carrier data rather than an estimate."
+        }
+      ],
+      "faqs": []
+    },
+    {
+      "slug": "contact",
+      "title": "Still Stuck",
+      "summary": "How to reach a human and what to include.",
+      "articles": [
+        {
+          "slug": "contact-support",
+          "title": "Contacting support",
+          "body": "**Email us at support@highfrequencyhighway.com.** We respond within 24 hours, Monday through Friday. Put your order number in the subject line for the fastest routing.\n\n**From the app.** Settings, contact us. That opens an email to the team.\n\n**For order status, check the tracker first.** Enter your order number and the email you used at checkout and you get your stage, your estimated delivery range, and a live carrier link. It updates on its own and it will usually answer the question faster than we can.\n\n**Include this and you will get a faster answer.**\n\n- The email on your account\n- Your phone model and OS version\n- The app version\n- Your order number for anything hardware related\n- What you were doing when the problem happened, and what you expected instead\n- A screenshot or screen recording if you can\n\n**For hardware problems,** tell us whether the issue follows the headphones when you pair them to a different device. That single detail usually tells us whether it is the headphones or the phone.\n\n**For billing,** have the receipt from Apple or Google ready. Store refunds are handled by Apple and Google, and we handle account access, premium codes, and hardware returns."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How do I report a bug?",
+          "a": "Settings, contact us. Include your device model, OS version, app version, and the steps that produced it. Reproduction steps are what get a bug fixed quickly."
+        },
+        {
+          "q": "Can I request a feature?",
+          "a": "Yes, send it through contact us. Several items in the current roadmap came directly from user requests."
+        },
+        {
+          "q": "How do I delete my account?",
+          "a": "Contact support from the email on your account and ask for deletion. Cancel any active subscription through Apple or Google first, since deleting the account does not cancel store billing."
+        },
+        {
+          "q": "Do you have a phone number?",
+          "a": "Support runs through email at support@highfrequencyhighway.com so that everything is documented and routed to the right person. We respond within 24 hours, Monday through Friday. Include as much detail as you can in the first message and you will usually get it resolved in one exchange."
+        },
+        {
+          "q": "What is your support email?",
+          "a": "support@highfrequencyhighway.com. Put your order number in the subject line for anything order related."
+        },
+        {
+          "q": "How fast do you respond?",
+          "a": "Within 24 hours, Monday through Friday."
+        }
+      ]
+    }
+  ]
+}
