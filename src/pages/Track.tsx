@@ -82,16 +82,18 @@ const Track = () => {
     setLoading(true);
     setError(null);
     setResult(null);
-    const { data, error: rpcError } = await supabase.rpc("track_order", {
-      p_order_number: orderNumber,
-      p_email: email,
+    const { data, error: rpcError } = await supabase.functions.invoke("track-order", {
+      body: {
+        orderNumber,
+        email,
+      },
     });
     setLoading(false);
     if (rpcError) {
       setError("Something went wrong on our end. Please try again in a moment.");
       return;
     }
-    const row = (data as TrackResult[] | null)?.[0];
+    const row = (data as { order: TrackResult | null } | null)?.order;
     if (!row) {
       setError(
         "We couldn't find an order with that number and email — double-check both and try again."
