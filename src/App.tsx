@@ -38,10 +38,20 @@ const AppContent = () => {
         <Route path="/help/:sectionSlug/:articleSlug" element={<HelpArticlePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <MarketingOverlays />
+    </BrowserRouter>
+  );
+};
+
+/** Splash + email popup are marketing surfaces — keep them off the help center. */
+const MarketingOverlays = () => {
+  const { pathname } = useLocation();
+  if (pathname.startsWith("/help")) return null;
+  return (
+    <>
       <EmailCapturePopup />
       <BackInStockSplash />
-
-    </BrowserRouter>
+    </>
   );
 };
 
