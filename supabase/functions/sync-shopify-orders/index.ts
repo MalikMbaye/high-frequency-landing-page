@@ -33,29 +33,64 @@ type ShopifyOrder = {
   }>
 }
 
+type TokenCandidate = {
+  token: string
+  source: 'environment' | 'database'
+}
+
 async function getTokens(admin: ReturnType<typeof createClient>) {
-  const tokens: string[] = []
+  const tokens: TokenCandidate[] = []
   const envToken = Deno.env.get('SHOPIFY_ACCESS_TOKEN')
-  if (envToken) tokens.push(envToken)
+  if (envToken) tokens.push({ token: envToken, source: 'environment' })
   const { data } = await admin
     .from('shopify_tokens')
     .select('access_token, scope')
     .eq('shop_domain', SHOPIFY_SHOP_DOMAIN)
     .maybeSingle()
   const stored = data?.access_token as string | undefined
-  if (stored && !tokens.includes(stored)) tokens.push(stored)
+  if (stored && !tokens.some((candidate) => candidate.token === stored)) {
+    tokens.push({ token: stored, source: 'database' })
+  }
   return tokens
 }
 
-async function pickToken(tokens: string[]) {
-  for (const t of tokens) {
-    const res = await fetch(
-      `https://${SHOPIFY_SHOP_DOMAIN}/admin/api/${SHOPIFY_API_VERSION}/orders.json?status=any&limit=1`,
-      { headers: { 'X-Shopify-Access-Token': t } },
-    )
-    if (res.ok) return t
+async function getAccessScopes(token: string) {
+  const res = await fetch(
+    `https://${SHOPIFY_SHOP_DOMAIN}/admin/oauth/access_scopes.json`,
+    { headers: { 'X-Shopify-Access-Token': token } },
+  )
+  if (!res.ok) return null
+  const payload = await res.json().catch(() => null) as { access_scopes?: Array<{ handle: string }> } | null
+  return new Set((payload?.access_scopes ?? []).map((scope) => scope.handle))
+}
+
+async function pickToken(tokens: TokenCandidate[], requireAllOrders: boolean) {
+  const diagnostics: Array<{ source: string; valid: boolean; scopes: string[] }> = []
+
+  for (const candidate of tokens) {
+    const scopes = await getAccessScopes(candidate.token)
+    if (!scopes) {
+      diagnostics.push({ source: candidate.source, valid: false, scopes: [] })
+      continue
+    }
+
+    const scopeList = Array.from(scopes).sort()
+    diagnostics.push({ source: candidate.source, valid: true, scopes: scopeList })
+
+    if (!scopes.has('read_orders')) continue
+    if (requireAllOrders && !scopes.has('read_all_orders')) continue
+
+    return { token: candidate.token, diagnostics }
   }
-  return ''
+
+  return { token: '', diagnostics }
+}
+
+function requiresReadAllOrders(since: string) {
+  const sinceDate = new Date(since)
+  if (Number.isNaN(sinceDate.getTime())) return true
+  const sixtyDaysAgo = new Date(Date.now() - 60 * 24 * 60 * 60 * 1000)
+  return sinceDate < sixtyDaysAgo
 }
 
 let lastRun = 0
@@ -71,12 +106,11 @@ Deno.serve(async (req) => {
     )
     const tokens = await getTokens(admin)
     const out: unknown[] = []
-    for (const [i, t] of tokens.entries()) {
-      const r = await fetch(
-        `https://${SHOPIFY_SHOP_DOMAIN}/admin/oauth/access_scopes.json`,
-        { headers: { 'X-Shopify-Access-Token': t } },
-      )
-      out.push({ token: i, status: r.status, body: await r.json().catch(() => null) })
+    for (const [i, candidate] of tokens.entries()) {
+      const r = await fetch(`https://${SHOPIFY_SHOP_DOMAIN}/admin/oauth/access_scopes.json`, {
+        headers: { 'X-Shopify-Access-Token': candidate.token },
+      })
+      out.push({ source: candidate.source, token: i, status: r.status, body: await r.json().catch(() => null) })
     }
     return json({ tokens: out })
   }
@@ -97,16 +131,19 @@ Deno.serve(async (req) => {
     { auth: { persistSession: false } },
   )
 
-  const token = await pickToken(await getTokens(admin))
+  const body = (await req.json().catch(() => ({}))) as { since?: string; limit?: number }
+  const since = typeof body.since === 'string' ? body.since : '2020-01-01T00:00:00Z'
+  const requireAllOrders = requiresReadAllOrders(since)
+  const { token, diagnostics } = await pickToken(await getTokens(admin), requireAllOrders)
   if (!token) {
     return json({
       success: false,
-      message: 'No Shopify token with read_orders access. Reconnect the Shopify app with the read_orders scope.',
+      message: requireAllOrders
+        ? 'Historical sync requires the Shopify read_all_orders scope. Reinstall the Shopify app after approving read_all_orders, then run sync again.'
+        : 'No Shopify token with read_orders access. Reconnect the Shopify app with the read_orders scope.',
+      diagnostics,
     }, 403)
   }
-
-  const body = (await req.json().catch(() => ({}))) as { since?: string; limit?: number }
-  const since = typeof body.since === 'string' ? body.since : '2020-01-01T00:00:00Z'
 
   let url =
     `https://${SHOPIFY_SHOP_DOMAIN}/admin/api/${SHOPIFY_API_VERSION}/orders.json` +
