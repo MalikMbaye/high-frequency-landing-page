@@ -128,7 +128,7 @@ const accordionItems = [
 const ProductBlock = () => {
   const [index, setIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set());
   const [quantity, setQuantity] = useState(1);
   const fadeTimer = useRef<number | null>(null);
 
@@ -279,11 +279,15 @@ const ProductBlock = () => {
                 <details
                   key={item.title}
                   className="pdp-acc"
-                  open={openIndex === i}
+                  open={openIndexes.has(i)}
                   onToggle={(e) => {
                     const el = e.currentTarget;
-                    if (el.open) setOpenIndex(i);
-                    else if (openIndex === i) setOpenIndex(null);
+                    setOpenIndexes((prev) => {
+                      const next = new Set(prev);
+                      if (el.open) next.add(i);
+                      else next.delete(i);
+                      return next;
+                    });
                   }}
                 >
                   <summary className="pdp-acc-summary">

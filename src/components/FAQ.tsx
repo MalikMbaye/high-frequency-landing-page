@@ -67,7 +67,16 @@ const items: Item[] = [
 
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set());
+
+  const toggle = (i: number, nextOpen: boolean) => {
+    setOpenIndexes((prev) => {
+      const next = new Set(prev);
+      if (nextOpen) next.add(i);
+      else next.delete(i);
+      return next;
+    });
+  };
 
   return (
     <section className="section section-light faq-section" data-theme="light">
@@ -75,17 +84,13 @@ const FAQ = () => {
         <h2 className="section-header">Questions.</h2>
         <div className="faq-list">
           {items.map((item, i) => {
-            const open = openIndex === i;
+            const open = openIndexes.has(i);
             return (
               <details
                 key={item.q}
                 className="faq-item"
                 open={open}
-                onToggle={(e) => {
-                  const el = e.currentTarget;
-                  if (el.open) setOpenIndex(i);
-                  else if (openIndex === i) setOpenIndex(null);
-                }}
+                onToggle={(e) => toggle(i, e.currentTarget.open)}
               >
                 <summary className="faq-summary">
                   <span className="faq-icon-box"><item.Icon size={16} /></span>
