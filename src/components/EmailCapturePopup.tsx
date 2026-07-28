@@ -19,36 +19,48 @@ const EmailCapturePopup = () => {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
+    let cancelled = false;
+    let timer = 0;
+
     try {
       if (localStorage.getItem(STORAGE_KEY)) return;
     } catch {}
 
     // Mark as shown the moment it opens — one appearance per visitor, ever.
     const show = () => {
+      if (cancelled) return;
       try { localStorage.setItem(STORAGE_KEY, "shown"); } catch {}
       setOpen(true);
     };
 
-    const t = window.setTimeout(show, DELAY_MS);
-
-    const onExit = (e: MouseEvent) => {
-      if (e.clientY <= 0) {
-        window.clearTimeout(t);
-        document.removeEventListener("mouseleave", onExit);
-        show();
-      }
-    };
-    document.addEventListener("mouseleave", onExit);
+    // Ask the backend whether this IP already dismissed the popup, then
+    // wait a full 30s (measured from page load) before showing it.
+    (async () => {
+      try {
+        const { data } = await supabase.functions.invoke("popup-state", {
+          body: { action: "check" },
+        });
+        if (data?.dismissed) {
+          try { localStorage.setItem(STORAGE_KEY, "dismissed"); } catch {}
+          return;
+        }
+      } catch {}
+      if (cancelled) return;
+      timer = window.setTimeout(show, DELAY_MS);
+    })();
 
     return () => {
-      window.clearTimeout(t);
-      document.removeEventListener("mouseleave", onExit);
+      cancelled = true;
+      window.clearTimeout(timer);
     };
   }, []);
 
   const handleOpenChange = (next: boolean) => {
     if (!next && !submitted) {
       try { localStorage.setItem(STORAGE_KEY, "dismissed"); } catch {}
+      supabase.functions
+        .invoke("popup-state", { body: { action: "dismiss" } })
+        .catch(() => {});
     }
     setOpen(next);
   };
