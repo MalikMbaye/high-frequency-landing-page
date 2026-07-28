@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, ChevronDown, Info, Truck } from "lucide-react";
+import { ArrowLeft, Check, ChevronDown, Info, Mail, Truck } from "lucide-react";
 import {
   BACKLOG_CLEAR_DATE,
   FAQS,
@@ -8,6 +8,7 @@ import {
   STAGES,
   SURGE_END,
   SURGE_START,
+  SUPPORT_EMAIL,
   activeStageIndex,
   deliveryWindow,
   fmtDate,
@@ -193,6 +194,27 @@ const TrackResultPage = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="trk-card">
+          <h2 className="trk-h2">Still need help?</h2>
+          <p className="trk-note" style={{ marginBottom: 14 }}>
+            Have a claim or a question about this order? Email our customer service team and
+            we'll get back to you — your order number is included automatically.
+          </p>
+          <a
+            className="trk-btn trk-btn-wide"
+            style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, textDecoration: "none" }}
+            href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(
+              `Order #${order.order_number.replace(/^#/, "")} — customer service claim`
+            )}&body=${encodeURIComponent(
+              `Order number: #${order.order_number.replace(/^#/, "")}\nStatus: ${
+                PILL_LABEL[status] ?? stage.label
+              }\n\nHow can we help?\n`
+            )}`}
+          >
+            <Mail size={18} /> Contact customer service
+          </a>
         </div>
       </div>
     </div>
