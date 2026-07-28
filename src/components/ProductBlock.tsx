@@ -271,10 +271,6 @@ const ProductBlock = () => {
             </button>
             </div>
 
-            <p className="pdp-trust">
-              <span aria-hidden="true">⚡</span> In Stock · Arrives in as little as 3 days <span aria-hidden="true">⚡</span>
-            </p>
-
             <DeliveryTimeline />
 
 
