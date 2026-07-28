@@ -39,9 +39,7 @@ const DeliveryTimeline = () => {
     <div className="dlv-timeline">
       <div className="dlv-head">
         <span className="dlv-title">Your delivery timeline</span>
-        <span className="dlv-badge">
-          Best case: {fmt(steps[3].date)} — worst case: {fmt(worstCaseDate)}
-        </span>
+        <span className="dlv-badge">Best case: {fmt(steps[3].date)}</span>
       </div>
 
       <div className="dlv-track" role="list">
@@ -72,7 +70,8 @@ const DeliveryTimeline = () => {
       </div>
 
       <p className="dlv-note">
-        Estimated dates based on today's order. Most orders arrive in 3-10 business days.
+        <strong>Estimated delivery window:</strong> {fmt(steps[3].date)} — {fmt(worstCaseDate)}.
+        Most orders arrive in 3–10 business days. Dates are estimates and update automatically as your order moves.
       </p>
     </div>
   );
