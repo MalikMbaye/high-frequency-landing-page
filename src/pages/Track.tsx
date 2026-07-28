@@ -7,7 +7,6 @@ import { SUPPORT_EMAIL } from "@/lib/track";
 
 const Track = () => {
   const navigate = useNavigate();
-  const [orderNumber, setOrderNumber] = useState("");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -28,7 +27,7 @@ const Track = () => {
     setLoading(true);
     setError(null);
     const { data, error: fnError } = await supabase.functions.invoke("track-order", {
-      body: { orderNumber, email },
+      body: { email },
     });
     setLoading(false);
     if (fnError) {
@@ -55,20 +54,11 @@ const Track = () => {
         <div className="trk-card">
           <h1 className="trk-title">Track your order</h1>
           <p className="trk-sub">
-            We ship in batches, in the order orders came in. Enter your email to see exactly
-            where you sit and when your set arrives — order number optional.
+            We ship in batches, in the order orders came in. Enter the email you used at
+            checkout to see exactly where you sit and when your set arrives.
           </p>
 
           <form onSubmit={onSubmit} className="trk-form">
-            <label className="trk-label">
-              Order number <span style={{ opacity: 0.6 }}>(optional)</span>
-              <input
-                className="trk-input"
-                value={orderNumber}
-                onChange={(e) => setOrderNumber(e.target.value)}
-                placeholder="#1042"
-              />
-            </label>
             <label className="trk-label">
               Email used at checkout
               <input
