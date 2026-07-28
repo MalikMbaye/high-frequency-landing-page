@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft, Check, ChevronDown, Info, Mail, Truck } from "lucide-react";
 import {
-  BACKLOG_CLEAR_DATE,
   FAQS,
   PILL_LABEL,
   STAGES,
