@@ -22,6 +22,8 @@ const TrackResultPage = () => {
   const [openFaqs, setOpenFaqs] = useState<Set<number>>(new Set());
   const [copied, setCopied] = useState(false);
   const [meaningsOpen, setMeaningsOpen] = useState(false);
+  const [faqOpen, setFaqOpen] = useState(false);
+
 
   useEffect(() => {
     document.title = "Your Order Status | High Frequency Headphones";
