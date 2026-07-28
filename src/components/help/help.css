@@ -588,19 +588,6 @@ body:has(.hc) { padding-top: 0; background: #ffffff; }
   width: 100%;
 }
 
-.hc-video-glow {
-  position: absolute;
-  inset: -10px;
-  border-radius: 26px;
-  background: linear-gradient(135deg, rgba(91, 61, 245, 0.18), rgba(15, 158, 145, 0.14));
-  filter: blur(24px);
-  opacity: 0.55;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.hc-video-frame-wrap:hover .hc-video-glow { opacity: 0.85; }
 
 .hc-video-frame {
   position: relative;
