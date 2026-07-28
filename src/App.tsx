@@ -11,6 +11,10 @@ import ShopifyInstalled from "./pages/ShopifyInstalled";
 import Track from "./pages/Track";
 import TrackResult from "./pages/TrackResult";
 import NotFound from "./pages/NotFound";
+import HelpHome from "./pages/help/HelpHome";
+import HelpSectionPage from "./pages/help/HelpSectionPage";
+import HelpArticlePage from "./pages/help/HelpArticlePage";
+import HelpSearchPage from "./pages/help/HelpSearchPage";
 import EmailCapturePopup from "./components/EmailCapturePopup";
 import BackInStockSplash from "./components/BackInStockSplash";
 
@@ -28,6 +32,10 @@ const AppContent = () => {
         <Route path="/shopify-installed" element={<ShopifyInstalled />} />
         <Route path="/track" element={<Track />} />
         <Route path="/track/result" element={<TrackResult />} />
+        <Route path="/help" element={<HelpHome />} />
+        <Route path="/help/search" element={<HelpSearchPage />} />
+        <Route path="/help/:sectionSlug" element={<HelpSectionPage />} />
+        <Route path="/help/:sectionSlug/:articleSlug" element={<HelpArticlePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <EmailCapturePopup />

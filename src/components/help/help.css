@@ -402,3 +402,6 @@ a.hc-card:hover { border-color: var(--hc-accent); }
 @media (prefers-reduced-motion: reduce) {
   .hc *, .hc *::before, .hc *::after { animation: none !important; transition: none !important; }
 }
+
+.hc mark { background: transparent; color: var(--hc-signal); font-weight: 600; }
+.hc .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
