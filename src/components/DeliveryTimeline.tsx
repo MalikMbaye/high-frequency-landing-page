@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 const addBusinessDays = (start: Date, days: number) => {
   const d = new Date(start);
@@ -21,6 +22,7 @@ type Step = { key: string; label: string; caption: string; date: Date };
 
 const DeliveryTimeline = () => {
   const [active, setActive] = useState(0);
+  const [expanded, setExpanded] = useState(false);
 
   const { steps, worstCaseDate } = useMemo(() => {
     const today = new Date();
@@ -37,42 +39,62 @@ const DeliveryTimeline = () => {
 
   return (
     <div className="dlv-timeline">
-      <div className="dlv-head">
+      <button
+        type="button"
+        className="dlv-head"
+        onClick={() => setExpanded((v) => !v)}
+        aria-expanded={expanded}
+        aria-label={expanded ? "Collapse delivery timeline" : "Expand delivery timeline"}
+      >
         <span className="dlv-title">Your delivery timeline</span>
-        <span className="dlv-badge">Estimated delivery window: {fmt(steps[3].date)} — {fmt(worstCaseDate)}</span>
-      </div>
+        <span className="dlv-badge">
+          Estimated delivery: {fmt(steps[3].date)}
+          {expanded && ` — ${fmt(worstCaseDate)}`}
+        </span>
+        <span
+          className="dlv-chevron"
+          aria-hidden="true"
+          style={{ transform: expanded ? "rotate(180deg)" : "rotate(0deg)" }}
+        >
+          <ChevronDown size={16} />
+        </span>
+      </button>
 
-      <div className="dlv-track" role="list">
-        <div className="dlv-line" aria-hidden="true">
-          <span className="dlv-line-fill" style={{ width: `${(active / (steps.length - 1)) * 100}%` }} />
-        </div>
-        {steps.map((s, i) => (
-          <button
-            key={s.key}
-            type="button"
-            role="listitem"
-            className={`dlv-node ${i <= active ? "is-on" : ""}`}
-            onMouseEnter={() => setActive(i)}
-            onFocus={() => setActive(i)}
-            onClick={() => setActive(i)}
-            aria-label={`${s.label} — ${fmt(s.date)}`}
-          >
-            <span className="dlv-dot" aria-hidden="true" />
-            <span className="dlv-label">{s.label}</span>
-            <span className="dlv-date">{fmt(s.date)}</span>
-          </button>
-        ))}
-      </div>
+      {expanded && (
+        <>
+          <div className="dlv-track" role="list">
+            <div className="dlv-line" aria-hidden="true">
+              <span className="dlv-line-fill" style={{ width: `${(active / (steps.length - 1)) * 100}%` }} />
+            </div>
+            {steps.map((s, i) => (
+              <button
+                key={s.key}
+                type="button"
+                role="listitem"
+                className={`dlv-node ${i <= active ? "is-on" : ""}`}
+                onMouseEnter={() => setActive(i)}
+                onFocus={() => setActive(i)}
+                onClick={() => setActive(i)}
+                aria-label={`${s.label} — ${fmt(s.date)}`}
+              >
+                <span className="dlv-dot" aria-hidden="true" />
+                <span className="dlv-label">{s.label}</span>
+                <span className="dlv-date">{fmt(s.date)}</span>
+              </button>
+            ))}
+          </div>
 
-      <div className="dlv-detail">
-        <strong>{steps[active].label}</strong>
-        <span>{steps[active].caption}</span>
-      </div>
+          <div className="dlv-detail">
+            <strong>{steps[active].label}</strong>
+            <span>{steps[active].caption}</span>
+          </div>
 
-      <p className="dlv-note">
-        <strong>Estimated delivery window:</strong> {fmt(steps[3].date)} — {fmt(worstCaseDate)}.
-        Transit is 5–10 business days after packing and testing for local orders, 10–20 business days for international. Dates are estimates and update automatically as your order moves.
-      </p>
+          <p className="dlv-note">
+            <strong>Estimated delivery window:</strong> {fmt(steps[3].date)} — {fmt(worstCaseDate)}.
+            Transit is 5–10 business days after packing and testing for local orders, 10–20 business days for international. Dates are estimates and update automatically as your order moves.
+          </p>
+        </>
+      )}
     </div>
   );
 };
