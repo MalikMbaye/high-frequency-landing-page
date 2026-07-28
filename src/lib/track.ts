@@ -149,6 +149,6 @@ export const FAQS = [
   },
   {
     q: "Can I change my shipping address?",
-    a: "If your order hasn't reached the Label Printed stage, email highfrequencyhighway@gmail.com with your order number and the correct address and we'll update it before it ships. Once a label is printed we can't change it.",
+    a: "If your order hasn't reached the Tracking Added stage, email highfrequencyhighway@gmail.com with your order number and the correct address and we'll update it before it ships. Once tracking is issued we can't change it.",
   },
 ];
