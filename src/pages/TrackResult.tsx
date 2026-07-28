@@ -3,12 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft, Check, ChevronDown, Info, Mail, Truck } from "lucide-react";
 import {
   FAQS,
-  PILL_LABEL,
   STAGES,
   SURGE_END,
   SURGE_START,
   SUPPORT_EMAIL,
   activeStageIndex,
+  stagePillLabel,
   deliveryWindow,
   fmtDate,
   type TrackResult,
@@ -37,6 +37,7 @@ const TrackResultPage = () => {
 
   const active = activeStageIndex(order);
   const status = order.customer_status ?? "received";
+  const pill = stagePillLabel(order);
   const stage = STAGES[active];
   const window = deliveryWindow(order);
   const placed = order.placed_at ? new Date(order.placed_at) : null;
@@ -73,7 +74,7 @@ const TrackResultPage = () => {
               </div>
             )}
             <span className={`trk-pill${isLive ? " is-live" : ""}`}>
-              {PILL_LABEL[status] ?? stage.label}
+              {pill}
             </span>
           </div>
 
@@ -219,7 +220,7 @@ const TrackResultPage = () => {
               `Order #${order.order_number.replace(/^#/, "")} — customer service claim`
             )}&body=${encodeURIComponent(
               `Order number: #${order.order_number.replace(/^#/, "")}\nStatus: ${
-                PILL_LABEL[status] ?? stage.label
+                pill
               }\n\nHow can we help?\n`
             )}`}
           >

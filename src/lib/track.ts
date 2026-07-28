@@ -125,11 +125,65 @@ export const deliveryWindow = (result: TrackResult) => {
   return min && max ? `${min} – ${max}` : null;
 };
 
-export const activeStageIndex = (result: TrackResult) => {
+export const businessDaysBetween = (from: Date, to: Date) => {
+  if (Number.isNaN(from.getTime()) || Number.isNaN(to.getTime())) return 0;
+  let count = 0;
+  const d = new Date(from.getTime());
+  while (d < to) {
+    d.setDate(d.getDate() + 1);
+    const day = d.getDay();
+    if (day !== 0 && day !== 6) count += 1;
+  }
+  return count;
+};
+
+/**
+ * Derives the live stage from real signals rather than a stored status,
+ * so historical/retroactive orders resolve correctly:
+ *  1. delivered flag / delivery window fully elapsed after shipping
+ *  2. tracking issued -> tracking added, then in transit once it's moving
+ *  3. otherwise time elapsed since the order was placed
+ */
+export const activeStageIndex = (result: TrackResult, now: Date = new Date()) => {
   if (result.customer_status === "delivered") return 4;
-  if (result.tracking_number || result.shipped_at) return 3;
+
+  const shipped = result.shipped_at ? new Date(result.shipped_at) : null;
+  const hasShipped = !!shipped && !Number.isNaN(shipped.getTime());
+  const hasTracking = Boolean(result.tracking_number);
+
+  if (hasShipped || hasTracking) {
+    const from = hasShipped ? shipped! : null;
+    if (from) {
+      const elapsed = businessDaysBetween(from, now);
+      if (elapsed > TRANSIT_MAX_DAYS) return 4; // window fully elapsed -> delivered
+      if (elapsed >= 1) return 3; // moving with the carrier
+      return 2; // tracking issued today
+    }
+    // tracking number but no ship timestamp yet
+    return 2;
+  }
+
+  // No tracking yet — infer from how long the order has been waiting.
+  const placed = result.placed_at ? new Date(result.placed_at) : null;
+  if (placed && !Number.isNaN(placed.getTime())) {
+    const waiting = businessDaysBetween(placed, now);
+    const shipDate = result.est_ship_date ? new Date(`${result.est_ship_date}T12:00:00`) : null;
+    const dueForProcessing =
+      (shipDate && !Number.isNaN(shipDate.getTime()) && businessDaysBetween(now, shipDate) <= 3) ||
+      waiting >= 2;
+    if (dueForProcessing) return 1;
+    return 0;
+  }
+
   return STAGE_INDEX[result.customer_status ?? "received"] ?? 0;
 };
+
+export const stagePillLabel = (result: TrackResult, now: Date = new Date()) => {
+  const idx = activeStageIndex(result, now);
+  const key = STAGES[idx].key;
+  return PILL_LABEL[key] ?? STAGES[idx].label;
+};
+
 
 export const FAQS = [
   {
