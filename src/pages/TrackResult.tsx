@@ -82,9 +82,8 @@ const TrackResultPage = () => {
             <div className="trk-banner">
               <Info size={18} style={{ flex: "0 0 18px", marginTop: 2 }} />
               <span>
-                You ordered during our biggest surge yet (Jun 1 – Jul 27). We're catching up fast;
-                your order is in the current shipping wave and the estimate below accounts for the
-                backlog.
+                You ordered during our biggest demand surge yet. Fresh inventory has landed,
+                we're shipping daily, and the estimate below reflects your live position.
               </span>
             </div>
           )}
