@@ -35,16 +35,30 @@ const HelpHome = () => {
 
   return (
     <HelpLayout hideSidebar>
+      <svg
+        className="hc-bg-wave"
+        viewBox="0 0 1200 400"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="hcWaveFade" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="var(--hc-accent)" stopOpacity="0" />
+            <stop offset="45%" stopColor="var(--hc-accent)" stopOpacity="1" />
+            <stop offset="75%" stopColor="var(--hc-signal)" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="var(--hc-signal)" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <path d="M0 200 Q 75 60 150 200 T 300 200 T 450 200 T 600 200 T 750 200 T 900 200 T 1050 200 T 1200 200" />
+        <path d="M0 200 Q 100 320 200 200 T 400 200 T 600 200 T 800 200 T 1000 200 T 1200 200" />
+        <path d="M0 200 Q 150 20 300 200 T 600 200 T 900 200 T 1200 200" />
+      </svg>
+
       <section className="hc-landing-hero">
-        <div className="hc-hero-rings" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-        </div>
         <p className="hc-eyebrow">
           <span className="hc-dot" aria-hidden="true" /> Support · tuned to your questions
         </p>
-        <h1>{helpMeta.title}</h1>
+        <h1>Help Center</h1>
         <p className="hc-lead">
           Everything about the headphones, the app, and how to actually use them — dialed in
           section by section.
