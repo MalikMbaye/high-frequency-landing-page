@@ -196,16 +196,11 @@ const TrackResultPage = () => {
                       </button>
                     </div>
 
-                    <div className="trk-track-embed">
-                      <iframe
-                        title="Live carrier tracking"
-                        src={`https://t.17track.net/en#nums=${encodeURIComponent(order.tracking_number)}`}
-                        loading="lazy"
-                      />
-                    </div>
+                    <Track17Widget trackingNumber={order.tracking_number} />
                     <p className="trk-note" style={{ marginTop: 8 }}>
                       Live carrier scans, loaded directly from the carrier network.
                     </p>
+
                   </>
                 )}
 
