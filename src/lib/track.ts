@@ -36,16 +36,16 @@ export const STAGES = [
       "Your order reached the front of the line and our warehouse is prepping and packing it now.",
   },
   {
-    key: "label_printed",
-    label: "Label Printed",
-    caption: "Handed to the carrier",
+    key: "tracking_added",
+    label: "Tracking Added",
+    caption: "Tracking number issued",
     description:
-      "Your shipping label is created and your package is being handed to the carrier. Your tracking number appears next.",
+      "Your shipping label and tracking number are created and your package is being handed to the carrier.",
   },
   {
-    key: "shipped",
-    label: "Tracking Added",
-    caption: "In transit",
+    key: "in_transit",
+    label: "In Transit",
+    caption: "On the way",
     description:
       "Your package is with the carrier and moving. Follow it live below. Delivery usually takes 3–7 business days from here.",
   },
@@ -65,9 +65,11 @@ export const STAGE_INDEX: Record<string, number> = {
   processing: 1,
   preparing: 1,
   label_printed: 2,
+  tracking_added: 2,
   batch_in_production: 0,
   batch_in_transit: 0,
   shipped: 3,
+  in_transit: 3,
   delivered_or_transit: 3,
   delivered: 4,
 };
@@ -78,11 +80,15 @@ export const PILL_LABEL: Record<string, string> = {
   reserved: "Reserved for next batch",
   processing: "Processing",
   preparing: "Processing",
-  label_printed: "Label printed",
+  label_printed: "Tracking added",
+  tracking_added: "Tracking added",
   shipped: "In transit",
+  in_transit: "In transit",
   delivered_or_transit: "In transit",
   delivered: "Delivered",
 };
+
+export const SUPPORT_EMAIL = "highfrequencyhighway@gmail.com";
 
 export const addBusinessDays = (from: Date, days: number) => {
   const d = new Date(from.getTime());
