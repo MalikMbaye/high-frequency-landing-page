@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, ChevronDown, Info, Mail, Truck } from "lucide-react";
+import { ArrowLeft, Check, ChevronDown, Copy, Info, Mail, Truck } from "lucide-react";
 import {
   FAQS,
   STAGES,
@@ -19,6 +19,8 @@ const TrackResultPage = () => {
   const location = useLocation();
   const order = (location.state as { order?: TrackResult } | null)?.order ?? null;
   const [openFaqs, setOpenFaqs] = useState<Set<number>>(new Set());
+  const [copied, setCopied] = useState(false);
+  const [meaningsOpen, setMeaningsOpen] = useState(false);
 
   useEffect(() => {
     document.title = "Your Order Status | High Frequency Headphones";
