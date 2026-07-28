@@ -3,6 +3,8 @@ import { Check, ChevronLeft, ChevronRight, Star, Loader2, Minus, Plus } from "lu
 
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
+import DeliveryTimeline from "@/components/DeliveryTimeline";
+
 
 // Landing page price test — points at the duplicated $169.99 product.
 // Change this handle to swap which Shopify product this LP sells.
@@ -270,9 +272,11 @@ const ProductBlock = () => {
             </div>
 
             <p className="pdp-trust">
-              <span aria-hidden="true">⚡</span> In Stock · Ships in 5-10 Business Days <span aria-hidden="true">⚡</span>
+              <span aria-hidden="true">⚡</span> In Stock · Arrives in as little as 3 days <span aria-hidden="true">⚡</span>
             </p>
-            <p className="pdp-delivery-estimate">📦 Estimated delivery: 5-10 business days</p>
+
+            <DeliveryTimeline />
+
 
             <div className="pdp-accordion">
               {accordionItems.map((item, i) => (
