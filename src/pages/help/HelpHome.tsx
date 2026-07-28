@@ -86,9 +86,10 @@ const HelpHome = () => {
                 {article.title}
               </Link>
             ))}
-        </div>
-      )}
+          </div>
+        )}
       </section>
+
 
 
       <section className="hc-video">
