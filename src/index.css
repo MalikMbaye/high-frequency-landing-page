@@ -3558,12 +3558,27 @@
   background: linear-gradient(180deg, rgba(107, 46, 184, 0.05), rgba(107, 46, 184, 0.01));
 }
 .dlv-head {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
-  justify-content: space-between;
   gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
+  width: 100%;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+.dlv-head:hover .dlv-chevron,
+.dlv-head:hover .dlv-title {
+  opacity: 0.7;
+}
+.dlv-chevron {
+  color: var(--hfh-purple);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .dlv-title {
   font-size: 13px;
