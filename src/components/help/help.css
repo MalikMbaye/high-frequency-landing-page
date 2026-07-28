@@ -115,6 +115,12 @@
 @media (min-width: 1280px) {
   .hc-shell.with-rail { grid-template-columns: 260px minmax(0, 1fr) 220px; }
 }
+.hc-shell.no-sidebar {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 1120px;
+  gap: 0;
+}
+
 
 .hc-sidebar {
   position: sticky;
