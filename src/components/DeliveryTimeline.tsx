@@ -25,7 +25,7 @@ const DeliveryTimeline = () => {
       { key: "order", label: "Order placed", caption: "Payment confirmed instantly", date: today },
       { key: "pack", label: "Packed & tested", caption: "Hand-assembled and QC'd", date: addBusinessDays(today, 1) },
       { key: "ship", label: "Shipped", caption: "Tracking number emailed", date: addBusinessDays(today, 2) },
-      { key: "deliver", label: "At your door", caption: "Best case — in as little as 3 days", date: addBusinessDays(today, 3) },
+      { key: "deliver", label: "Now shipping in as little as 3 days", caption: "Best case delivery window", date: addBusinessDays(today, 3) },
     ];
   }, []);
 
