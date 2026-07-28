@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, ChevronDown, Info, Mail, Truck } from "lucide-react";
+import { ArrowLeft, Check, ChevronDown, Copy, Info, Mail, Truck } from "lucide-react";
 import {
   FAQS,
   STAGES,
@@ -19,6 +19,8 @@ const TrackResultPage = () => {
   const location = useLocation();
   const order = (location.state as { order?: TrackResult } | null)?.order ?? null;
   const [openFaqs, setOpenFaqs] = useState<Set<number>>(new Set());
+  const [copied, setCopied] = useState(false);
+  const [meaningsOpen, setMeaningsOpen] = useState(false);
 
   useEffect(() => {
     document.title = "Your Order Status | High Frequency Headphones";
@@ -130,45 +132,107 @@ const TrackResultPage = () => {
             )}
 
             {isLive && (
-              <>
-                {order.shipped_at && <p>Shipped on {fmtDate(new Date(order.shipped_at))}.</p>}
-                {(order.tracking_company || order.tracking_number) && (
-                  <p className="trk-mono">
-                    {order.tracking_company} {order.tracking_number}
-                  </p>
-                )}
-                {order.tracking_url && (
-                  <a
-                    className="trk-btn trk-btn-wide"
-                    href={order.tracking_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+              <div className="trk-track-panel">
+                <div className="trk-track-head">
+                  <Truck size={18} />
+                  <span>{pill}</span>
+                </div>
+                <div className="trk-track-grid">
+                  {order.tracking_company && (
+                    <div className="trk-track-cell">
+                      <span className="trk-track-k">Carrier</span>
+                      <span className="trk-track-v">{order.tracking_company}</span>
+                    </div>
+                  )}
+                  {order.tracking_number && (
+                    <div className="trk-track-cell">
+                      <span className="trk-track-k">Tracking number</span>
+                      <span className="trk-track-v trk-mono">{order.tracking_number}</span>
+                    </div>
+                  )}
+                  {order.shipped_at && (
+                    <div className="trk-track-cell">
+                      <span className="trk-track-k">Shipped</span>
+                      <span className="trk-track-v">{fmtDate(new Date(order.shipped_at))}</span>
+                    </div>
+                  )}
+                  {window && (
+                    <div className="trk-track-cell">
+                      <span className="trk-track-k">Expected delivery</span>
+                      <span className="trk-track-v">{window}</span>
+                    </div>
+                  )}
+                </div>
+
+                <ul className="trk-track-steps">
+                  {STAGES.slice(2).map((s, i) => {
+                    const idx = i + 2;
+                    const state = idx < active ? "done" : idx === active ? "active" : "todo";
+                    return (
+                      <li key={s.key} className={`trk-track-step is-${state}`}>
+                        <span className="trk-track-dot">{state === "done" && <Check size={11} />}</span>
+                        <div>
+                          <div className="trk-track-step-t">{s.label}</div>
+                          <div className="trk-track-step-d">{s.caption}</div>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+
+                {order.tracking_number && (
+                  <button
+                    type="button"
+                    className="trk-copy"
+                    onClick={() => {
+                      navigator.clipboard?.writeText(order.tracking_number ?? "");
+                      setCopied(true);
+                      setTimeout(() => setCopied(false), 1800);
+                    }}
                   >
-                    <Truck size={18} /> Track your shipment
-                  </a>
+                    <Copy size={14} /> {copied ? "Copied" : "Copy tracking number"}
+                  </button>
                 )}
-              </>
+              </div>
             )}
           </div>
         </div>
 
         <div className="trk-card">
-          <h2 className="trk-h2">What each stage means</h2>
-          <ul className="trk-meanings">
-            {STAGES.map((s, i) => (
-              <li key={s.key} className="trk-meaning">
-                <span className="trk-meaning-n">{i + 1}</span>
-                <div>
-                  <div className="trk-meaning-t">
-                    {s.label}
-                    <span className="trk-meaning-eta">{s.eta}</span>
+          <button
+            type="button"
+            className="trk-collapse-head"
+            aria-expanded={meaningsOpen}
+            onClick={() => setMeaningsOpen((v) => !v)}
+          >
+            <span className="trk-h2" style={{ margin: 0 }}>What each stage means</span>
+            <ChevronDown
+              size={20}
+              style={{
+                flex: "0 0 20px",
+                transform: meaningsOpen ? "rotate(180deg)" : "none",
+                transition: "transform .2s ease",
+              }}
+            />
+          </button>
+          {meaningsOpen && (
+            <ul className="trk-meanings" style={{ marginTop: 16 }}>
+              {STAGES.map((s, i) => (
+                <li key={s.key} className="trk-meaning">
+                  <span className="trk-meaning-n">{i + 1}</span>
+                  <div>
+                    <div className="trk-meaning-t">
+                      {s.label}
+                      <span className="trk-meaning-eta">{s.eta}</span>
+                    </div>
+                    <div className="trk-meaning-d">{s.description}</div>
                   </div>
-                  <div className="trk-meaning-d">{s.description}</div>
-                </div>
-              </li>
-            ))}
-          </ul>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
+
 
         <div className="trk-card">
           <h2 className="trk-h2">Questions</h2>
