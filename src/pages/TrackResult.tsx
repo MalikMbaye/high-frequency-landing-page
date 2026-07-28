@@ -126,8 +126,7 @@ const TrackResultPage = () => {
 
             {!isLive && (
               <p className="trk-note">
-                Estimates include a small buffer while we clear the current backlog (caught up by{" "}
-                {BACKLOG_CLEAR_DATE}). As the queue drains, this date tightens.
+                Estimates include a buffer and update automatically as we clear through orders.
               </p>
             )}
 
