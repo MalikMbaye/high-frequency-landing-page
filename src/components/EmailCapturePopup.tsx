@@ -20,14 +20,23 @@ const EmailCapturePopup = () => {
 
   useEffect(() => {
     try {
-      const state = localStorage.getItem(STORAGE_KEY);
-      if (state === "dismissed" || state === "subscribed") return;
+      if (localStorage.getItem(STORAGE_KEY)) return;
     } catch {}
 
-    const t = window.setTimeout(() => setOpen(true), DELAY_MS);
+    // Mark as shown the moment it opens — one appearance per visitor, ever.
+    const show = () => {
+      try { localStorage.setItem(STORAGE_KEY, "shown"); } catch {}
+      setOpen(true);
+    };
+
+    const t = window.setTimeout(show, DELAY_MS);
 
     const onExit = (e: MouseEvent) => {
-      if (e.clientY <= 0) setOpen((o) => o || true);
+      if (e.clientY <= 0) {
+        window.clearTimeout(t);
+        document.removeEventListener("mouseleave", onExit);
+        show();
+      }
     };
     document.addEventListener("mouseleave", onExit);
 
@@ -43,6 +52,7 @@ const EmailCapturePopup = () => {
     }
     setOpen(next);
   };
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
