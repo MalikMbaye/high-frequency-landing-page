@@ -13,6 +13,7 @@ import {
   fmtDate,
   type TrackResult,
 } from "@/lib/track";
+import Track17Widget from "@/components/Track17Widget";
 
 const TrackResultPage = () => {
   const navigate = useNavigate();
