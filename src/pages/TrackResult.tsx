@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, ChevronDown, Info, Truck } from "lucide-react";
+import { ArrowLeft, Check, ChevronDown, Info, Mail, Truck } from "lucide-react";
 import {
   BACKLOG_CLEAR_DATE,
   FAQS,
@@ -8,6 +8,7 @@ import {
   STAGES,
   SURGE_END,
   SURGE_START,
+  SUPPORT_EMAIL,
   activeStageIndex,
   deliveryWindow,
   fmtDate,
