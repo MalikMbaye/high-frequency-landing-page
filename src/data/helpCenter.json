@@ -14,7 +14,7 @@
       "core_concept": "A sound is a streamed audio file. A frequency is generated hertz created on-device in real time and is what makes the headphones vibrate.",
       "paywall_provider": "Superwall",
       "founder": "J (Jay Johnson Jr.), built after his own experience with ADHD and Vyvanse",
-      "support_email": "support@highfrequencyhighway.com",
+      "support_email": "highfrequencyhighway@gmail.com",
       "support_response_time": "Within 24 hours, Monday through Friday",
       "order_tracker": "Public tracker at /track, lookup by order number plus checkout email",
       "return_window": "30 days from confirmed delivery date, opened and used products accepted",
@@ -29,9 +29,9 @@
     "source_conflicts": [
       {
         "topic": "Support email address",
-        "source_a": "Shipping and Return Policy page: support@highfrequencyhighway.com",
+        "source_a": "Shipping and Return Policy page: highfrequencyhighway@gmail.com",
         "source_b": "Order tracker page: highfrequencyhighway@gmail.com",
-        "resolved_as": "support@highfrequencyhighway.com used throughout.",
+        "resolved_as": "highfrequencyhighway@gmail.com used throughout.",
         "action": "Confirm which inbox is monitored, then correct the tracker page. A gmail.com address on a checkout flow reads as unprofessional and raises chargeback risk."
       },
       {
@@ -652,7 +652,7 @@
         {
           "slug": "manage-subscription",
           "title": "Managing, restoring, and cancelling",
-          "body": "**Restore a purchase.** Settings, restore purchase. Use this after reinstalling the app, switching phones, or if premium content is locked when it should not be. You must be signed in to the same Apple or Google account that made the original purchase.\n\n**Cancel on iPhone.** Phone Settings, tap your name, Subscriptions, select High Frequency Highway, cancel. Access continues until the end of the paid period.\n\n**Cancel on Android.** Google Play, profile icon, Payments and subscriptions, Subscriptions, select High Frequency Highway, cancel.\n\n**Refunds on a subscription.** App Store and Google Play subscription refunds are handled by Apple and Google under their policies. We can help with account access and premium codes, and we cannot process a store refund on your behalf.\n\n**Hardware refunds.** The headphones carry a 30-day money-back guarantee that runs from the confirmed delivery date, separate from the app subscription. Email support@highfrequencyhighway.com with your order number to start a return. See the Orders, Shipping and Tracking section for the full process."
+          "body": "**Restore a purchase.** Settings, restore purchase. Use this after reinstalling the app, switching phones, or if premium content is locked when it should not be. You must be signed in to the same Apple or Google account that made the original purchase.\n\n**Cancel on iPhone.** Phone Settings, tap your name, Subscriptions, select High Frequency Highway, cancel. Access continues until the end of the paid period.\n\n**Cancel on Android.** Google Play, profile icon, Payments and subscriptions, Subscriptions, select High Frequency Highway, cancel.\n\n**Refunds on a subscription.** App Store and Google Play subscription refunds are handled by Apple and Google under their policies. We can help with account access and premium codes, and we cannot process a store refund on your behalf.\n\n**Hardware refunds.** The headphones carry a 30-day money-back guarantee that runs from the confirmed delivery date, separate from the app subscription. Email highfrequencyhighway@gmail.com with your order number to start a return. See the Orders, Shipping and Tracking section for the full process."
         }
       ],
       "faqs": [
@@ -698,7 +698,7 @@
         },
         {
           "q": "Can I get a refund on the headphones?",
-          "a": "Yes, within 30 days of the confirmed delivery date under the money-back guarantee. Email support@highfrequencyhighway.com with your order number. Domestic return shipping is free and the full process is in the Orders, Shipping and Tracking section."
+          "a": "Yes, within 30 days of the confirmed delivery date under the money-back guarantee. Email highfrequencyhighway@gmail.com with your order number. Domestic return shipping is free and the full process is in the Orders, Shipping and Tracking section."
         }
       ]
     },
@@ -710,7 +710,7 @@
         {
           "slug": "track-your-order",
           "title": "Tracking your order",
-          "body": "Go to the order tracker, enter your order number and the email you used at checkout, and you get a live status page.\n\nThe tracker shows five stages, an estimated delivery range, and a live carrier link once your package is moving. It updates on its own, so there is no need to check in with us for a status.\n\n**Where to find your order number.** It is in your order confirmation email, in the subject line and at the top of the receipt.\n\n**If the tracker cannot find your order,** the email you entered is almost certainly different from the one used at checkout. Try any other address you use, including one a partner may have ordered under. If it still comes back empty, email support@highfrequencyhighway.com with your order number.\n\nYou also receive a shipping confirmation email with tracking as soon as your package leaves our fulfillment center."
+          "body": "Go to the order tracker, enter your order number and the email you used at checkout, and you get a live status page.\n\nThe tracker shows five stages, an estimated delivery range, and a live carrier link once your package is moving. It updates on its own, so there is no need to check in with us for a status.\n\n**Where to find your order number.** It is in your order confirmation email, in the subject line and at the top of the receipt.\n\n**If the tracker cannot find your order,** the email you entered is almost certainly different from the one used at checkout. Try any other address you use, including one a partner may have ordered under. If it still comes back empty, email highfrequencyhighway@gmail.com with your order number.\n\nYou also receive a shipping confirmation email with tracking as soon as your package leaves our fulfillment center."
         },
         {
           "slug": "order-stages",
@@ -730,7 +730,7 @@
         {
           "slug": "surge-backlog",
           "title": "If you ordered between June 1 and July 27, 2026",
-          "body": "You ordered during the biggest demand surge in the company's history. For a stretch, orders came in faster than we could restock.\n\nThat is fixed. A fresh shipment landed and we are shipping around 142 orders a day. Every order from that window is in the current wave and ships by August 4, arriving within 3 to 7 business days after that.\n\nYour tracker already reflects this. The estimate you see accounts for the backlog rather than assuming a normal week.\n\nIf your order was placed in that window and has not shipped by the date your tracker shows, email support@highfrequencyhighway.com with your order number and we will look at it directly.\n\nYou can request a full refund at any point before your order ships. No questions asked."
+          "body": "You ordered during the biggest demand surge in the company's history. For a stretch, orders came in faster than we could restock.\n\nThat is fixed. A fresh shipment landed and we are shipping around 142 orders a day. Every order from that window is in the current wave and ships by August 4, arriving within 3 to 7 business days after that.\n\nYour tracker already reflects this. The estimate you see accounts for the backlog rather than assuming a normal week.\n\nIf your order was placed in that window and has not shipped by the date your tracker shows, email highfrequencyhighway@gmail.com with your order number and we will look at it directly.\n\nYou can request a full refund at any point before your order ships. No questions asked."
         },
         {
           "slug": "processing-shipping-times",
@@ -740,12 +740,12 @@
         {
           "slug": "change-cancel",
           "title": "Changing your address or cancelling",
-          "body": "**Changing your shipping address.** If your order has not reached the Tracking Added stage, email support@highfrequencyhighway.com with your order number and the correct address and we will update it before it ships. Once tracking is issued, the address is locked and we cannot change it.\n\n**Cancelling before it ships.** Email support@highfrequencyhighway.com with your order number and write Cancel in the subject line. We confirm the cancellation and issue your refund within 48 hours. You can cancel at any point before your order ships, no questions asked.\n\n**Cancelling after it ships.** Once a package is with the carrier we cannot pull it back. Wait for delivery and use the standard return process.\n\n**If your order has not shipped within 30 days of purchase** and you have not received a shipping notification, you are entitled to a full refund on request."
+          "body": "**Changing your shipping address.** If your order has not reached the Tracking Added stage, email highfrequencyhighway@gmail.com with your order number and the correct address and we will update it before it ships. Once tracking is issued, the address is locked and we cannot change it.\n\n**Cancelling before it ships.** Email highfrequencyhighway@gmail.com with your order number and write Cancel in the subject line. We confirm the cancellation and issue your refund within 48 hours. You can cancel at any point before your order ships, no questions asked.\n\n**Cancelling after it ships.** Once a package is with the carrier we cannot pull it back. Wait for delivery and use the standard return process.\n\n**If your order has not shipped within 30 days of purchase** and you have not received a shipping notification, you are entitled to a full refund on request."
         },
         {
           "slug": "returns",
           "title": "Returns and the 30-day guarantee",
-          "body": "You can return the headphones within 30 days of delivery for a full refund of the product purchase price.\n\nThe 30 days start on the date the carrier confirms delivery. Not the order date, not the ship date. The day it arrived at your door.\n\n**How to return.**\n\n1. Email support@highfrequencyhighway.com with your order number and the reason for the return. We respond within 24 hours with instructions and a return shipping label.\n2. Pack the headphones in the original packaging, or equivalent protective packaging, with every accessory that came in the box.\n3. Ship it back using the label we provide.\n4. Once we receive and inspect it, your refund is issued within 5 to 10 business days to the original payment method.\n\n**You are allowed to open and use them.** Trying the headphones is the only way to know whether they work for you, and normal wear from doing that is accepted. Send them back if they are not for you.\n\n**What is refunded.** The full product purchase price. Original shipping costs are not refunded. If you bought at a discount or promotional price, the refund reflects what you actually paid.\n\n**What is not eligible.** Returns started more than 30 days after confirmed delivery, products physically damaged through misuse, neglect or modification, and returns shipped back without contacting support first, since we need your order number to process it.\n\n**Return shipping** is free for domestic orders. International return shipping is the customer's responsibility.\n\n**Exchanges.** We do not offer direct exchanges. Return the original order and place a new one."
+          "body": "You can return the headphones within 30 days of delivery for a full refund of the product purchase price.\n\nThe 30 days start on the date the carrier confirms delivery. Not the order date, not the ship date. The day it arrived at your door.\n\n**How to return.**\n\n1. Email highfrequencyhighway@gmail.com with your order number and the reason for the return. We respond within 24 hours with instructions and a return shipping label.\n2. Pack the headphones in the original packaging, or equivalent protective packaging, with every accessory that came in the box.\n3. Ship it back using the label we provide.\n4. Once we receive and inspect it, your refund is issued within 5 to 10 business days to the original payment method.\n\n**You are allowed to open and use them.** Trying the headphones is the only way to know whether they work for you, and normal wear from doing that is accepted. Send them back if they are not for you.\n\n**What is refunded.** The full product purchase price. Original shipping costs are not refunded. If you bought at a discount or promotional price, the refund reflects what you actually paid.\n\n**What is not eligible.** Returns started more than 30 days after confirmed delivery, products physically damaged through misuse, neglect or modification, and returns shipped back without contacting support first, since we need your order number to process it.\n\n**Return shipping** is free for domestic orders. International return shipping is the customer's responsibility.\n\n**Exchanges.** We do not offer direct exchanges. Return the original order and place a new one."
         },
         {
           "slug": "refund-timeline",
@@ -755,12 +755,12 @@
         {
           "slug": "damaged-defective",
           "title": "Damaged or defective on arrival",
-          "body": "Email support@highfrequencyhighway.com straight away with your order number, photos of the damage or defect, and a short description of what is wrong.\n\nWe send a replacement at no cost to you. If a replacement is not available, we issue a full refund including the original shipping cost.\n\nYou do not need to send the damaged product back unless we specifically ask for it.\n\nDefective product claims must be made within 60 days of delivery, which is a longer window than the 30-day return guarantee."
+          "body": "Email highfrequencyhighway@gmail.com straight away with your order number, photos of the damage or defect, and a short description of what is wrong.\n\nWe send a replacement at no cost to you. If a replacement is not available, we issue a full refund including the original shipping cost.\n\nYou do not need to send the damaged product back unless we specifically ask for it.\n\nDefective product claims must be made within 60 days of delivery, which is a longer window than the 30-day return guarantee."
         },
         {
           "slug": "disputes",
           "title": "Before you file a chargeback",
-          "body": "Contact us first. Every email gets a response within 24 hours, and we offer full refunds within the 30-day window.\n\nA chargeback filed before you have contacted us slows the resolution down for everyone, including you. In almost every case we can sort it out faster than the dispute process can.\n\nEmail support@highfrequencyhighway.com with your order number and what went wrong."
+          "body": "Contact us first. Every email gets a response within 24 hours, and we offer full refunds within the 30-day window.\n\nA chargeback filed before you have contacted us slows the resolution down for everyone, including you. In almost every case we can sort it out faster than the dispute process can.\n\nEmail highfrequencyhighway@gmail.com with your order number and what went wrong."
         }
       ],
       "faqs": [
@@ -802,11 +802,11 @@
         },
         {
           "q": "I have not received a tracking number.",
-          "a": "Tracking is emailed as soon as your package leaves our fulfillment center, and it also appears on the tracker. If you have not received one within the estimated processing window, email support@highfrequencyhighway.com and we will update you within 24 hours."
+          "a": "Tracking is emailed as soon as your package leaves our fulfillment center, and it also appears on the tracker. If you have not received one within the estimated processing window, email highfrequencyhighway@gmail.com and we will update you within 24 hours."
         },
         {
           "q": "The tracker cannot find my order.",
-          "a": "The email entered has to match the one used at checkout exactly. Try any other address you use, including one a family member may have ordered under. If it still comes up empty, email support@highfrequencyhighway.com with your order number."
+          "a": "The email entered has to match the one used at checkout exactly. Try any other address you use, including one a family member may have ordered under. If it still comes up empty, email highfrequencyhighway@gmail.com with your order number."
         },
         {
           "q": "My tracking has not moved in several days.",
@@ -814,15 +814,15 @@
         },
         {
           "q": "Can I change my shipping address?",
-          "a": "Yes, if your order has not reached the Tracking Added stage. Email support@highfrequencyhighway.com with your order number and the correct address. Once tracking is issued the address is locked."
+          "a": "Yes, if your order has not reached the Tracking Added stage. Email highfrequencyhighway@gmail.com with your order number and the correct address. Once tracking is issued the address is locked."
         },
         {
           "q": "Can I cancel my order?",
-          "a": "Yes, at any point before it ships, no questions asked. Email support@highfrequencyhighway.com with your order number and Cancel in the subject line. We confirm and refund within 48 hours."
+          "a": "Yes, at any point before it ships, no questions asked. Email highfrequencyhighway@gmail.com with your order number and Cancel in the subject line. We confirm and refund within 48 hours."
         },
         {
           "q": "My order has not shipped in over 30 days.",
-          "a": "If 30 days have passed since purchase and you have not received a shipping notification, you are entitled to a full refund on request. Email support@highfrequencyhighway.com with your order number."
+          "a": "If 30 days have passed since purchase and you have not received a shipping notification, you are entitled to a full refund on request. Email highfrequencyhighway@gmail.com with your order number."
         },
         {
           "q": "What is your return policy?",
@@ -834,7 +834,7 @@
         },
         {
           "q": "How do I start a return?",
-          "a": "Email support@highfrequencyhighway.com with your order number and the reason. We reply within 24 hours with instructions and a return shipping label. Do not ship anything back before contacting us, because we need your order number to process it."
+          "a": "Email highfrequencyhighway@gmail.com with your order number and the reason. We reply within 24 hours with instructions and a return shipping label. Do not ship anything back before contacting us, because we need your order number to process it."
         },
         {
           "q": "How long until I get my refund?",
@@ -850,11 +850,11 @@
         },
         {
           "q": "My headphones arrived damaged or do not work.",
-          "a": "Email support@highfrequencyhighway.com with your order number, photos of the issue, and a short description. We send a replacement at no cost, or a full refund including original shipping if a replacement is not available. You usually do not need to send the damaged product back. Defective claims must be made within 60 days of delivery."
+          "a": "Email highfrequencyhighway@gmail.com with your order number, photos of the issue, and a short description. We send a replacement at no cost, or a full refund including original shipping if a replacement is not available. You usually do not need to send the damaged product back. Defective claims must be made within 60 days of delivery."
         },
         {
           "q": "Something is missing from my box.",
-          "a": "Email support@highfrequencyhighway.com with your order number and a photo of everything that arrived, and we will send the missing item."
+          "a": "Email highfrequencyhighway@gmail.com with your order number and a photo of everything that arrived, and we will send the missing item."
         },
         {
           "q": "My package says delivered and I do not have it.",
@@ -862,7 +862,7 @@
         },
         {
           "q": "I want to file a chargeback.",
-          "a": "Contact us first at support@highfrequencyhighway.com. We respond within 24 hours and we refund in full within the 30-day window. A dispute filed before contacting us slows resolution down, and we can almost always fix it faster directly."
+          "a": "Contact us first at highfrequencyhighway@gmail.com. We respond within 24 hours and we refund in full within the 30-day window. A dispute filed before contacting us slows resolution down, and we can almost always fix it faster directly."
         },
         {
           "q": "Does buying the headphones give me app premium?",
@@ -874,7 +874,7 @@
         },
         {
           "q": "How do I contact you about an order?",
-          "a": "Email support@highfrequencyhighway.com. Put your order number in the subject line for the fastest response. We reply within 24 hours, Monday through Friday."
+          "a": "Email highfrequencyhighway@gmail.com. Put your order number in the subject line for the fastest response. We reply within 24 hours, Monday through Friday."
         }
       ]
     },
@@ -1079,7 +1079,7 @@
         {
           "slug": "contact-support",
           "title": "Contacting support",
-          "body": "**Email us at support@highfrequencyhighway.com.** We respond within 24 hours, Monday through Friday. Put your order number in the subject line for the fastest routing.\n\n**From the app.** Settings, contact us. That opens an email to the team.\n\n**For order status, check the tracker first.** Enter your order number and the email you used at checkout and you get your stage, your estimated delivery range, and a live carrier link. It updates on its own and it will usually answer the question faster than we can.\n\n**Include this and you will get a faster answer.**\n\n- The email on your account\n- Your phone model and OS version\n- The app version\n- Your order number for anything hardware related\n- What you were doing when the problem happened, and what you expected instead\n- A screenshot or screen recording if you can\n\n**For hardware problems,** tell us whether the issue follows the headphones when you pair them to a different device. That single detail usually tells us whether it is the headphones or the phone.\n\n**For billing,** have the receipt from Apple or Google ready. Store refunds are handled by Apple and Google, and we handle account access, premium codes, and hardware returns."
+          "body": "**Email us at highfrequencyhighway@gmail.com.** We respond within 24 hours, Monday through Friday. Put your order number in the subject line for the fastest routing.\n\n**From the app.** Settings, contact us. That opens an email to the team.\n\n**For order status, check the tracker first.** Enter your order number and the email you used at checkout and you get your stage, your estimated delivery range, and a live carrier link. It updates on its own and it will usually answer the question faster than we can.\n\n**Include this and you will get a faster answer.**\n\n- The email on your account\n- Your phone model and OS version\n- The app version\n- Your order number for anything hardware related\n- What you were doing when the problem happened, and what you expected instead\n- A screenshot or screen recording if you can\n\n**For hardware problems,** tell us whether the issue follows the headphones when you pair them to a different device. That single detail usually tells us whether it is the headphones or the phone.\n\n**For billing,** have the receipt from Apple or Google ready. Store refunds are handled by Apple and Google, and we handle account access, premium codes, and hardware returns."
         }
       ],
       "faqs": [
@@ -1097,11 +1097,11 @@
         },
         {
           "q": "Do you have a phone number?",
-          "a": "Support runs through email at support@highfrequencyhighway.com so that everything is documented and routed to the right person. We respond within 24 hours, Monday through Friday. Include as much detail as you can in the first message and you will usually get it resolved in one exchange."
+          "a": "Support runs through email at highfrequencyhighway@gmail.com so that everything is documented and routed to the right person. We respond within 24 hours, Monday through Friday. Include as much detail as you can in the first message and you will usually get it resolved in one exchange."
         },
         {
           "q": "What is your support email?",
-          "a": "support@highfrequencyhighway.com. Put your order number in the subject line for anything order related."
+          "a": "highfrequencyhighway@gmail.com. Put your order number in the subject line for anything order related."
         },
         {
           "q": "How fast do you respond?",
