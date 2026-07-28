@@ -27,9 +27,11 @@ const Footer = () => {
       <div className="hfh-container footer-inner">
         <div className="footer-brand">HIGH FREQUENCY HIGHWAY</div>
         <nav className="footer-links">
+          <a href="/track">TRACK MY ORDER</a>
           <a href="/contact">CONTACT</a>
           <a href="/shipping-policy">SHIPPING & RETURNS</a>
         </nav>
+
 
         <div className="footer-social-group">
           <div className="footer-social-block">
