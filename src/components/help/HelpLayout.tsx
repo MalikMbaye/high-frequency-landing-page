@@ -56,15 +56,11 @@ const HelpLayout = ({ children, rail, activeRailId }: Props) => {
             {drawerOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
           <Link to="/help" className="hc-logo">
-            <img src="/favicon.png" alt="" width={30} height={30} />
-            <span>
-              <b>HIGH FREQUENCY HEADPHONES</b>
-              <span>Help Center</span>
-            </span>
+            HIGH FREQUENCY HIGHWAY <span>Help Center</span>
           </Link>
           <button type="button" className="hc-searchbtn" onClick={() => setSearchOpen(true)}>
             <Search size={15} aria-hidden="true" />
-            <span className="hc-label">Search across the help center</span>
+            Search across the help center
             <span className="hc-kbd">⌘K</span>
           </button>
         </div>
