@@ -175,27 +175,37 @@ const TrackResultPage = () => {
         <div className="trk-card">
           <h2 className="trk-h2">Questions</h2>
           <div className="trk-faq">
-            {FAQS.map((f, i) => (
-              <div key={f.q} className="trk-faq-item">
-                <button
-                  type="button"
-                  className="trk-faq-q"
-                  aria-expanded={openFaq === i}
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                >
-                  {f.q}
-                  <ChevronDown
-                    size={18}
-                    style={{
-                      flex: "0 0 18px",
-                      transform: openFaq === i ? "rotate(180deg)" : "none",
-                      transition: "transform .2s ease",
-                    }}
-                  />
-                </button>
-                {openFaq === i && <div className="trk-faq-a">{f.a}</div>}
-              </div>
-            ))}
+            {FAQS.map((f, i) => {
+              const isOpen = openFaqs.has(i);
+              return (
+                <div key={f.q} className="trk-faq-item">
+                  <button
+                    type="button"
+                    className="trk-faq-q"
+                    aria-expanded={isOpen}
+                    onClick={() =>
+                      setOpenFaqs((prev) => {
+                        const next = new Set(prev);
+                        if (next.has(i)) next.delete(i);
+                        else next.add(i);
+                        return next;
+                      })
+                    }
+                  >
+                    {f.q}
+                    <ChevronDown
+                      size={18}
+                      style={{
+                        flex: "0 0 18px",
+                        transform: isOpen ? "rotate(180deg)" : "none",
+                        transition: "transform .2s ease",
+                      }}
+                    />
+                  </button>
+                  {isOpen && <div className="trk-faq-a">{f.a}</div>}
+                </div>
+              );
+            })}
           </div>
         </div>
 
