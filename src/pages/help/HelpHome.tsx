@@ -92,11 +92,6 @@ const HelpHome = () => {
           {sections.map((s, idx) => (
             <Link key={s.slug} to={`/help/${s.slug}`} className="hc-tile">
               <span className="hc-tile-index">{String(idx + 1).padStart(2, "0")}</span>
-              <span className="hc-eq" aria-hidden="true">
-                {bars(s.slug).map((h, i) => (
-                  <i key={i} style={{ height: `${h}%` }} />
-                ))}
-              </span>
               <h3>{s.title}</h3>
               {s.summary && <p>{s.summary}</p>}
               <span className="hc-tile-foot">
