@@ -11,9 +11,11 @@ type Props = {
   /** Table of contents for the right rail: [{ id, text }] */
   rail?: { id: string; text: string }[];
   activeRailId?: string | null;
+  /** Landing page uses a full-width canvas with no section sidebar. */
+  hideSidebar?: boolean;
 };
 
-const HelpLayout = ({ children, rail, activeRailId }: Props) => {
+const HelpLayout = ({ children, rail, activeRailId, hideSidebar }: Props) => {
   const { sectionSlug, articleSlug } = useParams();
   const { pathname } = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false);
