@@ -54,6 +54,8 @@ export type Database = {
           customer_name: string | null
           customer_status: string | null
           email: string
+          est_delivery_max: string | null
+          est_delivery_min: string | null
           est_ship_date: string | null
           financial_status: string | null
           fulfillment_status: string | null
@@ -61,6 +63,7 @@ export type Database = {
           order_number: string
           placed_at: string
           position_in_batch: number | null
+          position_in_queue: number | null
           quantity: number
           shipped_at: string | null
           shopify_order_id: number | null
@@ -75,6 +78,8 @@ export type Database = {
           customer_name?: string | null
           customer_status?: string | null
           email: string
+          est_delivery_max?: string | null
+          est_delivery_min?: string | null
           est_ship_date?: string | null
           financial_status?: string | null
           fulfillment_status?: string | null
@@ -82,6 +87,7 @@ export type Database = {
           order_number: string
           placed_at?: string
           position_in_batch?: number | null
+          position_in_queue?: number | null
           quantity?: number
           shipped_at?: string | null
           shopify_order_id?: number | null
@@ -96,6 +102,8 @@ export type Database = {
           customer_name?: string | null
           customer_status?: string | null
           email?: string
+          est_delivery_max?: string | null
+          est_delivery_min?: string | null
           est_ship_date?: string | null
           financial_status?: string | null
           fulfillment_status?: string | null
@@ -103,6 +111,7 @@ export type Database = {
           order_number?: string
           placed_at?: string
           position_in_batch?: number | null
+          position_in_queue?: number | null
           quantity?: number
           shipped_at?: string | null
           shopify_order_id?: number | null
@@ -150,16 +159,19 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      recompute_queue: { Args: never; Returns: undefined }
+      recompute_queue: { Args: { c?: number }; Returns: undefined }
       track_order: {
         Args: { p_email: string; p_order_number: string }
         Returns: {
           batch_code: string
           batch_status: string
           customer_status: string
+          est_delivery_max: string
+          est_delivery_min: string
           est_ship_date: string
           order_number: string
-          position_in_batch: number
+          placed_at: string
+          position_in_queue: number
           shipped_at: string
           tracking_company: string
           tracking_number: string

@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import ShopifyInstalled from "./pages/ShopifyInstalled";
 import Track from "./pages/Track";
+import TrackResult from "./pages/TrackResult";
 import NotFound from "./pages/NotFound";
 import EmailCapturePopup from "./components/EmailCapturePopup";
 
@@ -24,6 +25,7 @@ const AppContent = () => {
         <Route path="/shipping-policy" element={<ShippingPolicy />} />
         <Route path="/shopify-installed" element={<ShopifyInstalled />} />
         <Route path="/track" element={<Track />} />
+        <Route path="/track/result" element={<TrackResult />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <EmailCapturePopup />
