@@ -130,7 +130,7 @@ const HelpHome = () => {
 
           <div className="hc-video-header">
             <span className="hc-video-badge">Tutorial</span>
-            <h2>Visual setup & features guide</h2>
+            <h2>Fifteen minute walkthrough</h2>
             <p className="hc-lead">
               A quick walkthrough of the headphones, the app, and how to get the most out of
               every session.
