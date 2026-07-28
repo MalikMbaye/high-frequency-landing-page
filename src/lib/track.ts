@@ -42,8 +42,8 @@ export const STAGES = [
     label: "Tracking Added",
     caption: "Tracking number issued",
     description:
-      "Your shipping label and tracking number are created and your package is being handed to the carrier.",
-    eta: "Within 1 business day",
+      "Your shipping label and tracking number are created and your package is being handed to the carrier. You'll see the number here and in your email as soon as it's issued.",
+    eta: "Shortly after packing",
   },
   {
     key: "in_transit",
