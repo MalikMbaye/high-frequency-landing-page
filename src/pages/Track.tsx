@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import type { TrackResult } from "@/lib/track";
+import { SUPPORT_EMAIL } from "@/lib/track";
 
 const Track = () => {
   const navigate = useNavigate();
