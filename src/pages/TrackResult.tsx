@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, ChevronDown, Copy, ExternalLink, Info, Mail, Truck } from "lucide-react";
+import { ArrowLeft, Check, ChevronDown, Copy, Info, Mail, Truck } from "lucide-react";
 import {
   FAQS,
   STAGES,
