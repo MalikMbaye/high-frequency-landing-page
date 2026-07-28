@@ -37,7 +37,7 @@ const Track = () => {
     const row = (data as { order: TrackResult | null } | null)?.order;
     if (!row) {
       setError(
-        "We couldn't find an order for those details — double-check your email and try again."
+        `We couldn't find an order for those details. Double-check the email you used at checkout. This tracker only covers recent orders — if you ordered several months ago, email ${SUPPORT_EMAIL} with your order number and we'll pull it up for you.`
       );
       return;
     }
