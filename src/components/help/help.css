@@ -1,18 +1,18 @@
 .hc {
-  --hc-bg: #05060b;
-  --hc-surface: #0c0f1a;
-  --hc-surface-2: #141829;
-  --hc-border: #1f2437;
-  --hc-text: #eceef5;
-  --hc-mute: #8b92a8;
-  --hc-accent: #7c5cff;
-  --hc-accent-dim: #3a2e7a;
-  --hc-signal: #4fd1c5;
+  --hc-bg: #ffffff;
+  --hc-surface: #f6f7fb;
+  --hc-surface-2: #eef0f7;
+  --hc-border: #dfe3ee;
+  --hc-text: #14172a;
+  --hc-mute: #5f6780;
+  --hc-accent: #5b3df5;
+  --hc-accent-dim: #d9d2ff;
+  --hc-signal: #0f9e91;
 
   min-height: 100vh;
   color: var(--hc-text);
   background:
-    radial-gradient(120% 70% at 50% 0%, #0c0f1a 0%, #05060b 62%) no-repeat,
+    radial-gradient(120% 70% at 50% 0%, #f4f2ff 0%, #ffffff 62%) no-repeat,
     var(--hc-bg);
   font-family: "Inter", system-ui, sans-serif;
   font-size: 16px;
@@ -43,7 +43,7 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(5, 6, 11, 0.9);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--hc-border);
 }
@@ -286,7 +286,7 @@ a.hc-card:hover { border-color: var(--hc-accent); }
   text-decoration: none;
   cursor: pointer;
 }
-.hc-btn:hover { background: #6b4bf0; }
+.hc-btn:hover { background: #4a2ee0; }
 .hc-btn-ghost {
   background: transparent;
   color: var(--hc-text);
@@ -332,7 +332,7 @@ a.hc-card:hover { border-color: var(--hc-accent); }
   position: fixed;
   inset: 0;
   z-index: 60;
-  background: rgba(5, 6, 11, 0.72);
+  background: rgba(20, 23, 42, 0.32);
   display: flex;
   justify-content: center;
   padding: 10vh 16px 16px;
@@ -398,7 +398,7 @@ a.hc-card:hover { border-color: var(--hc-accent); }
     display: block;
     position: fixed;
     inset: 0;
-    background: rgba(5, 6, 11, 0.7);
+    background: rgba(255, 255, 255, 0.92);
     z-index: 65;
   }
   .hc-prevnext { grid-template-columns: 1fr; }
@@ -413,7 +413,7 @@ a.hc-card:hover { border-color: var(--hc-accent); }
 .hc .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
 /* The global marketing layout reserves 64px for its fixed nav; the help center has its own topbar. */
-body:has(.hc) { padding-top: 0; background: #05060b; }
+body:has(.hc) { padding-top: 0; background: #ffffff; }
 
 /* ---------- Landing page: frequency canvas ---------- */
 .hc-landing-hero {
@@ -460,7 +460,7 @@ body:has(.hc) { padding-top: 0; background: #05060b; }
   height: 6px;
   border-radius: 50%;
   background: var(--hc-signal);
-  box-shadow: 0 0 0 4px rgba(79, 209, 197, 0.14);
+  box-shadow: 0 0 0 4px rgba(15, 158, 145, 0.16);
 }
 .hc-landing-hero h1 { position: relative; font-size: clamp(34px, 6vw, 60px); }
 .hc-landing-hero .hc-lead { margin: 0 auto; max-width: 58ch; position: relative; }
@@ -477,7 +477,7 @@ body:has(.hc) { padding-top: 0; background: #05060b; }
   border-radius: 14px;
   padding: 8px 8px 8px 16px;
   color: var(--hc-mute);
-  box-shadow: 0 24px 60px -30px rgba(124, 92, 255, 0.75);
+  box-shadow: 0 24px 60px -30px rgba(91, 61, 245, 0.45);
 }
 .hc-hero-search:focus-within { border-color: var(--hc-accent); }
 .hc-hero-input {
@@ -545,7 +545,7 @@ body:has(.hc) { padding-top: 0; background: #05060b; }
   border: 1px solid var(--hc-border);
   border-radius: 14px;
   background:
-    radial-gradient(120% 100% at 0% 0%, rgba(124, 92, 255, 0.07), transparent 60%),
+    radial-gradient(120% 100% at 0% 0%, rgba(91, 61, 245, 0.06), transparent 60%),
     var(--hc-surface);
   text-decoration: none;
   overflow: hidden;
