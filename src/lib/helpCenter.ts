@@ -14,7 +14,7 @@ export type HelpSection = {
 export const helpMeta = (data as { meta: { title: string; version?: string } }).meta;
 export const sections = (data as unknown as { sections: HelpSection[] }).sections;
 
-export const SUPPORT_EMAIL = "support@highfrequencyhighway.com";
+export const SUPPORT_EMAIL = "highfrequencyhighway@gmail.com";
 
 export const slugify = (s: string) =>
   s

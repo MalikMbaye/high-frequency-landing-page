@@ -51,17 +51,17 @@ const items: Item[] = [
   {
     Icon: Shield,
     q: "What if it doesn't work for me?",
-    a: "30-day money-back guarantee, starting on the date your order is delivered. Try them, use them, push them. If they're not for you, email support@highfrequencyhighway.com with your order number and we'll send a prepaid return label within 24 hours (domestic). Refund hits your original payment method within 5-10 business days of us receiving the return. Original shipping costs are not refunded.",
+    a: "30-day money-back guarantee, starting on the date your order is delivered. Try them, use them, push them. If they're not for you, email highfrequencyhighway@gmail.com with your order number and we'll send a prepaid return label within 24 hours (domestic). Refund hits your original payment method within 5-10 business days of us receiving the return. Original shipping costs are not refunded.",
   },
   {
     Icon: RefreshCw,
     q: "Can I exchange for a different model or cancel my order?",
-    a: "We don't offer direct exchanges right now. Return your original order using the 30-day process and place a new order for the model you want. If your order hasn't shipped yet, you can cancel anytime for a full refund — email support@highfrequencyhighway.com with \"Cancel\" in the subject line and your order number, and we'll confirm within 48 hours.",
+    a: "We don't offer direct exchanges right now. Return your original order using the 30-day process and place a new order for the model you want. If your order hasn't shipped yet, you can cancel anytime for a full refund — email highfrequencyhighway@gmail.com with \"Cancel\" in the subject line and your order number, and we'll confirm within 48 hours.",
   },
   {
     Icon: Wrench,
     q: "What if my headphones arrive damaged or defective?",
-    a: "Email support@highfrequencyhighway.com immediately with your order number, photos of the damage, and a brief description. We'll ship a replacement at no cost, or issue a full refund including original shipping if a replacement isn't available. You don't need to send the damaged unit back unless we ask. Defective claims must be made within 60 days of delivery.",
+    a: "Email highfrequencyhighway@gmail.com immediately with your order number, photos of the damage, and a brief description. We'll ship a replacement at no cost, or issue a full refund including original shipping if a replacement isn't available. You don't need to send the damaged unit back unless we ask. Defective claims must be made within 60 days of delivery.",
   },
 ];
 

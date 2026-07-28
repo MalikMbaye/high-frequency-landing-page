@@ -107,7 +107,7 @@ const ShippingPolicy = () => {
           <p>
             Every order receives a tracking number via email once shipped. If you have not received a
             tracking number within the estimated processing window, please contact us at{" "}
-            <a href="mailto:support@highfrequencyhighway.com">support@highfrequencyhighway.com</a> and
+            <a href="mailto:highfrequencyhighway@gmail.com">highfrequencyhighway@gmail.com</a> and
             we will provide an update within 24 hours.
           </p>
 
@@ -140,7 +140,7 @@ const ShippingPolicy = () => {
 
           <h3>How Returns Work</h3>
           <ol>
-            <li><strong>Initiate your return.</strong> Email <a href="mailto:support@highfrequencyhighway.com">support@highfrequencyhighway.com</a> with your order number and the reason for your return. We will respond within 24 hours with return instructions and a return shipping label.</li>
+            <li><strong>Initiate your return.</strong> Email <a href="mailto:highfrequencyhighway@gmail.com">highfrequencyhighway@gmail.com</a> with your order number and the reason for your return. We will respond within 24 hours with return instructions and a return shipping label.</li>
             <li><strong>Ship it back.</strong> Pack the headphones in the original packaging (or equivalent protective packaging) with all included accessories. Ship using the provided return label.</li>
             <li><strong>Refund processed.</strong> Once we receive and inspect your return, your refund will be issued within 5-10 business days to the original payment method.</li>
           </ol>
@@ -185,7 +185,7 @@ const ShippingPolicy = () => {
           <h3>Cancellations</h3>
           <p>
             If your order has not shipped, you may cancel for a full refund at any time. Email{" "}
-            <a href="mailto:support@highfrequencyhighway.com">support@highfrequencyhighway.com</a> with
+            <a href="mailto:highfrequencyhighway@gmail.com">highfrequencyhighway@gmail.com</a> with
             your order number and write "Cancel" in the subject line. We will confirm cancellation and
             issue your refund within 48 hours.
           </p>
@@ -203,7 +203,7 @@ const ShippingPolicy = () => {
           <h2>Damaged or Defective Products</h2>
           <p>
             If your headphones arrive damaged or defective, contact us immediately at{" "}
-            <a href="mailto:support@highfrequencyhighway.com">support@highfrequencyhighway.com</a> with:
+            <a href="mailto:highfrequencyhighway@gmail.com">highfrequencyhighway@gmail.com</a> with:
           </p>
           <ul>
             <li>Your order number</li>
@@ -221,7 +221,7 @@ const ShippingPolicy = () => {
           <p>
             We want to resolve every issue directly. If you are unhappy with your order for any reason,
             please contact us at{" "}
-            <a href="mailto:support@highfrequencyhighway.com">support@highfrequencyhighway.com</a>{" "}
+            <a href="mailto:highfrequencyhighway@gmail.com">highfrequencyhighway@gmail.com</a>{" "}
             before filing a dispute with your bank or credit card company. We respond to every email
             within 24 hours and we offer full refunds within our 30-day window.
           </p>
@@ -234,7 +234,7 @@ const ShippingPolicy = () => {
           <p>For any shipping, return, or order questions:</p>
           <p>
             <strong>Email:</strong>{" "}
-            <a href="mailto:support@highfrequencyhighway.com">support@highfrequencyhighway.com</a>
+            <a href="mailto:highfrequencyhighway@gmail.com">highfrequencyhighway@gmail.com</a>
             <br />
             <strong>Response time:</strong> Within 24 hours, Monday through Friday
             <br />
