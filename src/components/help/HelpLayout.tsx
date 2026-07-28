@@ -48,17 +48,19 @@ const HelpLayout = ({ children, rail, activeRailId, hideSidebar }: Props) => {
 
       <header className="hc-topbar">
         <div className="hc-topbar-inner">
-          <button
-            type="button"
-            className="hc-menubtn"
-            aria-label={drawerOpen ? "Close help navigation" : "Open help navigation"}
-            aria-expanded={drawerOpen}
-            onClick={() => setDrawerOpen((v) => !v)}
-          >
-            {drawerOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
+          {!hideSidebar && (
+            <button
+              type="button"
+              className="hc-menubtn"
+              aria-label={drawerOpen ? "Close help navigation" : "Open help navigation"}
+              aria-expanded={drawerOpen}
+              onClick={() => setDrawerOpen((v) => !v)}
+            >
+              {drawerOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          )}
           <Link to="/help" className="hc-logo">
-            HIGH FREQUENCY HIGHWAY <span>Help Center</span>
+            HIGH FREQUENCY HEADPHONES <span>Help Center</span>
           </Link>
           <button type="button" className="hc-searchbtn" onClick={() => setSearchOpen(true)}>
             <Search size={15} aria-hidden="true" />
@@ -69,9 +71,10 @@ const HelpLayout = ({ children, rail, activeRailId, hideSidebar }: Props) => {
         <Waveform />
       </header>
 
-      <div className={`hc-shell ${showRail ? "with-rail" : ""}`}>
+      <div className={`hc-shell ${showRail ? "with-rail" : ""} ${hideSidebar ? "no-sidebar" : ""}`}>
         {drawerOpen && <div className="hc-scrim" onClick={() => setDrawerOpen(false)} />}
 
+        {!hideSidebar && (
         <nav className={`hc-sidebar ${drawerOpen ? "open" : ""}`} aria-label="Help center sections">
           {sections.map((s) => {
             const isCurrent = s.slug === sectionSlug;
