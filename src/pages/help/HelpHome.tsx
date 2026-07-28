@@ -90,6 +90,26 @@ const HelpHome = () => {
         )}
       </section>
 
+
+
+      <section className="hc-video">
+        <div className="hc-video-inner">
+          <p className="hc-eyebrow">
+            <span className="hc-dot" aria-hidden="true" /> Quick walkthrough
+          </p>
+          <h2>See the headphones in action</h2>
+          <div className="hc-video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/Y_Y9F2JBrkE?rel=0&modestbranding=1&playsinline=1"
+              title="High Frequency Headphones walkthrough"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
+
       <section className="hc-sections">
         <div className="hc-section-head">
           <h2>Browse every section</h2>
