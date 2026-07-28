@@ -128,7 +128,7 @@ const accordionItems = [
 const ProductBlock = () => {
   const [index, setIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set());
   const [quantity, setQuantity] = useState(1);
   const fadeTimer = useRef<number | null>(null);
 
