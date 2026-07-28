@@ -270,9 +270,11 @@ const ProductBlock = () => {
             </div>
 
             <p className="pdp-trust">
-              <span aria-hidden="true">⚡</span> In Stock · Ships in 5-10 Business Days <span aria-hidden="true">⚡</span>
+              <span aria-hidden="true">⚡</span> In Stock · Arrives in as little as 3 days <span aria-hidden="true">⚡</span>
             </p>
-            <p className="pdp-delivery-estimate">📦 Estimated delivery: 5-10 business days</p>
+
+            <DeliveryTimeline />
+
 
             <div className="pdp-accordion">
               {accordionItems.map((item, i) => (
