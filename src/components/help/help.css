@@ -624,6 +624,7 @@ body:has(.hc) { padding-top: 0; background: #ffffff; }
   position: relative;
   z-index: 1;
   margin-top: 22px;
+  padding: 0 28px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
