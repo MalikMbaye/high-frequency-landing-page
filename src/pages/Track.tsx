@@ -7,7 +7,6 @@ import { SUPPORT_EMAIL } from "@/lib/track";
 
 const Track = () => {
   const navigate = useNavigate();
-  const [orderNumber, setOrderNumber] = useState("");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -28,7 +27,7 @@ const Track = () => {
     setLoading(true);
     setError(null);
     const { data, error: fnError } = await supabase.functions.invoke("track-order", {
-      body: { orderNumber, email },
+      body: { email },
     });
     setLoading(false);
     if (fnError) {
