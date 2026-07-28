@@ -130,6 +130,24 @@ export type Database = {
           },
         ]
       }
+      popup_dismissals: {
+        Row: {
+          dismissed_at: string
+          id: string
+          ip_hash: string
+        }
+        Insert: {
+          dismissed_at?: string
+          id?: string
+          ip_hash: string
+        }
+        Update: {
+          dismissed_at?: string
+          id?: string
+          ip_hash?: string
+        }
+        Relationships: []
+      }
       shopify_tokens: {
         Row: {
           access_token: string
