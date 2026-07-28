@@ -593,7 +593,6 @@ body:has(.hc) { padding-top: 0; background: #ffffff; }
   position: relative;
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid var(--hc-border);
   background: var(--hc-bg);
   width: 100%;
 }
