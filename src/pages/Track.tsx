@@ -8,6 +8,8 @@ import { SUPPORT_EMAIL } from "@/lib/track";
 const Track = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
+  const [orderNumber, setOrderNumber] = useState("");
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
