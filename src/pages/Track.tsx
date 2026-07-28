@@ -54,19 +54,18 @@ const Track = () => {
         <div className="trk-card">
           <h1 className="trk-title">Track your order</h1>
           <p className="trk-sub">
-            We ship in batches, in the order orders came in. Enter your details to see exactly
-            where you sit and when your set arrives.
+            We ship in batches, in the order orders came in. Enter your email to see exactly
+            where you sit and when your set arrives — order number optional.
           </p>
 
           <form onSubmit={onSubmit} className="trk-form">
             <label className="trk-label">
-              Order number
+              Order number <span style={{ opacity: 0.6 }}>(optional)</span>
               <input
                 className="trk-input"
                 value={orderNumber}
                 onChange={(e) => setOrderNumber(e.target.value)}
                 placeholder="#1042"
-                required
               />
             </label>
             <label className="trk-label">
