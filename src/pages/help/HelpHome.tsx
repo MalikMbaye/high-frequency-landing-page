@@ -93,18 +93,71 @@ const HelpHome = () => {
 
 
       <section className="hc-video">
-        <div className="hc-video-inner">
-          <p className="hc-eyebrow">
-            <span className="hc-dot" aria-hidden="true" /> Quick walkthrough
-          </p>
-          <h2>See the headphones in action</h2>
-          <div className="hc-video-frame">
-            <iframe
-              src="https://www.youtube.com/embed/Y_Y9F2JBrkE?rel=0&modestbranding=1&playsinline=1"
-              title="High Frequency Headphones walkthrough"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
+        <div className="hc-video-glass">
+          {/* Decorative frequency waves behind the glass card */}
+          <svg
+            className="hc-video-waves"
+            viewBox="0 0 1000 400"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <defs>
+              <linearGradient id="hcVideoWavePurple" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="var(--hc-accent)" stopOpacity="0" />
+                <stop offset="45%" stopColor="var(--hc-accent)" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="var(--hc-accent)" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient id="hcVideoWaveCyan" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="var(--hc-signal)" stopOpacity="0" />
+                <stop offset="55%" stopColor="var(--hc-signal)" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="var(--hc-signal)" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M0 200 C100 200 150 150 250 150 C350 150 400 250 500 250 C600 250 650 150 750 150 C850 150 900 200 1000 200"
+              stroke="url(#hcVideoWavePurple)"
+              strokeWidth="2"
+              fill="none"
             />
+            <path
+              d="M0 220 C120 220 180 170 280 170 C380 170 420 270 520 270 C620 270 680 170 780 170 C880 170 920 220 1000 220"
+              stroke="url(#hcVideoWaveCyan)"
+              strokeWidth="1.5"
+              fill="none"
+              opacity="0.5"
+            />
+          </svg>
+
+          <div className="hc-video-header">
+            <span className="hc-video-badge">Tutorial</span>
+            <h2>Visual setup & features guide</h2>
+            <p className="hc-lead">
+              A quick walkthrough of the headphones, the app, and how to get the most out of
+              every session.
+            </p>
+          </div>
+
+          <div className="hc-video-frame-wrap">
+            <div className="hc-video-glow" aria-hidden="true" />
+            <div className="hc-video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/Y_Y9F2JBrkE?rel=0&modestbranding=1&playsinline=1"
+                title="High Frequency Headphones walkthrough"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </div>
+
+          <div className="hc-video-foot">
+            <div className="hc-video-foot-item">
+              <span className="hc-dot" aria-hidden="true" />
+              <span>App walkthrough included</span>
+            </div>
+            <div className="hc-video-foot-item">
+              <span className="hc-dot hc-dot-accent" aria-hidden="true" />
+              <span>Captions available</span>
+            </div>
           </div>
         </div>
       </section>
