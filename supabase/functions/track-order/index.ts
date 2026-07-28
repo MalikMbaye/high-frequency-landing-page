@@ -26,7 +26,7 @@ Deno.serve(async (req) => {
     const orderNumber = typeof body.orderNumber === 'string' ? body.orderNumber.trim() : ''
     const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : ''
 
-    if (!orderNumber || orderNumber.length > 64) {
+    if (orderNumber.length > 64) {
       return json({ error: 'Enter a valid order number.' }, 400)
     }
 

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft, Check, ChevronDown, Info, Mail, Truck } from "lucide-react";
 import {
-  BACKLOG_CLEAR_DATE,
   FAQS,
   PILL_LABEL,
   STAGES,
@@ -82,9 +81,8 @@ const TrackResultPage = () => {
             <div className="trk-banner">
               <Info size={18} style={{ flex: "0 0 18px", marginTop: 2 }} />
               <span>
-                You ordered during our biggest surge yet (Jun 1 – Jul 27). We're catching up fast;
-                your order is in the current shipping wave and the estimate below accounts for the
-                backlog.
+                You ordered during our biggest demand surge yet. Fresh inventory has landed,
+                we're shipping daily, and the estimate below reflects your live position.
               </span>
             </div>
           )}
@@ -126,8 +124,7 @@ const TrackResultPage = () => {
 
             {!isLive && (
               <p className="trk-note">
-                Estimates include a small buffer while we clear the current backlog (caught up by{" "}
-                {BACKLOG_CLEAR_DATE}). As the queue drains, this date tightens.
+                Estimates include a buffer and update automatically as we clear through orders.
               </p>
             )}
 

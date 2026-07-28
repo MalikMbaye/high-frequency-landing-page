@@ -42,8 +42,8 @@ export const STAGES = [
     label: "Tracking Added",
     caption: "Tracking number issued",
     description:
-      "Your shipping label and tracking number are created and your package is being handed to the carrier.",
-    eta: "Within 1 business day",
+      "Your shipping label and tracking number are created and your package is being handed to the carrier. You'll see the number here and in your email as soon as it's issued.",
+    eta: "Shortly after packing",
   },
   {
     key: "in_transit",
@@ -134,26 +134,30 @@ export const activeStageIndex = (result: TrackResult) => {
 export const FAQS = [
   {
     q: "How is my delivery estimate calculated?",
-    a: "It's not a guess. We look at your order date and your place in line, our current inventory on hand, and how many orders we ship per day, then add carrier transit (3–7 business days). As we clear the backlog the estimate tightens. We build in a small buffer, so the date you see is one we're confident we can beat.",
+    a: "It's not a guess. We look at your order date and your place in line, our current inventory on hand, and how quickly we're shipping, then add carrier transit (3–7 business days). As we clear through orders, the estimate tightens. We build in a buffer, so the date you see is one we're confident we can meet or beat.",
   },
   {
-    q: "I ordered between June 1 and July 27 — where's my order?",
-    a: "You ordered during the biggest demand surge in HFH history, and for a stretch orders came in faster than we could restock. That's fixed — a fresh shipment landed and we're shipping around 142 orders a day. Every order from that window is in the current wave and ships by Aug 4, arriving within 3–7 business days after that.",
+    q: "I pre-ordered during your high-demand period — where's my order?",
+    a: "You ordered during the biggest surge in HFH history. For a stretch this year, demand came in faster than we could restock, so we moved to a pre-order model with an extended delivery window while we caught up. That window is behind us. Fresh inventory has landed and we've now shipped all or nearly all pre-orders. If yours is somehow still open, your live status is above — and if anything looks off, email us and we'll sort it out the same day.",
   },
   {
-    q: "Why is my order taking longer than usual?",
-    a: "Demand outran supply for a few weeks. HFH ships in batches — units arrive from our manufacturer in waves and orders fill in the order they came in. When a batch sells out, new orders wait for the next one. You're never lost in a pile; your position and estimate update automatically as each batch clears.",
+    q: "Why did my order take longer than usual?",
+    a: "For a few weeks, demand outran supply. HFH ships in batches — units arrive from our manufacturer in waves and orders fill in the order they came in. When a batch sold out, new orders waited for the next one. You were never lost in a pile. Your position and estimate update automatically as each batch clears, and we're now caught up and shipping daily.",
   },
   {
     q: "What's your shipping policy?",
-    a: "Orders ship in the order received, in batches, as inventory lands. Once your label is created you get a tracking number here and by email. Standard US transit is 3–7 business days after your order ships.",
+    a: "Orders ship in the order received, in batches, as inventory lands. Once your label is created you'll get a tracking number here and by email. Standard US transit is 3–7 business days after your order ships.",
   },
   {
     q: "What's your return policy?",
-    a: "Returns are accepted within 30 days of delivery for unused items in original packaging. Email highfrequencyhighway@gmail.com with your order number to start a return.",
+    a: `We want you to actually try them — that's the only way to know if frequency is for you. If they're not a fit, you can return within 30 days of delivery for a full refund, even if you've opened and used them. Just email ${SUPPORT_EMAIL} with your order number to start, and send them back with everything that came in the box. The only returns we can't accept are ones that arrive physically damaged from misuse.`,
   },
   {
     q: "Can I change my shipping address?",
-    a: "If your order hasn't reached the Tracking Added stage, email highfrequencyhighway@gmail.com with your order number and the correct address and we'll update it before it ships. Once tracking is issued we can't change it.",
+    a: `If your order hasn't reached the Tracking Added stage, email ${SUPPORT_EMAIL} with your order number and the correct address and we'll update it before it ships. Once tracking is issued we can't change it, but reach out anyway and we'll help however we can.`,
+  },
+  {
+    q: "Still have a question?",
+    a: `Email ${SUPPORT_EMAIL} and a real person will get back to you. We read every message.`,
   },
 ];
