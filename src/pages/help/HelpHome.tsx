@@ -88,6 +88,8 @@ const HelpHome = () => {
             ))}
         </div>
       )}
+      </section>
+
 
       <section className="hc-video">
         <div className="hc-video-inner">
