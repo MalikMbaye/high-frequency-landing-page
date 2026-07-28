@@ -70,10 +70,22 @@ const Track = () => {
                 required
               />
             </label>
+            <label className="trk-label">
+              Order number <span style={{ fontWeight: 400, opacity: 0.6 }}>(optional)</span>
+              <input
+                className="trk-input"
+                type="text"
+                value={orderNumber}
+                onChange={(e) => setOrderNumber(e.target.value)}
+                placeholder="#1234"
+                inputMode="text"
+              />
+            </label>
             <button className="trk-btn trk-btn-wide" type="submit" disabled={loading}>
               {loading ? <Loader2 className="animate-spin h-5 w-5" /> : "Track my order"}
             </button>
           </form>
+
 
           {error && <p className="trk-error">{error}</p>}
         </div>
