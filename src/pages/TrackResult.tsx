@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, ChevronDown, Copy, ExternalLink, Info, Mail, Truck } from "lucide-react";
+import { ArrowLeft, Check, ChevronDown, Copy, Info, Mail, Truck } from "lucide-react";
 import {
   FAQS,
   STAGES,
@@ -181,32 +181,34 @@ const TrackResultPage = () => {
                 </ul>
 
                 {order.tracking_number && (
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center" }}>
-                    <a
-                      className="trk-btn"
-                      style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, textDecoration: "none" }}
-                      href={
-                        order.tracking_url ||
-                        `https://t.17track.net/en#nums=${encodeURIComponent(order.tracking_number)}`
-                      }
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink size={16} /> View live carrier tracking
-                    </a>
-                    <button
-                      type="button"
-                      className="trk-copy"
-                      onClick={() => {
-                        navigator.clipboard?.writeText(order.tracking_number ?? "");
-                        setCopied(true);
-                        setTimeout(() => setCopied(false), 1800);
-                      }}
-                    >
-                      <Copy size={14} /> {copied ? "Copied" : "Copy tracking number"}
-                    </button>
-                  </div>
+                  <>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 10, alignItems: "center" }}>
+                      <button
+                        type="button"
+                        className="trk-copy"
+                        onClick={() => {
+                          navigator.clipboard?.writeText(order.tracking_number ?? "");
+                          setCopied(true);
+                          setTimeout(() => setCopied(false), 1800);
+                        }}
+                      >
+                        <Copy size={14} /> {copied ? "Copied" : "Copy tracking number"}
+                      </button>
+                    </div>
+
+                    <div className="trk-track-embed">
+                      <iframe
+                        title="Live carrier tracking"
+                        src={`https://t.17track.net/en#nums=${encodeURIComponent(order.tracking_number)}`}
+                        loading="lazy"
+                      />
+                    </div>
+                    <p className="trk-note" style={{ marginTop: 8 }}>
+                      Live carrier scans, loaded directly from the carrier network.
+                    </p>
+                  </>
                 )}
+
 
               </div>
             )}
