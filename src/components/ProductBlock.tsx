@@ -3,6 +3,8 @@ import { Check, ChevronLeft, ChevronRight, Star, Loader2, Minus, Plus } from "lu
 
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
+import DeliveryTimeline from "@/components/DeliveryTimeline";
+
 
 // Landing page price test — points at the duplicated $169.99 product.
 // Change this handle to swap which Shopify product this LP sells.
