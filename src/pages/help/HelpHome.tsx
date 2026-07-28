@@ -129,8 +129,8 @@ const HelpHome = () => {
           </svg>
 
           <div className="hc-video-header">
-            <span className="hc-video-badge">Tutorial</span>
-            <h2>Fifteen minute walkthrough</h2>
+            <span className="hc-video-badge">Video Tutorial</span>
+            <h2>Guided Tour of the App</h2>
             <p className="hc-lead">
               A quick walkthrough of the headphones, the app, and how to get the most out of
               every session.
