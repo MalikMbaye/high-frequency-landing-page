@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HelpLayout from "@/components/help/HelpLayout";
+import HelpVideos from "@/components/help/HelpVideos";
 import { StillStuck } from "@/components/help/HelpParts";
 import { getArticle, helpMeta, sections } from "@/lib/helpCenter";
 
@@ -25,6 +26,7 @@ const HelpHome = () => {
   return (
     <HelpLayout>
       <section className="hc-hero">
+        <p className="hc-eyebrow">Support · Setup · Troubleshooting</p>
         <h1>{helpMeta.title}</h1>
         <p className="hc-lead" style={{ marginBottom: 22 }}>
           Everything about the headphones, the app, and how to actually use them.
@@ -59,6 +61,8 @@ const HelpHome = () => {
           </div>
         </section>
       )}
+
+      <HelpVideos />
 
       <section>
         <h2 style={{ marginBottom: 14 }}>Browse every section</h2>
