@@ -4,7 +4,7 @@ import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors'
 const SHOPIFY_CLIENT_ID = 'f21428a8b33f84605264812dc1185954'
 const SHOPIFY_SHOP_DOMAIN = '86z1ah-wz.myshopify.com'
 const SHOPIFY_CALLBACK_URL = 'https://mvgwectctjiklltqasgq.supabase.co/functions/v1/shopify-oauth-callback'
-const SHOPIFY_SCOPES = 'read_customers,write_customers,read_orders,read_fulfillments'
+const SHOPIFY_SCOPES = 'read_customers,write_customers,read_orders,read_all_orders,read_fulfillments'
 const STATE_COOKIE_NAME = 'shopify_oauth_state'
 
 async function verifyHmac(params: URLSearchParams, secret: string): Promise<boolean> {
