@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ArrowRight, Search } from "lucide-react";
 import HelpLayout from "@/components/help/HelpLayout";
 import { StillStuck } from "@/components/help/HelpParts";
-import { getArticle, helpMeta, sections } from "@/lib/helpCenter";
+import { getArticle, sections } from "@/lib/helpCenter";
 
 const QUICK = [
   "orders-shipping/track-your-order",
@@ -12,12 +12,6 @@ const QUICK = [
   "troubleshooting/no-vibration",
 ];
 
-/** Deterministic pseudo-equalizer so each card gets its own frequency signature. */
-const bars = (seed: string, count = 22) =>
-  Array.from({ length: count }, (_, i) => {
-    const n = (seed.charCodeAt(i % seed.length) * (i + 7)) % 100;
-    return 18 + (n / 100) * 82;
-  });
 
 const HelpHome = () => {
   const [q, setQ] = useState("");
