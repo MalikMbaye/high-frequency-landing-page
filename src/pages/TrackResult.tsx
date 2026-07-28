@@ -228,8 +228,24 @@ const TrackResultPage = () => {
 
 
         <div className="trk-card">
-          <h2 className="trk-h2">Questions</h2>
-          <div className="trk-faq">
+          <button
+            type="button"
+            className="trk-collapse-head"
+            aria-expanded={faqOpen}
+            onClick={() => setFaqOpen((v) => !v)}
+          >
+            <span className="trk-h2" style={{ margin: 0 }}>Questions</span>
+            <ChevronDown
+              size={20}
+              style={{
+                flex: "0 0 20px",
+                transform: faqOpen ? "rotate(180deg)" : "none",
+                transition: "transform .2s ease",
+              }}
+            />
+          </button>
+          <div className="trk-faq" style={{ marginTop: 16, display: faqOpen ? undefined : "none" }}>
+
             {FAQS.map((f, i) => {
               const isOpen = openFaqs.has(i);
               return (
