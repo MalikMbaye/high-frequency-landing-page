@@ -14,25 +14,57 @@ import {
   type TrackResult,
 } from "@/lib/track";
 import Track17Widget from "@/components/Track17Widget";
+import { supabase } from "@/integrations/supabase/client";
 
 const TrackResultPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const order = (location.state as { order?: TrackResult } | null)?.order ?? null;
+  const nav = (location.state as
+    | { order?: TrackResult; email?: string; orderNumber?: string }
+    | null) ?? null;
+  const [order, setOrder] = useState<TrackResult | null>(nav?.order ?? null);
   const [openFaqs, setOpenFaqs] = useState<Set<number>>(new Set());
   const [copied, setCopied] = useState(false);
   const [meaningsOpen, setMeaningsOpen] = useState(false);
   const [faqOpen, setFaqOpen] = useState(false);
   const [initialized, setInitialized] = useState(false);
 
+  const hasTracking = Boolean(order?.tracking_number);
+
   useEffect(() => {
     if (!order || initialized) return;
     const active = activeStageIndex(order);
-    setMeaningsOpen(active <= 1);
-    setFaqOpen(false);
+    // Tracking embed takes priority: collapse everything once tracking exists.
+    setMeaningsOpen(!hasTracking && active <= 1);
+    setFaqOpen(!hasTracking);
     setOpenFaqs(new Set());
     setInitialized(true);
-  }, [order, initialized]);
+  }, [order, initialized, hasTracking]);
+
+  // Proactively detect when a tracking number gets added (Shopify sync runs
+  // every 15 min) so the page flips to the live tracking embed on its own.
+  useEffect(() => {
+    if (!nav?.email || hasTracking) return;
+    let cancelled = false;
+    const poll = async () => {
+      const { data } = await supabase.functions.invoke("track-order", {
+        body: { email: nav.email, orderNumber: nav.orderNumber },
+      });
+      const row = (data as { order: TrackResult | null } | null)?.order;
+      if (!cancelled && row) {
+        setOrder(row);
+        if (row.tracking_number) {
+          setMeaningsOpen(false);
+          setFaqOpen(false);
+        }
+      }
+    };
+    const id = setInterval(poll, 60000);
+    return () => {
+      cancelled = true;
+      clearInterval(id);
+    };
+  }, [nav?.email, nav?.orderNumber, hasTracking]);
 
   useEffect(() => {
     document.title = "Your Order Status | High Frequency Headphones";
