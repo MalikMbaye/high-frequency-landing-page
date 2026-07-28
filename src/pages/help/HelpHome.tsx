@@ -138,7 +138,6 @@ const HelpHome = () => {
           </div>
 
           <div className="hc-video-frame-wrap">
-            <div className="hc-video-glow" aria-hidden="true" />
             <div className="hc-video-frame">
               <iframe
                 src="https://www.youtube.com/embed/Y_Y9F2JBrkE?rel=0&modestbranding=1&playsinline=1"
