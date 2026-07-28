@@ -80,7 +80,8 @@
   line-height: 1.15;
   display: block;
 }
-.hc-logo span {
+.hc-logo > span { display: block; min-width: 0; }
+.hc-logo span span {
   display: block;
   color: var(--hc-mute);
   font-weight: 500;
