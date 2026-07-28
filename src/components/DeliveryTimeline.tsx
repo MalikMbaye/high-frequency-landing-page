@@ -14,26 +14,34 @@ const addBusinessDays = (start: Date, days: number) => {
 const fmt = (d: Date) =>
   d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
 
+const BEST_CASE_DAYS = 3;
+const WORST_CASE_DAYS = 10;
+
 type Step = { key: string; label: string; caption: string; date: Date };
 
 const DeliveryTimeline = () => {
   const [active, setActive] = useState(0);
 
-  const steps = useMemo<Step[]>(() => {
+  const { steps, worstCaseDate } = useMemo(() => {
     const today = new Date();
-    return [
-      { key: "order", label: "Order placed", caption: "Payment confirmed instantly", date: today },
-      { key: "pack", label: "Packed & tested", caption: "Hand-assembled and QC'd", date: addBusinessDays(today, 1) },
-      { key: "ship", label: "Shipped", caption: "Tracking number emailed", date: addBusinessDays(today, 2) },
-      { key: "deliver", label: "Now shipping in as little as 3 days", caption: "Best case delivery window", date: addBusinessDays(today, 3) },
-    ];
+    return {
+      steps: [
+        { key: "order", label: "Order placed", caption: "Payment confirmed instantly", date: today },
+        { key: "pack", label: "Packed & tested", caption: "Hand-assembled and QC'd", date: addBusinessDays(today, 1) },
+        { key: "ship", label: "Shipped", caption: "Tracking number emailed", date: addBusinessDays(today, 2) },
+        { key: "deliver", label: "Now shipping", caption: "Best case delivery window", date: addBusinessDays(today, BEST_CASE_DAYS) },
+      ],
+      worstCaseDate: addBusinessDays(today, WORST_CASE_DAYS),
+    };
   }, []);
 
   return (
     <div className="dlv-timeline">
       <div className="dlv-head">
         <span className="dlv-title">Your delivery timeline</span>
-        <span className="dlv-badge">Best case: {fmt(steps[3].date)}</span>
+        <span className="dlv-badge">
+          Best case: {fmt(steps[3].date)} — worst case: {fmt(worstCaseDate)}
+        </span>
       </div>
 
       <div className="dlv-track" role="list">
@@ -52,6 +60,7 @@ const DeliveryTimeline = () => {
             aria-label={`${s.label} — ${fmt(s.date)}`}
           >
             <span className="dlv-dot" aria-hidden="true" />
+            <span className="dlv-label">{s.label}</span>
             <span className="dlv-date">{fmt(s.date)}</span>
           </button>
         ))}
