@@ -23,7 +23,17 @@ const TrackResultPage = () => {
   const [copied, setCopied] = useState(false);
   const [meaningsOpen, setMeaningsOpen] = useState(false);
   const [faqOpen, setFaqOpen] = useState(false);
+  const [initialized, setInitialized] = useState(false);
 
+  useEffect(() => {
+    if (!order || initialized) return;
+    const active = activeStageIndex(order);
+    const inFirstStages = active <= 1;
+    setMeaningsOpen(inFirstStages);
+    setFaqOpen(inFirstStages);
+    setOpenFaqs(new Set(inFirstStages ? FAQS.map((_, i) => i) : []));
+    setInitialized(true);
+  }, [order, initialized]);
 
   useEffect(() => {
     document.title = "Your Order Status | High Frequency Headphones";
