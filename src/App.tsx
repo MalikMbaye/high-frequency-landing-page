@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,6 +11,10 @@ import ShopifyInstalled from "./pages/ShopifyInstalled";
 import Track from "./pages/Track";
 import TrackResult from "./pages/TrackResult";
 import NotFound from "./pages/NotFound";
+import HelpHome from "./pages/help/HelpHome";
+import HelpSectionPage from "./pages/help/HelpSectionPage";
+import HelpArticlePage from "./pages/help/HelpArticlePage";
+import HelpSearchPage from "./pages/help/HelpSearchPage";
 import EmailCapturePopup from "./components/EmailCapturePopup";
 import BackInStockSplash from "./components/BackInStockSplash";
 
@@ -28,12 +32,26 @@ const AppContent = () => {
         <Route path="/shopify-installed" element={<ShopifyInstalled />} />
         <Route path="/track" element={<Track />} />
         <Route path="/track/result" element={<TrackResult />} />
+        <Route path="/help" element={<HelpHome />} />
+        <Route path="/help/search" element={<HelpSearchPage />} />
+        <Route path="/help/:sectionSlug" element={<HelpSectionPage />} />
+        <Route path="/help/:sectionSlug/:articleSlug" element={<HelpArticlePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <MarketingOverlays />
+    </BrowserRouter>
+  );
+};
+
+/** Splash + email popup are marketing surfaces — keep them off the help center. */
+const MarketingOverlays = () => {
+  const { pathname } = useLocation();
+  if (pathname.startsWith("/help")) return null;
+  return (
+    <>
       <EmailCapturePopup />
       <BackInStockSplash />
-
-    </BrowserRouter>
+    </>
   );
 };
 
