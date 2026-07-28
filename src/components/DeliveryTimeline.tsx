@@ -39,7 +39,7 @@ const DeliveryTimeline = () => {
     <div className="dlv-timeline">
       <div className="dlv-head">
         <span className="dlv-title">Your delivery timeline</span>
-        <span className="dlv-badge">Estimated delivery window: {fmt(steps[3].date)}</span>
+        <span className="dlv-badge">Estimated delivery window: {fmt(steps[3].date)} — {fmt(worstCaseDate)}</span>
       </div>
 
       <div className="dlv-track" role="list">
