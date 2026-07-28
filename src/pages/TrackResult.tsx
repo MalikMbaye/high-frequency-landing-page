@@ -28,10 +28,9 @@ const TrackResultPage = () => {
   useEffect(() => {
     if (!order || initialized) return;
     const active = activeStageIndex(order);
-    const inFirstStages = active <= 1;
-    setMeaningsOpen(inFirstStages);
-    setFaqOpen(inFirstStages);
-    setOpenFaqs(new Set(inFirstStages ? FAQS.map((_, i) => i) : []));
+    setMeaningsOpen(active <= 1);
+    setFaqOpen(false);
+    setOpenFaqs(new Set());
     setInitialized(true);
   }, [order, initialized]);
 
