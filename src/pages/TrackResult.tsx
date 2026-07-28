@@ -161,7 +161,10 @@ const TrackResultPage = () => {
               <li key={s.key} className="trk-meaning">
                 <span className="trk-meaning-n">{i + 1}</span>
                 <div>
-                  <div className="trk-meaning-t">{s.label}</div>
+                  <div className="trk-meaning-t">
+                    {s.label}
+                    <span className="trk-meaning-eta">{s.eta}</span>
+                  </div>
                   <div className="trk-meaning-d">{s.description}</div>
                 </div>
               </li>
