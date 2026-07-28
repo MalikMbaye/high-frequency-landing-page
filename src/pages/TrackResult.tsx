@@ -157,29 +157,9 @@ const TrackResultPage = () => {
                       <span className="trk-track-v">{fmtDate(new Date(order.shipped_at))}</span>
                     </div>
                   )}
-                  {window && (
-                    <div className="trk-track-cell">
-                      <span className="trk-track-k">Expected delivery</span>
-                      <span className="trk-track-v">{window}</span>
-                    </div>
-                  )}
                 </div>
 
-                <ul className="trk-track-steps">
-                  {STAGES.slice(2).map((s, i) => {
-                    const idx = i + 2;
-                    const state = idx < active ? "done" : idx === active ? "active" : "todo";
-                    return (
-                      <li key={s.key} className={`trk-track-step is-${state}`}>
-                        <span className="trk-track-dot">{state === "done" && <Check size={11} />}</span>
-                        <div>
-                          <div className="trk-track-step-t">{s.label}</div>
-                          <div className="trk-track-step-d">{s.caption}</div>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
+
 
                 {order.tracking_number && (
                   <>
