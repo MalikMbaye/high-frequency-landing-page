@@ -715,4 +715,8 @@ body:has(.hc) { padding-top: 0; background: #ffffff; }
   .hc-landing-hero { padding: 44px 0 32px; }
   .hc-hero-search { flex-wrap: wrap; padding: 10px; }
   .hc-hero-input { min-width: 0; }
+  .hc-video-glass { padding: 26px 0 24px; border-radius: 18px; }
+  .hc-video-header { padding: 0 18px; margin-bottom: 18px; }
+  .hc-video-frame { border-radius: 12px; }
+  .hc-video-foot { padding: 0 18px; }
 }
