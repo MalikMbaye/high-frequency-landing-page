@@ -37,7 +37,7 @@ const Track = () => {
     const row = (data as { order: TrackResult | null } | null)?.order;
     if (!row) {
       setError(
-        "We couldn't find an order with that number and email — double-check both and try again."
+        "We couldn't find an order for those details — double-check your email and try again."
       );
       return;
     }
