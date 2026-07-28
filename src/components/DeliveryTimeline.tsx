@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 const addBusinessDays = (start: Date, days: number) => {
   const d = new Date(start);
@@ -21,6 +22,7 @@ type Step = { key: string; label: string; caption: string; date: Date };
 
 const DeliveryTimeline = () => {
   const [active, setActive] = useState(0);
+  const [expanded, setExpanded] = useState(false);
 
   const { steps, worstCaseDate } = useMemo(() => {
     const today = new Date();
