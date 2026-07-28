@@ -21,16 +21,29 @@ const EmailCapturePopup = () => {
   useEffect(() => {
     let cancelled = false;
     let timer = 0;
+    let splashCleanup: (() => void) | undefined;
 
     try {
       if (localStorage.getItem(STORAGE_KEY)) return;
     } catch {}
 
-    // Mark as shown the moment it opens — one appearance per visitor, ever.
     const show = () => {
       if (cancelled) return;
-      try { localStorage.setItem(STORAGE_KEY, "shown"); } catch {}
       setOpen(true);
+    };
+
+    // Start the 30s countdown only once the back-in-stock splash has finished.
+    const startTimer = () => {
+      if (cancelled) return;
+      // Claim the single appearance up-front so it can never show twice.
+      try { localStorage.setItem(STORAGE_KEY, "shown"); } catch {}
+      timer = window.setTimeout(show, DELAY_MS);
+    };
+
+    const afterSplash = (fn: () => void) => {
+      if ((window as any).__hfhSplashDone) { fn(); return; }
+      window.addEventListener("hfh:splash-done", fn, { once: true });
+      splashCleanup = () => window.removeEventListener("hfh:splash-done", fn);
     };
 
     // Ask the backend whether this IP already dismissed the popup, then
@@ -46,12 +59,13 @@ const EmailCapturePopup = () => {
         }
       } catch {}
       if (cancelled) return;
-      timer = window.setTimeout(show, DELAY_MS);
+      afterSplash(startTimer);
     })();
 
     return () => {
       cancelled = true;
       window.clearTimeout(timer);
+      splashCleanup?.();
     };
   }, []);
 

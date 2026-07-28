@@ -9,8 +9,16 @@ const BackInStockSplash = () => {
   const [leaving, setLeaving] = useState(false);
 
   useEffect(() => {
+    const markDone = () => {
+      (window as any).__hfhSplashDone = true;
+      window.dispatchEvent(new Event("hfh:splash-done"));
+    };
+
     try {
-      if (sessionStorage.getItem(STORAGE_KEY)) return;
+      if (sessionStorage.getItem(STORAGE_KEY)) {
+        markDone();
+        return;
+      }
       sessionStorage.setItem(STORAGE_KEY, "1");
     } catch {}
 
@@ -36,6 +44,7 @@ const BackInStockSplash = () => {
     const t2 = window.setTimeout(() => {
       setMounted(false);
       document.body.style.overflow = "";
+      markDone();
     }, DURATION + 500);
 
     return () => {
