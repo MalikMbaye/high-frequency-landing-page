@@ -25,6 +25,7 @@ const HelpHome = () => {
   return (
     <HelpLayout>
       <section className="hc-hero">
+        <p className="hc-eyebrow">Support · Setup · Troubleshooting</p>
         <h1>{helpMeta.title}</h1>
         <p className="hc-lead" style={{ marginBottom: 22 }}>
           Everything about the headphones, the app, and how to actually use them.
