@@ -29,7 +29,7 @@ const Track = () => {
     setLoading(true);
     setError(null);
     const { data, error: fnError } = await supabase.functions.invoke("track-order", {
-      body: { email },
+      body: { email, orderNumber: orderNumber.trim() || undefined },
     });
     setLoading(false);
     if (fnError) {
