@@ -19,7 +19,7 @@ const TrackResultPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const order = (location.state as { order?: TrackResult } | null)?.order ?? null;
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openFaqs, setOpenFaqs] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     document.title = "Your Order Status | High Frequency Headphones";
