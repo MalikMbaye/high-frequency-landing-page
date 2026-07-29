@@ -1,7 +1,18 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, Link2 } from "lucide-react";
+import { ChevronDown, Link2, PackageSearch } from "lucide-react";
 import ReactMarkdown from "react-markdown";
-import { HelpFaq, SUPPORT_EMAIL, slugify } from "@/lib/helpCenter";
+import { HelpFaq, SUPPORT_EMAIL, mentionsOrders, slugify } from "@/lib/helpCenter";
+
+/** Inline nudge appended to any answer that touches orders / shipping / tracking. */
+export const TrackOrderNudge = () => (
+  <p className="hc-track-nudge">
+    <PackageSearch size={15} aria-hidden="true" />
+    <span>
+      Want a live status? <a href="/track">Track your order here</a> — enter the email you used at
+      checkout and we'll show your current stage and delivery estimate.
+    </span>
+  </p>
+);
 
 export const Markdown = ({ children }: { children: string }) => (
   <div className="hc-prose">
