@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import HelpLayout from "@/components/help/HelpLayout";
-import { Markdown, OrderTrackerCallout, StillStuck } from "@/components/help/HelpParts";
-import { flatArticles, getArticle, slugify } from "@/lib/helpCenter";
+import { Markdown, OrderTrackerCallout, StillStuck, TrackOrderNudge } from "@/components/help/HelpParts";
+import { flatArticles, getArticle, mentionsOrders, slugify } from "@/lib/helpCenter";
 
 const HelpArticlePage = () => {
   const { sectionSlug, articleSlug } = useParams();
