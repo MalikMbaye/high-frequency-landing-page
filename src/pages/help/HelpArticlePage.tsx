@@ -67,6 +67,7 @@ const HelpArticlePage = () => {
 
       <div ref={bodyRef} style={{ marginTop: 24 }}>
         <Markdown>{article.body}</Markdown>
+        {mentionsOrders(article.title, article.body) && <TrackOrderNudge />}
       </div>
 
       <section className="hc-callout" aria-label="Was this helpful?">
