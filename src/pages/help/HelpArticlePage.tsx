@@ -117,7 +117,9 @@ const HelpArticlePage = () => {
         )}
       </nav>
 
-      {section.slug === "orders-shipping" && <OrderTrackerCallout />}
+      {(section.slug === "orders-shipping" || mentionsOrders(article.title, article.body)) && (
+        <OrderTrackerCallout />
+      )}
       <StillStuck />
     </HelpLayout>
   );
