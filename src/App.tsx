@@ -50,7 +50,7 @@ const MarketingOverlays = () => {
   return (
     <>
       <EmailCapturePopup />
-      <BackInStockSplash />
+      {pathname === "/" && <BackInStockSplash />}
     </>
   );
 };
