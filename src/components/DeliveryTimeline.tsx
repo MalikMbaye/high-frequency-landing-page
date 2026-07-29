@@ -48,8 +48,9 @@ const DeliveryTimeline = () => {
       >
         <span className="dlv-title">Your delivery timeline</span>
         <span className="dlv-badge">
-          Estimated delivery: {fmt(steps[3].date)}
-          {expanded && ` — ${fmt(worstCaseDate)}`}
+          {expanded
+            ? `${fmt(steps[3].date)} — ${fmt(worstCaseDate)}`
+            : `Estimated delivery window: ${fmt(steps[3].date)}`}
         </span>
         <span
           className="dlv-chevron"
