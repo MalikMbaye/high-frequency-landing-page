@@ -46,11 +46,22 @@ const AppContent = () => {
 /** Splash + email popup are marketing surfaces — keep them off the help center. */
 const MarketingOverlays = () => {
   const { pathname } = useLocation();
+  const isHome = pathname === "/";
+
+  // The splash only runs on the home page; elsewhere mark it done so the
+  // email popup timer isn't left waiting on an event that never fires.
+  useEffect(() => {
+    if (!isHome) {
+      (window as any).__hfhSplashDone = true;
+      window.dispatchEvent(new Event("hfh:splash-done"));
+    }
+  }, [isHome]);
+
   if (pathname.startsWith("/help")) return null;
   return (
     <>
       <EmailCapturePopup />
-      {pathname === "/" && <BackInStockSplash />}
+      {isHome && <BackInStockSplash />}
     </>
   );
 };
