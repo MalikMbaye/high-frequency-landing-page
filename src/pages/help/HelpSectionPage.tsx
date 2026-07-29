@@ -1,7 +1,7 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import HelpLayout from "@/components/help/HelpLayout";
 import { FaqAccordion, OrderTrackerCallout, StillStuck } from "@/components/help/HelpParts";
-import { getSection } from "@/lib/helpCenter";
+import { getSection, mentionsOrders } from "@/lib/helpCenter";
 
 const HelpSectionPage = () => {
   const { sectionSlug } = useParams();
