@@ -702,3 +702,20 @@ body:has(.hc) { padding-top: 0; background: #ffffff; }
   .hc-video-frame { border-radius: 12px; }
   .hc-video-foot { padding: 0 18px; }
 }
+
+/* Track-your-order nudge appended to order/shipping answers */
+.hc-track-nudge {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border: 1px solid var(--hc-accent-dim);
+  border-radius: 10px;
+  background: var(--hc-surface-2);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--hc-text);
+}
+.hc-track-nudge svg { flex: none; margin-top: 2px; color: var(--hc-accent); }
+.hc-track-nudge a { color: var(--hc-accent); font-weight: 600; text-decoration: underline; }

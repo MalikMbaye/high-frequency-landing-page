@@ -1,7 +1,7 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import HelpLayout from "@/components/help/HelpLayout";
 import { FaqAccordion, OrderTrackerCallout, StillStuck } from "@/components/help/HelpParts";
-import { getSection } from "@/lib/helpCenter";
+import { getSection, mentionsOrders } from "@/lib/helpCenter";
 
 const HelpSectionPage = () => {
   const { sectionSlug } = useParams();
@@ -40,7 +40,8 @@ const HelpSectionPage = () => {
         </section>
       )}
 
-      {section.slug === "orders-shipping" && <OrderTrackerCallout />}
+      {(section.slug === "orders-shipping" ||
+        mentionsOrders(section.title, section.summary)) && <OrderTrackerCallout />}
       <StillStuck />
     </HelpLayout>
   );

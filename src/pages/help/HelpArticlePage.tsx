@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import HelpLayout from "@/components/help/HelpLayout";
-import { Markdown, OrderTrackerCallout, StillStuck } from "@/components/help/HelpParts";
-import { flatArticles, getArticle, slugify } from "@/lib/helpCenter";
+import { Markdown, OrderTrackerCallout, StillStuck, TrackOrderNudge } from "@/components/help/HelpParts";
+import { flatArticles, getArticle, mentionsOrders, slugify } from "@/lib/helpCenter";
 
 const HelpArticlePage = () => {
   const { sectionSlug, articleSlug } = useParams();
@@ -67,6 +67,7 @@ const HelpArticlePage = () => {
 
       <div ref={bodyRef} style={{ marginTop: 24 }}>
         <Markdown>{article.body}</Markdown>
+        {mentionsOrders(article.title, article.body) && <TrackOrderNudge />}
       </div>
 
       <section className="hc-callout" aria-label="Was this helpful?">
@@ -116,7 +117,9 @@ const HelpArticlePage = () => {
         )}
       </nav>
 
-      {section.slug === "orders-shipping" && <OrderTrackerCallout />}
+      {(section.slug === "orders-shipping" || mentionsOrders(article.title, article.body)) && (
+        <OrderTrackerCallout />
+      )}
       <StillStuck />
     </HelpLayout>
   );

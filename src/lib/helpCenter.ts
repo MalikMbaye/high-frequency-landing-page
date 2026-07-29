@@ -25,6 +25,13 @@ export const slugify = (s: string) =>
 
 export const getSection = (slug?: string) => sections.find((s) => s.slug === slug);
 
+/** True when copy is about orders, tracking, shipping, delivery or returns. */
+const ORDER_TERMS =
+  /\b(order|orders|tracking|track|shipping|shipment|shipped|delivery|deliver|dispatch|courier|carrier|parcel|package|refund|return|returns|customs|fulfil)/i;
+
+export const mentionsOrders = (...parts: (string | undefined)[]) =>
+  ORDER_TERMS.test(parts.filter(Boolean).join(" "));
+
 export const getArticle = (sectionSlug?: string, articleSlug?: string) => {
   const section = getSection(sectionSlug);
   const article = section?.articles?.find((a) => a.slug === articleSlug);
