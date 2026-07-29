@@ -59,6 +59,7 @@ export const FaqAccordion = ({ faqs }: { faqs: HelpFaq[] }) => {
             {isOpen && (
               <div className="hc-faq-a" id={`${id}-panel`}>
                 <Markdown>{f.a}</Markdown>
+                {mentionsOrders(f.q, f.a) && <TrackOrderNudge />}
                 <a className="hc-permalink" href={`#${id}`}>
                   <Link2 size={12} style={{ display: "inline", marginRight: 4 }} />
                   Link to this answer
