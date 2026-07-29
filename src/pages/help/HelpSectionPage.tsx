@@ -40,7 +40,8 @@ const HelpSectionPage = () => {
         </section>
       )}
 
-      {section.slug === "orders-shipping" && <OrderTrackerCallout />}
+      {(section.slug === "orders-shipping" ||
+        mentionsOrders(section.title, section.summary)) && <OrderTrackerCallout />}
       <StillStuck />
     </HelpLayout>
   );
