@@ -40,17 +40,36 @@ Deno.serve(async (req) => {
       { auth: { persistSession: false } },
     )
 
-    const { data, error } = await admin.rpc('track_order', {
-      p_order_number: orderNumber,
-      p_email: email,
-    })
+    const lookup = () =>
+      admin.rpc('track_order', { p_order_number: orderNumber, p_email: email })
+
+    let { data, error } = await lookup()
 
     if (error) {
       console.error('track_order rpc failed:', error.message)
       return json({ error: 'Unable to track this order right now.' }, 500)
     }
 
-    return json({ order: Array.isArray(data) ? data[0] ?? null : null })
+    let row = Array.isArray(data) ? data[0] ?? null : null
+
+    // Fresh orders may not be synced yet — pull recent Shopify orders and retry once.
+    if (!row) {
+      try {
+        const since = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
+        await fetch(`${Deno.env.get('SUPABASE_URL')}/functions/v1/sync-shopify-orders`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ since }),
+        })
+        const retry = await lookup()
+        if (!retry.error) row = Array.isArray(retry.data) ? retry.data[0] ?? null : null
+      } catch (syncError) {
+        console.error('on-demand sync failed:', syncError)
+      }
+    }
+
+    return json({ order: row })
+
   } catch (error) {
     console.error('track-order failed:', error)
     return json({ error: 'Unable to track this order right now.' }, 500)
