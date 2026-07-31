@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Loader2, HelpCircle } from "lucide-react";
 import { CartDrawer } from "./CartDrawer";
 import { useBuyNow } from "@/hooks/useBuyNow";
+import logoAsset from "@/assets/hfh-logo.png.asset.json";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
