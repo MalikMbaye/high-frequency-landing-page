@@ -78,7 +78,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 72px;
+    scroll-padding-top: 100px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -97,7 +97,7 @@
     line-height: 1.6;
     color: var(--hfh-near-black);
     background: var(--hfh-white);
-    padding-top: 64px;
+    padding-top: 92px;
     overflow-x: hidden;
   }
   html {
@@ -543,7 +543,7 @@
   }
 
   body.has-banner {
-    padding-top: 100px;
+    padding-top: 128px;
   }
   .has-banner .top-nav {
     top: 36px;
