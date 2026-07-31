@@ -3,7 +3,7 @@ import img_C0hsxh35 from "@/assets/genspark/C0hsxh35.webp";
 
 const AIMeditation = () => {
   return (
-    <section className="section section-dark the-ai-meditation" data-theme="dark">
+    <section className="section section-dark the-ai-meditation" id="app" data-theme="dark">
       <div className="hfh-container">
         <header className="ts-header">
           <span className="row-label gold">THE AI MEDITATION</span>
