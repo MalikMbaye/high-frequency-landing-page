@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Loader2, HelpCircle } from "lucide-react";
 import { CartDrawer } from "./CartDrawer";
 import { useBuyNow } from "@/hooks/useBuyNow";
+import logoAsset from "@/assets/hfh-logo.png.asset.json";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -50,16 +51,20 @@ const Navbar = () => {
   return (
     <header className={`top-nav ${dark ? "dark" : ""}`} id="topNav">
       <div className="nav-inner">
-        <a href="#hero" className="brand-mark">HIGH FREQUENCY HEADPHONES</a>
+        <a href="#hero" className="brand-mark" aria-label="High Frequency Headphones — home">
+          <img src={logoAsset.url} alt="High Frequency Headphones logo" className="brand-logo" />
+        </a>
         <nav className="nav-links" aria-label="Primary">
           <a href="#science">Science</a>
           <a href="#product">Product</a>
           <a href="#reviews">Reviews</a>
           <a href="https://highfrequency.onelink.me/lwuw/mkogg00s" target="_blank" rel="noopener noreferrer">App</a>
-          <a href="/track">My Order</a>
-          <a href="/help" aria-label="Help Center" title="Help Center" className="nav-help-icon">
-            <HelpCircle size={20} aria-hidden="true" />
-          </a>
+          <span className="nav-utility">
+            <a href="/track">My Order</a>
+            <a href="/help" aria-label="Help Center" title="Help Center" className="nav-help-icon">
+              <HelpCircle size={16} aria-hidden="true" />
+            </a>
+          </span>
         </nav>
         <div className="flex items-center gap-3 ml-auto">
           <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-sm">{isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}</button>

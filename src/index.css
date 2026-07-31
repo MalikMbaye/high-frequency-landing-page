@@ -305,10 +305,14 @@
     gap: 24px;
   }
   .brand-mark {
-    font-weight: 800;
-    font-size: 0.95rem;
-    letter-spacing: 0.12em;
-    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+  }
+  .brand-logo {
+    height: 36px;
+    width: 36px;
+    object-fit: contain;
+    display: block;
   }
   .nav-links {
     display: flex;
@@ -319,6 +323,14 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: 500;
+  }
+  .nav-utility {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.72rem;
+    margin-left: 4px;
+    margin-right: -14px;
   }
   .nav-links a.nav-help-icon {
     display: inline-flex;
@@ -2679,9 +2691,9 @@
     padding: 12px 16px;
     gap: 12px;
   }
-  .brand-mark {
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
+  .brand-logo {
+    height: 30px;
+    width: 30px;
   }
   .top-nav .btn-purple.btn-sm {
     display: none;
