@@ -102,6 +102,11 @@ const FAQ = () => {
             );
           })}
         </div>
+        <div className="faq-cta">
+          <a href="/help" className="btn btn-purple">
+            Visit Help Center <ArrowRight size={18} />
+          </a>
+        </div>
       </div>
     </section>
   );
