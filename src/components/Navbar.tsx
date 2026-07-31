@@ -55,6 +55,7 @@ const Navbar = () => {
           <a href="#science">Science</a>
           <a href="#product">Product</a>
           <a href="#reviews">Reviews</a>
+          <a href="https://highfrequency.onelink.me/lwuw/mkogg00s" target="_blank" rel="noopener noreferrer">App</a>
           <a href="/track">My Order</a>
           <a href="/help" aria-label="Help Center" title="Help Center" className="nav-help-icon">
             <HelpCircle size={20} aria-hidden="true" />
@@ -78,6 +79,7 @@ const Navbar = () => {
         <a href="#science" onClick={closeMenu}>Science</a>
         <a href="#product" onClick={closeMenu}>Product</a>
         <a href="#reviews" onClick={closeMenu}>Reviews</a>
+        <a href="https://highfrequency.onelink.me/lwuw/mkogg00s" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>App</a>
         <a href="/track" onClick={closeMenu}>My Order</a>
         <a href="/help" onClick={closeMenu}>Help Center</a>
         <button type="button" onClick={() => { closeMenu(); buyNow(); }} disabled={isLoading} className="btn btn-purple">{isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}</button>
