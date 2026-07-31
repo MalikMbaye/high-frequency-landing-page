@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Brain, ChevronDown, FlaskConical, Globe, Headphones, Music, Package, RefreshCw, Shield, Timer, Truck, Wrench } from "lucide-react";
+import { ArrowRight, Brain, ChevronDown, FlaskConical, Globe, Headphones, Music, Package, RefreshCw, Shield, Timer, Truck, Wrench } from "lucide-react";
 
 type Item = {
   Icon: typeof Brain;
