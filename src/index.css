@@ -1908,6 +1908,11 @@
     background: var(--hfh-grey-warm);
     border-top: 1px solid rgba(13, 13, 18, 0.05);
   }
+  .faq-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
 
   /* ---------- FOOTER ---------- */
   .page-footer {

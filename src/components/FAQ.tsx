@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Brain, ChevronDown, FlaskConical, Globe, Headphones, Music, Package, RefreshCw, Shield, Timer, Truck, Wrench } from "lucide-react";
+import { ArrowRight, Brain, ChevronDown, FlaskConical, Globe, Headphones, Music, Package, RefreshCw, Shield, Timer, Truck, Wrench } from "lucide-react";
 
 type Item = {
   Icon: typeof Brain;
@@ -81,7 +81,7 @@ const FAQ = () => {
   return (
     <section className="section section-light faq-section" data-theme="light">
       <div className="hfh-container narrow">
-        <h2 className="section-header">Questions.</h2>
+        <h2 className="section-header">Frequently Asked Questions</h2>
         <div className="faq-list">
           {items.map((item, i) => {
             const open = openIndexes.has(i);
@@ -101,6 +101,11 @@ const FAQ = () => {
               </details>
             );
           })}
+        </div>
+        <div className="faq-cta">
+          <a href="/help" className="btn btn-purple">
+            Visit Help Center <ArrowRight size={18} />
+          </a>
         </div>
       </div>
     </section>
