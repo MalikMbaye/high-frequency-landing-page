@@ -74,8 +74,7 @@ const Navbar = () => {
         </a>
         <nav className="nav-links" aria-label="Primary">
           <a href="#how-it-works">How it Works</a>
-          <a href="#science">The Science</a>
-          <a href="#product">The Product</a>
+          <a href="#product">Product</a>
           <a href={APP_LINK} target="_blank" rel="noopener noreferrer">App</a>
           <a href="#reviews">Video Reviews</a>
           <a href="#testimonials">Testimonials</a>
@@ -100,8 +99,7 @@ const Navbar = () => {
         <span className="mm-eyebrow">Explore</span>
         <nav className="mm-primary" aria-label="Mobile primary">
           <a href="#how-it-works" onClick={closeMenu}>How it Works</a>
-          <a href="#science" onClick={closeMenu}>The Science</a>
-          <a href="#product" onClick={closeMenu}>The Product</a>
+          <a href="#product" onClick={closeMenu}>Product</a>
           <a href={APP_LINK} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>App</a>
           <a href="#reviews" onClick={closeMenu}>Video Reviews</a>
           <a href="#testimonials" onClick={closeMenu}>Testimonials</a>
