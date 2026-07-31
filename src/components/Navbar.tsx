@@ -55,6 +55,7 @@ const Navbar = () => {
           <a href="#science">Science</a>
           <a href="#product">Product</a>
           <a href="#reviews">Reviews</a>
+          <a href="https://highfrequency.onelink.me/lwuw/mkogg00s" target="_blank" rel="noopener noreferrer">App</a>
           <a href="/track">My Order</a>
           <a href="/help" aria-label="Help Center" title="Help Center" className="nav-help-icon">
             <HelpCircle size={20} aria-hidden="true" />
