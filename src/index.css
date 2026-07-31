@@ -312,12 +312,18 @@
   }
   .nav-links {
     display: flex;
+    align-items: center;
     gap: 28px;
     margin-left: auto;
     font-size: 0.85rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: 500;
+  }
+  .nav-links a.nav-help-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   .nav-links a:hover {
     color: var(--hfh-purple);
