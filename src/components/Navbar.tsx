@@ -75,7 +75,7 @@ const Navbar = () => {
         <nav className="nav-links" aria-label="Primary">
           <a href="#how-it-works">How it Works</a>
           <a href="#product">Product</a>
-          <a href={APP_LINK} target="_blank" rel="noopener noreferrer">App</a>
+          <a href="#app">App</a>
           <a href="#reviews">Video Reviews</a>
           <a href="#testimonials">Testimonials</a>
         </nav>
@@ -100,7 +100,7 @@ const Navbar = () => {
         <nav className="mm-primary" aria-label="Mobile primary">
           <a href="#how-it-works" onClick={closeMenu}>How it Works</a>
           <a href="#product" onClick={closeMenu}>Product</a>
-          <a href={APP_LINK} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>App</a>
+          <a href="#app" onClick={closeMenu}>App</a>
           <a href="#reviews" onClick={closeMenu}>Video Reviews</a>
           <a href="#testimonials" onClick={closeMenu}>Testimonials</a>
         </nav>
