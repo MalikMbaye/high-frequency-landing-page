@@ -1,6 +1,6 @@
 const HowItWorks = () => {
   return (
-    <section className="section section-dark how-bg" data-theme="dark">
+    <section className="section section-dark how-bg" id="how-it-works" data-theme="dark">
       <div className="how-bg-image" aria-hidden="true"></div>
       <div className="how-bg-overlay" aria-hidden="true"></div>
       <div className="hfh-container">
