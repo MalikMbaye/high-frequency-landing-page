@@ -335,13 +335,15 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 12px 24px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     gap: 24px;
   }
   .brand-mark {
     display: inline-flex;
     align-items: center;
+    justify-self: start;
   }
   .brand-logo {
     height: 36px;
@@ -352,8 +354,8 @@
   .nav-links {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 32px;
-    margin: 0 auto;
     font-size: 0.85rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -363,7 +365,7 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-left: auto;
+    justify-self: end;
   }
   .nav-links a:hover {
     color: var(--hfh-purple);
