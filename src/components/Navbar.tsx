@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Loader2, HelpCircle } from "lucide-react";
+import { Menu, X, Loader2, HelpCircle, User, ShoppingCart } from "lucide-react";
 import { CartDrawer } from "./CartDrawer";
 import { useBuyNow } from "@/hooks/useBuyNow";
+import { useCartStore } from "@/stores/cartStore";
 import logoAsset from "@/assets/hfh-logo.png.asset.json";
+
+const APP_LINK = "https://highfrequency.onelink.me/lwuw/mkogg00s";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
   const { buyNow, isLoading } = useBuyNow();
+  const openCart = useCartStore((s) => s.openDrawer);
 
   useEffect(() => {
     const navHeight = 64;
@@ -50,6 +54,20 @@ const Navbar = () => {
 
   return (
     <header className={`top-nav ${dark ? "dark" : ""}`} id="topNav">
+      {/* Utility strip — secondary, low-emphasis links */}
+      <div className="nav-utility-bar">
+        <div className="nav-utility-inner">
+          <a href="/track">
+            <User size={14} aria-hidden="true" />
+            My Order
+          </a>
+          <a href="/help">
+            <HelpCircle size={14} aria-hidden="true" />
+            Help Center
+          </a>
+        </div>
+      </div>
+
       <div className="nav-inner">
         <a href="#hero" className="brand-mark" aria-label="High Frequency Headphones — home">
           <img src={logoAsset.url} alt="High Frequency Headphones logo" className="brand-logo" />
@@ -58,17 +76,13 @@ const Navbar = () => {
           <a href="#science">Science</a>
           <a href="#product">Product</a>
           <a href="#reviews">Reviews</a>
-          <a href="https://highfrequency.onelink.me/lwuw/mkogg00s" target="_blank" rel="noopener noreferrer">App</a>
-          <span className="nav-utility">
-            <a href="/track">My Order</a>
-            <a href="/help" aria-label="Help Center" title="Help Center" className="nav-help-icon">
-              <HelpCircle size={16} aria-hidden="true" />
-            </a>
-          </span>
+          <a href={APP_LINK} target="_blank" rel="noopener noreferrer">App</a>
         </nav>
-        <div className="flex items-center gap-3 ml-auto">
-          <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-sm">{isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}</button>
+        <div className="nav-actions">
           <CartDrawer />
+          <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-sm">
+            {isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}
+          </button>
           <button
             type="button"
             className="nav-toggle"
@@ -77,17 +91,35 @@ const Navbar = () => {
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
-
         </div>
       </div>
+
       <div className={`mobile-menu ${open ? "open" : ""}`}>
-        <a href="#science" onClick={closeMenu}>Science</a>
-        <a href="#product" onClick={closeMenu}>Product</a>
-        <a href="#reviews" onClick={closeMenu}>Reviews</a>
-        <a href="https://highfrequency.onelink.me/lwuw/mkogg00s" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>App</a>
-        <a href="/track" onClick={closeMenu}>My Order</a>
-        <a href="/help" onClick={closeMenu}>Help Center</a>
-        <button type="button" onClick={() => { closeMenu(); buyNow(); }} disabled={isLoading} className="btn btn-purple">{isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}</button>
+        <span className="mm-eyebrow">Explore</span>
+        <nav className="mm-primary" aria-label="Mobile primary">
+          <a href="#science" onClick={closeMenu}>Science</a>
+          <a href="#product" onClick={closeMenu}>Product</a>
+          <a href="#reviews" onClick={closeMenu}>Reviews</a>
+          <a href={APP_LINK} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>App</a>
+        </nav>
+        <div className="mm-divider" />
+        <div className="mm-utility">
+          <a href="/track" onClick={closeMenu}>
+            <User size={16} aria-hidden="true" />
+            My Order
+          </a>
+          <a href="/help" onClick={closeMenu}>
+            <HelpCircle size={16} aria-hidden="true" />
+            Help Center
+          </a>
+          <button type="button" onClick={() => { closeMenu(); openCart(); }}>
+            <ShoppingCart size={16} aria-hidden="true" />
+            Cart
+          </button>
+        </div>
+        <button type="button" onClick={() => { closeMenu(); buyNow(); }} disabled={isLoading} className="btn btn-purple mm-cta">
+          {isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}
+        </button>
       </div>
     </header>
   );
