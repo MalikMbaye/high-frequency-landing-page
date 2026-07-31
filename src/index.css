@@ -2774,6 +2774,11 @@
   .nav-inner {
     padding: 12px 16px;
     gap: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .brand-mark {
+    justify-self: start;
   }
   .brand-logo {
     height: 30px;
@@ -2782,6 +2787,9 @@
   .top-nav .btn-purple.btn-sm,
   .nav-actions > *:not(.nav-toggle):not(.mm-cta) {
     display: none;
+  }
+  .nav-actions {
+    justify-self: end;
   }
   .nav-toggle {
     margin-left: 0;
