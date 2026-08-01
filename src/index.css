@@ -387,10 +387,15 @@
 
   .mobile-menu {
     display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99;
     flex-direction: column;
-    padding: 20px 20px 24px;
+    padding: 76px 24px 24px;
     border-top: 1px solid rgba(13, 13, 18, 0.06);
     background: var(--hfh-white);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .top-nav.dark .mobile-menu {
     background: var(--hfh-navy);
