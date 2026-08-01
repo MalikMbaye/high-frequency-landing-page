@@ -2781,6 +2781,8 @@
     gap: 12px;
     display: flex;
     justify-content: space-between;
+    position: relative;
+    z-index: 100;
   }
   .brand-mark {
     justify-self: start;
