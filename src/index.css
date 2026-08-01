@@ -294,7 +294,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    z-index: -1;
+    z-index: 99;
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: saturate(140%) blur(10px);
     transition: background 0.3s ease;
