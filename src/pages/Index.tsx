@@ -13,6 +13,8 @@ const YouTubeShortsCarousel = lazy(() => import("@/components/YouTubeShortsCarou
 const WrongTeardown = lazy(() => import("@/components/WrongTeardown"));
 const HowItWorks = lazy(() => import("@/components/HowItWorks"));
 const BeforeAfterScience = lazy(() => import("@/components/BeforeAfterScience"));
+const HemisphereSync = lazy(() => import("@/components/HemisphereSync"));
+
 const Neuroplasticity = lazy(() => import("@/components/Neuroplasticity"));
 const ProductReveal = lazy(() => import("@/components/ProductReveal"));
 const FiveStates = lazy(() => import("@/components/FiveStates"));
