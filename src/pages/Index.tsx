@@ -78,6 +78,10 @@ const Index = () => {
         <BeforeAfterScience />
       </LazySection>
       <LazySection>
+        <HemisphereSync />
+      </LazySection>
+
+      <LazySection>
         <YouTubeShortsCarousel videos={shortsAfterSecondPDP} />
       </LazySection>
       <LazySection>
