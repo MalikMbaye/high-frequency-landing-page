@@ -149,6 +149,8 @@
   height: auto;
   border-radius: 20px;
   mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 58%, transparent 88%);
+  mask-image: radial-gradient(ellipse at center, #000 58%, transparent 88%);
 }
 .hs-figure::after {
   content: "";
@@ -160,7 +162,8 @@
   z-index: -1;
 }
 .hs-figure-wave {
-  margin-top: 28px;
+  margin-top: 24px;
+  max-width: 720px;
 }
 .hs-figure-product {
   max-width: 460px;
