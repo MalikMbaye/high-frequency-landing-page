@@ -42,11 +42,13 @@ const HemisphereSync = () => {
           <div className="hs-hero">
             <div className="hs-hero-copy">
               <span className="hs-eyebrow">THE SCIENCE THAT PROVES IT WORKS</span>
-              <h2 className="hs-h2">Hemisphere Sync Is the Proof. You Feel It in 60 Seconds.</h2>
+              <h2 className="hs-h2">The Best Way to Feel Binaural Beats Actually Work</h2>
               <p className="hs-sub">
-                When your left and right brain lock to one frequency, focus, calm, and flow switch on.
-                Binaural beats create that sync. These headphones are the best way to listen.
+                When both halves of your brain lock to one rhythm, focus and calm switch on in under a minute.
+                Stream binaural beats through earbuds and you feel nothing. Feel them through frequency technology,
+                and you know the second it's working.
               </p>
+
               <a href="#hs-proof" className="btn btn-purple hs-cta">
                 See the Proof <ArrowRight size={18} />
               </a>
@@ -60,7 +62,7 @@ const HemisphereSync = () => {
         {/* Block 2 — Watch it work */}
         <div className="hs-block" id="hs-proof">
           <span className="hs-dot" aria-hidden="true" />
-          <h3 className="hs-h3">Watch Both Hemispheres Lock In.</h3>
+          <h3 className="hs-h3">The Proof Is Simple: You Feel the Shift in Seconds</h3>
           <p className="hs-body">
             Send one tone to each ear and your brain builds a third that pulls both hemispheres into sync.
             That sync is measurable. It's the proof the technology is doing its job. Cheap earbuds only play
@@ -93,7 +95,7 @@ const HemisphereSync = () => {
         {/* Block 3 — Benefits */}
         <div className="hs-block">
           <span className="hs-dot" aria-hidden="true" />
-          <h3 className="hs-h3">Once They're in Sync, This Is What You Get</h3>
+          <h3 className="hs-h3">A Synced Brain Changes Four Things, Fast</h3>
           <ul className="hs-benefits">
             {benefits.map(({ icon: Icon, label, line }) => (
               <li key={label}>
