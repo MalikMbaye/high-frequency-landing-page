@@ -98,6 +98,10 @@ const Index = () => {
         <AIMeditation />
       </LazySection>
       <LazySection>
+        <FrequencyControl />
+      </LazySection>
+      <LazySection>
+
         <LibraryHubNetwork />
       </LazySection>
       <LazySection>
