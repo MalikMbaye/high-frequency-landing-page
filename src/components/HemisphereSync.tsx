@@ -45,8 +45,8 @@ const HemisphereSync = () => {
               <h2 className="hs-h2">The Best Way to Feel Binaural Beats Actually Work</h2>
               <p className="hs-sub">
                 When both halves of your brain lock to one rhythm, focus and calm switch on in under a minute.
-                Stream binaural beats through earbuds and you feel nothing. Feel them through frequency technology,
-                and you know the second it's working.
+                Stream binaural beats through earbuds and you feel nothing. Feel them through bone, and you know
+                the second it's working.
               </p>
 
               <a href="#hs-proof" className="btn btn-purple hs-cta">
@@ -62,29 +62,33 @@ const HemisphereSync = () => {
         {/* Block 2 — Watch it work */}
         <div className="hs-block" id="hs-proof">
           <span className="hs-dot" aria-hidden="true" />
-          <h3 className="hs-h3">The Proof Is Simple: You Feel the Shift in Seconds</h3>
-          <p className="hs-body">
-            Send one tone to each ear and your brain builds a third that pulls both hemispheres into sync.
-            That sync is measurable. It's the proof the technology is doing its job. Cheap earbuds only play
-            the beats. These headphones drive them through frequency technology at 100 vibrations a second,
-            so you feel the shift in seconds, not twenty minutes.
-          </p>
+          <div className="hs-video-cols">
+            <div className="hs-video-copy">
+              <h3 className="hs-h3">The Proof Is Simple: You Feel the Shift in Seconds</h3>
+              <p className="hs-body">
+                Send one tone to each ear and your brain builds a third that pulls both hemispheres into sync.
+                That sync is measurable. It's the proof the technology is doing its job. Cheap earbuds only play
+                the beats. These headphones drive them through frequency technology at 100 vibrations a second,
+                so you feel the shift in seconds, not twenty minutes.
+              </p>
+            </div>
 
-          <div className="hs-video-wrap">
-            <video
-              ref={videoRef}
-              className="hs-video"
-              src={videoAsset.url}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-            />
-            <button type="button" className="hs-sound" onClick={toggleSound} aria-label={muted ? "Unmute video" : "Mute video"}>
-              {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
-              <span>{muted ? "Tap for sound" : "Sound on"}</span>
-            </button>
+            <div className="hs-video-wrap">
+              <video
+                ref={videoRef}
+                className="hs-video"
+                src={videoAsset.url}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+              <button type="button" className="hs-sound" onClick={toggleSound} aria-label={muted ? "Unmute video" : "Mute video"}>
+                {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+                <span>{muted ? "Tap for sound" : "Sound on"}</span>
+              </button>
+            </div>
           </div>
 
           <figure className="hs-figure hs-figure-wave">
