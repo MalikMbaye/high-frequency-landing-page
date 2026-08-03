@@ -19,6 +19,7 @@ const Neuroplasticity = lazy(() => import("@/components/Neuroplasticity"));
 const ProductReveal = lazy(() => import("@/components/ProductReveal"));
 const FiveStates = lazy(() => import("@/components/FiveStates"));
 const AIMeditation = lazy(() => import("@/components/AIMeditation"));
+const FrequencyControl = lazy(() => import("@/components/FrequencyControl"));
 const LibraryHubNetwork = lazy(() => import("@/components/LibraryHubNetwork"));
 const UseCases = lazy(() => import("@/components/UseCases"));
 const StatsBlock = lazy(() => import("@/components/StatsBlock"));
@@ -97,6 +98,10 @@ const Index = () => {
         <AIMeditation />
       </LazySection>
       <LazySection>
+        <FrequencyControl />
+      </LazySection>
+      <LazySection>
+
         <LibraryHubNetwork />
       </LazySection>
       <LazySection>
