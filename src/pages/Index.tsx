@@ -75,10 +75,10 @@ const Index = () => {
         <HowItWorks />
       </LazySection>
       <LazySection>
-        <BeforeAfterScience />
+        <HemisphereSync />
       </LazySection>
       <LazySection>
-        <HemisphereSync />
+        <BeforeAfterScience />
       </LazySection>
 
       <LazySection>
