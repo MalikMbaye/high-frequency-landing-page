@@ -45,8 +45,8 @@ const HemisphereSync = () => {
               <h2 className="hs-h2">The Best Way to Feel Binaural Beats Actually Work</h2>
               <p className="hs-sub">
                 When both halves of your brain lock to one rhythm, focus and calm switch on in under a minute.
-                Stream binaural beats through earbuds and you feel nothing. Feel them through frequency technology,
-                and you know the second it's working.
+                Stream binaural beats through earbuds and you feel nothing. Feel them through bone, and you know
+                the second it's working.
               </p>
 
               <a href="#hs-proof" className="btn btn-purple hs-cta">
