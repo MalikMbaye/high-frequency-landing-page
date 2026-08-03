@@ -62,29 +62,33 @@ const HemisphereSync = () => {
         {/* Block 2 — Watch it work */}
         <div className="hs-block" id="hs-proof">
           <span className="hs-dot" aria-hidden="true" />
-          <h3 className="hs-h3">The Proof Is Simple: You Feel the Shift in Seconds</h3>
-          <p className="hs-body">
-            Send one tone to each ear and your brain builds a third that pulls both hemispheres into sync.
-            That sync is measurable. It's the proof the technology is doing its job. Cheap earbuds only play
-            the beats. These headphones drive them through frequency technology at 100 vibrations a second,
-            so you feel the shift in seconds, not twenty minutes.
-          </p>
+          <div className="hs-video-cols">
+            <div className="hs-video-copy">
+              <h3 className="hs-h3">The Proof Is Simple: You Feel the Shift in Seconds</h3>
+              <p className="hs-body">
+                Send one tone to each ear and your brain builds a third that pulls both hemispheres into sync.
+                That sync is measurable. It's the proof the technology is doing its job. Cheap earbuds only play
+                the beats. These headphones drive them through frequency technology at 100 vibrations a second,
+                so you feel the shift in seconds, not twenty minutes.
+              </p>
+            </div>
 
-          <div className="hs-video-wrap">
-            <video
-              ref={videoRef}
-              className="hs-video"
-              src={videoAsset.url}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-            />
-            <button type="button" className="hs-sound" onClick={toggleSound} aria-label={muted ? "Unmute video" : "Mute video"}>
-              {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
-              <span>{muted ? "Tap for sound" : "Sound on"}</span>
-            </button>
+            <div className="hs-video-wrap">
+              <video
+                ref={videoRef}
+                className="hs-video"
+                src={videoAsset.url}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+              <button type="button" className="hs-sound" onClick={toggleSound} aria-label={muted ? "Unmute video" : "Mute video"}>
+                {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+                <span>{muted ? "Tap for sound" : "Sound on"}</span>
+              </button>
+            </div>
           </div>
 
           <figure className="hs-figure hs-figure-wave">
