@@ -263,6 +263,13 @@
     grid-template-columns: 1fr;
     gap: 8px;
   }
+  .hs-video-cols {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .hs-video-copy {
+    max-width: none;
+  }
   .hs-benefits {
     grid-template-columns: 1fr 1fr;
     gap: 22px;
