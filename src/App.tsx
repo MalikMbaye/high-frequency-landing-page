@@ -17,7 +17,6 @@ import HelpSectionPage from "./pages/help/HelpSectionPage";
 import HelpArticlePage from "./pages/help/HelpArticlePage";
 import HelpSearchPage from "./pages/help/HelpSearchPage";
 import EmailCapturePopup from "./components/EmailCapturePopup";
-import BackInStockSplash from "./components/BackInStockSplash";
 
 
 const queryClient = new QueryClient();
@@ -44,27 +43,19 @@ const AppContent = () => {
   );
 };
 
-/** Splash + email popup are marketing surfaces — keep them off the help center. */
+/** Email popup is a marketing surface — keep it off the help center. */
 const MarketingOverlays = () => {
   const { pathname } = useLocation();
-  const isHome = pathname === "/";
 
-  // The splash only runs on the home page; elsewhere mark it done so the
-  // email popup timer isn't left waiting on an event that never fires.
+  // No splash screen anymore: mark it done immediately so the email popup
+  // timer isn't left waiting on an event that never fires.
   useEffect(() => {
-    if (!isHome) {
-      (window as any).__hfhSplashDone = true;
-      window.dispatchEvent(new Event("hfh:splash-done"));
-    }
-  }, [isHome]);
+    (window as any).__hfhSplashDone = true;
+    window.dispatchEvent(new Event("hfh:splash-done"));
+  }, [pathname]);
 
   if (pathname.startsWith("/help")) return null;
-  return (
-    <>
-      <EmailCapturePopup />
-      {isHome && <BackInStockSplash />}
-    </>
-  );
+  return <EmailCapturePopup />;
 };
 
 const App = () => (
