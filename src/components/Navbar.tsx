@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Loader2, HelpCircle, User, ShoppingCart } from "lucide-react";
 import { CartDrawer } from "./CartDrawer";
+import StockBanner from "./StockBanner";
 import { useBuyNow } from "@/hooks/useBuyNow";
 import { useCartStore } from "@/stores/cartStore";
 import logoAsset from "@/assets/hfh-logo.png.asset.json";
@@ -54,6 +55,7 @@ const Navbar = () => {
 
   return (
     <header className={`top-nav ${dark ? "dark" : ""}`} id="topNav">
+      <StockBanner />
       {/* Utility strip — secondary, low-emphasis links */}
       <div className="nav-utility-bar">
         <div className="nav-utility-inner">
