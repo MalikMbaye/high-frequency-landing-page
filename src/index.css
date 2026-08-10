@@ -306,6 +306,36 @@
   .top-nav.dark::before {
     background: rgba(10, 20, 40, 0.85);
   }
+  /* Back-in-stock banner — sits above the utility strip */
+  .stock-banner {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 7px 24px;
+    background: linear-gradient(90deg, var(--hfh-purple), var(--hfh-gold, #d4a017));
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .stock-banner-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    animation: stock-pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes stock-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+  .top-nav.dark .stock-banner {
+    color: #fff;
+  }
   /* Utility strip — secondary bar above the main nav */
   .nav-utility-bar {
     position: relative;
