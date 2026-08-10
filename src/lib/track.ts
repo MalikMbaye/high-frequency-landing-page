@@ -93,7 +93,7 @@ export const PILL_LABEL: Record<string, string> = {
   delivered: "Delivered",
 };
 
-export const SUPPORT_EMAIL = "highfrequencyhighway@gmail.com";
+export const SUPPORT_EMAIL = "Hello@highfrequencyhw.com";
 
 export const addBusinessDays = (from: Date, days: number) => {
   const d = new Date(from.getTime());

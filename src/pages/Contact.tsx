@@ -3,7 +3,7 @@ import { ArrowLeft, Mail } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const RECIPIENT = "highfrequencyhighway@gmail.com";
+const RECIPIENT = "Hello@highfrequencyhw.com";
 
 const Contact = () => {
   const [name, setName] = useState("");
