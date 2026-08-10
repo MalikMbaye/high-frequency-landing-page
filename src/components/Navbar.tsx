@@ -55,6 +55,7 @@ const Navbar = () => {
 
   return (
     <header className={`top-nav ${dark ? "dark" : ""}`} id="topNav">
+      <StockBanner />
       {/* Utility strip — secondary, low-emphasis links */}
       <div className="nav-utility-bar">
         <div className="nav-utility-inner">
