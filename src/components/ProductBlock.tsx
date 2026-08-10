@@ -120,7 +120,7 @@ const accordionItems = [
         <p>Orders ship from our U.S. fulfillment center. Each unit is hand-assembled, individually tested, and quality-inspected before shipping.</p>
         <p><strong>In-stock orders:</strong> 5-10 business days from order date.</p>
         <p><strong>International:</strong> 14-28 business days depending on destination.</p>
-        <p>You will receive a tracking number by email once your order ships. Questions? <a href="mailto:highfrequencyhighway@gmail.com">highfrequencyhighway@gmail.com</a> — we respond within 24 hours.</p>
+        <p>You will receive a tracking number by email once your order ships. Questions? <a href="mailto:Hello@highfrequencyhw.com">Hello@highfrequencyhw.com</a> — we respond within 24 hours.</p>
         <p>Full details on our <a href="/shipping">Shipping & Return Policy</a> page.</p>
       </>
     ),
