@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { Loader2 } from "lucide-react";
+import { ChevronDown, Loader2 } from "lucide-react";
 import "./upsell.css";
 import { pickBumpVariant, type BumpCopy } from "@/content/upsellCopy";
 import { trackBump } from "@/lib/bumpAnalytics";
@@ -150,12 +150,30 @@ function WhatsInside({ copy }: { copy: BumpCopy }) {
 function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: () => void }) {
   const [state, setState] = useState<"default" | "adding" | "added">("default");
   const continued = useRef(false);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const [showCue, setShowCue] = useState(false);
   // A variant is drawn at random on every open, then tagged onto every event.
   const [copy] = useState<BumpCopy>(() => pickBumpVariant());
+
+  const onScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setShowCue(el.scrollHeight - el.clientHeight - el.scrollTop > 24);
+  }, []);
+
+  const scrollMore = useCallback(() => {
+    scrollRef.current?.scrollBy({ top: 220, behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(onScroll);
+    return () => cancelAnimationFrame(id);
+  }, [onScroll, copy.variant]);
 
   useEffect(() => {
     trackBump("viewed", copy.variant);
   }, [copy.variant]);
+
 
   const finish = () => {
     if (continued.current) return;
@@ -206,26 +224,37 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
 
 
         <div className="hfu-col">
-          <span className="hfu-chip">{copy.eyebrow}</span>
-          <h2 className="hfu-h">{copy.headline}</h2>
-          <p className="hfu-lead">{copy.lead}</p>
-          <p className="hfu-p">{copy.body}</p>
-          <p className="hfu-p">{copy.offer}</p>
+          <div className="hfu-scroll" ref={scrollRef} onScroll={onScroll}>
+            <span className="hfu-chip">{copy.eyebrow}</span>
+            <h2 className="hfu-h">{copy.headline}</h2>
+            <p className="hfu-lead">{copy.lead}</p>
+            <p className="hfu-p">{copy.body}</p>
+            <p className="hfu-p">{copy.offer}</p>
 
-          <WhatsInside copy={copy} />
+            <WhatsInside copy={copy} />
+          </div>
 
-          <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
-            {state === "default" && copy.cta}
-            {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
-            {state === "added" && copy.ctaAdded}
-          </button>
+          {showCue && (
+            <button type="button" className="hfu-scroll-cue" onClick={scrollMore} aria-label="Show more details">
+              <ChevronDown size={18} aria-hidden="true" />
+            </button>
+          )}
 
-          <button type="button" className="hfu-link" onClick={decline}>
-            {copy.ctaSecondary}
-          </button>
+          <div className="hfu-actions">
+            <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
+              {state === "default" && copy.cta}
+              {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
+              {state === "added" && copy.ctaAdded}
+            </button>
 
-          <p className="hfu-trust">{copy.trustRow}</p>
+            <button type="button" className="hfu-link" onClick={decline}>
+              {copy.ctaSecondary}
+            </button>
+
+            <p className="hfu-trust">{copy.trustRow}</p>
+          </div>
         </div>
+
       </div>
     </div>,
     document.body,
