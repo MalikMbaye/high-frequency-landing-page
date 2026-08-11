@@ -11,6 +11,8 @@
   --hfu-ink-soft: #4a4f5c;
   --hfu-gold-deep: #8a6d1f;
   --hfu-gold: #c9a227;
+  --hfu-green: #34d17f;
+  --hfu-green-soft: rgba(52, 209, 127, 0.18);
   --hfu-glow: #7c3aed;
   --hfu-line: rgba(245, 245, 247, 0.1);
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
@@ -465,13 +467,14 @@
   opacity: 0.85;
 }
 
-/* ---------- order bump (dashed gold card) ---------- */
+/* ---------- order bump (dashed green card, translucent white) ---------- */
 
 .hfu-upgrade {
   margin: 0 0 12px;
-  border: 2px dashed #c9a961;
+  border: 2px dashed var(--hfu-green);
   border-radius: 12px;
-  background: rgba(201, 169, 97, 0.06);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
   color: var(--hfu-fg);
   text-align: left;
   overflow: hidden;
@@ -479,7 +482,7 @@
 }
 .hfu-upgrade.is-checked {
   border-style: solid;
-  background: rgba(201, 169, 97, 0.12);
+  background: rgba(255, 255, 255, 0.14);
 }
 .hfu-upgrade-row {
   display: flex;
@@ -496,14 +499,19 @@
   flex: 0 0 auto;
   appearance: none;
   -webkit-appearance: none;
-  border: 2px solid #c9a961;
+  border: 2px solid var(--hfu-green);
   border-radius: 6px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.06);
   cursor: pointer;
   position: relative;
+  transition: background 0.15s ease;
 }
 .hfu-upgrade-row input:checked {
-  background: #c9a961;
+  background: var(--hfu-green);
+}
+.hfu-upgrade-row input:focus-visible {
+  outline: 2px solid var(--hfu-green);
+  outline-offset: 2px;
 }
 .hfu-upgrade-row input:checked::after {
   content: "";
@@ -512,7 +520,7 @@
   top: 2px;
   width: 6px;
   height: 11px;
-  border: solid #14171f;
+  border: solid #0b0c18;
   border-width: 0 2.5px 2.5px 0;
   transform: rotate(45deg);
 }
@@ -526,7 +534,7 @@
 }
 .hfu-upgrade-chev {
   flex: 0 0 auto;
-  color: #c9a961;
+  color: var(--hfu-green);
   transition: transform 0.2s ease-out;
 }
 .hfu-upgrade.is-open .hfu-upgrade-chev {
@@ -545,25 +553,26 @@
 }
 .hfu-upgrade-details {
   padding: 10px 12px 12px 46px;
-  border-top: 1px solid rgba(201, 169, 97, 0.28);
+  border-top: 1px solid var(--hfu-green-soft);
 }
 .hfu-upgrade-sub {
   margin: 0;
   font-size: 12px;
   line-height: 1.5;
-  color: var(--hfu-muted);
+  color: rgba(255, 255, 255, 0.86);
 }
 .hfu-upgrade-pricing {
   margin: 8px 0 0;
   font-size: 12.5px;
   font-weight: 800;
-  color: var(--hfu-fg);
+  color: var(--hfu-green);
 }
 .hfu-upgrade-fine {
   margin: 8px 0 0;
   font-size: 11px;
-  color: rgba(245, 245, 247, 0.5);
+  color: rgba(245, 245, 247, 0.6);
 }
+
 
 .hfu-cta-label {
   display: block;
