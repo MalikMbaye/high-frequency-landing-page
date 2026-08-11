@@ -263,9 +263,10 @@ const ProductBlock = () => {
                   selectedOptions: selectedVariant.selectedOptions || []
                 });
 
-                const openDrawer = () => useCartStore.getState().openDrawer();
-                // $1 order bump, once per session; otherwise straight to the cart.
-                if (!showBumpModal(openDrawer)) openDrawer();
+                // Confirm the add first: open the cart so the new line + "Added to cart"
+                // flash is visible, then layer the $1 bump on top (once per session).
+                useCartStore.getState().openDrawer();
+                showBumpModal(() => {});
               }}
               disabled={isCartLoading || !product}
             >

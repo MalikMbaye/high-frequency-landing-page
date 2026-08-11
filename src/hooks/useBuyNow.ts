@@ -27,8 +27,9 @@ export function useBuyNow() {
         selectedOptions: variant.selectedOptions || [],
       });
 
-      // Offer the $1 order bump once per session; otherwise go straight to the cart.
-      if (!showBumpModal(() => openDrawer())) openDrawer();
+      // Confirm the add first, then layer the $1 bump over the open cart.
+      openDrawer();
+      showBumpModal(() => {});
     },
     [product, addItem, openDrawer]
   );

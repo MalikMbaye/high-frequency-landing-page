@@ -3,8 +3,8 @@ import { createPortal } from "react-dom";
 import { Loader2 } from "lucide-react";
 import "./upsell.css";
 import { bumpCopy } from "@/content/upsellCopy";
-import honeySticks from "@/assets/honey/honey-sticks.webp";
-import { addCartLineRaw, storefrontApiRequest, PRODUCT_BY_HANDLE_QUERY } from "@/lib/shopify";
+import honeyHero from "@/assets/honey/honey-hero.webp";
+import { storefrontApiRequest, PRODUCT_BY_HANDLE_QUERY, type ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 
 // ---------------------------------------------------------------------------
@@ -32,29 +32,39 @@ const track = (event: string, data?: Record<string, unknown>) => console.log(`[b
 // so the SKU can stay a backend-only product.
 const BUMP_PRODUCT_HANDLE = "high-frequency-honey";
 
-async function resolveBumpVariantId(): Promise<string | null> {
+async function resolveBumpVariant() {
   try {
     const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle: BUMP_PRODUCT_HANDLE });
-    const variants = data?.data?.product?.variants?.edges ?? [];
-    const trial = variants.find((v: any) => parseFloat(v.node.price.amount) <= 1.5);
-    return trial?.node?.id ?? null;
+    const node = data?.data?.product;
+    const variants = node?.variants?.edges ?? [];
+    const trial = variants.find((v: { node: { price: { amount: string } } }) => parseFloat(v.node.price.amount) <= 1.5);
+    if (!node || !trial) return null;
+    return {
+      product: { node } as ShopifyProduct,
+      variantId: trial.node.id as string,
+      variantTitle: trial.node.title as string,
+      price: trial.node.price as { amount: string; currencyCode: string },
+      selectedOptions: (trial.node.selectedOptions ?? []) as Array<{ name: string; value: string }>,
+    };
   } catch (error) {
     console.error("Bump variant lookup failed:", error);
     return null;
   }
 }
 
-/** Adds the $1 trial as its own cart line, tagged so fulfillment can pick it. */
+/** Adds the $1 trial through the cart store so the open drawer reflects it instantly. */
 export async function addBumpToCart(): Promise<boolean> {
-  const cartId = useCartStore.getState().cartId;
-  if (!cartId) return false;
-  const variantId = await resolveBumpVariantId();
-  if (!variantId) return false;
-  const ok = await addCartLineRaw(cartId, variantId, 1, [
-    { key: "_bump", value: "honey-trial" },
-    { key: "Ships with", value: "your headphone box" },
-  ]);
-  return !!ok;
+  const trial = await resolveBumpVariant();
+  if (!trial) return false;
+  await useCartStore.getState().addItem({
+    product: trial.product,
+    variantId: trial.variantId,
+    variantTitle: trial.variantTitle,
+    price: trial.price,
+    quantity: 1,
+    selectedOptions: trial.selectedOptions,
+  });
+  return true;
 }
 
 interface DetailContent {
@@ -139,7 +149,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
       <div className="hfu-sheet">
         <div className="hfu-handle" />
         <div className="hfu-media">
-          <img src={honeySticks} alt="High Frequency Honey stick beside a honey dipper" loading="lazy" />
+          <img src={honeyHero} alt="High Frequency Honey sachet with honey pouring out" loading="lazy" />
         </div>
 
         <span className="hfu-chip">{bumpCopy.eyebrow}</span>

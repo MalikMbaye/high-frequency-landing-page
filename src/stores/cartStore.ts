@@ -21,6 +21,8 @@ interface CartStore {
   isLoading: boolean;
   isSyncing: boolean;
   isDrawerOpen: boolean;
+  /** Variant of the line just added — drives the transient "Added to cart" flash. */
+  justAddedVariantId: string | null;
   openDrawer: () => void;
   closeDrawer: () => void;
   addProtectionLine: (args: { variantId: string; chargedAmount: number; coveredValue: number }) => Promise<void>;
@@ -42,6 +44,7 @@ export const useCartStore = create<CartStore>()(
       isLoading: false,
       isSyncing: false,
       isDrawerOpen: false,
+      justAddedVariantId: null,
       openDrawer: () => set({ isDrawerOpen: true }),
       closeDrawer: () => set({ isDrawerOpen: false }),
 
@@ -82,6 +85,12 @@ export const useCartStore = create<CartStore>()(
 
       addItem: async (item) => {
         const { items, cartId, clearCart } = get();
+        const flash = () => {
+          set({ justAddedVariantId: item.variantId });
+          setTimeout(() => {
+            if (get().justAddedVariantId === item.variantId) set({ justAddedVariantId: null });
+          }, 2600);
+        };
         const existingItem = items.find((i) => i.variantId === item.variantId);
 
         set({ isLoading: true });
@@ -94,6 +103,7 @@ export const useCartStore = create<CartStore>()(
                 checkoutUrl: result.checkoutUrl,
                 items: [{ ...item, lineId: result.lineId }],
               });
+              flash();
             }
           } else if (existingItem) {
             const newQuantity = existingItem.quantity + item.quantity;
@@ -103,6 +113,7 @@ export const useCartStore = create<CartStore>()(
               set({
                 items: get().items.map((i) => (i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i)),
               });
+              flash();
             } else if (result.cartNotFound) {
               clearCart();
             }
@@ -110,6 +121,7 @@ export const useCartStore = create<CartStore>()(
             const result = await addLineToShopifyCart(cartId, { ...item, lineId: null });
             if (result.success) {
               set({ items: [...get().items, { ...item, lineId: result.lineId ?? null }] });
+              flash();
             } else if (result.cartNotFound) {
               clearCart();
             }
@@ -162,7 +174,7 @@ export const useCartStore = create<CartStore>()(
         }
       },
 
-      clearCart: () => set({ items: [], cartId: null, checkoutUrl: null }),
+      clearCart: () => set({ items: [], cartId: null, checkoutUrl: null, justAddedVariantId: null }),
       getCheckoutUrl: () => get().checkoutUrl,
 
       syncCart: async () => {

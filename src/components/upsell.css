@@ -16,6 +16,9 @@
   position: fixed;
   inset: 0;
   z-index: 2000;
+  /* Radix sets pointer-events:none on <body> while the cart drawer is open —
+     re-enable it so the layered bump stays interactive. */
+  pointer-events: auto;
   background: rgba(0, 0, 0, 0.66);
   display: flex;
   align-items: flex-end;
