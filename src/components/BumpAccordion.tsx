@@ -38,12 +38,19 @@ function PanelBody({ blocks }: { blocks: Block[] }) {
                 {block.text}
               </p>
             );
+          case "subhead":
+            return (
+              <p key={i} className="hfa-subhead">
+                {block.text}
+              </p>
+            );
           case "accent":
             return (
               <p key={i} className="hfa-accent">
                 {block.text}
               </p>
             );
+
           case "note":
             return (
               <p key={i} className="hfa-note">
