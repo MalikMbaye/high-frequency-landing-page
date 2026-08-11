@@ -109,31 +109,9 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   const [showCue, setShowCue] = useState(false);
   const [upgrade, setUpgrade] = useState(false);
   const [upgradeOpen, setUpgradeOpen] = useState(false);
-  // Live Shopify pricing for the 30-day upgrade (final rate + compare-at).
-  const [monthPrice, setMonthPrice] = useState<{ amount: string; compareAt: string | null } | null>(null);
   // A variant is drawn at random on every open, then tagged onto every event.
   const [copy] = useState<BumpCopy>(() => pickBumpVariant());
 
-  useEffect(() => {
-    let alive = true;
-    (async () => {
-      try {
-        const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle: MONTH_HANDLE });
-        const edges = data?.data?.product?.variants?.edges ?? [];
-        const node = edges.find(
-          (e: { node: { id: string } }) => e.node.id === MONTH_VARIANT_ID,
-        )?.node as { price?: { amount: string }; compareAtPrice?: { amount: string } | null } | undefined;
-        if (alive && node?.price) {
-          setMonthPrice({ amount: node.price.amount, compareAt: node.compareAtPrice?.amount ?? null });
-        }
-      } catch {
-        /* pricing row falls back to a generic label */
-      }
-    })();
-    return () => {
-      alive = false;
-    };
-  }, []);
 
 
   /** On desktop the copy column scrolls; on mobile the whole sheet does. */
