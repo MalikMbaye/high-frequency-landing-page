@@ -105,9 +105,8 @@ export const useCartStore = create<CartStore>()(
               });
               flash();
             }
-          } else if (existingItem) {
+          } else if (existingItem?.lineId) {
             const newQuantity = existingItem.quantity + item.quantity;
-            if (!existingItem.lineId) return;
             const result = await updateShopifyCartLine(cartId, existingItem.lineId, newQuantity);
             if (result.success) {
               set({
@@ -120,7 +119,9 @@ export const useCartStore = create<CartStore>()(
           } else {
             const result = await addLineToShopifyCart(cartId, { ...item, lineId: null });
             if (result.success) {
-              set({ items: [...get().items, { ...item, lineId: result.lineId ?? null }] });
+              // Replace any stale duplicate (e.g. a persisted line without a lineId).
+              const rest = get().items.filter((i) => i.variantId !== item.variantId);
+              set({ items: [...rest, { ...item, lineId: result.lineId ?? null }] });
               flash();
             } else if (result.cartNotFound) {
               clearCart();
