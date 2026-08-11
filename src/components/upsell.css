@@ -1173,3 +1173,98 @@
   font-weight: 600;
   color: rgba(255, 255, 255, 0.8);
 }
+
+/* ---------- full-width header band + urgency strip ---------- */
+
+.hfu-topband {
+  flex: 0 0 auto;
+  margin: -10px -20px 0;
+  padding: 20px;
+  text-align: center;
+  background: #141824;
+  border-bottom: 1px solid #232838;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+.hfu-topband-h {
+  margin: 0;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.25;
+  color: #ffffff;
+}
+.hfu-topband-sub {
+  margin: 8px auto 0;
+  max-width: 52ch;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.45;
+  color: #d8dce4;
+}
+.hfu-urgency {
+  flex: 0 0 auto;
+  margin: 0 -20px 0;
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: #e8a33d;
+  background: #1c1410;
+  border-bottom: 1px solid #3a2a18;
+}
+.hfu-handle {
+  display: none;
+}
+@media (min-width: 640px) {
+  .hfu-sheet.hfu-sheet-wide .hfu-topband {
+    margin: -32px -32px 0;
+    padding: 24px 32px;
+  }
+  .hfu-sheet.hfu-sheet-wide .hfu-urgency {
+    margin: 0 -32px;
+  }
+  .hfu-topband-h {
+    font-size: 22px;
+  }
+  .hfu-sheet.hfu-sheet-wide .hfu-scroll {
+    padding-top: 20px;
+  }
+}
+@media (max-width: 639px) {
+  .hfu-scroll {
+    padding-top: 14px;
+  }
+}
+
+/* ---------- order bump reveal (after the $1 offer is accepted) ---------- */
+
+.hfu-upgrade-reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  min-height: 0;
+  overflow: hidden;
+  transition: grid-template-rows 0.25s ease, opacity 0.25s ease;
+}
+.hfu-upgrade-reveal.is-shown {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.hfu-upgrade-reveal > * {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ---------- gallery disclosure: wrap freely ---------- */
+
+.hfg-note {
+  max-width: 100%;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  -webkit-line-clamp: unset;
+  display: block;
+  color: #8a8fa0;
+  opacity: 1;
+  font-size: 11px;
+}
