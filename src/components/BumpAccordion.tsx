@@ -7,7 +7,7 @@ import { ChevronDown, Loader2 } from "lucide-react";
  * /content/bump-panels.json — never inlined into the bundle.
  */
 type Block =
-  | { type: "lead" | "p" | "accent" | "note"; text: string }
+  | { type: "lead" | "p" | "accent" | "note" | "subhead"; text: string }
   | { type: "labelled"; label: string; text: string }
   | { type: "bullets"; items: string[] }
   | { type: "list"; items: Array<{ label: string; text: string }> }
@@ -22,8 +22,10 @@ type Block =
 interface Panel {
   id: string;
   title: string;
+  subline?: string;
   blocks: Block[];
 }
+
 
 function PanelBody({ blocks }: { blocks: Block[] }) {
   return (
@@ -36,12 +38,19 @@ function PanelBody({ blocks }: { blocks: Block[] }) {
                 {block.text}
               </p>
             );
+          case "subhead":
+            return (
+              <p key={i} className="hfa-subhead">
+                {block.text}
+              </p>
+            );
           case "accent":
             return (
               <p key={i} className="hfa-accent">
                 {block.text}
               </p>
             );
+
           case "note":
             return (
               <p key={i} className="hfa-note">
@@ -149,7 +158,11 @@ function AccordionRow({
         aria-controls={`hfa-panel-${panel.id}`}
         onClick={onToggle}
       >
-        <span className="hfa-title">{panel.title}</span>
+        <span className="hfa-headtext">
+          <span className="hfa-title">{panel.title}</span>
+          {panel.subline && <span className="hfa-subline">{panel.subline}</span>}
+        </span>
+
         <ChevronDown className="hfa-chev" size={18} aria-hidden="true" />
       </button>
       <div

@@ -188,7 +188,7 @@
   text-align: center;
 }
 
-/* ---------- six-panel accordion ---------- */
+/* ---------- five-panel accordion ---------- */
 .hfa {
   margin: 18px 0 8px;
   border-top: 1px solid var(--hfu-head-line);
@@ -207,7 +207,7 @@
 }
 .hfa-head {
   width: 100%;
-  min-height: 48px;
+  min-height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -222,9 +222,44 @@
   cursor: pointer;
   transition: background 0.2s ease;
 }
-.hfa-head:hover {
+.hfa-headtext {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.hfa-subline {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8a8fa0;
+  transition: color 0.2s ease;
+}
+.hfa-row.is-open .hfa-subline {
+  color: #4a4f5c;
+}
+.hfa-row.is-open .hfa-head {
+  background: var(--hfu-cream);
+  color: #14171f;
+}
+.hfa-row.is-open .hfa-chev {
+  color: #4a4f5c;
+}
+.hfa-subhead {
+  font-size: 15px;
+  font-weight: 700;
+  color: #14171f;
+  margin: 24px 0 8px;
+  padding-top: 24px;
+  border-top: 1px solid #ddd8cc;
+}
+.hfa-panel-inner > .hfa-subhead:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.hfa-row:not(.is-open) .hfa-head:hover {
   background: #1a1f2e;
 }
+
 .hfa-chev {
   flex: 0 0 auto;
   color: var(--hfu-muted);
