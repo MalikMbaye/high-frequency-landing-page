@@ -1,5 +1,7 @@
 import { ArrowRight } from "lucide-react";
-import img_w2bSNIr2 from "@/assets/genspark/w2bSNIr2.webp";
+import heroVideo from "@/assets/hero-headphones.mp4.asset.json";
+import heroPoster from "@/assets/hero-headphones-poster.jpg.asset.json";
+
 
 const Hero = () => {
   return (
