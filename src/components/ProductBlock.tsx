@@ -262,8 +262,9 @@ const ProductBlock = () => {
                   selectedOptions: selectedVariant.selectedOptions || []
                 });
 
-
-                useCartStore.getState().openDrawer();
+                const openDrawer = () => useCartStore.getState().openDrawer();
+                // $1 order bump, once per session; otherwise straight to the cart.
+                if (!showBumpModal(openDrawer)) openDrawer();
               }}
               disabled={isCartLoading || !product}
             >
