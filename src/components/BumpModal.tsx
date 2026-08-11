@@ -108,6 +108,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   const copyRef = useRef<HTMLDivElement | null>(null);
   const [showCue, setShowCue] = useState(false);
   const [upgrade, setUpgrade] = useState(false);
+  const [upgradeOpen, setUpgradeOpen] = useState(false);
   // Live Shopify pricing for the 30-day upgrade (final rate + compare-at).
   const [monthPrice, setMonthPrice] = useState<{ amount: string; compareAt: string | null } | null>(null);
   // A variant is drawn at random on every open, then tagged onto every event.
