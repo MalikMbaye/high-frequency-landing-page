@@ -702,7 +702,7 @@
   }
   .hfu-topband {
     margin-top: 0;
-    padding: max(14px, env(safe-area-inset-top)) 20px 14px;
+    padding: calc(env(safe-area-inset-top) + 40px) 20px 18px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
@@ -717,14 +717,25 @@
   .hfu-scroll {
     padding-top: 12px;
   }
+  /* Shorter gallery so more of the copy shows without scrolling. */
+  .hfu-media-gallery .hfg-main {
+    max-height: 34vh;
+  }
+  .hfu-media-gallery .hfg-main img {
+    max-height: 34vh;
+    object-fit: contain;
+  }
   /* Tighten vertical rhythm between copy blocks so the offer reads denser. */
   .hfu-name-row {
-    margin-top: 4px;
+    margin-top: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   .hfu-h {
     font-size: 24px;
-    margin: 0 0 8px;
+    margin: 10px 0 8px;
   }
+
   .hfu-lead,
   .hfu-p {
     margin-bottom: 7px;
@@ -1192,7 +1203,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--hfu-gold);
 }
 
 /* Product name row + marketplace byline */
@@ -1202,6 +1213,7 @@
   gap: 10px;
   flex-wrap: wrap;
   margin-top: 10px;
+
 }
 .hfu-name-row .hfu-product-name {
   margin: 0;
@@ -1333,4 +1345,32 @@
   color: #8a8fa0;
   opacity: 1;
   font-size: 11px;
+}
+
+
+/* ---------- mobile takeover spacing overrides (must win the cascade) ---------- */
+@media (max-width: 639px) {
+  .hfu-topband {
+    padding: calc(env(safe-area-inset-top) + 40px) 20px 18px;
+  }
+  /* Shorter square gallery so the product label + headline show without scrolling. */
+  .hfu-media-gallery .hfg-main {
+    aspect-ratio: auto;
+    height: 34vh;
+    max-height: 34vh;
+  }
+  .hfu-media-gallery .hfg-main img {
+    object-fit: contain;
+  }
+  .hfu-name-row {
+    margin-top: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .hfu-product-name {
+    color: var(--hfu-gold);
+  }
+  .hfu-h {
+    margin-top: 12px;
+  }
 }

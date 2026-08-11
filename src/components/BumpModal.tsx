@@ -109,7 +109,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   const [showCue, setShowCue] = useState(false);
   const [upgrade, setUpgrade] = useState(false);
   const [upgradeOpen, setUpgradeOpen] = useState(false);
-  const [accepted, setAccepted] = useState(false);
+  
 
   // A variant is drawn at random on every open, then tagged onto every event.
   const [copy] = useState<BumpCopy>(() => pickBumpVariant());
@@ -173,14 +173,10 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   };
 
   const accept = async () => {
-    // First tap: accept the $1 offer and reveal the 30-day add-on.
-    if (!accepted) {
-      setAccepted(true);
-      trackBump("accepted", copy.variant, { offer: "trial_3pack_1" });
-      return;
-    }
     setState("adding");
-    if (upgrade) trackBump("accepted", copy.variant, { offer: "month_30pack_upgrade" });
+    trackBump("accepted", copy.variant, {
+      offer: upgrade ? "month_30pack_upgrade" : "trial_3pack_1",
+    });
     await addBumpToCart({ variantId: upgrade ? MONTH_VARIANT_ID : TRIAL_VARIANT_FALLBACK });
     setState("added");
     setTimeout(finish, 800);
@@ -260,7 +256,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
         )}
 
         <div className="hfu-actions">
-          <div className={`hfu-upgrade-reveal${accepted ? " is-shown" : ""}`} aria-hidden={!accepted}>
+          <div className="hfu-upgrade-reveal is-shown">
           <div className={`hfu-upgrade${upgradeOpen ? " is-open" : ""}${upgrade ? " is-checked" : ""}`}>
 
             <div
@@ -311,14 +307,11 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
 
           <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
             {state === "default" && (
-              <span key={accepted ? (upgrade ? "up" : "cont") : "trial"} className="hfu-cta-label">
-                {!accepted
-                  ? "Add the 3-pack for $1"
-                  : upgrade
-                    ? "Continue to checkout — $29.99"
-                    : "Continue to checkout"}
+              <span key={upgrade ? "up" : "trial"} className="hfu-cta-label">
+                {upgrade ? "Add the 30-day supply for $29.99" : "Add the 3-pack for $1"}
               </span>
             )}
+
 
             {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
             {state === "added" && copy.ctaAdded}
