@@ -17,6 +17,8 @@ import HelpSectionPage from "./pages/help/HelpSectionPage";
 import HelpArticlePage from "./pages/help/HelpArticlePage";
 import HelpSearchPage from "./pages/help/HelpSearchPage";
 import EmailCapturePopup from "./components/EmailCapturePopup";
+import PostPurchaseUpsell from "./pages/PostPurchaseUpsell";
+import { BumpModalHost } from "./components/BumpModal";
 
 
 const queryClient = new QueryClient();
