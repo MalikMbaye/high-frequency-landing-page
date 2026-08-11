@@ -467,23 +467,24 @@
   opacity: 0.85;
 }
 
-/* ---------- order bump (dashed green card, translucent white) ---------- */
+/* ---------- order bump (dashed green card, near-white panel) ---------- */
 
 .hfu-upgrade {
   margin: 0 0 12px;
   border: 2px dashed var(--hfu-green);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.93);
   backdrop-filter: blur(6px);
-  color: var(--hfu-fg);
+  color: #14161f;
   text-align: left;
   overflow: hidden;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
 .hfu-upgrade.is-checked {
   border-style: solid;
-  background: rgba(255, 255, 255, 0.14);
+  background: #ffffff;
 }
+
 .hfu-upgrade-row {
   display: flex;
   align-items: center;
@@ -501,7 +502,7 @@
   -webkit-appearance: none;
   border: 2px solid var(--hfu-green);
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.06);
+  background: #ffffff;
   cursor: pointer;
   position: relative;
   transition: background 0.15s ease;
@@ -520,7 +521,7 @@
   top: 2px;
   width: 6px;
   height: 11px;
-  border: solid #0b0c18;
+  border: solid #ffffff;
   border-width: 0 2.5px 2.5px 0;
   transform: rotate(45deg);
 }
@@ -530,11 +531,12 @@
   font-size: 13px;
   font-weight: 800;
   line-height: 1.3;
-  color: var(--hfu-fg);
+  color: #14161f;
 }
+
 .hfu-upgrade-chev {
   flex: 0 0 auto;
-  color: var(--hfu-green);
+  color: #1c7a45;
   transition: transform 0.2s ease-out;
 }
 .hfu-upgrade.is-open .hfu-upgrade-chev {
@@ -553,25 +555,26 @@
 }
 .hfu-upgrade-details {
   padding: 10px 12px 12px 46px;
-  border-top: 1px solid var(--hfu-green-soft);
+  border-top: 1px solid rgba(20, 22, 31, 0.12);
 }
 .hfu-upgrade-sub {
   margin: 0;
   font-size: 12px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.86);
+  color: rgba(20, 22, 31, 0.82);
 }
 .hfu-upgrade-pricing {
   margin: 8px 0 0;
   font-size: 12.5px;
   font-weight: 800;
-  color: var(--hfu-green);
+  color: #1c7a45;
 }
 .hfu-upgrade-fine {
   margin: 8px 0 0;
   font-size: 11px;
-  color: rgba(245, 245, 247, 0.6);
+  color: rgba(20, 22, 31, 0.6);
 }
+
 
 
 .hfu-cta-label {
