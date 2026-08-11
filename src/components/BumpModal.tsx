@@ -126,10 +126,21 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   }, []);
 
 
+  // Re-measure whenever content height changes (images load, accordion opens).
   useEffect(() => {
     const id = requestAnimationFrame(onScroll);
-    return () => cancelAnimationFrame(id);
+    const targets = [copyRef.current, scrollRef.current].filter(Boolean) as HTMLElement[];
+    const ro = new ResizeObserver(() => onScroll());
+    targets.forEach((t) => {
+      ro.observe(t);
+      if (t.firstElementChild) ro.observe(t.firstElementChild);
+    });
+    return () => {
+      cancelAnimationFrame(id);
+      ro.disconnect();
+    };
   }, [onScroll, copy.variant]);
+
 
   useEffect(() => {
     trackBump("viewed", copy.variant);
