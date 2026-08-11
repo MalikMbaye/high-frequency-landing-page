@@ -2839,8 +2839,9 @@
   }
   .hero-video {
     max-width: min(100%, 42svh);
-    border-radius: 20px;
+    border-radius: 0;
   }
+
   .hero .pre-headline {
     font-size: 0.72rem;
     line-height: 1.4;
