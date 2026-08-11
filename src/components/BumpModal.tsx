@@ -103,24 +103,44 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   const [state, setState] = useState<"default" | "adding" | "added">("default");
   const continued = useRef(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const copyRef = useRef<HTMLDivElement | null>(null);
   const [showCue, setShowCue] = useState(false);
   // A variant is drawn at random on every open, then tagged onto every event.
   const [copy] = useState<BumpCopy>(() => pickBumpVariant());
 
+  /** On desktop the copy column scrolls; on mobile the whole sheet does. */
+  const scroller = () => {
+    const el = copyRef.current;
+    if (el && el.scrollHeight > el.clientHeight + 1) return el;
+    return scrollRef.current;
+  };
+
   const onScroll = useCallback(() => {
-    const el = scrollRef.current;
+    const el = scroller();
     if (!el) return;
     setShowCue(el.scrollHeight - el.clientHeight - el.scrollTop > 24);
   }, []);
 
   const scrollMore = useCallback(() => {
-    scrollRef.current?.scrollBy({ top: 220, behavior: "smooth" });
+    scroller()?.scrollBy({ top: 220, behavior: "smooth" });
   }, []);
 
+
+  // Re-measure whenever content height changes (images load, accordion opens).
   useEffect(() => {
     const id = requestAnimationFrame(onScroll);
-    return () => cancelAnimationFrame(id);
+    const targets = [copyRef.current, scrollRef.current].filter(Boolean) as HTMLElement[];
+    const ro = new ResizeObserver(() => onScroll());
+    targets.forEach((t) => {
+      ro.observe(t);
+      if (t.firstElementChild) ro.observe(t.firstElementChild);
+    });
+    return () => {
+      cancelAnimationFrame(id);
+      ro.disconnect();
+    };
   }, [onScroll, copy.variant]);
+
 
   useEffect(() => {
     trackBump("viewed", copy.variant);
@@ -176,7 +196,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
             <BumpGallery />
           </div>
 
-          <div className="hfu-copy">
+          <div className="hfu-copy" ref={copyRef} onScroll={onScroll}>
             <span className="hfu-chip">{copy.eyebrow}</span>
             <div className="hfu-name-row">
               <p className="hfu-product-name">

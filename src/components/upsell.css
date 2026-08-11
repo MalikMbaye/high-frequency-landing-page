@@ -72,11 +72,66 @@
   }
   .hfu-sheet-wide .hfu-scroll {
     display: grid;
-    grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
-    gap: 32px;
-    align-items: start;
+    grid-template-columns: minmax(0, 36fr) minmax(0, 64fr);
+    gap: 28px;
+    align-items: stretch;
+    min-height: 0;
+    overflow: hidden;
+  }
+  /* Left media column stays static; only the copy column scrolls. */
+  .hfu-sheet-wide .hfu-media-gallery {
+    position: sticky;
+    top: 0;
+    align-self: start;
+  }
+  .hfu-sheet-wide .hfg,
+  .hfu-sheet-wide .hfg-main,
+  .hfu-sheet-wide .hfg-rail {
+    max-width: 300px;
+  }
+  .hfu-sheet-wide .hfu-copy {
     min-height: 0;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 10px;
+    scrollbar-width: thin;
+  }
+  .hfu-sheet-wide .hfu-copy::-webkit-scrollbar {
+    width: 6px;
+  }
+  .hfu-sheet-wide .hfu-copy::-webkit-scrollbar-thumb {
+    background: rgba(245, 245, 247, 0.18);
+    border-radius: 999px;
+  }
+  /* Tighter type on desktop so more of the offer reads without scrolling. */
+  .hfu-sheet-wide .hfu-h {
+    font-size: clamp(22px, 2.2vw, 27px);
+    margin-bottom: 10px;
+  }
+  .hfu-sheet-wide .hfu-lead {
+    font-size: 14px;
+  }
+  .hfu-sheet-wide .hfu-p {
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  .hfu-sheet-wide .hfu-product-name {
+    font-size: 12px;
+  }
+  .hfu-sheet-wide .hfa-head {
+    font-size: 14px;
+    min-height: 58px;
+  }
+  .hfu-sheet-wide .hfa-subline {
+    font-size: 11.5px;
+  }
+  .hfu-sheet-wide .hfa-lead,
+  .hfu-sheet-wide .hfa-p,
+  .hfu-sheet-wide .hfa-accent,
+  .hfu-sheet-wide .hfa-bullets li,
+  .hfu-sheet-wide .hfa-step dt,
+  .hfu-sheet-wide .hfa-step dd {
+    font-size: 14px;
   }
   .hfu-sheet-wide .hfu-actions {
     max-width: 520px;
@@ -100,6 +155,11 @@
   .hfu-sheet-wide .hfu-chip {
     margin-top: 0;
   }
+  /* Desktop: the copy column has its own scrollbar, so the cue is redundant. */
+  .hfu-sheet-wide .hfu-scroll-cue {
+    display: none;
+  }
+
 }
 
 .hfu-handle {
