@@ -531,6 +531,7 @@
   /* ---------- HERO ---------- */
   .hero {
     padding-top: 72px;
+    background: #FCFCFC;
   }
   .hero-grid {
     display: grid;
