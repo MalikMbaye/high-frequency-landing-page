@@ -555,7 +555,7 @@
     border-radius: 18px;
     box-shadow: var(--hfh-shadow-card);
   }
-  /* Looping hero video — square product loop on a light plate */
+  /* Looping hero video — clean frameless product loop */
   .hero-video {
     position: relative;
     z-index: 2;
@@ -564,10 +564,11 @@
     aspect-ratio: 1 / 1;
     object-fit: cover;
     display: block;
-    border-radius: 24px;
-    background: #f6f6f8;
-    box-shadow: var(--hfh-shadow-card);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-video {
       /* poster stays visible, motion suppressed by JS-free pause below */
