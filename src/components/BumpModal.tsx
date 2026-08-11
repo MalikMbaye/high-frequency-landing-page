@@ -101,7 +101,17 @@ export async function addBumpToCart(args: { variantId?: string; sellingPlanId?: 
   return true;
 }
 
-function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: () => void }) {
+type BumpPosition = "above" | "below";
+
+function BumpModal({
+  onClose,
+  onContinue,
+  bumpPosition = "below",
+}: {
+  onClose: () => void;
+  onContinue?: () => void;
+  bumpPosition?: BumpPosition;
+}) {
   const [state, setState] = useState<"default" | "adding" | "added">("default");
   const continued = useRef(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
