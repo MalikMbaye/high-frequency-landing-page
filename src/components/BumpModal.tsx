@@ -5,6 +5,7 @@ import "./upsell.css";
 import { pickBumpVariant, type BumpCopy } from "@/content/upsellCopy";
 import { trackBump } from "@/lib/bumpAnalytics";
 import BumpGallery from "@/components/BumpGallery";
+import BumpAccordion from "@/components/BumpAccordion";
 import {
   storefrontApiRequest,
   PRODUCT_BY_HANDLE_QUERY,
@@ -96,55 +97,6 @@ export async function addBumpToCart(args: { variantId?: string; sellingPlanId?: 
     sellingPlanId: args.sellingPlanId ?? null,
   });
   return true;
-}
-
-interface DetailContent {
-  paragraphs: string[];
-  disclaimer: string;
-}
-
-/** Lazy accordion — the ingredient copy is fetched on first open, never inlined. */
-function WhatsInside({ copy }: { copy: BumpCopy }) {
-  const [open, setOpen] = useState(false);
-  const [content, setContent] = useState<DetailContent | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  const toggle = useCallback(async () => {
-    const next = !open;
-    setOpen(next);
-    if (next && !content && !loading) {
-      trackBump("detail_opened", copy.variant);
-      setLoading(true);
-      try {
-        const res = await fetch("/content/bump-detail.json");
-        setContent(await res.json());
-      } catch (error) {
-        console.error("Failed to load bump detail:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-  }, [open, content, loading, copy.variant]);
-
-  return (
-    <div className="hfu-acc">
-      <button type="button" className="hfu-acc-btn" onClick={toggle} aria-expanded={open}>
-        <span>{copy.detailLabel}</span>
-        <span aria-hidden="true">{open ? "\u2191" : "\u2193"}</span>
-      </button>
-      {open && (
-        <div className="hfu-acc-body">
-          {loading && <Loader2 className="animate-spin h-4 w-4" />}
-          {content?.paragraphs.map((p) => (
-            <p key={p} className="hfu-p">
-              {p}
-            </p>
-          ))}
-          {content && <p className="hfu-fine">{content.disclaimer}</p>}
-        </div>
-      )}
-    </div>
-  );
 }
 
 function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: () => void }) {
@@ -239,7 +191,9 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
             <p className="hfu-p">{copy.offer}</p>
             <p className="hfu-p hfu-never">And it never expires.</p>
 
-            <WhatsInside copy={copy} />
+            <BumpAccordion
+              onOpenPanel={(panel) => trackBump("accordion_opened", copy.variant, { panel })}
+            />
           </div>
         </div>
 
