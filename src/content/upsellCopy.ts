@@ -8,10 +8,10 @@ export const bumpCopy = {
   headline: "Fuel for your frequency practice.",
   body: [
     "Your brain runs on minerals. We went to 16,000 feet to get them. High Frequency Honey is a caramel honey stick carrying 85+ trace minerals from the Himalayas \u2014 one a day, alongside your sessions.",
-    "Two sticks. One dollar. They ship inside your headphone box.",
+    "A 3-stick pack for $1 — one time only, at checkout. It ships inside your headphone box.",
   ],
   detailLabel: "What's inside",
-  cta: "Add for $1",
+  cta: "Add the 3-pack for $1",
   ctaAdded: "Added \u2713",
   decline: "No thanks, just the headphones",
   trust: ["Ships free in your box", "30-day guarantee"],
