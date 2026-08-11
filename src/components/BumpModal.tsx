@@ -327,5 +327,5 @@ export function BumpModalHost() {
   }, []);
 
   if (!open) return null;
-  return <BumpModal onClose={() => setOpen(false)} onContinue={continueRef.current} />;
+  return <BumpModal onClose={() => setOpen(false)} onContinue={continueRef.current} bumpPosition="below" />;
 }
