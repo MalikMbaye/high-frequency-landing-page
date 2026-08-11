@@ -219,10 +219,8 @@ function BumpModal({
           <div className="hfu-copy" ref={copyRef} onScroll={onScroll}>
             <span className="hfu-chip">{copy.eyebrow}</span>
             <div className="hfu-name-row">
-              <p className="hfu-product-name">
-                High Frequency Honey <span className="hfu-name-sub">— Infused with Sacred Shilajit</span>
-              </p>
-              <span className="hfu-price-tag">3-Packs for $1</span>
+              <p className="hfu-product-name">High Frequency Honey</p>
+              <span className="hfu-price-tag">3-Pack for $1</span>
             </div>
 
             <h2 className="hfu-h">{copy.headline}</h2>
@@ -244,51 +242,7 @@ function BumpModal({
         )}
 
         <div className="hfu-actions">
-          <div className={`hfu-upgrade${upgradeOpen ? " is-open" : ""}${upgrade ? " is-checked" : ""}`}>
-            <div
-              className="hfu-upgrade-row"
-              role="button"
-              tabIndex={0}
-              aria-expanded={upgradeOpen}
-              onClick={() => setUpgradeOpen((v) => !v)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  setUpgradeOpen((v) => !v);
-                }
-              }}
-            >
-              <input
-                type="checkbox"
-                checked={upgrade}
-                aria-label="Send the full 30-day supply"
-                onClick={(e) => e.stopPropagation()}
-                onChange={(e) => {
-                  setUpgrade(e.target.checked);
-                  trackBump(e.target.checked ? "upgrade_checked" : "upgrade_unchecked", copy.variant);
-                }}
-              />
-              <span className="hfu-upgrade-line">
-                Yes, send the full 30-day supply for 50% off.
-              </span>
-              <ChevronDown className="hfu-upgrade-chev" size={18} aria-hidden="true" />
-            </div>
-
-            <div className="hfu-upgrade-panel">
-              <div className="hfu-upgrade-details">
-                <p className="hfu-upgrade-sub">
-                  Three sticks is a taste. The minerals compound, so most people notice the
-                  difference around day five and it keeps building through week four. Thirty sticks
-                  is the actual test.
-                </p>
-                <p className="hfu-upgrade-pricing">
-                  $29.99 today. $59.99 everywhere else. One time, no subscription, same box as your
-                  headphones.
-                </p>
-                <p className="hfu-upgrade-fine">Ships free · 30-day guarantee</p>
-              </div>
-            </div>
-          </div>
+          {bumpPosition === "above" && bumpBox}
 
           <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
             {state === "default" && (
@@ -299,6 +253,8 @@ function BumpModal({
             {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
             {state === "added" && copy.ctaAdded}
           </button>
+
+          {bumpPosition === "below" && bumpBox}
 
           <button type="button" className="hfu-link" onClick={decline}>
             {copy.ctaSecondary}
