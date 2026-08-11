@@ -206,26 +206,37 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
 
 
         <div className="hfu-col">
-          <span className="hfu-chip">{copy.eyebrow}</span>
-          <h2 className="hfu-h">{copy.headline}</h2>
-          <p className="hfu-lead">{copy.lead}</p>
-          <p className="hfu-p">{copy.body}</p>
-          <p className="hfu-p">{copy.offer}</p>
+          <div className="hfu-scroll" ref={scrollRef} onScroll={onScroll}>
+            <span className="hfu-chip">{copy.eyebrow}</span>
+            <h2 className="hfu-h">{copy.headline}</h2>
+            <p className="hfu-lead">{copy.lead}</p>
+            <p className="hfu-p">{copy.body}</p>
+            <p className="hfu-p">{copy.offer}</p>
 
-          <WhatsInside copy={copy} />
+            <WhatsInside copy={copy} />
+          </div>
 
-          <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
-            {state === "default" && copy.cta}
-            {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
-            {state === "added" && copy.ctaAdded}
-          </button>
+          {showCue && (
+            <button type="button" className="hfu-scroll-cue" onClick={scrollMore} aria-label="Show more details">
+              <ChevronDown size={18} aria-hidden="true" />
+            </button>
+          )}
 
-          <button type="button" className="hfu-link" onClick={decline}>
-            {copy.ctaSecondary}
-          </button>
+          <div className="hfu-actions">
+            <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
+              {state === "default" && copy.cta}
+              {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
+              {state === "added" && copy.ctaAdded}
+            </button>
 
-          <p className="hfu-trust">{copy.trustRow}</p>
+            <button type="button" className="hfu-link" onClick={decline}>
+              {copy.ctaSecondary}
+            </button>
+
+            <p className="hfu-trust">{copy.trustRow}</p>
+          </div>
         </div>
+
       </div>
     </div>,
     document.body,
