@@ -3960,45 +3960,12 @@ body:has(.cd-panel[data-state="open"]) {
 .cd-switch.is-on .cd-switch-knob {
   transform: translateX(20px);
 }
-.cd-addon-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.cd-addon + .cd-addon {
   margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid hsl(var(--border));
 }
-.cd-dots {
-  display: flex;
-  gap: 6px;
-}
-.cd-dots button {
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  border: 0;
-  background: hsl(var(--muted-foreground) / 0.35);
-  cursor: pointer;
-}
-.cd-dots button.is-active {
-  background: hsl(var(--background));
-}
-.cd-arrows {
-  display: flex;
-  gap: 8px;
-}
-.cd-arrows button {
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  border: 0;
-  display: grid;
-  place-items: center;
-  background: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-  cursor: pointer;
-}
-.cd-arrows button:hover {
-  filter: brightness(1.08);
-}
+
 
 .cd-checkout {
   width: 100%;
