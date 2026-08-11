@@ -23,7 +23,9 @@ export const bumpGalleryImages: Array<{ src: string; alt: string }> = [
 export default function BumpGallery() {
   const [index, setIndex] = useState(0);
   const [lightbox, setLightbox] = useState(false);
+  const railRef = useRef<HTMLDivElement>(null);
   const total = bumpGalleryImages.length;
+
 
   const step = useCallback(
     (dir: number) => setIndex((i) => (i + dir + total) % total),
