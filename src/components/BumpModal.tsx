@@ -103,19 +103,28 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   const [state, setState] = useState<"default" | "adding" | "added">("default");
   const continued = useRef(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const copyRef = useRef<HTMLDivElement | null>(null);
   const [showCue, setShowCue] = useState(false);
   // A variant is drawn at random on every open, then tagged onto every event.
   const [copy] = useState<BumpCopy>(() => pickBumpVariant());
 
+  /** On desktop the copy column scrolls; on mobile the whole sheet does. */
+  const scroller = () => {
+    const el = copyRef.current;
+    if (el && el.scrollHeight > el.clientHeight + 1) return el;
+    return scrollRef.current;
+  };
+
   const onScroll = useCallback(() => {
-    const el = scrollRef.current;
+    const el = scroller();
     if (!el) return;
     setShowCue(el.scrollHeight - el.clientHeight - el.scrollTop > 24);
   }, []);
 
   const scrollMore = useCallback(() => {
-    scrollRef.current?.scrollBy({ top: 220, behavior: "smooth" });
+    scroller()?.scrollBy({ top: 220, behavior: "smooth" });
   }, []);
+
 
   useEffect(() => {
     const id = requestAnimationFrame(onScroll);
