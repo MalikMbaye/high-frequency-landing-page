@@ -185,7 +185,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
             <BumpGallery />
           </div>
 
-          <div className="hfu-copy">
+          <div className="hfu-copy" ref={copyRef} onScroll={onScroll}>
             <span className="hfu-chip">{copy.eyebrow}</span>
             <div className="hfu-name-row">
               <p className="hfu-product-name">
