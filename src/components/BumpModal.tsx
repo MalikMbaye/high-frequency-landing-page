@@ -25,6 +25,25 @@ export function showBumpModal(onContinue?: () => void): boolean {
   return true;
 }
 
+/**
+ * Shows the bump after `delay` ms so the cart drawer's "Added to cart"
+ * confirmation lands first. Cancelled if the drawer is closed in the meantime.
+ */
+export function showBumpModalAfter(delay = 3000, onContinue?: () => void) {
+  if (typeof window === "undefined") return;
+  if (sessionStorage.getItem(SESSION_FLAG)) return;
+  const timer = window.setTimeout(() => {
+    unsubscribe();
+    if (useCartStore.getState().isDrawerOpen) showBumpModal(onContinue);
+  }, delay);
+  const unsubscribe = useCartStore.subscribe((s) => {
+    if (!s.isDrawerOpen) {
+      window.clearTimeout(timer);
+      unsubscribe();
+    }
+  });
+}
+
 // Analytics stubs — swap for the real pixel/GA calls later.
 const track = (event: string, data?: Record<string, unknown>) => console.log(`[bump] ${event}`, data ?? "");
 
@@ -143,6 +162,18 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
     track("bumpDeclined");
     finish();
   };
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.stopPropagation();
+        decline();
+      }
+    };
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
+  }); // eslint-disable-line react-hooks/exhaustive-deps
+
 
   return createPortal(
     <div
