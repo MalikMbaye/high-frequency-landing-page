@@ -294,13 +294,19 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
               </div>
             </div>
           </div>
+          </div>
 
           <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
             {state === "default" && (
-              <span key={upgrade ? "up" : "trial"} className="hfu-cta-label">
-                {upgrade ? "Add the 30-day supply for $29.99" : "Add the 3-pack for $1"}
+              <span key={accepted ? (upgrade ? "up" : "cont") : "trial"} className="hfu-cta-label">
+                {!accepted
+                  ? "Add the 3-pack for $1"
+                  : upgrade
+                    ? "Continue to checkout — $29.99"
+                    : "Continue to checkout"}
               </span>
             )}
+
             {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
             {state === "added" && copy.ctaAdded}
           </button>
