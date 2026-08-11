@@ -256,7 +256,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
         )}
 
         <div className="hfu-actions">
-          <div className={`hfu-upgrade-reveal${accepted ? " is-shown" : ""}`} aria-hidden={!accepted}>
+          <div className="hfu-upgrade-reveal is-shown">
           <div className={`hfu-upgrade${upgradeOpen ? " is-open" : ""}${upgrade ? " is-checked" : ""}`}>
 
             <div
