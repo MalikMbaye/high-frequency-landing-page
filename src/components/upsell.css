@@ -709,3 +709,42 @@
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.72);
 }
+
+/* Product name row + marketplace byline */
+.hfu-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.hfu-name-row .hfu-product-name {
+  margin: 0;
+}
+.hfu-name-sub {
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.55);
+}
+.hfu-price-tag {
+  flex: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: hsl(var(--foreground));
+  background: hsl(var(--primary) / 0.18);
+  border: 1px solid hsl(var(--primary) / 0.5);
+}
+.hfu-brandline {
+  margin: 6px 0 2px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.45);
+}
+.hfu-never {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
