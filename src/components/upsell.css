@@ -577,18 +577,30 @@
   font-size: 12px;
 }
 
-/* Sheet layout: media + copy scroll together, CTA pinned as a footer. */
+/* Sheet layout: body scrolls, footer pinned in a flex column. */
+.hfu-sheet,
+.hfu-sheet.hfu-sheet-wide {
+  display: flex;
+  flex-direction: column;
+}
 .hfu-scroll {
+  flex: 1 1 auto;
   min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .hfu-actions {
   position: relative;
   z-index: 3;
+  flex: 0 0 auto;
+  max-height: 45%;
+  overflow: hidden;
   padding-top: 14px;
   border-top: 1px solid var(--hfu-head-line);
   background: color-mix(in srgb, var(--hfu-bg) 88%, transparent);
   backdrop-filter: blur(8px);
 }
+
 .hfu-scroll-cue {
   margin: 0 auto 8px;
   flex: 0 0 34px;
