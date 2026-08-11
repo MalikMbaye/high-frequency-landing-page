@@ -269,6 +269,16 @@
     box-shadow: 0 12px 28px rgba(107, 46, 184, 0.45);
   }
 
+  .btn-black {
+    background: var(--hfh-near-black);
+    color: var(--hfh-white);
+    box-shadow: 0 8px 22px rgba(13, 13, 18, 0.28);
+  }
+  .btn-black:hover {
+    background: #000;
+    box-shadow: 0 12px 28px rgba(13, 13, 18, 0.38);
+  }
+
   .btn-gold {
     background: var(--hfh-gold);
     color: var(--hfh-near-black);
