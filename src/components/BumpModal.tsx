@@ -11,16 +11,14 @@ import { useCartStore } from "@/stores/cartStore";
 // Imperative trigger. Call showBumpModal() from any add-to-cart handler; the
 // modal mounts lazily (nothing of it is in the initial DOM until triggered).
 // ---------------------------------------------------------------------------
-const SESSION_FLAG = "hfh_bump_seen_v2";
 type Listener = (onContinue?: () => void) => void;
 let listener: Listener | null = null;
 
 /** Returns true if the modal was shown (i.e. the caller should NOT continue itself). */
 export function showBumpModal(onContinue?: () => void): boolean {
   if (typeof window === "undefined") return false;
-  if (sessionStorage.getItem(SESSION_FLAG)) return false;
   if (!listener) return false;
-  sessionStorage.setItem(SESSION_FLAG, "1");
+  // Intentionally shown on every add-to-cart (no session suppression).
   listener(onContinue);
   return true;
 }
@@ -31,13 +29,21 @@ const track = (event: string, data?: Record<string, unknown>) => console.log(`[b
 // The $1 trial lives on the honey product; we resolve the ~$1.00 variant at runtime
 // so the SKU can stay a backend-only product.
 const BUMP_PRODUCT_HANDLE = "high-frequency-honey";
+// 1-Day Supply (3x High Frequency Honey Stix) — the $1 one-time-offer variant.
+const BUMP_VARIANT_ID = "gid://shopify/ProductVariant/44712793964610";
 
 async function resolveBumpVariant() {
   try {
     const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle: BUMP_PRODUCT_HANDLE });
     const node = data?.data?.product;
     const variants = node?.variants?.edges ?? [];
-    const trial = variants.find((v: { node: { price: { amount: string } } }) => parseFloat(v.node.price.amount) <= 1.5);
+    const trial =
+      variants.find((v: { node: { id: string } }) => v.node.id === BUMP_VARIANT_ID) ??
+      // Fallback: cheapest available variant (3-stick pack).
+      [...variants].sort(
+        (a: { node: { price: { amount: string } } }, b: { node: { price: { amount: string } } }) =>
+          parseFloat(a.node.price.amount) - parseFloat(b.node.price.amount),
+      )[0];
     if (!node || !trial) return null;
     return {
       product: { node } as ShopifyProduct,
