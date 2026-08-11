@@ -1346,3 +1346,31 @@
   opacity: 1;
   font-size: 11px;
 }
+
+
+/* ---------- mobile takeover spacing overrides (must win the cascade) ---------- */
+@media (max-width: 639px) {
+  .hfu-topband {
+    padding: calc(env(safe-area-inset-top) + 40px) 20px 18px;
+  }
+  /* Shorter square gallery so the product label + headline show without scrolling. */
+  .hfu-media-gallery .hfg-main {
+    aspect-ratio: auto;
+    height: 34vh;
+    max-height: 34vh;
+  }
+  .hfu-media-gallery .hfg-main img {
+    object-fit: contain;
+  }
+  .hfu-name-row {
+    margin-top: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .hfu-product-name {
+    color: var(--hfu-gold);
+  }
+  .hfu-h {
+    margin-top: 12px;
+  }
+}
