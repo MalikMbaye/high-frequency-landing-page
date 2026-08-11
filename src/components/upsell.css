@@ -1379,6 +1379,11 @@
   font-size: 11px;
 }
 
+/* Mobile-only relocated disclaimer (rendered under the accordion). */
+.hfu-note-mobile {
+  display: none;
+}
+
 
 /* ---------- mobile takeover spacing overrides (must win the cascade) ---------- */
 @media (max-width: 639px) {
