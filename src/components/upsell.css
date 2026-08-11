@@ -1389,11 +1389,22 @@
   /* Shorter square gallery so the product label + headline show without scrolling. */
   .hfu-media-gallery .hfg-main {
     aspect-ratio: auto;
-    height: clamp(180px, 30vh, 340px);
-    max-height: 30vh;
+    height: clamp(150px, 24vh, 280px);
+    max-height: 24vh;
   }
   .hfu-media-gallery .hfg-main img {
     object-fit: contain;
+  }
+  /* Slimmer thumbnail strip: still full width, much shorter. */
+  .hfu-media-gallery .hfg-thumbs {
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .hfu-media-gallery .hfg-thumb {
+    flex: 0 0 calc((100% - 32px) / 5);
+    aspect-ratio: auto;
+    height: 42px;
+    border-radius: 8px;
   }
   .hfu-name-row {
     margin-top: 12px;
