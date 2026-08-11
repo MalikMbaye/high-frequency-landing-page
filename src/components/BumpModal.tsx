@@ -218,13 +218,13 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
     >
       <div className="hfu-sheet hfu-sheet-wide">
         <div className="hfu-handle" />
-        <div className="hfu-media hfu-media-gallery">
-          <BumpGallery />
-        </div>
 
+        <div className="hfu-scroll" ref={scrollRef} onScroll={onScroll}>
+          <div className="hfu-media hfu-media-gallery">
+            <BumpGallery />
+          </div>
 
-        <div className="hfu-col">
-          <div className="hfu-scroll" ref={scrollRef} onScroll={onScroll}>
+          <div className="hfu-copy">
             <span className="hfu-chip">{copy.eyebrow}</span>
             <div className="hfu-name-row">
               <p className="hfu-product-name">
@@ -232,7 +232,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
               </p>
               <span className="hfu-price-tag">3-Packs for $1</span>
             </div>
-            
+
             <h2 className="hfu-h">{copy.headline}</h2>
             <p className="hfu-lead">{copy.lead}</p>
             <p className="hfu-p">{copy.body}</p>
@@ -241,29 +241,28 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
 
             <WhatsInside copy={copy} />
           </div>
-
-          {showCue && (
-            <button type="button" className="hfu-scroll-cue" onClick={scrollMore} aria-label="Show more details">
-              <ChevronDown size={18} aria-hidden="true" />
-            </button>
-          )}
-
-          <div className="hfu-actions">
-            <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
-              {state === "default" && copy.cta}
-              {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
-              {state === "added" && copy.ctaAdded}
-            </button>
-
-            <button type="button" className="hfu-link" onClick={decline}>
-              {copy.ctaSecondary}
-            </button>
-
-            <p className="hfu-trust">{copy.trustRow}</p>
-            <p className="hfu-brandline">From the High Frequency Marketplace.</p>
-          </div>
         </div>
 
+        {showCue && (
+          <button type="button" className="hfu-scroll-cue" onClick={scrollMore} aria-label="Show more details">
+            <ChevronDown size={18} aria-hidden="true" />
+          </button>
+        )}
+
+        <div className="hfu-actions">
+          <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
+            {state === "default" && copy.cta}
+            {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
+            {state === "added" && copy.ctaAdded}
+          </button>
+
+          <button type="button" className="hfu-link" onClick={decline}>
+            {copy.ctaSecondary}
+          </button>
+
+          <p className="hfu-trust">{copy.trustRow}</p>
+          <p className="hfu-brandline">From the High Frequency Marketplace.</p>
+        </div>
       </div>
     </div>,
     document.body,
