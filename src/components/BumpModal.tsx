@@ -109,6 +109,8 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   const [showCue, setShowCue] = useState(false);
   const [upgrade, setUpgrade] = useState(false);
   const [upgradeOpen, setUpgradeOpen] = useState(false);
+  const [accepted, setAccepted] = useState(false);
+
   // A variant is drawn at random on every open, then tagged onto every event.
   const [copy] = useState<BumpCopy>(() => pickBumpVariant());
 
