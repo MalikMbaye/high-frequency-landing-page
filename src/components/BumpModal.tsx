@@ -145,38 +145,49 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   };
 
   return createPortal(
-    <div className="hfu hfu-backdrop" role="dialog" aria-modal="true" aria-label={bumpCopy.headline}>
-      <div className="hfu-sheet">
+    <div
+      className="hfu hfu-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-label={bumpCopy.headline}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) decline();
+      }}
+    >
+      <div className="hfu-sheet hfu-sheet-wide">
         <div className="hfu-handle" />
         <div className="hfu-media">
           <img src={honeyHero} alt="High Frequency Honey sachet with honey pouring out" loading="lazy" />
         </div>
 
-        <span className="hfu-chip">{bumpCopy.eyebrow}</span>
-        <h2 className="hfu-h">{bumpCopy.headline}</h2>
-        {bumpCopy.body.map((p) => (
-          <p key={p} className="hfu-p">
-            {p}
-          </p>
-        ))}
+        <div className="hfu-col">
+          <span className="hfu-chip">{bumpCopy.eyebrow}</span>
+          <h2 className="hfu-h">{bumpCopy.headline}</h2>
+          {bumpCopy.body.map((p) => (
+            <p key={p} className="hfu-p">
+              {p}
+            </p>
+          ))}
 
-        <WhatsInside />
+          <WhatsInside />
 
-        <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
-          {state === "default" && bumpCopy.cta}
-          {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
-          {state === "added" && `${bumpCopy.ctaAdded} Continue to checkout`}
-        </button>
+          <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
+            {state === "default" && bumpCopy.cta}
+            {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
+            {state === "added" && `${bumpCopy.ctaAdded} Continue to checkout`}
+          </button>
 
-        <button type="button" className="hfu-link" onClick={decline}>
-          {bumpCopy.decline}
-        </button>
+          <button type="button" className="hfu-link" onClick={decline}>
+            {bumpCopy.decline}
+          </button>
 
-        <p className="hfu-trust">{bumpCopy.trust.join(" \u00b7 ")}</p>
+          <p className="hfu-trust">{bumpCopy.trust.join(" \u00b7 ")}</p>
+        </div>
       </div>
     </div>,
     document.body,
   );
+
 }
 
 /** Mount once near the app root. Renders nothing until showBumpModal() fires. */
