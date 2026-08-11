@@ -560,8 +560,21 @@
   }
 }
 
+.hfu-upgrade-chev-btn {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin: -4px -4px -4px 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
 .hfu-upgrade-chev {
   flex: 0 0 auto;
+
   color: #c9a961;
   transition: transform 0.2s ease-out;
 }
