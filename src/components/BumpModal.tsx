@@ -4,7 +4,7 @@ import { Loader2 } from "lucide-react";
 import "./upsell.css";
 import { pickBumpVariant, type BumpCopy } from "@/content/upsellCopy";
 import { trackBump } from "@/lib/bumpAnalytics";
-import honeyHero from "@/assets/honey/honey-hero.webp";
+import BumpGallery from "@/components/BumpGallery";
 import {
   storefrontApiRequest,
   PRODUCT_BY_HANDLE_QUERY,
