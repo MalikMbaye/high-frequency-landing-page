@@ -11,7 +11,7 @@ import { useCartStore } from "@/stores/cartStore";
 // Imperative trigger. Call showBumpModal() from any add-to-cart handler; the
 // modal mounts lazily (nothing of it is in the initial DOM until triggered).
 // ---------------------------------------------------------------------------
-const SESSION_FLAG = "hfh_bump_seen";
+const SESSION_FLAG = "hfh_bump_seen_v2";
 type Listener = (onContinue?: () => void) => void;
 let listener: Listener | null = null;
 
@@ -23,25 +23,6 @@ export function showBumpModal(onContinue?: () => void): boolean {
   sessionStorage.setItem(SESSION_FLAG, "1");
   listener(onContinue);
   return true;
-}
-
-/**
- * Shows the bump after `delay` ms so the cart drawer's "Added to cart"
- * confirmation lands first. Cancelled if the drawer is closed in the meantime.
- */
-export function showBumpModalAfter(delay = 3000, onContinue?: () => void) {
-  if (typeof window === "undefined") return;
-  if (sessionStorage.getItem(SESSION_FLAG)) return;
-  const timer = window.setTimeout(() => {
-    unsubscribe();
-    if (useCartStore.getState().isDrawerOpen) showBumpModal(onContinue);
-  }, delay);
-  const unsubscribe = useCartStore.subscribe((s) => {
-    if (!s.isDrawerOpen) {
-      window.clearTimeout(timer);
-      unsubscribe();
-    }
-  });
 }
 
 // Analytics stubs — swap for the real pixel/GA calls later.

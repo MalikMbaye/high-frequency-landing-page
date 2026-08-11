@@ -4,7 +4,7 @@ import { Check, ChevronLeft, ChevronRight, Star, Loader2, Minus, Plus } from "lu
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
 import DeliveryTimeline from "@/components/DeliveryTimeline";
-import { showBumpModalAfter } from "@/components/BumpModal";
+import { showBumpModal } from "@/components/BumpModal";
 
 
 // Landing page price test — points at the duplicated $169.99 product.
@@ -263,10 +263,9 @@ const ProductBlock = () => {
                   selectedOptions: selectedVariant.selectedOptions || []
                 });
 
-                // Confirm the add first: open the cart so the new line + "Added to cart"
-                // flash is visible, then layer the $1 bump on top (once per session).
-                useCartStore.getState().openDrawer();
-                showBumpModalAfter(3000);
+                // Present the order bump first, then reveal the completed cart.
+                const openCart = () => useCartStore.getState().openDrawer();
+                if (!showBumpModal(openCart)) openCart();
               }}
               disabled={isCartLoading || !product}
             >
