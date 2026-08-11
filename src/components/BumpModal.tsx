@@ -232,7 +232,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
               </p>
               <span className="hfu-price-tag">3-Packs for $1</span>
             </div>
-            <p className="hfu-brandline">From the High Frequency Marketplace — our wellness shelf.</p>
+            
             <h2 className="hfu-h">{copy.headline}</h2>
             <p className="hfu-lead">{copy.lead}</p>
             <p className="hfu-p">{copy.body}</p>
@@ -260,6 +260,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
             </button>
 
             <p className="hfu-trust">{copy.trustRow}</p>
+            <p className="hfu-brandline">From the High Frequency Marketplace.</p>
           </div>
         </div>
 
