@@ -265,11 +265,8 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
             {copy.ctaSecondary}
           </button>
 
-          {(() => {
-            const amt = monthPrice ? Number(monthPrice.amount) : 29.99;
-            const was = monthPrice?.compareAt ? Number(monthPrice.compareAt) : 59.99;
-            return (
-              <div className={`hfu-upgrade${upgradeOpen ? " is-open" : ""}`}>
+          <div className={`hfu-upgrade${upgradeOpen ? " is-open" : ""}`}>
+
                 <div
                   className="hfu-upgrade-row"
                   role="button"
