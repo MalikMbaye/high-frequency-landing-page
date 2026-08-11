@@ -62,8 +62,9 @@
   .hfu-sheet.hfu-sheet-wide {
     box-sizing: border-box;
     width: calc(100% - 48px);
-    max-width: 900px;
-    max-height: 640px;
+    max-width: 1060px;
+    max-height: min(94vh, 940px);
+    height: auto;
     display: flex;
     flex-direction: column;
     padding: 32px;
@@ -87,7 +88,7 @@
   .hfu-sheet-wide .hfg,
   .hfu-sheet-wide .hfg-main,
   .hfu-sheet-wide .hfg-rail {
-    max-width: 300px;
+    max-width: 400px;
   }
   .hfu-sheet-wide .hfu-copy {
     min-height: 0;
@@ -1206,11 +1207,17 @@
   margin: 0 -20px 0;
   padding: 12px 16px;
   text-align: center;
-  font-size: 13px;
-  letter-spacing: 0.02em;
-  color: #e8a33d;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #f1f2f6;
   background: #1c1410;
   border-bottom: 1px solid #3a2a18;
+}
+.hfu-urgency-clock {
+  color: #ff5630;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
 }
 .hfu-handle {
   display: none;

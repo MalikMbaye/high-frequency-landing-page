@@ -114,6 +114,16 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   // A variant is drawn at random on every open, then tagged onto every event.
   const [copy] = useState<BumpCopy>(() => pickBumpVariant());
 
+  // 10-minute urgency countdown (stops at 0:00).
+  const [secondsLeft, setSecondsLeft] = useState(600);
+  useEffect(() => {
+    const id = setInterval(() => setSecondsLeft((s) => (s > 0 ? s - 1 : 0)), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const clock = `${String(Math.floor(secondsLeft / 60)).padStart(2, "0")}:${String(
+    secondsLeft % 60,
+  ).padStart(2, "0")}`;
+
 
 
   /** On desktop the copy column scrolls; on mobile the whole sheet does. */
@@ -212,7 +222,10 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
             this once.
           </p>
         </div>
-        <div className="hfu-urgency">This offer disappears when you leave this screen</div>
+        <div className="hfu-urgency">
+          <span className="hfu-urgency-label">Special Offer Ends In:</span>{" "}
+          <span className="hfu-urgency-clock">{clock}</span>
+        </div>
         <div className="hfu-handle" />
 
         <div className="hfu-scroll" ref={scrollRef} onScroll={onScroll}>
