@@ -34,7 +34,7 @@ const Hero = () => {
             autoPlay
             loop
             muted
-            muted
+
             playsInline
             preload="auto"
 
