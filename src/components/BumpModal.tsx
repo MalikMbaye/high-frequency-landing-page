@@ -173,14 +173,10 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   };
 
   const accept = async () => {
-    // First tap: accept the $1 offer and reveal the 30-day add-on.
-    if (!accepted) {
-      setAccepted(true);
-      trackBump("accepted", copy.variant, { offer: "trial_3pack_1" });
-      return;
-    }
     setState("adding");
-    if (upgrade) trackBump("accepted", copy.variant, { offer: "month_30pack_upgrade" });
+    trackBump("accepted", copy.variant, {
+      offer: upgrade ? "month_30pack_upgrade" : "trial_3pack_1",
+    });
     await addBumpToCart({ variantId: upgrade ? MONTH_VARIANT_ID : TRIAL_VARIANT_FALLBACK });
     setState("added");
     setTimeout(finish, 800);
