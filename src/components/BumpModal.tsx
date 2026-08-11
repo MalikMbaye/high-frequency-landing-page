@@ -35,6 +35,8 @@ export function showBumpModal(onContinue?: () => void): boolean {
 const TRIAL_HANDLE = "high-frequency-honey-trial";
 const MONTH_HANDLE = "high-frequency-honey";
 const TRIAL_VARIANT_FALLBACK = "gid://shopify/ProductVariant/44712793964610"; // 3x stix
+const MONTH_VARIANT_ID = "gid://shopify/ProductVariant/44712941879362"; // 30x stix
+
 
 interface ResolvedOffer {
   product: ShopifyProduct;
@@ -105,8 +107,33 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const copyRef = useRef<HTMLDivElement | null>(null);
   const [showCue, setShowCue] = useState(false);
+  const [upgrade, setUpgrade] = useState(false);
+  // Live Shopify pricing for the 30-day upgrade (final rate + compare-at).
+  const [monthPrice, setMonthPrice] = useState<{ amount: string; compareAt: string | null } | null>(null);
   // A variant is drawn at random on every open, then tagged onto every event.
   const [copy] = useState<BumpCopy>(() => pickBumpVariant());
+
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle: MONTH_HANDLE });
+        const edges = data?.data?.product?.variants?.edges ?? [];
+        const node = edges.find(
+          (e: { node: { id: string } }) => e.node.id === MONTH_VARIANT_ID,
+        )?.node as { price?: { amount: string }; compareAtPrice?: { amount: string } | null } | undefined;
+        if (alive && node?.price) {
+          setMonthPrice({ amount: node.price.amount, compareAt: node.compareAtPrice?.amount ?? null });
+        }
+      } catch {
+        /* pricing row falls back to a generic label */
+      }
+    })();
+    return () => {
+      alive = false;
+    };
+  }, []);
+
 
   /** On desktop the copy column scrolls; on mobile the whole sheet does. */
   const scroller = () => {
@@ -156,11 +183,14 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
 
   const accept = async () => {
     setState("adding");
-    trackBump("accepted", copy.variant, { offer: "trial_3pack_1" });
-    await addBumpToCart({ variantId: TRIAL_VARIANT_FALLBACK });
+    trackBump("accepted", copy.variant, {
+      offer: upgrade ? "month_30pack_upgrade" : "trial_3pack_1",
+    });
+    await addBumpToCart({ variantId: upgrade ? MONTH_VARIANT_ID : TRIAL_VARIANT_FALLBACK });
     setState("added");
     setTimeout(finish, 800);
   };
+
 
   const decline = () => {
     trackBump("declined", copy.variant);
@@ -224,11 +254,37 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
         )}
 
         <div className="hfu-actions">
+          <label className="hfu-upgrade">
+            <input
+              type="checkbox"
+              checked={upgrade}
+              onChange={(e) => {
+                setUpgrade(e.target.checked);
+                trackBump(e.target.checked ? "upgrade_checked" : "upgrade_unchecked", copy.variant);
+              }}
+            />
+            <span className="hfu-upgrade-copy">
+              <span className="hfu-upgrade-title">
+                Upgrade to the 30-day supply —{" "}
+                <span className="hfu-upgrade-price">
+                  ${monthPrice ? Number(monthPrice.amount).toFixed(2) : "33.33"}
+                </span>
+                {monthPrice?.compareAt && (
+                  <span className="hfu-upgrade-was">${Number(monthPrice.compareAt).toFixed(2)}</span>
+                )}
+              </span>
+              <span className="hfu-upgrade-sub">
+                30 stix instead of 3. Roughly half off, one-time — no subscription.
+              </span>
+            </span>
+          </label>
+
           <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
-            {state === "default" && copy.cta}
+            {state === "default" && (upgrade ? "Add the 30-day supply" : copy.cta)}
             {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
             {state === "added" && copy.ctaAdded}
           </button>
+
 
           <button type="button" className="hfu-link" onClick={decline}>
             {copy.ctaSecondary}

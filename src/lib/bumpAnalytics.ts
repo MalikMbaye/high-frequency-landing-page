@@ -4,7 +4,15 @@ import { supabase } from "@/integrations/supabase/client";
  * Order-bump conversion logging. Every event carries the copy variant tag so the
  * conversion rate per variant can be read straight off the bump_events table.
  */
-export type BumpEvent = "viewed" | "accepted" | "declined" | "detail_opened" | "accordion_opened";
+export type BumpEvent =
+  | "viewed"
+  | "accepted"
+  | "declined"
+  | "detail_opened"
+  | "accordion_opened"
+  | "upgrade_checked"
+  | "upgrade_unchecked";
+
 
 const SESSION_KEY = "hfh_bump_session";
 
