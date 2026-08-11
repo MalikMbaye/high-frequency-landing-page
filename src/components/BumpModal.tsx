@@ -25,6 +25,25 @@ export function showBumpModal(onContinue?: () => void): boolean {
   return true;
 }
 
+/**
+ * Shows the bump after `delay` ms so the cart drawer's "Added to cart"
+ * confirmation lands first. Cancelled if the drawer is closed in the meantime.
+ */
+export function showBumpModalAfter(delay = 3000, onContinue?: () => void) {
+  if (typeof window === "undefined") return;
+  if (sessionStorage.getItem(SESSION_FLAG)) return;
+  const timer = window.setTimeout(() => {
+    unsubscribe();
+    if (useCartStore.getState().isDrawerOpen) showBumpModal(onContinue);
+  }, delay);
+  const unsubscribe = useCartStore.subscribe((s) => {
+    if (!s.isDrawerOpen) {
+      window.clearTimeout(timer);
+      unsubscribe();
+    }
+  });
+}
+
 // Analytics stubs — swap for the real pixel/GA calls later.
 const track = (event: string, data?: Record<string, unknown>) => console.log(`[bump] ${event}`, data ?? "");
 
@@ -144,39 +163,62 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
     finish();
   };
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.stopPropagation();
+        decline();
+      }
+    };
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
+  }); // eslint-disable-line react-hooks/exhaustive-deps
+
+
   return createPortal(
-    <div className="hfu hfu-backdrop" role="dialog" aria-modal="true" aria-label={bumpCopy.headline}>
-      <div className="hfu-sheet">
+    <div
+      className="hfu hfu-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-label={bumpCopy.headline}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) decline();
+      }}
+    >
+      <div className="hfu-sheet hfu-sheet-wide">
         <div className="hfu-handle" />
         <div className="hfu-media">
           <img src={honeyHero} alt="High Frequency Honey sachet with honey pouring out" loading="lazy" />
         </div>
 
-        <span className="hfu-chip">{bumpCopy.eyebrow}</span>
-        <h2 className="hfu-h">{bumpCopy.headline}</h2>
-        {bumpCopy.body.map((p) => (
-          <p key={p} className="hfu-p">
-            {p}
-          </p>
-        ))}
+        <div className="hfu-col">
+          <span className="hfu-chip">{bumpCopy.eyebrow}</span>
+          <h2 className="hfu-h">{bumpCopy.headline}</h2>
+          {bumpCopy.body.map((p) => (
+            <p key={p} className="hfu-p">
+              {p}
+            </p>
+          ))}
 
-        <WhatsInside />
+          <WhatsInside />
 
-        <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
-          {state === "default" && bumpCopy.cta}
-          {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
-          {state === "added" && `${bumpCopy.ctaAdded} Continue to checkout`}
-        </button>
+          <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
+            {state === "default" && bumpCopy.cta}
+            {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
+            {state === "added" && `${bumpCopy.ctaAdded} Continue to checkout`}
+          </button>
 
-        <button type="button" className="hfu-link" onClick={decline}>
-          {bumpCopy.decline}
-        </button>
+          <button type="button" className="hfu-link" onClick={decline}>
+            {bumpCopy.decline}
+          </button>
 
-        <p className="hfu-trust">{bumpCopy.trust.join(" \u00b7 ")}</p>
+          <p className="hfu-trust">{bumpCopy.trust.join(" \u00b7 ")}</p>
+        </div>
       </div>
     </div>,
     document.body,
   );
+
 }
 
 /** Mount once near the app root. Renders nothing until showBumpModal() fires. */

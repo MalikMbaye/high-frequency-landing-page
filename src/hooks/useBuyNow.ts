@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
-import { showBumpModal } from "@/components/BumpModal";
+import { showBumpModalAfter } from "@/components/BumpModal";
 
 const LP_PRODUCT_HANDLE = "high-frequency-headphones-lp-test-169-99";
 
@@ -29,7 +29,7 @@ export function useBuyNow() {
 
       // Confirm the add first, then layer the $1 bump over the open cart.
       openDrawer();
-      showBumpModal(() => {});
+      showBumpModalAfter(3000);
     },
     [product, addItem, openDrawer]
   );
