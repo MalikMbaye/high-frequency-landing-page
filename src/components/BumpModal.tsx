@@ -2,12 +2,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Loader2 } from "lucide-react";
 import "./upsell.css";
-import { bumpCopy, type BumpOption } from "@/content/upsellCopy";
+import { bumpCopy } from "@/content/upsellCopy";
 import honeyHero from "@/assets/honey/honey-hero.webp";
 import {
   storefrontApiRequest,
   PRODUCT_BY_HANDLE_QUERY,
-  PRODUCT_SELLING_PLANS_QUERY,
   type ShopifyProduct,
 } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
@@ -30,16 +29,13 @@ export function showBumpModal(onContinue?: () => void): boolean {
 
 // Analytics stubs — swap for the real pixel/GA calls later.
 const track = (event: string, data?: Record<string, unknown>) =>
-  console.log(`[bump] ${event}`, { bump_variant: "multi", ...(data ?? {}) });
-
-type OptionId = BumpOption["id"];
+  console.log(`[bump] ${event}`, { bump_variant: "single", ...(data ?? {}) });
 
 // The trial lives on its own handle when it exists; otherwise we fall back to the
 // 3-stick variant on the main honey product.
 const TRIAL_HANDLE = "high-frequency-honey-trial";
 const MONTH_HANDLE = "high-frequency-honey";
 const TRIAL_VARIANT_FALLBACK = "gid://shopify/ProductVariant/44712793964610"; // 3x stix
-const MONTH_VARIANT_FALLBACK = "gid://shopify/ProductVariant/44712941879362"; // 30x stix
 
 interface ResolvedOffer {
   product: ShopifyProduct;
@@ -82,18 +78,6 @@ async function fetchOffer(handle: string, preferredVariantId: string): Promise<R
     };
   } catch (error) {
     console.error(`Bump offer lookup failed for ${handle}:`, error);
-    return null;
-  }
-}
-
-/** Selling plans need an extra storefront scope; a failure just hides the toggle. */
-async function fetchSellingPlanId(handle: string): Promise<string | null> {
-  try {
-    const data = await storefrontApiRequest(PRODUCT_SELLING_PLANS_QUERY, { handle });
-    const groups = data?.data?.product?.sellingPlanGroups?.edges ?? [];
-    const plan = groups[0]?.node?.sellingPlans?.edges?.[0]?.node;
-    return plan?.id ?? null;
-  } catch {
     return null;
   }
 }
@@ -167,20 +151,10 @@ function WhatsInside() {
 
 function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: () => void }) {
   const [state, setState] = useState<"default" | "adding" | "added">("default");
-  const [selected, setSelected] = useState<OptionId>("trial");
-  const [subscribed, setSubscribed] = useState(false);
-  const [sellingPlanId, setSellingPlanId] = useState<string | null>(null);
   const continued = useRef(false);
 
   useEffect(() => {
     track("bumpViewed");
-    let alive = true;
-    fetchSellingPlanId(MONTH_HANDLE).then((id) => {
-      if (alive) setSellingPlanId(id);
-    });
-    return () => {
-      alive = false;
-    };
   }, []);
 
   const finish = () => {
@@ -190,28 +164,10 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
     onContinue?.();
   };
 
-  const select = (id: OptionId) => {
-    setSelected(id);
-    track("bumpOptionSelected", { option: id });
-    if (id === "trial" && subscribed) {
-      setSubscribed(false);
-      track("bumpSubscribeToggled", { subscribed: false });
-    }
-  };
-
-  const toggleSubscribe = () => {
-    const next = !subscribed;
-    setSubscribed(next);
-    track("bumpSubscribeToggled", { subscribed: next });
-  };
-
   const accept = async () => {
     setState("adding");
-    track("bumpAccepted", { option: selected, subscribed });
-    await addBumpToCart({
-      variantId: selected === "trial" ? TRIAL_VARIANT_FALLBACK : MONTH_VARIANT_FALLBACK,
-      sellingPlanId: selected === "month" && subscribed ? sellingPlanId : null,
-    });
+    track("bumpAccepted");
+    await addBumpToCart({ variantId: TRIAL_VARIANT_FALLBACK });
     setState("added");
     setTimeout(finish, 800);
   };
@@ -231,15 +187,6 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
     window.addEventListener("keydown", onKey, true);
     return () => window.removeEventListener("keydown", onKey, true);
   }); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const ctaLabel =
-    selected === "month"
-      ? subscribed
-        ? bumpCopy.subscription.cta
-        : bumpCopy.options[1].cta
-      : bumpCopy.options[0].cta;
-
-  const showSubscribe = !!sellingPlanId;
 
   return createPortal(
     <div
@@ -262,65 +209,12 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
           <h2 className="hfu-h">{bumpCopy.headline}</h2>
           <p className="hfu-lead">{bumpCopy.lead}</p>
           <p className="hfu-p">{bumpCopy.body}</p>
+          <p className="hfu-p">{bumpCopy.offer}</p>
 
           <WhatsInside />
 
-          <div className="hfu-opts" role="radiogroup" aria-label="Choose your honey option">
-            {bumpCopy.options.map((opt) => {
-              const isSelected = selected === opt.id;
-              return (
-                <div
-                  key={opt.id}
-                  className={`hfu-opt${isSelected ? " hfu-opt-on" : ""}`}
-                  role="radio"
-                  aria-checked={isSelected}
-                  tabIndex={0}
-                  onClick={() => select(opt.id)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      select(opt.id);
-                    }
-                  }}
-                >
-                  {opt.chip && <span className="hfu-badge">{opt.chip}</span>}
-                  <div className="hfu-opt-row">
-                    <span className="hfu-radio" aria-hidden="true" />
-                    <div className="hfu-opt-text">
-                      <span className="hfu-opt-title">{opt.title}</span>
-                      <span className="hfu-opt-price">{opt.price}</span>
-                      <span className="hfu-opt-sub">{opt.sub}</span>
-                    </div>
-                  </div>
-
-                  {opt.id === "month" && showSubscribe && (
-                    <div className={`hfu-sub-wrap${isSelected ? " hfu-sub-open" : ""}`}>
-                      <div className="hfu-sub-row">
-                        <label className="hfu-switch">
-                          <input
-                            type="checkbox"
-                            checked={subscribed}
-                            onChange={toggleSubscribe}
-                            onClick={(e) => e.stopPropagation()}
-                            aria-label={bumpCopy.subscription.label}
-                          />
-                          <span className="hfu-switch-track" aria-hidden="true" />
-                        </label>
-                        <div className="hfu-opt-text">
-                          <span className="hfu-opt-title">{bumpCopy.subscription.label}</span>
-                          <span className="hfu-opt-price">{bumpCopy.subscription.price}</span>
-                          <span className="hfu-opt-sub">{bumpCopy.subscription.sub}</span>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
           <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
-            {state === "default" && ctaLabel}
+            {state === "default" && bumpCopy.cta}
             {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
             {state === "added" && bumpCopy.ctaAdded}
           </button>
@@ -329,7 +223,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
             {bumpCopy.ctaSecondary}
           </button>
 
-          <p className="hfu-trust">{subscribed ? bumpCopy.trustRowSubscription : bumpCopy.trustRow}</p>
+          <p className="hfu-trust">{bumpCopy.trustRow}</p>
         </div>
       </div>
     </div>,
