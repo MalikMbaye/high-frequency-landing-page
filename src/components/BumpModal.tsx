@@ -308,9 +308,8 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
                     </p>
                   </div>
                 </div>
-              </div>
-            );
-          })()}
+          </div>
+
         </div>
 
       </div>
