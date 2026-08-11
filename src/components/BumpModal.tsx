@@ -212,7 +212,10 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
             this once.
           </p>
         </div>
-        <div className="hfu-urgency">This offer disappears when you leave this screen</div>
+        <div className="hfu-urgency">
+          <span className="hfu-urgency-label">Special Offer Ends In:</span>{" "}
+          <span className="hfu-urgency-clock">{clock}</span>
+        </div>
         <div className="hfu-handle" />
 
         <div className="hfu-scroll" ref={scrollRef} onScroll={onScroll}>
