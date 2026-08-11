@@ -150,12 +150,30 @@ function WhatsInside({ copy }: { copy: BumpCopy }) {
 function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: () => void }) {
   const [state, setState] = useState<"default" | "adding" | "added">("default");
   const continued = useRef(false);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const [showCue, setShowCue] = useState(false);
   // A variant is drawn at random on every open, then tagged onto every event.
   const [copy] = useState<BumpCopy>(() => pickBumpVariant());
+
+  const onScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setShowCue(el.scrollHeight - el.clientHeight - el.scrollTop > 24);
+  }, []);
+
+  const scrollMore = useCallback(() => {
+    scrollRef.current?.scrollBy({ top: 220, behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(onScroll);
+    return () => cancelAnimationFrame(id);
+  }, [onScroll, copy.variant]);
 
   useEffect(() => {
     trackBump("viewed", copy.variant);
   }, [copy.variant]);
+
 
   const finish = () => {
     if (continued.current) return;
