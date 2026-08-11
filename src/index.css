@@ -314,13 +314,26 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 7px 24px;
+    padding: 7px 12px;
     background: linear-gradient(90deg, var(--hfh-purple), var(--hfh-gold, #d4a017));
     color: #fff;
-    font-size: 0.72rem;
+    font-size: clamp(0.5rem, 2.5vw, 0.72rem);
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .stock-banner-text {
+    white-space: nowrap;
+  }
+  .stock-banner-dot {
+    flex: 0 0 auto;
+  }
+  @media (min-width: 640px) {
+    .stock-banner {
+      padding: 7px 24px;
+      letter-spacing: 0.08em;
+    }
   }
   .stock-banner-dot {
     width: 8px;
