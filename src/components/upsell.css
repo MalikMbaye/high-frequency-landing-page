@@ -692,6 +692,7 @@
     background: var(--hfu-bg);
   }
   .hfu-actions .hfu-upgrade {
+    flex: 0 0 auto;
     min-height: 0;
     display: flex;
     flex-direction: column;
