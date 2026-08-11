@@ -67,21 +67,44 @@ export default function BumpGallery() {
         </button>
       </div>
 
-      <div className="hfg-thumbs" role="tablist" aria-label="Product images">
-        {bumpGalleryImages.map((img, i) => (
+      <div className="hfg-rail">
+        {total > 5 && (
           <button
-            key={img.src}
             type="button"
-            role="tab"
-            aria-selected={i === index}
-            className={`hfg-thumb ${i === index ? "is-active" : ""}`}
-            onClick={() => setIndex(i)}
-            aria-label={`View image ${i + 1}`}
+            className="hfg-rail-arrow hfg-rail-prev"
+            onClick={() => railRef.current?.scrollBy({ left: -160, behavior: "smooth" })}
+            aria-label="Scroll thumbnails left"
           >
-            <img src={img.src} alt="" loading="lazy" />
+            <ChevronLeft size={14} />
           </button>
-        ))}
+        )}
+        <div className="hfg-thumbs" ref={railRef} role="tablist" aria-label="Product images">
+          {bumpGalleryImages.map((img, i) => (
+            <button
+              key={img.src}
+              type="button"
+              role="tab"
+              aria-selected={i === index}
+              className={`hfg-thumb ${i === index ? "is-active" : ""}`}
+              onClick={() => setIndex(i)}
+              aria-label={`View image ${i + 1}`}
+            >
+              <img src={img.src} alt="" loading="lazy" />
+            </button>
+          ))}
+        </div>
+        {total > 5 && (
+          <button
+            type="button"
+            className="hfg-rail-arrow hfg-rail-next"
+            onClick={() => railRef.current?.scrollBy({ left: 160, behavior: "smooth" })}
+            aria-label="Scroll thumbnails right"
+          >
+            <ChevronRight size={14} />
+          </button>
+        )}
       </div>
+
 
       {lightbox &&
         createPortal(
