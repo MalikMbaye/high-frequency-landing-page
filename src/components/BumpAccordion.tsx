@@ -7,7 +7,7 @@ import { ChevronDown, Loader2 } from "lucide-react";
  * /content/bump-panels.json — never inlined into the bundle.
  */
 type Block =
-  | { type: "lead" | "p" | "accent" | "note"; text: string }
+  | { type: "lead" | "p" | "accent" | "note" | "subhead"; text: string }
   | { type: "labelled"; label: string; text: string }
   | { type: "bullets"; items: string[] }
   | { type: "list"; items: Array<{ label: string; text: string }> }
@@ -22,8 +22,10 @@ type Block =
 interface Panel {
   id: string;
   title: string;
+  subline?: string;
   blocks: Block[];
 }
+
 
 function PanelBody({ blocks }: { blocks: Block[] }) {
   return (
