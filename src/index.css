@@ -2738,6 +2738,19 @@
   .nav-links {
     display: none;
   }
+  /* Tablet: brand pinned left, actions pinned right (grid columns collapse
+     once nav-links is hidden, which bunched everything toward the middle) */
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 32px;
+  }
+  .nav-actions {
+    margin-left: auto;
+    gap: 18px;
+  }
   .nav-toggle {
     display: inline-flex;
   }
