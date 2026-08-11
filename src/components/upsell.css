@@ -291,6 +291,9 @@
     flex: 1 1 auto;
     overflow: hidden;
   }
+  .hfg-main {
+    max-height: 34vh;
+  }
   .hfu-scroll {
     flex: 1 1 auto;
     overflow-y: auto;
