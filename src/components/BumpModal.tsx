@@ -233,8 +233,58 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
         )}
 
         <div className="hfu-actions">
+          <div className={`hfu-upgrade${upgradeOpen ? " is-open" : ""}${upgrade ? " is-checked" : ""}`}>
+            <div
+              className="hfu-upgrade-row"
+              role="button"
+              tabIndex={0}
+              aria-expanded={upgradeOpen}
+              onClick={() => setUpgradeOpen((v) => !v)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setUpgradeOpen((v) => !v);
+                }
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={upgrade}
+                aria-label="Send the full 30-day supply"
+                onClick={(e) => e.stopPropagation()}
+                onChange={(e) => {
+                  setUpgrade(e.target.checked);
+                  trackBump(e.target.checked ? "upgrade_checked" : "upgrade_unchecked", copy.variant);
+                }}
+              />
+              <span className="hfu-upgrade-line">
+                Yes, send the full 30-day supply for 50% off.
+              </span>
+              <ChevronDown className="hfu-upgrade-chev" size={18} aria-hidden="true" />
+            </div>
+
+            <div className="hfu-upgrade-panel">
+              <div className="hfu-upgrade-details">
+                <p className="hfu-upgrade-sub">
+                  Three sticks is a taste. The minerals compound, so most people notice the
+                  difference around day five and it keeps building through week four. Thirty sticks
+                  is the actual test.
+                </p>
+                <p className="hfu-upgrade-pricing">
+                  $29.99 today. $59.99 everywhere else. One time, no subscription, same box as your
+                  headphones.
+                </p>
+                <p className="hfu-upgrade-fine">Ships free · 30-day guarantee</p>
+              </div>
+            </div>
+          </div>
+
           <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
-            {state === "default" && (upgrade ? "Add the 30-day supply" : copy.cta)}
+            {state === "default" && (
+              <span key={upgrade ? "up" : "trial"} className="hfu-cta-label">
+                {upgrade ? "Add the 30-day supply for $29.99" : "Add the 3-pack for $1"}
+              </span>
+            )}
             {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
             {state === "added" && copy.ctaAdded}
           </button>
@@ -242,53 +292,8 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
           <button type="button" className="hfu-link" onClick={decline}>
             {copy.ctaSecondary}
           </button>
-
-          <div className={`hfu-upgrade${upgradeOpen ? " is-open" : ""}`}>
-
-                <div
-                  className="hfu-upgrade-row"
-                  role="button"
-                  tabIndex={0}
-                  aria-expanded={upgradeOpen}
-                  onClick={() => setUpgradeOpen((v) => !v)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      setUpgradeOpen((v) => !v);
-                    }
-                  }}
-                >
-                  <input
-                    type="checkbox"
-                    checked={upgrade}
-                    aria-label="Add the full 30-day supply"
-                    onClick={(e) => e.stopPropagation()}
-                    onChange={(e) => {
-                      setUpgrade(e.target.checked);
-                      trackBump(e.target.checked ? "upgrade_checked" : "upgrade_unchecked", copy.variant);
-                    }}
-                  />
-                  <span className="hfu-upgrade-line">
-                    Yes, I want the full 30-day supply for 50% off.
-                  </span>
-                  <ChevronDown className="hfu-upgrade-chev" size={18} aria-hidden="true" />
-                </div>
-
-                <div className="hfu-upgrade-panel">
-                  <div className="hfu-upgrade-details">
-                    <p className="hfu-upgrade-sub">
-                      30 sticks instead of 3. A full month, which is how long the minerals need to
-                      actually compound. One-time payment, no subscription, and it ships in the same
-                      box as your headphones.
-                    </p>
-                    <p className="hfu-upgrade-pricing">
-                      $29.99 today. $59.99 everywhere else.
-                    </p>
-                  </div>
-                </div>
-          </div>
-
         </div>
+
 
       </div>
     </div>,
