@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "@/components/upsell.css";
 import { upsellCopy } from "@/content/upsellCopy";
-import honeyBox from "@/assets/honey/honey-spoon.webp";
+import honeyBox from "@/assets/honey/honey-hero.webp";
 import gummies from "@/assets/honey/honey-cup.webp";
 import bundle from "@/assets/honey/honey-wave.webp";
 
