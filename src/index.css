@@ -2920,7 +2920,20 @@
     white-space: normal;
   }
   .social-proof-strip {
-    gap: 16px;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+  .social-proof-strip .proof-item {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .social-proof-strip .proof-num {
+    font-size: clamp(1rem, 4.6vw, 1.35rem);
+  }
+  .social-proof-strip .proof-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
   }
   .proof-divider {
     display: none;
