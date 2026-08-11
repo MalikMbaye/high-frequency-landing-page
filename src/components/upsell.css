@@ -465,11 +465,10 @@
   opacity: 0.85;
 }
 
-/* ---------- order bump upgrade row ---------- */
 /* ---------- order bump (self-contained light card) ---------- */
 
 .hfu-upgrade {
-  margin: 0 0 12px;
+  margin: 12px 0 0;
   border: 1px solid #e6003c33;
   border-left: 4px solid #e6003c;
   border-radius: 12px;
@@ -499,74 +498,44 @@
   flex: 1 1 auto;
   font-size: 13px;
   font-weight: 800;
-  line-height: 1.25;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.3;
   color: #17181f;
 }
-.hfu-upgrade-price {
-  color: #c1002f;
-  font-weight: 900;
-}
-.hfu-upgrade-was {
-  margin-left: 6px;
-  color: #6b6f7d;
-  text-decoration: line-through;
-  font-weight: 600;
-}
-.hfu-upgrade-toggle {
+.hfu-upgrade-chev {
   flex: 0 0 auto;
-  border: 0;
-  background: transparent;
   color: #c1002f;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  cursor: pointer;
-  padding: 2px 4px;
+  transition: transform 0.2s ease-out;
+}
+.hfu-upgrade.is-open .hfu-upgrade-chev {
+  transform: rotate(180deg);
+}
+.hfu-upgrade-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.hfu-upgrade.is-open .hfu-upgrade-panel {
+  max-height: 160px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .hfu-upgrade-details {
-  padding: 0 12px 12px 44px;
+  padding: 10px 12px 12px 44px;
   border-top: 1px solid #f0f1f4;
-  margin-top: 0;
 }
 .hfu-upgrade-sub {
-  margin: 10px 0 0;
+  margin: 0;
   font-size: 12px;
   line-height: 1.5;
   color: #4a4e5c;
 }
-.hfu-upgrade-compare {
-  margin: 10px 0 0;
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 11.5px;
-  color: #4a4e5c;
-}
-.hfu-upgrade-compare th,
-.hfu-upgrade-compare td {
-  padding: 5px 6px;
-  border-bottom: 1px solid #f0f1f4;
-  text-align: left;
-}
-.hfu-upgrade-compare th {
-  font-size: 10.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #8a8f9d;
-  font-weight: 700;
-}
-.hfu-upgrade-compare td.hfu-col-best {
-  color: #17181f;
-  font-weight: 800;
-}
-.hfu-upgrade-note {
+.hfu-upgrade-pricing {
   margin: 8px 0 0;
-  font-size: 11px;
-  color: #6b6f7d;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #17181f;
 }
+
 
 
 /* ---------- actions ---------- */
@@ -608,18 +577,30 @@
   font-size: 12px;
 }
 
-/* Sheet layout: media + copy scroll together, CTA pinned as a footer. */
+/* Sheet layout: body scrolls, footer pinned in a flex column. */
+.hfu-sheet,
+.hfu-sheet.hfu-sheet-wide {
+  display: flex;
+  flex-direction: column;
+}
 .hfu-scroll {
+  flex: 1 1 auto;
   min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .hfu-actions {
   position: relative;
   z-index: 3;
+  flex: 0 0 auto;
+  max-height: 45%;
+  overflow: hidden;
   padding-top: 14px;
   border-top: 1px solid var(--hfu-head-line);
   background: color-mix(in srgb, var(--hfu-bg) 88%, transparent);
   backdrop-filter: blur(8px);
 }
+
 .hfu-scroll-cue {
   margin: 0 auto 8px;
   flex: 0 0 34px;

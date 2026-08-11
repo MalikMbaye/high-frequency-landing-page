@@ -109,31 +109,9 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   const [showCue, setShowCue] = useState(false);
   const [upgrade, setUpgrade] = useState(false);
   const [upgradeOpen, setUpgradeOpen] = useState(false);
-  // Live Shopify pricing for the 30-day upgrade (final rate + compare-at).
-  const [monthPrice, setMonthPrice] = useState<{ amount: string; compareAt: string | null } | null>(null);
   // A variant is drawn at random on every open, then tagged onto every event.
   const [copy] = useState<BumpCopy>(() => pickBumpVariant());
 
-  useEffect(() => {
-    let alive = true;
-    (async () => {
-      try {
-        const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle: MONTH_HANDLE });
-        const edges = data?.data?.product?.variants?.edges ?? [];
-        const node = edges.find(
-          (e: { node: { id: string } }) => e.node.id === MONTH_VARIANT_ID,
-        )?.node as { price?: { amount: string }; compareAtPrice?: { amount: string } | null } | undefined;
-        if (alive && node?.price) {
-          setMonthPrice({ amount: node.price.amount, compareAt: node.compareAtPrice?.amount ?? null });
-        }
-      } catch {
-        /* pricing row falls back to a generic label */
-      }
-    })();
-    return () => {
-      alive = false;
-    };
-  }, []);
 
 
   /** On desktop the copy column scrolls; on mobile the whole sheet does. */
@@ -255,100 +233,63 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
         )}
 
         <div className="hfu-actions">
-          {(() => {
-            const amt = monthPrice ? Number(monthPrice.amount) : 33.33;
-            const was = monthPrice?.compareAt ? Number(monthPrice.compareAt) : 59.99;
-            return (
-              <div className="hfu-upgrade">
-                <label className="hfu-upgrade-row">
-                  <input
-                    type="checkbox"
-                    checked={upgrade}
-                    onChange={(e) => {
-                      setUpgrade(e.target.checked);
-                      trackBump(e.target.checked ? "upgrade_checked" : "upgrade_unchecked", copy.variant);
-                    }}
-                  />
-                  <span className="hfu-upgrade-line">
-                    Yes — upgrade to the 30-day supply for{" "}
-                    <span className="hfu-upgrade-price">${amt.toFixed(2)}</span>
-                    <span className="hfu-upgrade-was">${was.toFixed(2)}</span>
-                  </span>
-                  <button
-                    type="button"
-                    className="hfu-upgrade-toggle"
-                    aria-expanded={upgradeOpen}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setUpgradeOpen((v) => !v);
-                    }}
-                  >
-                    {upgradeOpen ? "Hide" : "Details"}
-                  </button>
-                </label>
-
-                {upgradeOpen && (
-                  <div className="hfu-upgrade-details">
-                    <p className="hfu-upgrade-sub">
-                      30 stix instead of 3 — a full month of daily honey, one-time payment, no
-                      subscription. Same sacred shilajit blend, shipped in the same box as your
-                      headphones. And it never expires.
-                    </p>
-                    <table className="hfu-upgrade-compare">
-                      <thead>
-                        <tr>
-                          <th>Option</th>
-                          <th>Stix</th>
-                          <th>Price</th>
-                          <th>Per stick</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Retail (30-day)</td>
-                          <td>30</td>
-                          <td>${was.toFixed(2)}</td>
-                          <td>${(was / 30).toFixed(2)}</td>
-                        </tr>
-                        <tr>
-                          <td className="hfu-col-best">This upgrade</td>
-                          <td className="hfu-col-best">30</td>
-                          <td className="hfu-col-best">${amt.toFixed(2)}</td>
-                          <td className="hfu-col-best">${(amt / 30).toFixed(2)}</td>
-                        </tr>
-                        <tr>
-                          <td>Trial only</td>
-                          <td>3</td>
-                          <td>$1.00</td>
-                          <td>$0.33</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <p className="hfu-upgrade-note">
-                      You save ${(was - amt).toFixed(2)} ({Math.round((1 - amt / was) * 100)}% off) —
-                      one-time offer on this order only.
-                    </p>
-                  </div>
-                )}
-              </div>
-            );
-          })()}
-
-
           <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
             {state === "default" && (upgrade ? "Add the 30-day supply" : copy.cta)}
             {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
             {state === "added" && copy.ctaAdded}
           </button>
 
-
           <button type="button" className="hfu-link" onClick={decline}>
             {copy.ctaSecondary}
           </button>
 
-          <p className="hfu-trust">{copy.trustRow}</p>
-          <p className="hfu-brandline">From the High Frequency Marketplace.</p>
+          <div className={`hfu-upgrade${upgradeOpen ? " is-open" : ""}`}>
+
+                <div
+                  className="hfu-upgrade-row"
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={upgradeOpen}
+                  onClick={() => setUpgradeOpen((v) => !v)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setUpgradeOpen((v) => !v);
+                    }
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={upgrade}
+                    aria-label="Add the full 30-day supply"
+                    onClick={(e) => e.stopPropagation()}
+                    onChange={(e) => {
+                      setUpgrade(e.target.checked);
+                      trackBump(e.target.checked ? "upgrade_checked" : "upgrade_unchecked", copy.variant);
+                    }}
+                  />
+                  <span className="hfu-upgrade-line">
+                    Yes, I want the full 30-day supply for 50% off.
+                  </span>
+                  <ChevronDown className="hfu-upgrade-chev" size={18} aria-hidden="true" />
+                </div>
+
+                <div className="hfu-upgrade-panel">
+                  <div className="hfu-upgrade-details">
+                    <p className="hfu-upgrade-sub">
+                      30 sticks instead of 3. A full month, which is how long the minerals need to
+                      actually compound. One-time payment, no subscription, and it ships in the same
+                      box as your headphones.
+                    </p>
+                    <p className="hfu-upgrade-pricing">
+                      $29.99 today. $59.99 everywhere else.
+                    </p>
+                  </div>
+                </div>
+          </div>
+
         </div>
+
       </div>
     </div>,
     document.body,
