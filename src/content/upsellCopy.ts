@@ -4,6 +4,8 @@
  * /content/bump-detail.json and /content/upsell-detail.json.
  */
 export interface BumpCopy {
+  /** Stable variant tag used for conversion reporting. */
+  variant: string;
   eyebrow: string;
   headline: string;
   lead: string;
@@ -16,12 +18,16 @@ export interface BumpCopy {
   trustRow: string;
 }
 
-export const bumpCopy: BumpCopy = {
+/** Variant A — "Start your morning on the high frequency" */
+export const bumpVariantA: BumpCopy = {
+  variant: "A_high_frequency_morning",
   eyebrow: "ONE-TIME OFFER",
-  headline: "The stuff we hiked 16,000 feet for.",
-  lead: "Above the tree line, black resin bleeds out of the rock. Locals have scraped it by hand for centuries.",
-  body: "Our team treks up, carries it down, and we fold it into a caramel honey stick — 85+ trace minerals, the raw material your brain runs on. One in the morning, alongside your sessions.",
-  offer: "3 sticks for $1. This screen only, and it ships inside your headphone box.",
+  headline: "Start your morning on the high frequency.",
+  lead:
+    "A sacred healing secret from 16,000 feet, folded into golden honey. The old texts called it the destroyer of weakness.",
+  body:
+    "Tear the seal. Squeeze it into your tea, or straight onto your tongue. Put the headphones on. Feel the frequency rise while 85+ mountain minerals feed the very cells doing the rising. Ten seconds of honey. Sixty seconds of sound. A morning that doesn't crash.",
+  offer: "3 sticks for $1. This screen only, and they arrive tucked inside your headphone box.",
   detailLabel: "What's inside",
   cta: "Add the 3-pack for $1",
   ctaAdded: "Added \u2713",
@@ -29,6 +35,32 @@ export const bumpCopy: BumpCopy = {
   trustRow: "Ships free in your box \u00b7 30-day guarantee",
 };
 
+/** Variant B — "The mountain kept a secret" */
+export const bumpVariantB: BumpCopy = {
+  variant: "B_mountain_secret",
+  eyebrow: "ONE-TIME OFFER",
+  headline: "The mountain kept a secret. It tastes like caramel.",
+  lead:
+    "Shilajit: gathered by hand above 16,000 feet for thousands of years. The Sanskrit name means destroyer of weakness.",
+  body:
+    "Imagine your morning tea carrying 85+ minerals your brain fires with, from a sacred essence the Himalayas took centuries to make. One golden stick, ten seconds, headphones on after. The sound tunes you. The mountain feeds you. That's the practice, complete.",
+  offer: "3 sticks for $1, this screen only. They ride inside your headphone box.",
+  detailLabel: "What's inside",
+  cta: "Add the 3-pack for $1",
+  ctaAdded: "Added \u2713",
+  ctaSecondary: "No thanks, just the headphones",
+  trustRow: "Ships free in your box \u00b7 30-day guarantee",
+};
+
+export const bumpVariants: BumpCopy[] = [bumpVariantA, bumpVariantB];
+
+/** Picks a variant at random each time the modal opens. */
+export function pickBumpVariant(): BumpCopy {
+  return bumpVariants[Math.floor(Math.random() * bumpVariants.length)];
+}
+
+/** Back-compat default export used by anything that just needs a single copy object. */
+export const bumpCopy: BumpCopy = bumpVariantA;
 
 export const upsellCopy = {
   headline: "Fuel for your frequency practice.",

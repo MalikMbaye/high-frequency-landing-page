@@ -47,6 +47,33 @@ export type Database = {
         }
         Relationships: []
       }
+      bump_events: {
+        Row: {
+          created_at: string
+          event: string
+          id: string
+          meta: Json
+          session_id: string | null
+          variant: string
+        }
+        Insert: {
+          created_at?: string
+          event: string
+          id?: string
+          meta?: Json
+          session_id?: string | null
+          variant: string
+        }
+        Update: {
+          created_at?: string
+          event?: string
+          id?: string
+          meta?: Json
+          session_id?: string | null
+          variant?: string
+        }
+        Relationships: []
+      }
       orders: {
         Row: {
           assigned_batch_id: string | null
