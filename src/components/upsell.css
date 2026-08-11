@@ -307,7 +307,11 @@
     background: var(--hfu-bg);
   }
   .hfu-scroll-cue {
-    top: -46px;
+    top: -17px;
+  }
+  .hfu-sheet .hfu-media-gallery,
+  .hfu-sheet .hfu-media {
+    max-height: 44vh;
   }
   .hfu-trust {
     margin-top: 10px;
