@@ -59,14 +59,29 @@ export interface ShopifyProduct {
 }
 
 export async function storefrontApiRequest(query: string, variables: Record<string, unknown> = {}) {
-  const response = await fetch(SHOPIFY_STOREFRONT_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Shopify-Storefront-Access-Token": SHOPIFY_STOREFRONT_TOKEN,
-    },
-    body: JSON.stringify({ query, variables }),
-  });
+  // Hard timeout so a hung request can never leave the UI spinning forever.
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 12000);
+  let response: Response;
+  try {
+    response = await fetch(SHOPIFY_STOREFRONT_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Shopify-Storefront-Access-Token": SHOPIFY_STOREFRONT_TOKEN,
+      },
+      body: JSON.stringify({ query, variables }),
+      signal: controller.signal,
+    });
+  } catch (error) {
+    if ((error as Error)?.name === "AbortError") {
+      toast.error("Network timeout", { description: "Please try adding to cart again." });
+    }
+    throw error;
+  } finally {
+    clearTimeout(timer);
+  }
+
 
   if (response.status === 402) {
     toast.error("Shopify: Payment required", {
