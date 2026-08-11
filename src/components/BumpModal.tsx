@@ -200,9 +200,10 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
     >
       <div className="hfu-sheet hfu-sheet-wide">
         <div className="hfu-handle" />
-        <div className="hfu-media">
-          <img src={honeyHero} alt="High Frequency Honey sachet with honey pouring out" loading="lazy" />
+        <div className="hfu-media hfu-media-gallery">
+          <BumpGallery />
         </div>
+
 
         <div className="hfu-col">
           <span className="hfu-chip">{copy.eyebrow}</span>
