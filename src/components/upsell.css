@@ -41,6 +41,7 @@
 @media (min-width: 640px) {
   .hfu-backdrop {
     align-items: center;
+    padding: 24px;
   }
   .hfu-sheet {
     max-width: 480px;
