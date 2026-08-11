@@ -702,7 +702,7 @@
   }
   .hfu-topband {
     margin-top: 0;
-    padding: calc(env(safe-area-inset-top) + 26px) 20px 16px;
+    padding: calc(env(safe-area-inset-top) + 40px) 20px 18px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
@@ -719,10 +719,10 @@
   }
   /* Shorter gallery so more of the copy shows without scrolling. */
   .hfu-media-gallery .hfg-main {
-    max-height: 42vh;
+    max-height: 34vh;
   }
   .hfu-media-gallery .hfg-main img {
-    max-height: 42vh;
+    max-height: 34vh;
     object-fit: contain;
   }
   /* Tighten vertical rhythm between copy blocks so the offer reads denser. */
