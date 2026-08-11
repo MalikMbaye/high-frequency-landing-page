@@ -702,9 +702,49 @@
   }
   .hfu-topband {
     margin-top: 0;
-    padding-top: max(20px, env(safe-area-inset-top));
+    padding: max(14px, env(safe-area-inset-top)) 20px 14px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+  }
+  .hfu-topband-sub {
+    margin-top: 5px;
+    font-size: 13.5px;
+  }
+  .hfu-urgency {
+    padding: 9px 16px;
+    font-size: 13.5px;
+  }
+  .hfu-scroll {
+    padding-top: 12px;
+  }
+  /* Tighten vertical rhythm between copy blocks so the offer reads denser. */
+  .hfu-name-row {
+    margin-top: 4px;
+  }
+  .hfu-h {
+    font-size: 24px;
+    margin: 0 0 8px;
+  }
+  .hfu-lead,
+  .hfu-p {
+    margin-bottom: 7px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .hfu-never {
+    margin-top: 2px;
+    font-size: 13px;
+  }
+  .hfa {
+    margin: 12px 0 6px;
+  }
+  .hfa-head {
+    min-height: 52px;
+    padding: 11px 14px;
+    font-size: 14px;
+  }
+  .hfa-panel-inner {
+    padding: 14px;
   }
   .hfu-scroll {
     flex: 1 1 auto;
