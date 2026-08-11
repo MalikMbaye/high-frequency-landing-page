@@ -1,7 +1,7 @@
 /* Upsell surfaces (bump modal + post-purchase page).
    Scoped tokens live here so components stay class-driven. */
 .hfu {
-  --hfu-bg: #0b0b0d;
+  --hfu-bg: #0b0c18;
   --hfu-fg: #f5f5f7;
   --hfu-muted: #9a9aa2;
   --hfu-gold: #c9a227;
@@ -732,17 +732,17 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 999px;
-  color: hsl(var(--foreground));
-  background: hsl(var(--primary) / 0.18);
-  border: 1px solid hsl(var(--primary) / 0.5);
+  padding: 4px 0;
+  color: var(--hfu-gold);
+  background: none;
+  border: 0;
 }
 .hfu-brandline {
-  margin: 6px 0 2px;
-  font-size: 12px;
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 11px;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(245, 245, 247, 0.4);
 }
 .hfu-never {
   font-weight: 600;
