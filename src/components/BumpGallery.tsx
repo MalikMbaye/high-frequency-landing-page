@@ -59,12 +59,6 @@ export default function BumpGallery() {
         >
           <img src={current.src} alt={current.alt} loading="lazy" />
         </button>
-        <button type="button" className="hfg-arrow hfg-prev" onClick={() => step(-1)} aria-label="Previous image">
-          <ChevronLeft size={16} />
-        </button>
-        <button type="button" className="hfg-arrow hfg-next" onClick={() => step(1)} aria-label="Next image">
-          <ChevronRight size={16} />
-        </button>
       </div>
 
       <div className="hfg-rail">
