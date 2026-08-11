@@ -232,7 +232,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
           <div className="hfu-copy" ref={copyRef} onScroll={onScroll}>
             <div className="hfu-name-row">
               <p className="hfu-product-name">
-                High Frequency Honey <span className="hfu-name-sub">— Infused with Sacred Shilajit</span>
+                High Frequency Honey <span className="hfu-name-sub">— Natural Wellness Infused with Sacred Himalayan Shilajit</span>
               </p>
             </div>
 
@@ -291,7 +291,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
                 style={{ pointerEvents: "none" }}
               />
               <span className="hfu-upgrade-line">
-                Actually, upgrade me to a 30-day supply.
+                Actually, upgrade me to a 30-day supply
               </span>
               <button
                 type="button"
