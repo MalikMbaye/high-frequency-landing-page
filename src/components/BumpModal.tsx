@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Loader2 } from "lucide-react";
 import "./upsell.css";
-import { pickBumpVariant, bumpCopy, type BumpCopy } from "@/content/upsellCopy";
+import { pickBumpVariant, type BumpCopy } from "@/content/upsellCopy";
 import { trackBump } from "@/lib/bumpAnalytics";
 import honeyHero from "@/assets/honey/honey-hero.webp";
 import {
@@ -113,7 +113,7 @@ function WhatsInside({ copy }: { copy: BumpCopy }) {
     const next = !open;
     setOpen(next);
     if (next && !content && !loading) {
-      track("bumpDetailOpened");
+      trackBump("detail_opened", copy.variant);
       setLoading(true);
       try {
         const res = await fetch("/content/bump-detail.json");
