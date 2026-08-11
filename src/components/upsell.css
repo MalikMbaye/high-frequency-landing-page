@@ -678,14 +678,33 @@
   }
 }
 @media (max-width: 639px) {
+  /* Full-screen takeover on mobile (no partial slide-in sheet). */
+  .hfu-backdrop {
+    align-items: stretch;
+    padding: 0;
+    background: var(--hfu-bg);
+  }
   .hfu-sheet,
   .hfu-sheet.hfu-sheet-wide {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    max-height: 90vh;
-    height: 90vh;
-    padding: 10px 20px 0;
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    height: 100dvh;
+    border-radius: 0;
+    animation: hfu-fade 0.2s ease-out;
+    padding: 0 20px 0;
+  }
+  .hfu-handle {
+    display: none;
+  }
+  .hfu-topband {
+    margin-top: 0;
+    padding-top: max(20px, env(safe-area-inset-top));
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
   .hfu-scroll {
     flex: 1 1 auto;
