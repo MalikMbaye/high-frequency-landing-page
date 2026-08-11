@@ -198,6 +198,49 @@ function BumpModal({
     return () => window.removeEventListener("keydown", onKey, true);
   }); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const bumpBox = (
+    <div className={`hfu-upgrade${upgradeOpen ? " is-open" : ""}${upgrade ? " is-checked" : ""}`}>
+      <div
+        className="hfu-upgrade-row"
+        role="button"
+        tabIndex={0}
+        aria-expanded={upgradeOpen}
+        onClick={() => setUpgradeOpen((v) => !v)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setUpgradeOpen((v) => !v);
+          }
+        }}
+      >
+        <input
+          type="checkbox"
+          checked={upgrade}
+          aria-label="Send 30 days for half price"
+          onClick={(e) => e.stopPropagation()}
+          onChange={(e) => {
+            setUpgrade(e.target.checked);
+            trackBump(e.target.checked ? "upgrade_checked" : "upgrade_unchecked", copy.variant, {
+              bump_position: bumpPosition,
+            });
+          }}
+        />
+        <span className="hfu-upgrade-line">Yes, send 30 days for half price.</span>
+        <ChevronDown className="hfu-upgrade-chev" size={18} aria-hidden="true" />
+      </div>
+
+      <div className="hfu-upgrade-panel">
+        <div className="hfu-upgrade-details">
+          <p className="hfu-upgrade-sub">
+            Three sticks is a taste. Minerals compound, so most people notice it around day five and
+            it builds through week four. Thirty sticks is the real test. $29.99 today, $59.99 later.
+            One time, no subscription.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+
   return createPortal(
     <div
       className="hfu hfu-backdrop"
