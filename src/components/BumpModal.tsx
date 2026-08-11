@@ -263,30 +263,46 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
               className="hfu-upgrade-row"
               role="button"
               tabIndex={0}
-              aria-expanded={upgradeOpen}
-              onClick={() => setUpgradeOpen((v) => !v)}
+              aria-pressed={upgrade}
+              onClick={() => {
+                const next = !upgrade;
+                setUpgrade(next);
+                trackBump(next ? "upgrade_checked" : "upgrade_unchecked", copy.variant);
+              }}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
-                  setUpgradeOpen((v) => !v);
+                  const next = !upgrade;
+                  setUpgrade(next);
+                  trackBump(next ? "upgrade_checked" : "upgrade_unchecked", copy.variant);
                 }
               }}
             >
               <input
                 type="checkbox"
                 checked={upgrade}
-                aria-label="Send the full 30-day supply"
-                onClick={(e) => e.stopPropagation()}
-                onChange={(e) => {
-                  setUpgrade(e.target.checked);
-                  trackBump(e.target.checked ? "upgrade_checked" : "upgrade_unchecked", copy.variant);
-                }}
+                tabIndex={-1}
+                aria-hidden="true"
+                readOnly
+                style={{ pointerEvents: "none" }}
               />
               <span className="hfu-upgrade-line">
-                Yes, send the full 30-day supply for 50% off.
+                Actually, send the full 30-day supply for 50% off.
               </span>
-              <ChevronDown className="hfu-upgrade-chev" size={18} aria-hidden="true" />
+              <button
+                type="button"
+                className="hfu-upgrade-chev-btn"
+                aria-expanded={upgradeOpen}
+                aria-label={upgradeOpen ? "Hide offer details" : "Show offer details"}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setUpgradeOpen((v) => !v);
+                }}
+              >
+                <ChevronDown className="hfu-upgrade-chev" size={18} aria-hidden="true" />
+              </button>
             </div>
+
 
             <div className="hfu-upgrade-panel">
               <div className="hfu-upgrade-details">

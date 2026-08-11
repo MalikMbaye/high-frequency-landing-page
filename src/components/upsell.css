@@ -79,17 +79,36 @@
     min-height: 0;
     overflow: hidden;
   }
-  /* Left media column stays static; only the copy column scrolls. */
+  /* Left media column fills the row height so it matches the copy column. */
   .hfu-sheet-wide .hfu-media-gallery {
-    position: sticky;
-    top: 0;
-    align-self: start;
+    align-self: stretch;
+    min-height: 0;
+    display: flex;
   }
-  .hfu-sheet-wide .hfg,
-  .hfu-sheet-wide .hfg-main,
+  .hfu-sheet-wide .hfg {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    max-width: 420px;
+  }
+  .hfu-sheet-wide .hfg-main {
+    flex: 1 1 auto;
+    aspect-ratio: auto;
+    min-height: 0;
+    max-width: 420px;
+  }
   .hfu-sheet-wide .hfg-rail {
-    max-width: 400px;
+    flex: 0 0 auto;
+    max-width: 420px;
   }
+  /* Disclaimer stays on a single line under the thumbnails. */
+  .hfu-sheet-wide .hfg-note {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 9.5px;
+    letter-spacing: 0;
+  }
+
   .hfu-sheet-wide .hfu-copy {
     min-height: 0;
     overflow-y: auto;
@@ -541,8 +560,21 @@
   }
 }
 
+.hfu-upgrade-chev-btn {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin: -4px -4px -4px 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
 .hfu-upgrade-chev {
   flex: 0 0 auto;
+
   color: #c9a961;
   transition: transform 0.2s ease-out;
 }
@@ -1351,13 +1383,14 @@
 /* ---------- mobile takeover spacing overrides (must win the cascade) ---------- */
 @media (max-width: 639px) {
   .hfu-topband {
-    padding: calc(env(safe-area-inset-top) + 40px) 20px 18px;
+    padding: calc(env(safe-area-inset-top) + clamp(44px, 9vh, 72px)) 20px
+      clamp(16px, 2.4vh, 22px);
   }
   /* Shorter square gallery so the product label + headline show without scrolling. */
   .hfu-media-gallery .hfg-main {
     aspect-ratio: auto;
-    height: 34vh;
-    max-height: 34vh;
+    height: clamp(180px, 30vh, 340px);
+    max-height: 30vh;
   }
   .hfu-media-gallery .hfg-main img {
     object-fit: contain;
@@ -1373,4 +1406,21 @@
   .hfu-h {
     margin-top: 12px;
   }
+  /* Order bump line: never clipped, wraps to a second line if needed. */
+  .hfu-upgrade-line {
+    font-size: 12px;
+    line-height: 1.25;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .hfu-upgrade-row {
+    align-items: flex-start;
+    padding: 12px 10px;
+  }
+  /* Footer always paints above the scrolling body. */
+  .hfu-actions {
+    position: relative;
+    z-index: 5;
+  }
 }
+
