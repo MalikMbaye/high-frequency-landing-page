@@ -254,30 +254,85 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
         )}
 
         <div className="hfu-actions">
-          <label className="hfu-upgrade">
-            <input
-              type="checkbox"
-              checked={upgrade}
-              onChange={(e) => {
-                setUpgrade(e.target.checked);
-                trackBump(e.target.checked ? "upgrade_checked" : "upgrade_unchecked", copy.variant);
-              }}
-            />
-            <span className="hfu-upgrade-copy">
-              <span className="hfu-upgrade-title">
-                Upgrade to the 30-day supply —{" "}
-                <span className="hfu-upgrade-price">
-                  ${monthPrice ? Number(monthPrice.amount).toFixed(2) : "33.33"}
-                </span>
-                {monthPrice?.compareAt && (
-                  <span className="hfu-upgrade-was">${Number(monthPrice.compareAt).toFixed(2)}</span>
+          {(() => {
+            const amt = monthPrice ? Number(monthPrice.amount) : 33.33;
+            const was = monthPrice?.compareAt ? Number(monthPrice.compareAt) : 59.99;
+            return (
+              <div className="hfu-upgrade">
+                <label className="hfu-upgrade-row">
+                  <input
+                    type="checkbox"
+                    checked={upgrade}
+                    onChange={(e) => {
+                      setUpgrade(e.target.checked);
+                      trackBump(e.target.checked ? "upgrade_checked" : "upgrade_unchecked", copy.variant);
+                    }}
+                  />
+                  <span className="hfu-upgrade-line">
+                    Yes — upgrade to the 30-day supply for{" "}
+                    <span className="hfu-upgrade-price">${amt.toFixed(2)}</span>
+                    <span className="hfu-upgrade-was">${was.toFixed(2)}</span>
+                  </span>
+                  <button
+                    type="button"
+                    className="hfu-upgrade-toggle"
+                    aria-expanded={upgradeOpen}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setUpgradeOpen((v) => !v);
+                    }}
+                  >
+                    {upgradeOpen ? "Hide" : "Details"}
+                  </button>
+                </label>
+
+                {upgradeOpen && (
+                  <div className="hfu-upgrade-details">
+                    <p className="hfu-upgrade-sub">
+                      30 stix instead of 3 — a full month of daily honey, one-time payment, no
+                      subscription. Same sacred shilajit blend, shipped in the same box as your
+                      headphones. And it never expires.
+                    </p>
+                    <table className="hfu-upgrade-compare">
+                      <thead>
+                        <tr>
+                          <th>Option</th>
+                          <th>Stix</th>
+                          <th>Price</th>
+                          <th>Per stick</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Retail (30-day)</td>
+                          <td>30</td>
+                          <td>${was.toFixed(2)}</td>
+                          <td>${(was / 30).toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                          <td className="hfu-col-best">This upgrade</td>
+                          <td className="hfu-col-best">30</td>
+                          <td className="hfu-col-best">${amt.toFixed(2)}</td>
+                          <td className="hfu-col-best">${(amt / 30).toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                          <td>Trial only</td>
+                          <td>3</td>
+                          <td>$1.00</td>
+                          <td>$0.33</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p className="hfu-upgrade-note">
+                      You save ${(was - amt).toFixed(2)} ({Math.round((1 - amt / was) * 100)}% off) —
+                      one-time offer on this order only.
+                    </p>
+                  </div>
                 )}
-              </span>
-              <span className="hfu-upgrade-sub">
-                30 stix instead of 3. Roughly half off, one-time — no subscription.
-              </span>
-            </span>
-          </label>
+              </div>
+            );
+          })()}
+
 
           <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
             {state === "default" && (upgrade ? "Add the 30-day supply" : copy.cta)}
