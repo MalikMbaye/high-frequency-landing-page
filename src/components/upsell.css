@@ -538,8 +538,9 @@
   transition: max-height 0.2s ease-out;
 }
 .hfu-upgrade.is-open .hfu-upgrade-panel {
-  max-height: 180px;
+  max-height: min(180px, 20vh);
   overflow-y: auto;
+
   overscroll-behavior: contain;
 }
 .hfu-upgrade-details {
