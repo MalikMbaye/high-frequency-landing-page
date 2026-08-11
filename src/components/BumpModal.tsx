@@ -211,8 +211,8 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
               <p className="hfu-product-name">
                 High Frequency Honey <span className="hfu-name-sub">— Infused with Sacred Shilajit</span>
               </p>
-              <span className="hfu-price-tag">3-Packs for $1</span>
             </div>
+
 
             <h2 className="hfu-h">{copy.headline}</h2>
             <p className="hfu-lead">{copy.lead}</p>
