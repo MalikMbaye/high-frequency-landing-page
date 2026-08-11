@@ -27,9 +27,6 @@ const Hero = () => {
           </button>
         </div>
         <div className="hero-visual tier-2-visual">
-          <div className="ambient-halo"></div>
-          <div className="ambient-ribbon ribbon-purple"></div>
-          <div className="ambient-ribbon ribbon-gold"></div>
           <video
             className="hero-video"
             src={heroVideo.url}
@@ -37,14 +34,23 @@ const Hero = () => {
             autoPlay
             loop
             muted
+
             playsInline
-            preload="metadata"
+            preload="auto"
+
             ref={(el) => {
-              if (el) el.playbackRate = 0.5;
+              if (!el) return;
+              el.playbackRate = 0.5;
+              el.muted = true;
+              const tryPlay = () => el.play().catch(() => {});
+              tryPlay();
+              el.addEventListener("loadeddata", tryPlay, { once: true });
+              document.addEventListener("touchstart", tryPlay, { once: true, passive: true });
             }}
             aria-label="High Frequency Headphones rotating on a light background"
           />
         </div>
+
       </div>
       <div className="hfh-container social-proof-strip">
         <div className="proof-item"><span className="proof-num">100K+</span><span className="proof-label">Users</span></div>
