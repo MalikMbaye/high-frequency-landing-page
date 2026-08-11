@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { ShoppingCart, Minus, Plus, Loader2, ChevronLeft, ChevronRight, Check } from "lucide-react";
+import { ShoppingCart, Minus, Plus, Loader2, Check } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
 import {
   COVRLY_FUNCTIONS_BASE,
@@ -219,7 +219,7 @@ export const CartDrawer = () => {
   const [protectionBusy, setProtectionBusy] = useState(false);
   const [busyVariant, setBusyVariant] = useState<string | null>(null);
   const [infoOpen, setInfoOpen] = useState(false);
-  const [slide, setSlide] = useState(0);
+  
 
   useEffect(() => {
     if (isDrawerOpen) syncCart();
@@ -261,9 +261,7 @@ export const CartDrawer = () => {
     return list;
   }, [quote.eligible, quote.loading, addons, items]);
 
-  useEffect(() => {
-    if (slide > cards.length - 1) setSlide(0);
-  }, [cards.length, slide]);
+
 
   const protectionCharge = quote.eligible && protectionOn ? quote.variantPrice : 0;
   const grandTotal = itemsTotal + protectionCharge;
