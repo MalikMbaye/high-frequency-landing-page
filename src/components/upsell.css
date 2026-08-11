@@ -62,8 +62,9 @@
   .hfu-sheet.hfu-sheet-wide {
     box-sizing: border-box;
     width: calc(100% - 48px);
-    max-width: 900px;
-    max-height: 640px;
+    max-width: 1060px;
+    max-height: min(94vh, 940px);
+    height: auto;
     display: flex;
     flex-direction: column;
     padding: 32px;
