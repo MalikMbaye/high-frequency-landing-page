@@ -49,7 +49,25 @@
   .hfu-handle {
     display: none;
   }
+  /* Landscape variant: media column left, copy + actions right. */
+  .hfu-sheet.hfu-sheet-wide {
+    max-width: 760px;
+    display: grid;
+    grid-template-columns: 44% 1fr;
+    gap: 26px;
+    padding: 26px;
+    align-items: center;
+  }
+  .hfu-sheet-wide .hfu-media {
+    aspect-ratio: 4 / 5;
+    height: 100%;
+    border-radius: 18px;
+  }
+  .hfu-sheet-wide .hfu-chip {
+    margin-top: 0;
+  }
 }
+
 .hfu-handle {
   width: 44px;
   height: 4px;
