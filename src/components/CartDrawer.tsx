@@ -1,23 +1,25 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { ShoppingCart, Minus, Plus, Trash2, Loader2 } from "lucide-react";
+import { ShoppingCart, Minus, Plus, Loader2, ChevronLeft, ChevronRight, Check } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
-import { COVRLY_FUNCTIONS_BASE, SHOPIFY_STORE_PERMANENT_DOMAIN } from "@/lib/shopify";
+import {
+  COVRLY_FUNCTIONS_BASE,
+  SHOPIFY_STORE_PERMANENT_DOMAIN,
+  PRODUCT_BY_HANDLE_QUERY,
+  storefrontApiRequest,
+  type ShopifyProduct,
+} from "@/lib/shopify";
 
 // ---------------------------------------------------------------------------
-// Covrly delivery-protection quote (inlined here — the Lovable editor can only
-// edit existing files, not add new ones).
+// Covrly delivery-protection quote
 // ---------------------------------------------------------------------------
 interface ProtectionQuote {
-  /** True only once the server confirms eligibility. False while loading or ineligible. */
   eligible: boolean;
   variantId: string | null;
-  /** Price Shopify charges for the band (show + charge this, not `premium`). */
   variantPrice: number;
-  premium: number;
   loading: boolean;
 }
 
@@ -54,97 +56,137 @@ function useProtectionQuote(cartValue: number, enabled: boolean): ProtectionQuot
     eligible: data?.eligible === true,
     variantId: data?.variant_id ?? null,
     variantPrice: Number(data?.variant_price ?? 0),
-    premium: Number(data?.premium ?? 0),
     loading: isLoading,
   };
 }
 
 // ---------------------------------------------------------------------------
-// Canonical Covrly two-CTA "Checkout+" block (inlined). Styles (.cv-*) live in
-// index.css, ported verbatim from cart-protection.css.
+// Add-on products resolved from Shopify by handle. Missing handles / sold-out
+// variants are skipped silently — no mock products ever render.
+// ---------------------------------------------------------------------------
+const ADDON_HANDLES = ["high-frequency-honey", "high-frequency-gummies", "high-frequency-wellness-bundle"];
+
+interface AddonProduct {
+  product: ShopifyProduct;
+  variantId: string;
+  variantTitle: string;
+  title: string;
+  price: { amount: string; currencyCode: string };
+  image: string | null;
+  selectedOptions: Array<{ name: string; value: string }>;
+}
+
+function useAddonProducts(enabled: boolean) {
+  return useQuery({
+    queryKey: ["cart-addons", ADDON_HANDLES],
+    enabled,
+    staleTime: 5 * 60_000,
+    retry: false,
+    queryFn: async (): Promise<AddonProduct[]> => {
+      const results = await Promise.all(
+        ADDON_HANDLES.map(async (handle) => {
+          try {
+            const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
+            const node = data?.data?.product;
+            if (!node) return null;
+            const variant = (node.variants?.edges ?? []).map((e: { node: AddonVariant }) => e.node).find((v: AddonVariant) => v.availableForSale);
+            if (!variant) return null;
+            return {
+              product: { node } as ShopifyProduct,
+              variantId: variant.id,
+              variantTitle: variant.title,
+              title: node.title as string,
+              price: variant.price,
+              image: node.images?.edges?.[0]?.node?.url ?? null,
+              selectedOptions: variant.selectedOptions ?? [],
+            } satisfies AddonProduct;
+          } catch {
+            return null;
+          }
+        }),
+      );
+      return results.filter((r): r is AddonProduct => r !== null);
+    },
+  });
+}
+
+interface AddonVariant {
+  id: string;
+  title: string;
+  availableForSale: boolean;
+  price: { amount: string; currencyCode: string };
+  selectedOptions: Array<{ name: string; value: string }>;
+}
+
+// ---------------------------------------------------------------------------
+// Toggle switch (prefix-style pill)
+// ---------------------------------------------------------------------------
+const ToggleSwitch = ({
+  on,
+  busy,
+  onChange,
+  label,
+}: {
+  on: boolean;
+  busy?: boolean;
+  onChange: (next: boolean) => void;
+  label: string;
+}) => (
+  <button
+    type="button"
+    role="switch"
+    aria-checked={on}
+    aria-label={label}
+    disabled={busy}
+    className={`cd-switch${on ? " is-on" : ""}`}
+    onClick={() => onChange(!on)}
+  >
+    <span className="cd-switch-knob">{busy && <Loader2 className="h-3 w-3 animate-spin" />}</span>
+  </button>
+);
+
+// ---------------------------------------------------------------------------
+// Coverage info modal (native <dialog> so it renders in the browser top layer)
 // ---------------------------------------------------------------------------
 const COVRLY_INFO_URL = "https://app.covrly.co/shipping-protection-info.html";
 
-interface DeliveryProtectionProps {
-  variantPrice: number;
-  cartTotal: number;
-  loading: boolean;
-  onCheckoutPlus: () => void;
-  onCheckoutWithout: () => void;
-}
-
-function DeliveryProtection({
-  variantPrice,
-  cartTotal,
-  loading,
-  onCheckoutPlus,
-  onCheckoutWithout,
-}: DeliveryProtectionProps) {
-  const [modalOpen, setModalOpen] = useState(false);
+function CoverageInfoDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  // Drive the native <dialog> imperatively so it uses the browser top layer and
-  // renders ABOVE the drawer Sheet (top layer beats any z-index).
   useEffect(() => {
     const dlg = dialogRef.current;
     if (!dlg) return;
-    if (modalOpen && !dlg.open) dlg.showModal();
-    if (!modalOpen && dlg.open) dlg.close();
-  }, [modalOpen]);
+    if (open && !dlg.open) dlg.showModal();
+    if (!open && dlg.open) dlg.close();
+  }, [open]);
 
-  // The info iframe can ask to close itself via postMessage('close-sp').
   useEffect(() => {
-    if (!modalOpen) return;
+    if (!open) return;
     const onMessage = (e: MessageEvent) => {
-      if (e.data === "close-sp") setModalOpen(false);
+      if (e.data === "close-sp") onClose();
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [modalOpen]);
+  }, [open, onClose]);
 
   return (
-    <>
-      <div className={loading ? "cv-block cv-skeleton" : "cv-block"}>
-        <div className="cv-row">
-          <span className="cv-brand">
-            <span className="cv-orb" />
-            <span className="cv-label">DELIVERY PROTECTION</span>
-            <button type="button" className="cv-info" aria-label="Coverage info" onClick={() => setModalOpen(true)}>
-              i
-            </button>
-          </span>
-          <span className="cv-amt">{loading ? "…" : `$${variantPrice.toFixed(2)}`}</span>
-        </div>
-
-        <div className="cv-sub">Coverage for loss, theft or damage</div>
-
-        <button type="button" className="cv-cta" onClick={onCheckoutPlus}>
-          {loading ? "CHECKOUT+ PROTECTION" : `CHECKOUT+ PROTECTION · $${(cartTotal + variantPrice).toFixed(2)}`}
-        </button>
-
-        <button type="button" className="cv-skip" onClick={onCheckoutWithout}>
-          CHECKOUT WITHOUT PROTECTION
-        </button>
-      </div>
-
-      <dialog
-        ref={dialogRef}
-        className="cv-modal"
-        onClick={(e) => {
-          if (e.target === dialogRef.current) setModalOpen(false);
-        }}
-        onCancel={(e) => {
-          e.preventDefault();
-          setModalOpen(false);
-        }}
-        onClose={() => setModalOpen(false)}
-      >
-        <button type="button" className="cv-modal-x" aria-label="Close" onClick={() => setModalOpen(false)}>
-          {"×"}
-        </button>
-        {modalOpen && <iframe className="cv-modal-frame" src={COVRLY_INFO_URL} title="Shipping Protection" />}
-      </dialog>
-    </>
+    <dialog
+      ref={dialogRef}
+      className="cv-modal"
+      onClick={(e) => {
+        if (e.target === dialogRef.current) onClose();
+      }}
+      onCancel={(e) => {
+        e.preventDefault();
+        onClose();
+      }}
+      onClose={onClose}
+    >
+      <button type="button" className="cv-modal-x" aria-label="Close" onClick={onClose}>
+        {"×"}
+      </button>
+      {open && <iframe className="cv-modal-frame" src={COVRLY_INFO_URL} title="Delivery Protection" />}
+    </dialog>
   );
 }
 
@@ -155,47 +197,101 @@ export const CartDrawer = () => {
     isLoading,
     isSyncing,
     isDrawerOpen,
+    justAddedVariantId,
     openDrawer,
     closeDrawer,
     updateQuantity,
     removeItem,
+    addItem,
     getCheckoutUrl,
     syncCart,
     addProtectionLine,
     removeProtectionLine,
   } = useCartStore();
+
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = items.reduce((sum, item) => sum + parseFloat(item.price.amount) * item.quantity, 0);
+  const itemsTotal = items.reduce((sum, item) => sum + parseFloat(item.price.amount) * item.quantity, 0);
 
-  // Covrly delivery-protection quote (band variant + charged price), re-resolved as the subtotal changes.
-  const quote = useProtectionQuote(totalPrice, isDrawerOpen && items.length > 0);
+  const quote = useProtectionQuote(itemsTotal, isDrawerOpen && items.length > 0);
+  const { data: addons = [] } = useAddonProducts(isDrawerOpen);
 
-  // Sync cart with Shopify when drawer opens (catches edge cases)
+  const [protectionOn, setProtectionOn] = useState(true);
+  const [protectionBusy, setProtectionBusy] = useState(false);
+  const [busyVariant, setBusyVariant] = useState<string | null>(null);
+  const [infoOpen, setInfoOpen] = useState(false);
+  const [slide, setSlide] = useState(0);
+
   useEffect(() => {
     if (isDrawerOpen) syncCart();
   }, [isDrawerOpen, syncCart]);
 
+  // Keep the Shopify protection line in sync with the toggle + resolved band.
+  useEffect(() => {
+    if (!isDrawerOpen || items.length === 0) return;
+    if (!quote.eligible || !quote.variantId) return;
+    let cancelled = false;
+    (async () => {
+      setProtectionBusy(true);
+      if (protectionOn) {
+        await addProtectionLine({
+          variantId: quote.variantId as string,
+          chargedAmount: quote.variantPrice,
+          coveredValue: itemsTotal,
+        });
+      } else {
+        await removeProtectionLine();
+      }
+      if (!cancelled) setProtectionBusy(false);
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // itemsTotal is folded into quote.variantId/variantPrice changes
+  }, [isDrawerOpen, protectionOn, quote.eligible, quote.variantId, quote.variantPrice]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Cards in the add-on carousel: protection first, then any resolved product
+  // that is not already a line in the cart.
+  const cards = useMemo(() => {
+    const list: Array<{ key: string; kind: "protection" | "product"; addon?: AddonProduct }> = [];
+    if (quote.eligible || quote.loading) list.push({ key: "protection", kind: "protection" });
+    for (const addon of addons) {
+      if (items.some((i) => i.variantId === addon.variantId)) continue;
+      list.push({ key: addon.variantId, kind: "product", addon });
+    }
+    return list;
+  }, [quote.eligible, quote.loading, addons, items]);
+
+  useEffect(() => {
+    if (slide > cards.length - 1) setSlide(0);
+  }, [cards.length, slide]);
+
+  const protectionCharge = quote.eligible && protectionOn ? quote.variantPrice : 0;
+  const grandTotal = itemsTotal + protectionCharge;
+  const currency = items[0]?.price.currencyCode || "USD";
+
+  const handleAddon = async (addon: AddonProduct, next: boolean) => {
+    setBusyVariant(addon.variantId);
+    try {
+      if (next) {
+        await addItem({
+          product: addon.product,
+          variantId: addon.variantId,
+          variantTitle: addon.variantTitle,
+          price: addon.price,
+          quantity: 1,
+          selectedOptions: addon.selectedOptions,
+        });
+      } else {
+        await removeItem(addon.variantId);
+      }
+    } finally {
+      setBusyVariant(null);
+    }
+  };
+
   const goToCheckout = () => {
     const checkoutUrl = getCheckoutUrl();
     if (checkoutUrl) window.location.href = checkoutUrl;
-  };
-
-  // Add the protection band variant (with attribute tags) then go to checkout.
-  const handleCheckoutPlus = async () => {
-    if (quote.variantId) {
-      await addProtectionLine({
-        variantId: quote.variantId,
-        chargedAmount: quote.variantPrice,
-        coveredValue: totalPrice,
-      });
-    }
-    goToCheckout();
-  };
-
-  // Ensure no protection line, then go to checkout.
-  const handleCheckoutWithout = async () => {
-    await removeProtectionLine();
-    goToCheckout();
   };
 
   return (
@@ -215,9 +311,12 @@ export const CartDrawer = () => {
           )}
         </Button>
       </SheetTrigger>
-      <SheetContent className="w-full sm:max-w-lg flex flex-col h-full bg-background text-foreground border-l border-zinc-800">
+      <SheetContent
+        className="cd-panel w-full sm:max-w-lg flex flex-col h-full bg-background text-foreground border-l border-zinc-800"
+        overlayClassName="cd-overlay"
+      >
         <SheetHeader className="flex-shrink-0 text-left">
-          <SheetTitle className="text-white">Shopping Cart</SheetTitle>
+          <SheetTitle className="text-white">Your cart</SheetTitle>
           <SheetDescription className="text-zinc-400">
             {totalItems === 0 ? "Your cart is empty" : `${totalItems} item${totalItems !== 1 ? "s" : ""} in your cart`}
           </SheetDescription>
@@ -232,91 +331,169 @@ export const CartDrawer = () => {
             </div>
           ) : (
             <>
-              <div className="flex-1 overflow-y-auto pr-2 min-h-0">
-                <div className="space-y-4">
-                  {items.map((item) => (
-                    <div key={item.variantId} className="flex gap-4 p-2 rounded-lg bg-zinc-900/50">
-                      <div className="w-16 h-16 bg-zinc-900 rounded-md overflow-hidden flex-shrink-0">
-                        {item.product.node.images?.edges?.[0]?.node && (
-                          <img
-                            src={item.product.node.images.edges[0].node.url}
-                            alt={item.product.node.title}
-                            className="w-full h-full object-cover"
-                          />
-                        )}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-medium truncate text-white">{item.product.node.title}</h4>
-                        <p className="text-sm text-zinc-400">
-                          {item.selectedOptions.map((option) => option.value).join(" • ")}
-                        </p>
-                        <p className="font-semibold text-cyan-400">
-                          {item.price.currencyCode} {parseFloat(item.price.amount).toFixed(2)}
-                        </p>
-                      </div>
-                      <div className="flex flex-col items-end gap-2 flex-shrink-0">
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="h-6 w-6 text-zinc-500 hover:text-white"
-                          onClick={() => removeItem(item.variantId)}
-                        >
-                          <Trash2 className="h-3 w-3" />
-                        </Button>
-                        <div className="flex items-center gap-1">
-                          <Button
-                            variant="outline"
-                            size="icon"
-                            className="h-6 w-6 border-zinc-700 bg-transparent text-white"
-                            onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
-                          >
-                            <Minus className="h-3 w-3" />
-                          </Button>
-                          <span className="w-8 text-center text-sm text-white">{item.quantity}</span>
-                          <Button
-                            variant="outline"
-                            size="icon"
-                            className="h-6 w-6 border-zinc-700 bg-transparent text-white"
-                            onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
-                          >
-                            <Plus className="h-3 w-3" />
-                          </Button>
+              <div className="flex-1 overflow-y-auto pr-1 min-h-0">
+                <div className="space-y-3">
+                  {items.map((item) => {
+                    const added = justAddedVariantId === item.variantId;
+                    return (
+                      <div key={item.variantId} className={`cd-line${added ? " is-added" : ""}`}>
+                        <div className="cd-thumb">
+                          {item.product.node.images?.edges?.[0]?.node && (
+                            <img
+                              src={item.product.node.images.edges[0].node.url}
+                              alt={item.product.node.title}
+                              loading="lazy"
+                            />
+                          )}
+                        </div>
+                        <div className="cd-line-body">
+                          <div className="cd-line-top">
+                            <h4 className="cd-line-title">{item.product.node.title}</h4>
+                            <span className="cd-line-price">
+                              ${(parseFloat(item.price.amount) * item.quantity).toFixed(2)}
+                            </span>
+                          </div>
+                          {added && (
+                            <p className="cd-added">
+                              <Check className="h-3 w-3" /> Added to cart
+                            </p>
+                          )}
+                          <div className="cd-stepper" role="group" aria-label="Quantity">
+                            <button
+                              type="button"
+                              aria-label="Decrease quantity"
+                              onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
+                            >
+                              <Minus className="h-3.5 w-3.5" />
+                            </button>
+                            <span aria-live="polite">{item.quantity}</span>
+                            <button
+                              type="button"
+                              aria-label="Increase quantity"
+                              onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
+                            >
+                              <Plus className="h-3.5 w-3.5" />
+                            </button>
+                          </div>
+                          <button type="button" className="cd-remove" onClick={() => removeItem(item.variantId)}>
+                            Remove
+                          </button>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
-              <div className="flex-shrink-0 space-y-4 pt-4 border-t border-zinc-800 bg-background mt-auto">
+
+              {cards.length > 0 && (
+                <div className="cd-addons" aria-label="Add to your order">
+                  {cards.map((card, i) =>
+                    i !== slide ? null : card.kind === "protection" ? (
+                      <div className="cd-addon" key={card.key}>
+                        <span className="cv-orb cd-addon-orb" aria-hidden="true" />
+                        <div className="cd-addon-body">
+                          <p className="cd-addon-title">
+                            Delivery Protection
+                            <button
+                              type="button"
+                              className="cv-info"
+                              aria-label="Coverage info"
+                              onClick={() => setInfoOpen(true)}
+                            >
+                              i
+                            </button>
+                          </p>
+                          <p className="cd-addon-sub">Coverage for loss, theft or damage</p>
+                          <p className="cd-addon-price">
+                            {quote.loading ? "…" : `$${quote.variantPrice.toFixed(2)}`}
+                          </p>
+                        </div>
+                        <ToggleSwitch
+                          on={protectionOn}
+                          busy={protectionBusy || quote.loading}
+                          onChange={setProtectionOn}
+                          label="Delivery protection"
+                        />
+                      </div>
+                    ) : (
+                      <div className="cd-addon" key={card.key}>
+                        <div className="cd-addon-thumb">
+                          {card.addon?.image && <img src={card.addon.image} alt={card.addon.title} loading="lazy" />}
+                        </div>
+                        <div className="cd-addon-body">
+                          <p className="cd-addon-title">{card.addon?.title}</p>
+                          <p className="cd-addon-price">${parseFloat(card.addon?.price.amount ?? "0").toFixed(2)}</p>
+                        </div>
+                        <ToggleSwitch
+                          on={false}
+                          busy={busyVariant === card.addon?.variantId}
+                          onChange={(next) => card.addon && handleAddon(card.addon, next)}
+                          label={`Add ${card.addon?.title ?? "add-on"}`}
+                        />
+                      </div>
+                    ),
+                  )}
+
+                  {cards.length > 1 && (
+                    <div className="cd-addon-nav">
+                      <div className="cd-dots">
+                        {cards.map((c, i) => (
+                          <button
+                            key={c.key}
+                            type="button"
+                            aria-label={`Show add-on ${i + 1}`}
+                            className={i === slide ? "is-active" : ""}
+                            onClick={() => setSlide(i)}
+                          />
+                        ))}
+                      </div>
+                      <div className="cd-arrows">
+                        <button
+                          type="button"
+                          aria-label="Previous add-on"
+                          onClick={() => setSlide((s) => (s - 1 + cards.length) % cards.length)}
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                        </button>
+                        <button
+                          type="button"
+                          aria-label="Next add-on"
+                          onClick={() => setSlide((s) => (s + 1) % cards.length)}
+                        >
+                          <ChevronRight className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <div className="flex-shrink-0 space-y-3 pt-4 border-t border-zinc-800 bg-background">
                 <div className="flex justify-between items-center text-white">
-                  <span className="text-lg font-semibold">Total</span>
+                  <span className="text-lg font-semibold">Subtotal</span>
                   <span className="text-xl font-bold">
-                    {items[0]?.price.currencyCode || "$"} {totalPrice.toFixed(2)}
+                    {currency} {grandTotal.toFixed(2)}
                   </span>
                 </div>
-                {quote.loading || quote.eligible ? (
-                  <DeliveryProtection
-                    variantPrice={quote.variantPrice}
-                    cartTotal={totalPrice}
-                    loading={quote.loading}
-                    onCheckoutPlus={handleCheckoutPlus}
-                    onCheckoutWithout={handleCheckoutWithout}
-                  />
-                ) : (
-                  <Button
-                    onClick={handleCheckoutWithout}
-                    className="w-full font-bold"
-                    size="lg"
-                    disabled={isLoading || isSyncing}
-                  >
-                    {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : "CHECKOUT"}
-                  </Button>
-                )}
+                <p className="text-xs text-zinc-500 text-right">Shipping &amp; taxes calculated at checkout</p>
+                <button
+                  type="button"
+                  className="cd-checkout"
+                  onClick={goToCheckout}
+                  disabled={isLoading || isSyncing || protectionBusy}
+                >
+                  {isLoading || isSyncing ? (
+                    <Loader2 className="w-4 h-4 animate-spin mx-auto" />
+                  ) : (
+                    `CHECK OUT · $${grandTotal.toFixed(2)}`
+                  )}
+                </button>
               </div>
             </>
           )}
         </div>
       </SheetContent>
+      <CoverageInfoDialog open={infoOpen} onClose={() => setInfoOpen(false)} />
     </Sheet>
   );
 };
