@@ -314,6 +314,16 @@ export const CartDrawer = () => {
       <SheetContent
         className="cd-panel w-full sm:max-w-lg flex flex-col h-full bg-background text-foreground border-l border-zinc-800"
         overlayClassName="cd-overlay"
+        onPointerDownOutside={(e) => {
+          // Keep the drawer open when the click lands on a layered surface
+          // (the $1 bump modal or the coverage info dialog).
+          const target = e.target as HTMLElement | null;
+          if (target?.closest(".hfu-backdrop, .cv-modal")) e.preventDefault();
+        }}
+        onInteractOutside={(e) => {
+          const target = e.target as HTMLElement | null;
+          if (target?.closest(".hfu-backdrop, .cv-modal")) e.preventDefault();
+        }}
       >
         <SheetHeader className="flex-shrink-0 text-left">
           <SheetTitle className="text-white">Your cart</SheetTitle>
