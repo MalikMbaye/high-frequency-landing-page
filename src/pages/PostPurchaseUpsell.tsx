@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "@/components/upsell.css";
 import { upsellCopy } from "@/content/upsellCopy";
-import honeyBox from "@/assets/honey/honey-spoon.png.asset.json";
-import gummies from "@/assets/honey/honey-cup.png.asset.json";
-import bundle from "@/assets/honey/honey-wave.png.asset.json";
+import honeyBox from "@/assets/honey/honey-spoon.webp";
+import gummies from "@/assets/honey/honey-cup.webp";
+import bundle from "@/assets/honey/honey-wave.webp";
 
 /**
  * Post-purchase one-click upsell (adaptable into a Shopify post-purchase extension).
@@ -11,9 +11,9 @@ import bundle from "@/assets/honey/honey-wave.png.asset.json";
  * fetched from /content/upsell-detail.json so it is never in the initial HTML.
  */
 const IMAGES: Record<string, string> = {
-  "HFH-HONEY-30": honeyBox.url,
-  "HFH-GUMMIES-60": gummies.url,
-  "HFH-BUNDLE": bundle.url,
+  "HFH-HONEY-30": honeyBox,
+  "HFH-GUMMIES-60": gummies,
+  "HFH-BUNDLE": bundle,
 };
 
 const ALT: Record<string, string> = {

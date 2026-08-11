@@ -159,7 +159,7 @@
   width: 100%;
   border: 0;
   border-radius: 999px;
-  background: var(--hfu-gold);
+  background: var(--hfu-fg);
   color: #0b0b0d;
   font-weight: 800;
   font-size: 16px;
@@ -243,7 +243,7 @@
 }
 .hfu-price strong {
   font-size: 26px;
-  color: var(--hfu-gold);
+  color: var(--hfu-fg);
 }
 .hfu-price s {
   color: var(--hfu-muted);
