@@ -155,6 +155,11 @@
   .hfu-sheet-wide .hfu-chip {
     margin-top: 0;
   }
+  .hfu-sheet-wide .hfu-scroll-cue {
+    position: relative;
+    z-index: 5;
+    background: var(--hfu-bg);
+  }
 
 }
 
