@@ -246,6 +246,10 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
             <BumpAccordion
               onOpenPanel={(panel) => trackBump("accordion_opened", copy.variant, { panel })}
             />
+
+            <p className="hfg-note hfu-note-mobile">
+              AI-enhanced product images. Final packaging differs from what is shown.
+            </p>
           </div>
         </div>
 
