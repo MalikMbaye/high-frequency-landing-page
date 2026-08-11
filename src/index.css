@@ -3999,3 +3999,11 @@ body:has(.cd-panel[data-state="open"]) {
   opacity: 0.65;
   cursor: default;
 }
+
+/* Cart line variant/option label */
+.cd-line-variant {
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 1.3;
+  color: hsl(var(--muted-foreground));
+}

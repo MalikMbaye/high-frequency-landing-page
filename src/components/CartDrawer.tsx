@@ -361,6 +361,16 @@ export const CartDrawer = () => {
                               ${(parseFloat(item.price.amount) * item.quantity).toFixed(2)}
                             </span>
                           </div>
+                          {(() => {
+                            const opts = (item.selectedOptions || [])
+                              .filter((o) => o.value && o.value !== "Default Title")
+                              .map((o) => `${o.name}: ${o.value}`)
+                              .join(" · ");
+                            const fallback =
+                              item.variantTitle && item.variantTitle !== "Default Title" ? item.variantTitle : "";
+                            const label = opts || fallback;
+                            return label ? <p className="cd-line-variant">{label}</p> : null;
+                          })()}
                           {added && (
                             <p className="cd-added">
                               <Check className="h-3 w-3" /> Added to cart

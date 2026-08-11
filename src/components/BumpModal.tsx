@@ -226,6 +226,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
         <div className="hfu-col">
           <div className="hfu-scroll" ref={scrollRef} onScroll={onScroll}>
             <span className="hfu-chip">{copy.eyebrow}</span>
+            <p className="hfu-product-name">High Frequency Honey — 3-Stick Trial</p>
             <h2 className="hfu-h">{copy.headline}</h2>
             <p className="hfu-lead">{copy.lead}</p>
             <p className="hfu-p">{copy.body}</p>

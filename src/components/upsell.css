@@ -699,3 +699,13 @@
   color: var(--hfu-fg);
   cursor: pointer;
 }
+
+/* Product name between the eyebrow chip and the headline */
+.hfu-product-name {
+  margin: 10px 0 2px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
