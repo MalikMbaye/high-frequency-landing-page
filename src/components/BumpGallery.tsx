@@ -85,6 +85,9 @@ export default function BumpGallery() {
         </div>
       </div>
 
+      <p className="hfg-note">*AI-enhanced product images. Final packaging may vary.</p>
+
+
 
       {lightbox &&
         createPortal(
