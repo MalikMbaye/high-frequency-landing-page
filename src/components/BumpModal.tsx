@@ -35,6 +35,8 @@ export function showBumpModal(onContinue?: () => void): boolean {
 const TRIAL_HANDLE = "high-frequency-honey-trial";
 const MONTH_HANDLE = "high-frequency-honey";
 const TRIAL_VARIANT_FALLBACK = "gid://shopify/ProductVariant/44712793964610"; // 3x stix
+const MONTH_VARIANT_ID = "gid://shopify/ProductVariant/44712941879362"; // 30x stix
+
 
 interface ResolvedOffer {
   product: ShopifyProduct;
