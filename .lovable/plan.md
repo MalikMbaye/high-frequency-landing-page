@@ -40,7 +40,7 @@ Cards in the carousel:
 - CTA styling: no gold. Primary buttons use the site's primary purple/white system; gold stays only on the "ONE-TIME OFFER" eyebrow.
 
 ## Technical notes
-- `src/components/CartDrawer.tsx`: restructure into line items → add-on carousel → protection checkbox row → single CTA; replace `onCheckoutPlus`/`onCheckoutWithout` with `protectionEnabled` state driving `addProtectionLine`/`removeProtectionLine`.
+- `src/components/CartDrawer.tsx`: restructure into line items → add-on carousel (protection card + product cards) → subtotal → single CTA; drop `onCheckoutPlus`/`onCheckoutWithout` in favor of per-card toggle state driving `addProtectionLine`/`removeProtectionLine` and the add-on helpers.
 - `src/index.css`: new `.cv-*` checkbox row rules, drawer z-index above `.nav-utility-bar`/header, new `.cd-addon-*` carousel styles.
 - `src/stores/cartStore.ts`: add generic `addAddonByVariant` / `removeAddon` helpers (wrapping `addCartLineRaw`) and a transient `justAddedVariantId` for the confirmation flash.
 - `src/components/BumpModal.tsx` + `ProductBlock.tsx` + `useBuyNow.ts`: open drawer before showing the bump; bump portal z-index above the drawer.
