@@ -1,40 +1,62 @@
 {
   "panels": [
     {
-      "id": "what-is-shilajit",
-      "title": "What is shilajit?",
+      "id": "marketplace",
+      "title": "Introducing the High Frequency Marketplace",
+      "subline": "The practice, expanded",
       "blocks": [
-        { "type": "lead", "text": "A sacred healing secret of the Himalayas." },
+        { "type": "lead", "text": "We are building more than headphones." },
         {
           "type": "p",
-          "text": "The mountains spend centuries pressing ancient plant matter between layers of rock until it becomes a dense mineral essence. It only appears above 16,000 feet, in summer, when the sun warms the cliffs and it seeps out. People have climbed up and gathered it by hand for thousands of years, and Ayurvedic practice has used it that whole time. The old Sanskrit name translates to destroyer of weakness."
+          "text": "The High Frequency Marketplace is where the rest of the practice lives. Everything in it does one job: raise the signal your brain runs on. The headphones were the first tool. They tune your state in under sixty seconds, and over 100,000 people have felt it."
         },
         {
           "type": "p",
-          "text": "What makes it rare is what it carries: 85+ trace minerals in ionic form, the charged form your cells absorb directly, plus a compound called fulvic acid that helps your cells turn fuel into energy."
+          "text": "But a session ends and your brain keeps running. We could tune the instrument. We could not do anything about what it was running on."
         },
-        { "type": "p", "text": "Raw, it is bitter and hard to take. We fold it into a caramel honey stick instead." }
+        {
+          "type": "p",
+          "text": "That gap is what the marketplace exists to close. The practice grows from here."
+        },
+        {
+          "type": "accent",
+          "text": "This is the first product in it. You are seeing it before it goes anywhere else."
+        }
       ]
     },
     {
-      "id": "why-frequency-company",
-      "title": "Why a frequency company sells honey",
+      "id": "the-mineral",
+      "title": "The mineral behind the frequency",
+      "subline": "Where the charge comes from",
       "blocks": [
-        { "type": "lead", "text": "Because your brainwaves are made of minerals." },
         {
-          "type": "p",
-          "text": "Every frequency you feel in the headphones is your neurons firing, and neurons fire by moving charged mineral ions across a membrane. That is what an action potential physically is. Each firing also costs energy your mitochondria have to produce on the spot."
+          "type": "lead",
+          "text": "Every frequency you feel in those headphones is your neurons firing."
         },
         {
           "type": "p",
-          "text": "So the headphones tune the signal. The minerals are what your brain makes the signal out of. Modern food, grown in tired soil, barely delivers them anymore."
+          "text": "And neurons fire by moving charged minerals across a membrane. That is what the signal physically is."
         },
-        { "type": "accent", "text": "Tune the signal. Feed the signal. That is the whole practice." }
+        {
+          "type": "p",
+          "text": "So we went looking for the richest source of those minerals on earth. We found it at 16,000 feet."
+        },
+        {
+          "type": "p",
+          "text": "Shilajit is a mineral essence the Himalayas spend centuries making, pressed out of ancient plant matter between layers of rock. It seeps from the cliffs in summer, when the sun warms them. People have climbed up and gathered it by hand for thousands of years, and Ayurvedic practice has used it that entire time. The old Sanskrit name translates to destroyer of weakness."
+        },
+        {
+          "type": "p",
+          "text": "It carries 85+ trace minerals in ionic form, the charged form your cells absorb directly, plus a compound called fulvic acid that helps your cells turn fuel into energy. Modern food, grown in tired soil, barely delivers either one."
+        },
+        { "type": "p", "text": "Raw, it is bitter and hard to take. So we folded it into caramel honey." },
+        { "type": "accent", "text": "Tune the signal. Feed the signal." }
       ]
     },
     {
-      "id": "what-to-expect",
-      "title": "What to expect",
+      "id": "benefits",
+      "title": "Product benefits",
+      "subline": "What compounds, and when",
       "blocks": [
         {
           "type": "p",
@@ -43,49 +65,73 @@
         {
           "type": "list",
           "items": [
-            { "label": "Week 1", "text": "Steadier energy through the day, deeper sleep at night. The afternoon crash starts to fade." },
-            { "label": "Week 2", "text": "The fog lifts. Focus holds through the afternoon without rescue." },
-            { "label": "Week 4", "text": "Faster recovery between workouts. More output, less soreness." },
             {
-              "label": "Weeks 8\u201312",
+              "label": "Week 1",
+              "text": "Steadier energy through the day, deeper sleep at night. The afternoon crash starts to fade."
+            },
+            {
+              "label": "Week 2",
+              "text": "The fog lifts. Focus holds through the afternoon without rescue."
+            },
+            {
+              "label": "Week 4",
+              "text": "Faster recovery between workouts. More output, less soreness."
+            },
+            {
+              "label": "Weeks 8 to 12",
               "text": "The full compound effect. In a 90-day double-blind, placebo-controlled study of 96 men aged 45 to 55, purified shilajit raised total testosterone 20% (Andrologia, 2016)."
             }
           ]
         },
-        { "type": "accent", "text": "Coffee borrows energy and bills you at 2 PM. Minerals build it." },
+        {
+          "type": "accent",
+          "text": "That is the same philosophy you bought the headphones for. Coffee borrows energy and bills you at 2 PM. Minerals build it."
+        },
         {
           "type": "note",
           "text": "The mechanisms are not sex-specific. Mitochondrial energy, mineral absorption, and clarity apply to women too. The study above was run on men, so we cite it as what it is."
+        },
+        {
+          "type": "p",
+          "text": "All of which only works if you actually take it, which is the entire reason this is honey and not a jar of resin."
         }
       ]
     },
     {
-      "id": "how-to-take-it",
-      "title": "How to take it",
+      "id": "how-to-use",
+      "title": "How to use it",
+      "subline": "Ten seconds, once a day",
       "blocks": [
-        { "type": "lead", "text": "Ten seconds. Once a day." },
         {
-          "type": "list",
-          "items": [
-            { "label": "Tear", "text": "the stick at the top notch. No scissors, no measuring." },
-            { "label": "Squeeze", "text": "it straight into your mouth, or stir it into tea, coffee, or warm water." },
-            { "label": "Then", "text": "put the headphones on. Sixty seconds of frequency on top of ten seconds of honey." }
-          ]
+          "type": "lead",
+          "text": "Tear the stick at the top notch. No scissors, no measuring, no mess."
         },
         {
           "type": "p",
-          "text": "Morning works best, or about 30 minutes before a workout. The only thing that matters is doing it daily, because the benefits are cumulative rather than one-time. Miss a day, just continue the next one. Do not double up."
-        }
+          "text": "Squeeze it straight into your mouth, or stir it into tea, coffee, or warm water. Caramel first, then something mineral underneath."
+        },
+        {
+          "type": "p",
+          "text": "Then put the headphones on. Ten seconds of honey, sixty seconds of frequency. That is the whole ritual, and that is how you start your morning on the high frequency."
+        },
+        {
+          "type": "p",
+          "text": "Morning works best, or about thirty minutes before a workout. The only thing that really matters is doing it daily, because the benefits compound rather than arriving all at once. Miss a day and just continue the next one. Do not double up."
+        },
+        { "type": "note", "text": "Everything else you might want to check is below." }
       ]
     },
     {
-      "id": "whats-in-each-stick",
-      "title": "What's in each stick",
+      "id": "product-information",
+      "title": "Product information",
+      "subline": "Ingredients, nutrition, testing, and safety",
       "blocks": [
+        { "type": "subhead", "text": "What's in it" },
         {
           "type": "p",
-          "text": "Ingredients: Organic Honey, Purified Himalayan Shilajit Resin (400mg), Natural Caramel Flavor. Contains honey."
+          "text": "Organic Honey, Purified Himalayan Shilajit Resin (400mg), Natural Caramel Flavor. Contains honey. No corn syrup, no artificial sweeteners, no fillers."
         },
+        { "type": "subhead", "text": "Nutrition, per stick" },
         {
           "type": "nutrition",
           "headValue": "Per serving",
@@ -104,47 +150,40 @@
             { "label": "Shilajit resin", "value": "400mg", "dv": "\u2020" }
           ]
         },
-        { "type": "note", "text": "Percent Daily Values are based on a 2,000 calorie diet. \u2020 Daily Value not established." },
         {
-          "type": "p",
-          "text": "All 6.6g of sugar comes from the organic honey. No corn syrup, no artificial sweeteners, no fillers."
-        }
-      ]
-    },
-    {
-      "id": "testing-safety",
-      "title": "Testing, safety, and the fine print",
-      "blocks": [
-        { "type": "lead", "text": "Every batch is tested before it ships." },
+          "type": "note",
+          "text": "Percent Daily Values are based on a 2,000 calorie diet. \u2020 Daily Value not established. All 6.6g of sugar comes from the organic honey."
+        },
+        { "type": "subhead", "text": "How we verify it" },
         {
           "type": "bullets",
           "items": [
-            "400mg dose confirmed by lab panel.",
+            "Every batch is tested before it ships. The 400mg dose is confirmed by lab panel, not by the label printer.",
             "Fulvic acid verified at 75%+, where the industry average is 10 to 20%.",
-            "DBP-verified authenticity, the marker most brands skip.",
+            "DBP-verified authenticity, the marker most brands skip because their product would fail it.",
             "Heavy metals: Non-Detect on lead, mercury, arsenic, and cadmium.",
-            "Produced in a GMP, ISO, and HACCP certified facility.",
-            "Certificates available on request."
+            "Produced in a GMP, ISO, and HACCP certified facility. Certificates available on request."
           ]
         },
+        { "type": "subhead", "text": "Before you take it" },
         {
-          "type": "labelled",
-          "label": "Before you take it.",
+          "type": "p",
           "text": "Adults 18 and over. Talk to your doctor first if you are pregnant, nursing, trying to conceive, on prescription medication, or managing a diagnosed condition. Shilajit contains iron and may not suit people with iron-overload conditions. Contains honey, so not for infants under 12 months. If you are managing blood sugar, note the 6.6g of honey sugar per stick."
         },
+        { "type": "subhead", "text": "Images, packaging, and the guarantee" },
         {
           "type": "disclosures",
           "items": [
             {
-              "label": "About the images on this page.",
-              "text": "Every product image here was generated with AI. The renders are accurate on format, dose, and count. The packaging you receive looks different from what is shown."
+              "label": "",
+              "text": "Every product image on this screen was generated with AI. The renders are accurate on format, dose, and count."
             },
             {
-              "label": "About the packaging.",
-              "text": "Your sticks ship in Bliss Bell packaging. Bliss Bell is our partner brand and produces this with us. High Frequency packaging is in production and has not shipped yet. Same formula, same 400mg, same facility."
+              "label": "",
+              "text": "The packaging you receive looks different from what is shown, because your sticks ship in Bliss Bell packaging. Bliss Bell is our partner brand and produces this with us. High Frequency packaging is in production and has not shipped yet. Same formula, same 400mg, same facility."
             },
             {
-              "label": "Shipping and guarantee.",
+              "label": "",
               "text": "Ships free inside your headphone box. 30 days, full refund, no questions, no return shipping. Same as the headphones."
             },
             {
