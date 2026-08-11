@@ -524,6 +524,13 @@
   line-height: 1.3;
   color: var(--hfu-fg);
 }
+@media (max-width: 720px) {
+  .hfu-upgrade-line {
+    font-size: 11.5px;
+    letter-spacing: -0.01em;
+  }
+}
+
 .hfu-upgrade-chev {
   flex: 0 0 auto;
   color: #c9a961;
