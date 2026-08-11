@@ -291,7 +291,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
                 style={{ pointerEvents: "none" }}
               />
               <span className="hfu-upgrade-line">
-                Actually, send the full 30-day supply for 50% off.
+                Actually, send me a 30-day supply for 50% off.
               </span>
               <button
                 type="button"
