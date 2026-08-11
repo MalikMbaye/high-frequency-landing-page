@@ -239,6 +239,82 @@
   font-size: 12px;
 }
 
+/* Mobile: copy scrolls, CTA stays pinned to the bottom of the sheet. */
+.hfu-col {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.hfu-scroll {
+  min-height: 0;
+}
+.hfu-actions {
+  position: relative;
+}
+.hfu-scroll-cue {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: -6px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--hfu-line);
+  background: rgba(245, 245, 247, 0.08);
+  color: var(--hfu-fg);
+  cursor: pointer;
+  animation: hfu-cue 1.6s ease-in-out infinite;
+  z-index: 2;
+}
+@keyframes hfu-cue {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 4px);
+  }
+}
+@media (max-width: 639px) {
+  .hfu-sheet {
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    max-height: 88vh;
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+  .hfu-sheet .hfu-media {
+    flex: 0 0 auto;
+  }
+  .hfu-col {
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+  .hfu-scroll {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    /* fade the copy out under the pinned CTA */
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 20px), transparent);
+  }
+  .hfu-actions {
+    flex: 0 0 auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--hfu-line);
+    background: var(--hfu-bg);
+  }
+  .hfu-scroll-cue {
+    top: -46px;
+  }
+  .hfu-trust {
+    margin-top: 10px;
+  }
+}
+
+
 /* ---------- post-purchase page ---------- */
 .hfu-page {
   min-height: 100vh;
