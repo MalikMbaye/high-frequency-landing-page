@@ -467,23 +467,24 @@
   opacity: 0.85;
 }
 
-/* ---------- order bump (dashed green card, translucent white) ---------- */
+/* ---------- order bump (dashed green card, near-white panel) ---------- */
 
 .hfu-upgrade {
   margin: 0 0 12px;
   border: 2px dashed var(--hfu-green);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.93);
   backdrop-filter: blur(6px);
-  color: var(--hfu-fg);
+  color: #14161f;
   text-align: left;
   overflow: hidden;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
 .hfu-upgrade.is-checked {
   border-style: solid;
-  background: rgba(255, 255, 255, 0.14);
+  background: #ffffff;
 }
+
 .hfu-upgrade-row {
   display: flex;
   align-items: center;
