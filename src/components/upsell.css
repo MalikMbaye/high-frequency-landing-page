@@ -253,10 +253,7 @@
   z-index: 3;
 }
 .hfu-scroll-cue {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: -6px;
+  margin: 0 auto 8px;
   width: 34px;
   height: 34px;
   display: grid;
@@ -272,10 +269,10 @@
 @keyframes hfu-cue {
   0%,
   100% {
-    transform: translate(-50%, 0);
+    transform: translateY(0);
   }
   50% {
-    transform: translate(-50%, 4px);
+    transform: translateY(4px);
   }
 }
 @media (max-width: 639px) {
@@ -306,9 +303,6 @@
     padding-top: 12px;
     border-top: 1px solid var(--hfu-line);
     background: var(--hfu-bg);
-  }
-  .hfu-scroll-cue {
-    top: -17px;
   }
 
   .hfu-trust {
