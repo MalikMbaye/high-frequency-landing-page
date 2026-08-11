@@ -1438,5 +1438,13 @@
     position: relative;
     z-index: 5;
   }
+  /* Relocated AI disclaimer: hide inside gallery, show under accordion. */
+  .hfu-media-gallery .hfg-note {
+    display: none;
+  }
+  .hfu-note-mobile {
+    display: block;
+    margin-top: 14px;
+    text-align: center;
+  }
 }
-
