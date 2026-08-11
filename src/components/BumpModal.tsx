@@ -4,7 +4,7 @@ import { Loader2 } from "lucide-react";
 import "./upsell.css";
 import { pickBumpVariant, type BumpCopy } from "@/content/upsellCopy";
 import { trackBump } from "@/lib/bumpAnalytics";
-import honeyHero from "@/assets/honey/honey-hero.webp";
+import BumpGallery from "@/components/BumpGallery";
 import {
   storefrontApiRequest,
   PRODUCT_BY_HANDLE_QUERY,
@@ -200,9 +200,10 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
     >
       <div className="hfu-sheet hfu-sheet-wide">
         <div className="hfu-handle" />
-        <div className="hfu-media">
-          <img src={honeyHero} alt="High Frequency Honey sachet with honey pouring out" loading="lazy" />
+        <div className="hfu-media hfu-media-gallery">
+          <BumpGallery />
         </div>
+
 
         <div className="hfu-col">
           <span className="hfu-chip">{copy.eyebrow}</span>
