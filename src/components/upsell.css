@@ -73,8 +73,10 @@
   .hfu-sheet-wide .hfu-scroll {
     display: grid;
     grid-template-columns: minmax(0, 36fr) minmax(0, 64fr);
+    grid-template-rows: minmax(0, 1fr);
     gap: 28px;
     align-items: stretch;
+    flex: 1 1 auto;
     min-height: 0;
     overflow: hidden;
   }
