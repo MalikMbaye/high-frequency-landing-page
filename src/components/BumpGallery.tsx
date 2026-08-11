@@ -2,22 +2,24 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import honeyHero from "@/assets/honey/honey-hero.webp";
-import honeyStoneHeadphones from "@/assets/honey/honey-stone-headphones.webp";
-import honeyPourResin from "@/assets/honey/honey-pour-resin.webp";
-import honeySteamingCup from "@/assets/honey/honey-steaming-cup.webp";
-import honeyBoxApp from "@/assets/honey/honey-box-app.webp";
-import honeyGoldSpoon from "@/assets/honey/honey-gold-spoon.webp";
+import honeyRitual from "@/assets/honey/honey-ritual.webp";
+import honeyIngredients from "@/assets/honey/honey-ingredients.webp";
 import honeyDipperWood from "@/assets/honey/honey-dipper-wood.webp";
+import honeyGuarantee from "@/assets/honey/honey-guarantee.webp";
+import honeyFacts from "@/assets/honey/honey-facts.webp";
+import honeySteamingCup from "@/assets/honey/honey-steaming-cup.webp";
+import honeyGoldSpoon from "@/assets/honey/honey-gold-spoon.webp";
 
 /** Square 1:1 gallery for the bump modal: main image, thumb rail, lightbox. */
 export const bumpGalleryImages: Array<{ src: string; alt: string }> = [
   { src: honeyHero, alt: "High Frequency Honey sachet with honey pouring out" },
-  { src: honeyStoneHeadphones, alt: "Honey stick beside High Frequency headphones and tea on slate" },
-  { src: honeyPourResin, alt: "Golden honey pouring beside a piece of high-altitude resin" },
+  { src: honeyRitual, alt: "Three steps: tear the stick, squeeze into tea, ten seconds once a day" },
+  { src: honeyIngredients, alt: "Three ingredients: mountain mineral resin, organic honey, natural caramel" },
+  { src: honeyDipperWood, alt: "Wooden honey dipper drizzling honey next to a honey stick and resin" },
+  { src: honeyGuarantee, alt: "Try it for 30 days — full refund, same guarantee as the headphones" },
+  { src: honeyFacts, alt: "Supplement facts panel for High Frequency Honey" },
   { src: honeySteamingCup, alt: "Honey stick squeezed into a steaming cup of tea" },
-  { src: honeyBoxApp, alt: "Box of honey sticks with the app and a cup of tea" },
   { src: honeyGoldSpoon, alt: "Brass spoon of dark honey beside resin on slate" },
-  { src: honeyDipperWood, alt: "Wooden honey dipper drizzling honey next to a honey stick" },
 ];
 
 export default function BumpGallery() {
