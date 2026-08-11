@@ -26,7 +26,7 @@ export const bumpVariantA: BumpCopy = {
   lead:
     "A sacred healing secret from 16,000 feet, folded into golden honey. The old texts called it the destroyer of weakness.",
   body:
-    "Tear the seal. Squeeze it into your tea, or straight onto your tongue. Put the headphones on. Feel the frequency rise while 85+ mountain minerals feed the very cells doing the rising. Ten seconds of honey. Sixty seconds of sound. A morning that doesn't crash.",
+    "One golden stick, ten seconds, headphones on after. The sound tunes you. The mountain feeds you. That's the practice, complete.",
   offer: "3 sticks for $1. This screen only, and they arrive tucked inside your headphone box.",
   detailLabel: "What's inside",
   cta: "Add the 3-pack for $1",
@@ -43,7 +43,7 @@ export const bumpVariantB: BumpCopy = {
   lead:
     "Shilajit: gathered by hand above 16,000 feet for thousands of years. The Sanskrit name means destroyer of weakness.",
   body:
-    "Imagine your morning tea carrying 85+ minerals your brain fires with, from a sacred essence the Himalayas took centuries to make. One golden stick, ten seconds, headphones on after. The sound tunes you. The mountain feeds you. That's the practice, complete.",
+    "One golden stick, ten seconds, headphones on after. The sound tunes you. The mountain feeds you. That's the practice, complete.",
   offer: "3 sticks for $1, this screen only. They ride inside your headphone box.",
   detailLabel: "What's inside",
   cta: "Add the 3-pack for $1",

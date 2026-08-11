@@ -1,0 +1,159 @@
+{
+  "panels": [
+    {
+      "id": "what-is-shilajit",
+      "title": "What is shilajit?",
+      "blocks": [
+        { "type": "lead", "text": "A sacred healing secret of the Himalayas." },
+        {
+          "type": "p",
+          "text": "The mountains spend centuries pressing ancient plant matter between layers of rock until it becomes a dense mineral essence. It only appears above 16,000 feet, in summer, when the sun warms the cliffs and it seeps out. People have climbed up and gathered it by hand for thousands of years, and Ayurvedic practice has used it that whole time. The old Sanskrit name translates to destroyer of weakness."
+        },
+        {
+          "type": "p",
+          "text": "What makes it rare is what it carries: 85+ trace minerals in ionic form, the charged form your cells absorb directly, plus a compound called fulvic acid that helps your cells turn fuel into energy."
+        },
+        { "type": "p", "text": "Raw, it is bitter and hard to take. We fold it into a caramel honey stick instead." }
+      ]
+    },
+    {
+      "id": "why-frequency-company",
+      "title": "Why a frequency company sells honey",
+      "blocks": [
+        { "type": "lead", "text": "Because your brainwaves are made of minerals." },
+        {
+          "type": "p",
+          "text": "Every frequency you feel in the headphones is your neurons firing, and neurons fire by moving charged mineral ions across a membrane. That is what an action potential physically is. Each firing also costs energy your mitochondria have to produce on the spot."
+        },
+        {
+          "type": "p",
+          "text": "So the headphones tune the signal. The minerals are what your brain makes the signal out of. Modern food, grown in tired soil, barely delivers them anymore."
+        },
+        { "type": "accent", "text": "Tune the signal. Feed the signal. That is the whole practice." }
+      ]
+    },
+    {
+      "id": "what-to-expect",
+      "title": "What to expect",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This is a compounding mineral, never a stimulant. Nothing spikes on day one. Here is the arc people consistently report."
+        },
+        {
+          "type": "list",
+          "items": [
+            { "label": "Week 1", "text": "Steadier energy through the day, deeper sleep at night. The afternoon crash starts to fade." },
+            { "label": "Week 2", "text": "The fog lifts. Focus holds through the afternoon without rescue." },
+            { "label": "Week 4", "text": "Faster recovery between workouts. More output, less soreness." },
+            {
+              "label": "Weeks 8\u201312",
+              "text": "The full compound effect. In a 90-day double-blind, placebo-controlled study of 96 men aged 45 to 55, purified shilajit raised total testosterone 20% (Andrologia, 2016)."
+            }
+          ]
+        },
+        { "type": "accent", "text": "Coffee borrows energy and bills you at 2 PM. Minerals build it." },
+        {
+          "type": "note",
+          "text": "The mechanisms are not sex-specific. Mitochondrial energy, mineral absorption, and clarity apply to women too. The study above was run on men, so we cite it as what it is."
+        }
+      ]
+    },
+    {
+      "id": "how-to-take-it",
+      "title": "How to take it",
+      "blocks": [
+        { "type": "lead", "text": "Ten seconds. Once a day." },
+        {
+          "type": "list",
+          "items": [
+            { "label": "Tear", "text": "the stick at the top notch. No scissors, no measuring." },
+            { "label": "Squeeze", "text": "it straight into your mouth, or stir it into tea, coffee, or warm water." },
+            { "label": "Then", "text": "put the headphones on. Sixty seconds of frequency on top of ten seconds of honey." }
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Morning works best, or about 30 minutes before a workout. The only thing that matters is doing it daily, because the benefits are cumulative rather than one-time. Miss a day, just continue the next one. Do not double up."
+        }
+      ]
+    },
+    {
+      "id": "whats-in-each-stick",
+      "title": "What's in each stick",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Ingredients: Organic Honey, Purified Himalayan Shilajit Resin (400mg), Natural Caramel Flavor. Contains honey."
+        },
+        {
+          "type": "nutrition",
+          "headValue": "Per serving",
+          "headDv": "% DV",
+          "rows": [
+            { "label": "Serving size", "value": "1 stick (8g)", "dv": "" },
+            { "label": "Servings per box", "value": "30", "dv": "" },
+            { "label": "Calories", "value": "25", "dv": "" },
+            { "label": "Total fat", "value": "0g", "dv": "0%" },
+            { "label": "Cholesterol", "value": "0mg", "dv": "0%" },
+            { "label": "Sodium", "value": "8mg", "dv": "<1%" },
+            { "label": "Total carbohydrates", "value": "6.6g", "dv": "2%" },
+            { "label": "Total sugars", "value": "6.6g", "dv": "" },
+            { "label": "Includes added sugars", "value": "6.6g", "dv": "13%" },
+            { "label": "Protein", "value": "0g", "dv": "0%" },
+            { "label": "Shilajit resin", "value": "400mg", "dv": "\u2020" }
+          ]
+        },
+        { "type": "note", "text": "Percent Daily Values are based on a 2,000 calorie diet. \u2020 Daily Value not established." },
+        {
+          "type": "p",
+          "text": "All 6.6g of sugar comes from the organic honey. No corn syrup, no artificial sweeteners, no fillers."
+        }
+      ]
+    },
+    {
+      "id": "testing-safety",
+      "title": "Testing, safety, and the fine print",
+      "blocks": [
+        { "type": "lead", "text": "Every batch is tested before it ships." },
+        {
+          "type": "bullets",
+          "items": [
+            "400mg dose confirmed by lab panel.",
+            "Fulvic acid verified at 75%+, where the industry average is 10 to 20%.",
+            "DBP-verified authenticity, the marker most brands skip.",
+            "Heavy metals: Non-Detect on lead, mercury, arsenic, and cadmium.",
+            "Produced in a GMP, ISO, and HACCP certified facility.",
+            "Certificates available on request."
+          ]
+        },
+        {
+          "type": "labelled",
+          "label": "Before you take it.",
+          "text": "Adults 18 and over. Talk to your doctor first if you are pregnant, nursing, trying to conceive, on prescription medication, or managing a diagnosed condition. Shilajit contains iron and may not suit people with iron-overload conditions. Contains honey, so not for infants under 12 months. If you are managing blood sugar, note the 6.6g of honey sugar per stick."
+        },
+        {
+          "type": "disclosures",
+          "items": [
+            {
+              "label": "About the images on this page.",
+              "text": "Every product image here was generated with AI. The renders are accurate on format, dose, and count. The packaging you receive looks different from what is shown."
+            },
+            {
+              "label": "About the packaging.",
+              "text": "Your sticks ship in Bliss Bell packaging. Bliss Bell is our partner brand and produces this with us. High Frequency packaging is in production and has not shipped yet. Same formula, same 400mg, same facility."
+            },
+            {
+              "label": "Shipping and guarantee.",
+              "text": "Ships free inside your headphone box. 30 days, full refund, no questions, no return shipping. Same as the headphones."
+            },
+            {
+              "label": "",
+              "text": "These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
