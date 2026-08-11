@@ -34,11 +34,10 @@ const Hero = () => {
             autoPlay
             loop
             muted
-            defaultMuted
+            muted
             playsInline
-            // @ts-expect-error iOS legacy attribute
-            webkit-playsinline="true"
             preload="auto"
+
             ref={(el) => {
               if (!el) return;
               el.playbackRate = 0.5;
