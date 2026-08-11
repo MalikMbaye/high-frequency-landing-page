@@ -83,7 +83,7 @@ const Navbar = () => {
         </nav>
         <div className="nav-actions">
           <CartDrawer />
-          <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-black btn-sm">
+          <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-sm">
             {isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}
           </button>
           <button
@@ -121,7 +121,7 @@ const Navbar = () => {
             Cart
           </button>
         </div>
-        <button type="button" onClick={() => { closeMenu(); buyNow(); }} disabled={isLoading} className="btn btn-black mm-cta">
+        <button type="button" onClick={() => { closeMenu(); buyNow(); }} disabled={isLoading} className="btn btn-purple mm-cta">
           {isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}
         </button>
       </div>
