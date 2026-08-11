@@ -155,10 +155,9 @@
   .hfu-sheet-wide .hfu-chip {
     margin-top: 0;
   }
+  /* Desktop: the copy column has its own scrollbar, so the cue is redundant. */
   .hfu-sheet-wide .hfu-scroll-cue {
-    position: relative;
-    z-index: 5;
-    background: var(--hfu-bg);
+    display: none;
   }
 
 }
