@@ -3,64 +3,30 @@
  * Restricted ingredient wording NEVER lives here — that text is fetched at runtime from
  * /content/bump-detail.json and /content/upsell-detail.json.
  */
-export interface BumpOption {
-  id: "trial" | "month";
-  title: string;
-  price: string;
-  sub: string;
-  chip: string | null;
-  cta: string;
-}
-
 export interface BumpCopy {
   eyebrow: string;
   headline: string;
   lead: string;
   body: string;
+  offer: string;
   detailLabel: string;
-  options: BumpOption[];
-  subscription: { label: string; price: string; sub: string; cta: string; discountPercent: number };
+  cta: string;
   ctaAdded: string;
   ctaSecondary: string;
   trustRow: string;
-  trustRowSubscription: string;
 }
 
 export const bumpCopy: BumpCopy = {
   eyebrow: "ONE-TIME OFFER",
-  headline: "Fuel for your frequency practice.",
-  lead: "Your brain runs on minerals. We went to 16,000 feet to get them.",
-  body: "High Frequency Honey is a caramel honey stick carrying 85+ trace minerals from Himalayan rock above 16,000 feet. One a day, alongside your sessions. It ships inside your headphone box, so there is no extra shipping and nothing to wait on.",
+  headline: "The stuff we hiked 16,000 feet for.",
+  lead: "Above the tree line, black resin bleeds out of the rock. Locals have scraped it by hand for centuries.",
+  body: "Our team treks up, carries it down, and we fold it into a caramel honey stick — 85+ trace minerals, the raw material your brain runs on. One in the morning, alongside your sessions.",
+  offer: "3 sticks for $1. This screen only, and it ships inside your headphone box.",
   detailLabel: "What's inside",
-  options: [
-    {
-      id: "trial",
-      title: "Try 3 sticks",
-      price: "$1.99",
-      sub: "Three mornings. Enough to feel the difference.",
-      chip: "START HERE",
-      cta: "Add for $1.99",
-    },
-    {
-      id: "month",
-      title: "Full month",
-      price: "30 sticks \u00b7 $29.97",
-      sub: "One a day for 30 days. The compound window.",
-      chip: null,
-      cta: "Add for $29.97",
-    },
-  ],
-  subscription: {
-    label: "Subscribe and save 20%",
-    price: "$23.97 every 30 days",
-    sub: "Skip, pause, or cancel anytime.",
-    cta: "Subscribe \u00b7 $23.97/mo",
-    discountPercent: 20,
-  },
+  cta: "Add the 3-pack for $1",
   ctaAdded: "Added \u2713",
   ctaSecondary: "No thanks, just the headphones",
   trustRow: "Ships free in your box \u00b7 30-day guarantee",
-  trustRowSubscription: "Ships free in your box \u00b7 30-day guarantee \u00b7 Cancel anytime",
 };
 
 
