@@ -1383,8 +1383,8 @@
 /* ---------- mobile takeover spacing overrides (must win the cascade) ---------- */
 @media (max-width: 639px) {
   .hfu-topband {
-    padding: calc(env(safe-area-inset-top) + clamp(44px, 9vh, 72px)) 20px
-      clamp(16px, 2.4vh, 22px);
+    padding: calc(env(safe-area-inset-top) + clamp(14px, 3vh, 24px)) 20px
+      clamp(14px, 2vh, 18px);
   }
   /* Shorter square gallery so the product label + headline show without scrolling. */
   .hfu-media-gallery .hfg-main {
