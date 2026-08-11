@@ -2,7 +2,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Loader2 } from "lucide-react";
 import "./upsell.css";
-import { bumpCopy } from "@/content/upsellCopy";
+import { pickBumpVariant, bumpCopy, type BumpCopy } from "@/content/upsellCopy";
+import { trackBump } from "@/lib/bumpAnalytics";
 import honeyHero from "@/assets/honey/honey-hero.webp";
 import {
   storefrontApiRequest,
@@ -27,9 +28,6 @@ export function showBumpModal(onContinue?: () => void): boolean {
   return true;
 }
 
-// Analytics stubs — swap for the real pixel/GA calls later.
-const track = (event: string, data?: Record<string, unknown>) =>
-  console.log(`[bump] ${event}`, { bump_variant: "single", ...(data ?? {}) });
 
 // The trial lives on its own handle when it exists; otherwise we fall back to the
 // 3-stick variant on the main honey product.
@@ -106,7 +104,7 @@ interface DetailContent {
 }
 
 /** Lazy accordion — the ingredient copy is fetched on first open, never inlined. */
-function WhatsInside() {
+function WhatsInside({ copy }: { copy: BumpCopy }) {
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState<DetailContent | null>(null);
   const [loading, setLoading] = useState(false);
@@ -126,12 +124,12 @@ function WhatsInside() {
         setLoading(false);
       }
     }
-  }, [open, content, loading]);
+  }, [open, content, loading, copy.variant]);
 
   return (
     <div className="hfu-acc">
       <button type="button" className="hfu-acc-btn" onClick={toggle} aria-expanded={open}>
-        <span>{bumpCopy.detailLabel}</span>
+        <span>{copy.detailLabel}</span>
         <span aria-hidden="true">{open ? "\u2191" : "\u2193"}</span>
       </button>
       {open && (
@@ -152,10 +150,12 @@ function WhatsInside() {
 function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: () => void }) {
   const [state, setState] = useState<"default" | "adding" | "added">("default");
   const continued = useRef(false);
+  // A variant is drawn at random on every open, then tagged onto every event.
+  const [copy] = useState<BumpCopy>(() => pickBumpVariant());
 
   useEffect(() => {
-    track("bumpViewed");
-  }, []);
+    trackBump("viewed", copy.variant);
+  }, [copy.variant]);
 
   const finish = () => {
     if (continued.current) return;
@@ -166,14 +166,14 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
 
   const accept = async () => {
     setState("adding");
-    track("bumpAccepted");
+    trackBump("accepted", copy.variant, { offer: "trial_3pack_1" });
     await addBumpToCart({ variantId: TRIAL_VARIANT_FALLBACK });
     setState("added");
     setTimeout(finish, 800);
   };
 
   const decline = () => {
-    track("bumpDeclined");
+    trackBump("declined", copy.variant);
     finish();
   };
 
@@ -193,7 +193,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
       className="hfu hfu-backdrop"
       role="dialog"
       aria-modal="true"
-      aria-label={bumpCopy.headline}
+      aria-label={copy.headline}
       onClick={(e) => {
         if (e.target === e.currentTarget) decline();
       }}
@@ -205,25 +205,25 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
         </div>
 
         <div className="hfu-col">
-          <span className="hfu-chip">{bumpCopy.eyebrow}</span>
-          <h2 className="hfu-h">{bumpCopy.headline}</h2>
-          <p className="hfu-lead">{bumpCopy.lead}</p>
-          <p className="hfu-p">{bumpCopy.body}</p>
-          <p className="hfu-p">{bumpCopy.offer}</p>
+          <span className="hfu-chip">{copy.eyebrow}</span>
+          <h2 className="hfu-h">{copy.headline}</h2>
+          <p className="hfu-lead">{copy.lead}</p>
+          <p className="hfu-p">{copy.body}</p>
+          <p className="hfu-p">{copy.offer}</p>
 
-          <WhatsInside />
+          <WhatsInside copy={copy} />
 
           <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
-            {state === "default" && bumpCopy.cta}
+            {state === "default" && copy.cta}
             {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
-            {state === "added" && bumpCopy.ctaAdded}
+            {state === "added" && copy.ctaAdded}
           </button>
 
           <button type="button" className="hfu-link" onClick={decline}>
-            {bumpCopy.ctaSecondary}
+            {copy.ctaSecondary}
           </button>
 
-          <p className="hfu-trust">{bumpCopy.trustRow}</p>
+          <p className="hfu-trust">{copy.trustRow}</p>
         </div>
       </div>
     </div>,
