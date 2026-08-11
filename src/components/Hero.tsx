@@ -39,12 +39,11 @@ const Hero = () => {
             muted
             playsInline
             preload="metadata"
+            ref={(el) => {
+              if (el) el.playbackRate = 0.5;
+            }}
             aria-label="High Frequency Headphones rotating on a light background"
           />
-
-          <span className="floating-pill pill-purple">FOCUS</span>
-          <span className="floating-pill pill-gold">FLOW</span>
-          <span className="floating-glyph">∞</span>
         </div>
       </div>
       <div className="hfh-container social-proof-strip">
