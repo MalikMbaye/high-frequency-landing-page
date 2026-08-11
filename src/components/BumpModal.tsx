@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { Loader2 } from "lucide-react";
 import "./upsell.css";
 import { bumpCopy } from "@/content/upsellCopy";
-import honeySticks from "@/assets/honey/honey-sticks.png.asset.json";
+import honeySticks from "@/assets/honey/honey-sticks.webp";
 import { addCartLineRaw, storefrontApiRequest, PRODUCT_BY_HANDLE_QUERY } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 
@@ -139,7 +139,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
       <div className="hfu-sheet">
         <div className="hfu-handle" />
         <div className="hfu-media">
-          <img src={honeySticks.url} alt="High Frequency Honey stick beside a honey dipper" loading="lazy" />
+          <img src={honeySticks} alt="High Frequency Honey stick beside a honey dipper" loading="lazy" />
         </div>
 
         <span className="hfu-chip">{bumpCopy.eyebrow}</span>
