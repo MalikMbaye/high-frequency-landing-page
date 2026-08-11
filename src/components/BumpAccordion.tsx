@@ -158,7 +158,11 @@ function AccordionRow({
         aria-controls={`hfa-panel-${panel.id}`}
         onClick={onToggle}
       >
-        <span className="hfa-title">{panel.title}</span>
+        <span className="hfa-headtext">
+          <span className="hfa-title">{panel.title}</span>
+          {panel.subline && <span className="hfa-subline">{panel.subline}</span>}
+        </span>
+
         <ChevronDown className="hfa-chev" size={18} aria-hidden="true" />
       </button>
       <div
