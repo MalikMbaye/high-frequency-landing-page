@@ -26,6 +26,7 @@
   animation: hfu-fade 0.2s ease-out;
 }
 .hfu-sheet {
+  box-sizing: border-box;
   width: 100%;
   overflow-x: hidden;
   max-width: 520px;
@@ -40,6 +41,7 @@
 @media (min-width: 640px) {
   .hfu-backdrop {
     align-items: center;
+    padding: 24px;
   }
   .hfu-sheet {
     max-width: 480px;
@@ -52,11 +54,13 @@
   }
   /* Landscape variant: media column left, copy + actions right. */
   .hfu-sheet.hfu-sheet-wide {
+    box-sizing: border-box;
+    width: calc(100% - 48px);
     max-width: 900px;
     display: grid;
-    grid-template-columns: 42% 58%;
+    grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
     gap: 32px;
-    padding: 28px;
+    padding: 32px;
     align-items: center;
     overflow: hidden;
     overflow-y: auto;
