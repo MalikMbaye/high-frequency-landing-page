@@ -397,8 +397,8 @@ export const CartDrawer = () => {
 
               {cards.length > 0 && (
                 <div className="cd-addons" aria-label="Add to your order">
-                  {cards.map((card, i) =>
-                    i !== slide ? null : card.kind === "protection" ? (
+                  {cards.map((card) =>
+                    card.kind === "protection" ? (
                       <div className="cd-addon" key={card.key}>
                         <span className="cv-orb cd-addon-orb" aria-hidden="true" />
                         <div className="cd-addon-body">
@@ -443,40 +443,9 @@ export const CartDrawer = () => {
                       </div>
                     ),
                   )}
-
-                  {cards.length > 1 && (
-                    <div className="cd-addon-nav">
-                      <div className="cd-dots">
-                        {cards.map((c, i) => (
-                          <button
-                            key={c.key}
-                            type="button"
-                            aria-label={`Show add-on ${i + 1}`}
-                            className={i === slide ? "is-active" : ""}
-                            onClick={() => setSlide(i)}
-                          />
-                        ))}
-                      </div>
-                      <div className="cd-arrows">
-                        <button
-                          type="button"
-                          aria-label="Previous add-on"
-                          onClick={() => setSlide((s) => (s - 1 + cards.length) % cards.length)}
-                        >
-                          <ChevronLeft className="h-4 w-4" />
-                        </button>
-                        <button
-                          type="button"
-                          aria-label="Next add-on"
-                          onClick={() => setSlide((s) => (s + 1) % cards.length)}
-                        >
-                          <ChevronRight className="h-4 w-4" />
-                        </button>
-                      </div>
-                    </div>
-                  )}
                 </div>
               )}
+
 
               <div className="flex-shrink-0 space-y-3 pt-4 border-t border-border bg-background">
                 <div className="flex justify-between items-center text-foreground">
