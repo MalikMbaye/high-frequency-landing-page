@@ -536,7 +536,7 @@
 
 .hfu-upgrade-chev {
   flex: 0 0 auto;
-  color: var(--hfu-green);
+  color: #1c7a45;
   transition: transform 0.2s ease-out;
 }
 .hfu-upgrade.is-open .hfu-upgrade-chev {
@@ -555,25 +555,26 @@
 }
 .hfu-upgrade-details {
   padding: 10px 12px 12px 46px;
-  border-top: 1px solid var(--hfu-green-soft);
+  border-top: 1px solid rgba(20, 22, 31, 0.12);
 }
 .hfu-upgrade-sub {
   margin: 0;
   font-size: 12px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.86);
+  color: rgba(20, 22, 31, 0.82);
 }
 .hfu-upgrade-pricing {
   margin: 8px 0 0;
   font-size: 12.5px;
   font-weight: 800;
-  color: var(--hfu-green);
+  color: #1c7a45;
 }
 .hfu-upgrade-fine {
   margin: 8px 0 0;
   font-size: 11px;
-  color: rgba(245, 245, 247, 0.6);
+  color: rgba(20, 22, 31, 0.6);
 }
+
 
 
 .hfu-cta-label {
