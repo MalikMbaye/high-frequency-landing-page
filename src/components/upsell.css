@@ -79,17 +79,36 @@
     min-height: 0;
     overflow: hidden;
   }
-  /* Left media column stays static; only the copy column scrolls. */
+  /* Left media column fills the row height so it matches the copy column. */
   .hfu-sheet-wide .hfu-media-gallery {
-    position: sticky;
-    top: 0;
-    align-self: start;
+    align-self: stretch;
+    min-height: 0;
+    display: flex;
   }
-  .hfu-sheet-wide .hfg,
-  .hfu-sheet-wide .hfg-main,
+  .hfu-sheet-wide .hfg {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    max-width: 420px;
+  }
+  .hfu-sheet-wide .hfg-main {
+    flex: 1 1 auto;
+    aspect-ratio: auto;
+    min-height: 0;
+    max-width: 420px;
+  }
   .hfu-sheet-wide .hfg-rail {
-    max-width: 400px;
+    flex: 0 0 auto;
+    max-width: 420px;
   }
+  /* Disclaimer stays on a single line under the thumbnails. */
+  .hfu-sheet-wide .hfg-note {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 9.5px;
+    letter-spacing: 0;
+  }
+
   .hfu-sheet-wide .hfu-copy {
     min-height: 0;
     overflow-y: auto;
