@@ -269,6 +269,16 @@
     box-shadow: 0 12px 28px rgba(107, 46, 184, 0.45);
   }
 
+  .btn-black {
+    background: var(--hfh-near-black);
+    color: var(--hfh-white);
+    box-shadow: 0 8px 22px rgba(13, 13, 18, 0.28);
+  }
+  .btn-black:hover {
+    background: #000;
+    box-shadow: 0 12px 28px rgba(13, 13, 18, 0.38);
+  }
+
   .btn-gold {
     background: var(--hfh-gold);
     color: var(--hfh-near-black);
@@ -2796,15 +2806,50 @@
   .hero {
     padding-top: 32px;
   }
-  .hero-visual {
-    min-height: 280px;
+  /* First viewport must show the full product loop, so the hero is packed
+     tighter and the video is capped by viewport height rather than width. */
+  .hero-tall {
+    padding-top: 42px;
+    padding-bottom: 24px;
+  }
+  .hero-tall .hero-grid,
+  .hero-grid {
+    gap: 16px;
+  }
+  .hero-visual,
+  .hero-tall .hero-visual {
+    min-height: 0;
   }
   .hero-image {
     max-width: 100%;
   }
   .hero-video {
-    max-width: 100%;
+    max-width: min(100%, 42svh);
     border-radius: 20px;
+  }
+  .hero .pre-headline {
+    font-size: 0.72rem;
+    line-height: 1.4;
+    margin: 0 0 10px;
+  }
+  .hero .display-headline {
+    font-size: clamp(1.7rem, 8.4vw, 2.25rem);
+    line-height: 1.04;
+    margin: 0 0 10px;
+  }
+  .hero .subhead {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    margin: 0 0 16px;
+  }
+  .hero .btn-lg {
+    padding: 13px 24px;
+    font-size: 0.95rem;
+  }
+  .hero .social-proof-strip {
+    margin-top: 24px;
+    padding-top: 18px;
+    gap: 18px;
   }
 
   .hero-copy {
@@ -2815,6 +2860,7 @@
     width: 100%;
     justify-content: center;
   }
+
   .reaction-grid {
     grid-template-columns: 1fr 1fr;
     gap: 14px;

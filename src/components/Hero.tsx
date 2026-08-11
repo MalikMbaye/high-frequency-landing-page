@@ -21,7 +21,7 @@ const Hero = () => {
             onClick={() => {
               document.getElementById("buy")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="btn btn-purple btn-lg"
+            className="btn btn-black btn-lg"
           >
             <>Get Your Headphones <ArrowRight size={18} /></>
           </button>
