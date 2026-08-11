@@ -183,11 +183,14 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
 
   const accept = async () => {
     setState("adding");
-    trackBump("accepted", copy.variant, { offer: "trial_3pack_1" });
-    await addBumpToCart({ variantId: TRIAL_VARIANT_FALLBACK });
+    trackBump("accepted", copy.variant, {
+      offer: upgrade ? "month_30pack_upgrade" : "trial_3pack_1",
+    });
+    await addBumpToCart({ variantId: upgrade ? MONTH_VARIANT_ID : TRIAL_VARIANT_FALLBACK });
     setState("added");
     setTimeout(finish, 800);
   };
+
 
   const decline = () => {
     trackBump("declined", copy.variant);
