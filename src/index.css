@@ -2778,7 +2778,7 @@
     height: 30px;
     width: 30px;
   }
-  .top-nav .btn-purple.btn-sm,
+  .top-nav .btn-black.btn-sm,
   .nav-actions > *:not(.nav-toggle):not(.mm-cta) {
     display: none;
   }
