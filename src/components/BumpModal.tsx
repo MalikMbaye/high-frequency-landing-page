@@ -307,7 +307,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
                       box as your headphones.
                     </p>
                     <p className="hfu-upgrade-pricing">
-                      ${amt.toFixed(2)} today. ${was.toFixed(2)} everywhere else.
+                      $29.99 today. $59.99 everywhere else.
                     </p>
                   </div>
                 </div>
