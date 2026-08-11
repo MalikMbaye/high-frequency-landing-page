@@ -254,11 +254,37 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
         )}
 
         <div className="hfu-actions">
+          <label className="hfu-upgrade">
+            <input
+              type="checkbox"
+              checked={upgrade}
+              onChange={(e) => {
+                setUpgrade(e.target.checked);
+                trackBump(e.target.checked ? "upgrade_checked" : "upgrade_unchecked", copy.variant);
+              }}
+            />
+            <span className="hfu-upgrade-copy">
+              <span className="hfu-upgrade-title">
+                Upgrade to the 30-day supply —{" "}
+                <span className="hfu-upgrade-price">
+                  ${monthPrice ? Number(monthPrice.amount).toFixed(2) : "33.33"}
+                </span>
+                {monthPrice?.compareAt && (
+                  <span className="hfu-upgrade-was">${Number(monthPrice.compareAt).toFixed(2)}</span>
+                )}
+              </span>
+              <span className="hfu-upgrade-sub">
+                30 stix instead of 3. Roughly half off, one-time — no subscription.
+              </span>
+            </span>
+          </label>
+
           <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
-            {state === "default" && copy.cta}
+            {state === "default" && (upgrade ? "Add the 30-day supply" : copy.cta)}
             {state === "adding" && <Loader2 className="animate-spin h-5 w-5 mx-auto" />}
             {state === "added" && copy.ctaAdded}
           </button>
+
 
           <button type="button" className="hfu-link" onClick={decline}>
             {copy.ctaSecondary}
