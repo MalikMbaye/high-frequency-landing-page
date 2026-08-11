@@ -466,50 +466,108 @@
 }
 
 /* ---------- order bump upgrade row ---------- */
+/* ---------- order bump (self-contained light card) ---------- */
+
 .hfu-upgrade {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
   margin: 0 0 12px;
-  padding: 12px 14px;
-  border: 1px dashed rgba(201, 162, 39, 0.5);
-  border-radius: 14px;
-  background: rgba(201, 162, 39, 0.08);
-  cursor: pointer;
+  border: 1px solid #e6003c33;
+  border-left: 4px solid #e6003c;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #17181f;
   text-align: left;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
 }
-.hfu-upgrade input {
-  margin: 2px 0 0;
+.hfu-upgrade-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 12px;
+  cursor: pointer;
+  margin: 0;
+}
+.hfu-upgrade-row input {
+  margin: 0;
   width: 18px;
   height: 18px;
-  accent-color: var(--hfu-gold);
+  accent-color: #e6003c;
   flex: 0 0 auto;
 }
-.hfu-upgrade-copy {
+.hfu-upgrade-line {
   min-width: 0;
-}
-.hfu-upgrade-title {
-  margin: 0;
-  font-size: 13.5px;
+  flex: 1 1 auto;
+  font-size: 13px;
   font-weight: 800;
-  line-height: 1.35;
-}
-.hfu-upgrade-sub {
-  margin: 3px 0 0;
-  font-size: 11.5px;
-  line-height: 1.45;
-  color: var(--hfu-muted);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #17181f;
 }
 .hfu-upgrade-price {
-  color: var(--hfu-gold);
-  font-weight: 800;
+  color: #c1002f;
+  font-weight: 900;
 }
 .hfu-upgrade-was {
   margin-left: 6px;
-  color: var(--hfu-muted);
+  color: #6b6f7d;
   text-decoration: line-through;
   font-weight: 600;
 }
+.hfu-upgrade-toggle {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: #c1002f;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+.hfu-upgrade-details {
+  padding: 0 12px 12px 44px;
+  border-top: 1px solid #f0f1f4;
+  margin-top: 0;
+}
+.hfu-upgrade-sub {
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #4a4e5c;
+}
+.hfu-upgrade-compare {
+  margin: 10px 0 0;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+  color: #4a4e5c;
+}
+.hfu-upgrade-compare th,
+.hfu-upgrade-compare td {
+  padding: 5px 6px;
+  border-bottom: 1px solid #f0f1f4;
+  text-align: left;
+}
+.hfu-upgrade-compare th {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8a8f9d;
+  font-weight: 700;
+}
+.hfu-upgrade-compare td.hfu-col-best {
+  color: #17181f;
+  font-weight: 800;
+}
+.hfu-upgrade-note {
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: #6b6f7d;
+}
+
 
 /* ---------- actions ---------- */
 
