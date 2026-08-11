@@ -30,11 +30,18 @@ const Hero = () => {
           <div className="ambient-halo"></div>
           <div className="ambient-ribbon ribbon-purple"></div>
           <div className="ambient-ribbon ribbon-gold"></div>
-          <img
-            src={img_w2bSNIr2}
-            alt="High Frequency Headphones frequency technology headphones with purple glow"
-            className="hero-image"
+          <video
+            className="hero-video"
+            src={heroVideo.url}
+            poster={heroPoster.url}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-label="High Frequency Headphones rotating on a light background"
           />
+
           <span className="floating-pill pill-purple">FOCUS</span>
           <span className="floating-pill pill-gold">FLOW</span>
           <span className="floating-glyph">∞</span>
