@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
+import { showBumpModal } from "@/components/BumpModal";
 
 const LP_PRODUCT_HANDLE = "high-frequency-headphones-lp-test-169-99";
 
