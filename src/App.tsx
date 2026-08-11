@@ -17,6 +17,8 @@ import HelpSectionPage from "./pages/help/HelpSectionPage";
 import HelpArticlePage from "./pages/help/HelpArticlePage";
 import HelpSearchPage from "./pages/help/HelpSearchPage";
 import EmailCapturePopup from "./components/EmailCapturePopup";
+import PostPurchaseUpsell from "./pages/PostPurchaseUpsell";
+import { BumpModalHost } from "./components/BumpModal";
 
 
 const queryClient = new QueryClient();
@@ -36,9 +38,11 @@ const AppContent = () => {
         <Route path="/help/search" element={<HelpSearchPage />} />
         <Route path="/help/:sectionSlug" element={<HelpSectionPage />} />
         <Route path="/help/:sectionSlug/:articleSlug" element={<HelpArticlePage />} />
+        <Route path="/upsell" element={<PostPurchaseUpsell />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <MarketingOverlays />
+      <BumpModalHost />
     </BrowserRouter>
   );
 };

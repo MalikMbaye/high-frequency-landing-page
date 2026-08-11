@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
+import { showBumpModal } from "@/components/BumpModal";
 
 const LP_PRODUCT_HANDLE = "high-frequency-headphones-lp-test-169-99";
 
@@ -26,7 +27,8 @@ export function useBuyNow() {
         selectedOptions: variant.selectedOptions || [],
       });
 
-      openDrawer();
+      // Offer the $1 order bump once per session; otherwise go straight to the cart.
+      if (!showBumpModal(() => openDrawer())) openDrawer();
     },
     [product, addItem, openDrawer]
   );

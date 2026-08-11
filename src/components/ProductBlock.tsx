@@ -4,6 +4,7 @@ import { Check, ChevronLeft, ChevronRight, Star, Loader2, Minus, Plus } from "lu
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
 import DeliveryTimeline from "@/components/DeliveryTimeline";
+import { showBumpModal } from "@/components/BumpModal";
 
 
 // Landing page price test — points at the duplicated $169.99 product.
@@ -262,8 +263,9 @@ const ProductBlock = () => {
                   selectedOptions: selectedVariant.selectedOptions || []
                 });
 
-
-                useCartStore.getState().openDrawer();
+                const openDrawer = () => useCartStore.getState().openDrawer();
+                // $1 order bump, once per session; otherwise straight to the cart.
+                if (!showBumpModal(openDrawer)) openDrawer();
               }}
               disabled={isCartLoading || !product}
             >
