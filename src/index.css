@@ -325,7 +325,7 @@
     justify-content: center;
     gap: 8px;
     padding: 7px 12px;
-    background: linear-gradient(90deg, var(--hfh-purple), var(--hfh-gold, #d4a017));
+    background: linear-gradient(180deg, var(--hfh-near-black) 0%, var(--hfh-near-black) 45%, var(--hfh-purple) 100%);
     color: #fff;
     font-size: clamp(0.5rem, 2.5vw, 0.72rem);
     font-weight: 700;
@@ -2778,7 +2778,7 @@
     height: 30px;
     width: 30px;
   }
-  .top-nav .btn-purple.btn-sm,
+  .top-nav .btn-black.btn-sm,
   .nav-actions > *:not(.nav-toggle):not(.mm-cta) {
     display: none;
   }
