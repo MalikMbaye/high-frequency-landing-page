@@ -46,11 +46,11 @@ const DeliveryTimeline = () => {
         aria-expanded={expanded}
         aria-label={expanded ? "Collapse delivery timeline" : "Expand delivery timeline"}
       >
-        <span className="dlv-title">Your delivery timeline</span>
+        <span className="dlv-title">Delivery forecast</span>
         <span className="dlv-badge">
           {expanded
             ? `${fmt(steps[3].date)} — ${fmt(worstCaseDate)}`
-            : `Estimated delivery window: ${fmt(steps[3].date)}`}
+            : fmt(steps[3].date)}
         </span>
         <span
           className="dlv-chevron"
