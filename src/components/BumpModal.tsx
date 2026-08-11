@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { Loader2 } from "lucide-react";
+import { ChevronDown, Loader2 } from "lucide-react";
 import "./upsell.css";
 import { pickBumpVariant, type BumpCopy } from "@/content/upsellCopy";
 import { trackBump } from "@/lib/bumpAnalytics";
