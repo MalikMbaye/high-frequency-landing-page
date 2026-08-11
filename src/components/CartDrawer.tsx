@@ -305,14 +305,14 @@ export const CartDrawer = () => {
         >
           <ShoppingCart className="h-5 w-5" />
           {totalItems > 0 && (
-            <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px] bg-cyan-400 text-black">
+            <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px] bg-primary text-primary-foreground">
               {totalItems}
             </Badge>
           )}
         </Button>
       </SheetTrigger>
       <SheetContent
-        className="cd-panel w-full sm:max-w-lg flex flex-col h-full bg-background text-foreground border-l border-zinc-800"
+        className="cd-panel w-full sm:max-w-lg flex flex-col h-full bg-background text-foreground border-l border-border"
         overlayClassName="cd-overlay"
         onPointerDownOutside={(e) => {
           // Keep the drawer open when the click lands on a layered surface
@@ -326,8 +326,8 @@ export const CartDrawer = () => {
         }}
       >
         <SheetHeader className="flex-shrink-0 text-left">
-          <SheetTitle className="text-white">Your cart</SheetTitle>
-          <SheetDescription className="text-zinc-400">
+          <SheetTitle className="text-foreground">Your cart</SheetTitle>
+          <SheetDescription className="text-muted-foreground">
             {totalItems === 0 ? "Your cart is empty" : `${totalItems} item${totalItems !== 1 ? "s" : ""} in your cart`}
           </SheetDescription>
         </SheetHeader>
@@ -335,8 +335,8 @@ export const CartDrawer = () => {
           {items.length === 0 ? (
             <div className="flex-1 flex items-center justify-center">
               <div className="text-center">
-                <ShoppingCart className="h-12 w-12 text-zinc-600 mx-auto mb-4" />
-                <p className="text-zinc-500">Your cart is empty</p>
+                <ShoppingCart className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                <p className="text-muted-foreground">Your cart is empty</p>
               </div>
             </div>
           ) : (
@@ -478,14 +478,14 @@ export const CartDrawer = () => {
                 </div>
               )}
 
-              <div className="flex-shrink-0 space-y-3 pt-4 border-t border-zinc-800 bg-background">
-                <div className="flex justify-between items-center text-white">
+              <div className="flex-shrink-0 space-y-3 pt-4 border-t border-border bg-background">
+                <div className="flex justify-between items-center text-foreground">
                   <span className="text-lg font-semibold">Subtotal</span>
                   <span className="text-xl font-bold">
                     {currency} {grandTotal.toFixed(2)}
                   </span>
                 </div>
-                <p className="text-xs text-zinc-500 text-right">Shipping &amp; taxes calculated at checkout</p>
+                <p className="text-xs text-muted-foreground text-right">Shipping &amp; taxes calculated at checkout</p>
                 <button
                   type="button"
                   className="cd-checkout"
