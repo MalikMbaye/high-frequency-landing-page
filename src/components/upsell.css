@@ -1379,6 +1379,11 @@
   font-size: 11px;
 }
 
+/* Mobile-only relocated disclaimer (rendered under the accordion). */
+.hfu-note-mobile {
+  display: none;
+}
+
 
 /* ---------- mobile takeover spacing overrides (must win the cascade) ---------- */
 @media (max-width: 639px) {
@@ -1433,5 +1438,13 @@
     position: relative;
     z-index: 5;
   }
+  /* Relocated AI disclaimer: hide inside gallery, show under accordion. */
+  .hfu-media-gallery .hfg-note {
+    display: none;
+  }
+  .hfu-note-mobile {
+    display: block;
+    margin-top: 14px;
+    text-align: center;
+  }
 }
-
