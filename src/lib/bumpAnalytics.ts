@@ -23,7 +23,7 @@ export function trackBump(event: BumpEvent, variant: string, meta: Record<string
   // Fire-and-forget: never block or break the purchase flow on analytics.
   void supabase
     .from("bump_events")
-    .insert({ variant, event, session_id: sessionId(), meta })
+    .insert({ variant, event, session_id: sessionId(), meta: meta as never })
     .then(({ error }) => {
       if (error) console.warn("bump event log failed", error.message);
     });
