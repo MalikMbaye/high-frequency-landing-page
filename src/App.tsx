@@ -38,9 +38,11 @@ const AppContent = () => {
         <Route path="/help/search" element={<HelpSearchPage />} />
         <Route path="/help/:sectionSlug" element={<HelpSectionPage />} />
         <Route path="/help/:sectionSlug/:articleSlug" element={<HelpArticlePage />} />
+        <Route path="/upsell" element={<PostPurchaseUpsell />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <MarketingOverlays />
+      <BumpModalHost />
     </BrowserRouter>
   );
 };
