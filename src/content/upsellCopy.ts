@@ -5,9 +5,9 @@
  */
 export const bumpCopy = {
   eyebrow: "ONE-TIME OFFER",
-  headline: "Add the fuel. One dollar.",
+  headline: "Fuel for your frequency practice.",
   body: [
-    "You just tuned your brain. Now feed it. High Frequency Honey is our new mineral fuel: a caramel honey stick carrying 85+ trace minerals sourced from 16,000 feet in the Himalayas. One stick a day supports steady energy, focus, and recovery. The frequency practice, completed.",
+    "Your brain runs on minerals. We went to 16,000 feet to get them. High Frequency Honey is a caramel honey stick carrying 85+ trace minerals from the Himalayas \u2014 one a day, alongside your sessions.",
     "Two sticks. One dollar. They ship inside your headphone box.",
   ],
   detailLabel: "What's inside",
@@ -18,8 +18,8 @@ export const bumpCopy = {
 };
 
 export const upsellCopy = {
-  headline: "Lock in the full practice.",
-  sub: "Your headphones are on the way. Fuel ships in the same box if you add it in the next step. This screen is the only place you'll see launch pricing.",
+  headline: "Fuel for your frequency practice.",
+  sub: "Your brain runs on minerals. We went to 16,000 feet to get them. Your headphones are on the way. Fuel ships in the same box if you add it in the next step. This screen is the only place you'll see launch pricing.",
   cards: [
     {
       sku: "HFH-HONEY-30",
