@@ -1370,13 +1370,14 @@
 /* ---------- mobile takeover spacing overrides (must win the cascade) ---------- */
 @media (max-width: 639px) {
   .hfu-topband {
-    padding: calc(env(safe-area-inset-top) + 40px) 20px 18px;
+    padding: calc(env(safe-area-inset-top) + clamp(44px, 9vh, 72px)) 20px
+      clamp(16px, 2.4vh, 22px);
   }
   /* Shorter square gallery so the product label + headline show without scrolling. */
   .hfu-media-gallery .hfg-main {
     aspect-ratio: auto;
-    height: 34vh;
-    max-height: 34vh;
+    height: clamp(180px, 30vh, 340px);
+    max-height: 30vh;
   }
   .hfu-media-gallery .hfg-main img {
     object-fit: contain;
@@ -1392,4 +1393,21 @@
   .hfu-h {
     margin-top: 12px;
   }
+  /* Order bump line: never clipped, wraps to a second line if needed. */
+  .hfu-upgrade-line {
+    font-size: 12px;
+    line-height: 1.25;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .hfu-upgrade-row {
+    align-items: flex-start;
+    padding: 12px 10px;
+  }
+  /* Footer always paints above the scrolling body. */
+  .hfu-actions {
+    position: relative;
+    z-index: 5;
+  }
 }
+
