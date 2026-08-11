@@ -254,6 +254,7 @@
 }
 .hfu-scroll-cue {
   margin: 0 auto 8px;
+  flex: 0 0 34px;
   width: 34px;
   height: 34px;
   display: grid;
