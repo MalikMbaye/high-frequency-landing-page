@@ -15,17 +15,23 @@
 ## 2. Drawer layering fix
 - Raise the drawer overlay + panel above the fixed header and utility bar so it never renders under the nav on desktop/tablet. Full-height panel, own scroll region, page scroll locked while open.
 
-## 3. Single checkout, protection as a checkbox
-Replace the two-CTA "Checkout+ / Checkout without" block with:
-- One protection row: brand mark, "DELIVERY PROTECTION", price, info "i" (keeps the existing Covrly info modal), and a **checkbox/toggle** on the right. Default state: on (matching current default behavior) — tell me if you want it off by default.
-- Toggling adds/removes the protection line live and the subtotal updates.
-- One primary CTA: `CHECK OUT · $X` reflecting the toggle state. No second button.
-- If protection is ineligible, the row is hidden and only the single CTA shows.
+## 3. One carousel of toggleable add-ons — protection lives inside it
+Persistent bordered card module below the line items, above subtotal (prefix pattern): one card at a time, swipeable on touch, dot indicators + prev/next arrows, toggle switch on the right of each card.
 
-## 4. Add-on carousel (prefix-style)
-- Below the line items, above subtotal: a bordered card carousel of one add-on at a time — thumbnail, title, price, toggle switch on the right, dot indicators plus prev/next arrows.
-- Add-ons: High Frequency Honey ($1 trial stick pack if not already in cart, 30-stick box, gummies, bundle) pulled from Shopify by handle; anything already in the cart is skipped.
-- Toggle on adds that variant as its own cart line; toggle off removes it. Optimistic UI with rollback on failure.
+Cards in the carousel:
+1. **Delivery Protection** — brand orb, "DELIVERY PROTECTION", price, info "i" (keeps the existing Covrly modal), toggle **default ON**. Hidden if the quote is ineligible.
+2. **High Frequency Honey $1 trial** (skipped if already in the cart from the bump)
+3. **Honey 30-stick box**
+4. **Gummies**
+5. **Wellness Bundle**
+
+- Toggle on adds that variant as its own cart line; toggle off removes it. Optimistic UI, rollback on failure, subtotal updates live.
+- Anything already in the cart is skipped from the carousel.
+- Product cards resolved from Shopify by handle via `PRODUCT_BY_HANDLE_QUERY` — no mock products. Protection stays on the Covrly quote endpoint.
+
+## 4. Single checkout CTA
+- Remove the two-CTA "Checkout+ / Checkout without" block entirely.
+- One primary CTA: `CHECK OUT · $X` reflecting whatever is toggled on, plus "Shipping & taxes calculated at checkout".
 - Existing line items keep the circular −/1/+ stepper and "Remove" link styling from the references, restyled to the site's dark palette (not prefix's blue/white).
 
 ## 5. Upsell copy, photo, CTA color
@@ -34,7 +40,7 @@ Replace the two-CTA "Checkout+ / Checkout without" block with:
 - CTA styling: no gold. Primary buttons use the site's primary purple/white system; gold stays only on the "ONE-TIME OFFER" eyebrow.
 
 ## Technical notes
-- `src/components/CartDrawer.tsx`: restructure into line items → add-on carousel → protection checkbox row → single CTA; replace `onCheckoutPlus`/`onCheckoutWithout` with `protectionEnabled` state driving `addProtectionLine`/`removeProtectionLine`.
+- `src/components/CartDrawer.tsx`: restructure into line items → add-on carousel (protection card + product cards) → subtotal → single CTA; drop `onCheckoutPlus`/`onCheckoutWithout` in favor of per-card toggle state driving `addProtectionLine`/`removeProtectionLine` and the add-on helpers.
 - `src/index.css`: new `.cv-*` checkbox row rules, drawer z-index above `.nav-utility-bar`/header, new `.cd-addon-*` carousel styles.
 - `src/stores/cartStore.ts`: add generic `addAddonByVariant` / `removeAddon` helpers (wrapping `addCartLineRaw`) and a transient `justAddedVariantId` for the confirmation flash.
 - `src/components/BumpModal.tsx` + `ProductBlock.tsx` + `useBuyNow.ts`: open drawer before showing the bump; bump portal z-index above the drawer.
