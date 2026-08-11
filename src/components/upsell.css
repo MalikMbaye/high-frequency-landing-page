@@ -1203,7 +1203,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--hfu-gold);
 }
 
 /* Product name row + marketplace byline */
@@ -1213,6 +1213,7 @@
   gap: 10px;
   flex-wrap: wrap;
   margin-top: 10px;
+
 }
 .hfu-name-row .hfu-product-name {
   margin: 0;
