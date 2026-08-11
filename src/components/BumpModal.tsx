@@ -200,13 +200,21 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
       <div className="hfu-sheet hfu-sheet-wide">
         <div className="hfu-handle" />
 
+        <div className="hfu-band">
+          <p className="hfu-band-title">Wait. Add this to your box for $1.</p>
+          <p className="hfu-band-sub">
+            2 sticks of High Frequency Honey, shipped free inside your headphones. You'll only see
+            this once.
+          </p>
+        </div>
+        <div className="hfu-urgency">This offer disappears when you leave this screen</div>
+
         <div className="hfu-scroll" ref={scrollRef} onScroll={onScroll}>
           <div className="hfu-media hfu-media-gallery">
             <BumpGallery />
           </div>
 
           <div className="hfu-copy" ref={copyRef} onScroll={onScroll}>
-            <span className="hfu-chip">{copy.eyebrow}</span>
             <div className="hfu-name-row">
               <p className="hfu-product-name">
                 High Frequency Honey <span className="hfu-name-sub">— Infused with Sacred Shilajit</span>
@@ -217,7 +225,6 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
             <h2 className="hfu-h">{copy.headline}</h2>
             <p className="hfu-lead">{copy.lead}</p>
             <p className="hfu-p">{copy.body}</p>
-            <p className="hfu-p">{copy.offer}</p>
             <p className="hfu-p hfu-never">And it never expires.</p>
 
             <BumpAccordion
