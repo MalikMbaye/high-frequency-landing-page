@@ -200,6 +200,15 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
       <div className="hfu-sheet hfu-sheet-wide">
         <div className="hfu-handle" />
 
+        <div className="hfu-band">
+          <p className="hfu-band-title">Wait. Add this to your box for $1.</p>
+          <p className="hfu-band-sub">
+            2 sticks of High Frequency Honey, shipped free inside your headphones. You'll only see
+            this once.
+          </p>
+        </div>
+        <div className="hfu-urgency">This offer disappears when you leave this screen</div>
+
         <div className="hfu-scroll" ref={scrollRef} onScroll={onScroll}>
           <div className="hfu-media hfu-media-gallery">
             <BumpGallery />
