@@ -183,6 +183,40 @@ export const PRODUCT_BY_HANDLE_QUERY = `
   }
 `;
 
+/**
+ * Selling plans live behind the `unauthenticated_read_selling_plans` scope, which
+ * this storefront token may not have. Kept as its own query so a denial only
+ * hides the subscribe option instead of breaking the product fetch.
+ */
+export const PRODUCT_SELLING_PLANS_QUERY = `
+  query GetProductSellingPlans($handle: String!) {
+    product(handle: $handle) {
+      sellingPlanGroups(first: 5) {
+        edges {
+          node {
+            name
+            sellingPlans(first: 5) {
+              edges {
+                node {
+                  id
+                  name
+                  priceAdjustments {
+                    adjustmentValue {
+                      ... on SellingPlanPercentagePriceAdjustment {
+                        adjustmentPercentage
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 // Cart mutations
 const CART_QUERY = `
   query cart($id: ID!) {
@@ -272,13 +306,23 @@ export interface CartItem {
   price: { amount: string; currencyCode: string };
   quantity: number;
   selectedOptions: Array<{ name: string; value: string }>;
+  /** Optional Shopify selling plan (subscription) applied to this line. */
+  sellingPlanId?: string | null;
 }
 
 export async function createShopifyCart(
   item: CartItem,
 ): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
   const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
-    input: { lines: [{ quantity: item.quantity, merchandiseId: item.variantId }] },
+    input: {
+      lines: [
+        {
+          quantity: item.quantity,
+          merchandiseId: item.variantId,
+          ...(item.sellingPlanId ? { sellingPlanId: item.sellingPlanId } : {}),
+        },
+      ],
+    },
   });
 
   if (data?.data?.cartCreate?.userErrors?.length > 0) {
@@ -300,7 +344,13 @@ export async function addLineToShopifyCart(
 ): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean }> {
   const data = await storefrontApiRequest(CART_LINES_ADD_MUTATION, {
     cartId,
-    lines: [{ quantity: item.quantity, merchandiseId: item.variantId }],
+    lines: [
+      {
+        quantity: item.quantity,
+        merchandiseId: item.variantId,
+        ...(item.sellingPlanId ? { sellingPlanId: item.sellingPlanId } : {}),
+      },
+    ],
   });
 
   const userErrors = data?.data?.cartLinesAdd?.userErrors || [];
