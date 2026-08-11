@@ -181,22 +181,57 @@ function AccordionRow({
   );
 }
 
+// Module-level cache + in-flight promise: fetched once per page load, so
+// re-opening the modal renders the panels instantly.
+let panelCache: Panel[] | null = null;
+let panelPromise: Promise<Panel[]> | null = null;
+
+async function loadPanels(): Promise<Panel[]> {
+  if (panelCache) return panelCache;
+  if (panelPromise) return panelPromise;
+
+  panelPromise = (async () => {
+    let lastError: unknown = null;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const res = await fetch("/content/bump-panels.json", { cache: "force-cache" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+        const data = JSON.parse(text) as { panels?: Panel[] };
+        panelCache = data.panels ?? [];
+        return panelCache;
+      } catch (error) {
+        lastError = error;
+        await new Promise((r) => setTimeout(r, 250 * (attempt + 1)));
+      }
+    }
+    panelPromise = null;
+    throw lastError;
+  })();
+
+  return panelPromise;
+}
+
 const BumpAccordion = ({ onOpenPanel }: { onOpenPanel?: (title: string) => void }) => {
-  const [panels, setPanels] = useState<Panel[] | null>(null);
+  const [panels, setPanels] = useState<Panel[] | null>(panelCache);
+  const [failed, setFailed] = useState(false);
   const [openId, setOpenId] = useState<string | null>(null);
 
   useEffect(() => {
+    if (panels) return;
     let cancelled = false;
-    fetch("/content/bump-panels.json")
-      .then((res) => res.json())
-      .then((data: { panels: Panel[] }) => {
-        if (!cancelled) setPanels(data.panels ?? []);
+    loadPanels()
+      .then((data) => {
+        if (!cancelled) setPanels(data);
       })
-      .catch((error) => console.error("Failed to load bump panels:", error));
+      .catch((error) => {
+        console.error("Failed to load bump panels:", error);
+        if (!cancelled) setFailed(true);
+      });
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [panels]);
 
   const toggle = useCallback(
     (panel: Panel) => {
@@ -208,6 +243,23 @@ const BumpAccordion = ({ onOpenPanel }: { onOpenPanel?: (title: string) => void 
     },
     [onOpenPanel],
   );
+
+  if (failed) {
+    return (
+      <div className="hfa hfa-loading">
+        <button
+          type="button"
+          className="hfa-retry"
+          onClick={() => {
+            setFailed(false);
+            setPanels(null);
+          }}
+        >
+          Details unavailable. Tap to retry.
+        </button>
+      </div>
+    );
+  }
 
   if (!panels) {
     return (
