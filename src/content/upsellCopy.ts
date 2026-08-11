@@ -41,7 +41,7 @@ export const bumpVariantB: BumpCopy = {
   eyebrow: "ONE-TIME OFFER",
   headline: "The mountain kept a secret. It tastes like caramel.",
   lead:
-    "Gathered by hand above 16,000 feet for thousands of years. The old name for it means destroyer of weakness.",
+    "Shilajit: gathered by hand above 16,000 feet for thousands of years. The Sanskrit name means destroyer of weakness.",
   body:
     "One golden stick, ten seconds, headphones on after. The sound tunes you. The mountain feeds you. That's the practice, complete.",
   offer: "3 sticks for $1, this screen only. They ride inside your headphone box.",
