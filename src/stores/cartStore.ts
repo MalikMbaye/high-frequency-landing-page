@@ -105,9 +105,8 @@ export const useCartStore = create<CartStore>()(
               });
               flash();
             }
-          } else if (existingItem) {
+          } else if (existingItem?.lineId) {
             const newQuantity = existingItem.quantity + item.quantity;
-            if (!existingItem.lineId) return;
             const result = await updateShopifyCartLine(cartId, existingItem.lineId, newQuantity);
             if (result.success) {
               set({
