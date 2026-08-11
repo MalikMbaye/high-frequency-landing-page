@@ -11,6 +11,8 @@
   --hfu-ink-soft: #4a4f5c;
   --hfu-gold-deep: #8a6d1f;
   --hfu-gold: #c9a227;
+  --hfu-green: #34d17f;
+  --hfu-green-soft: rgba(52, 209, 127, 0.18);
   --hfu-glow: #7c3aed;
   --hfu-line: rgba(245, 245, 247, 0.1);
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
