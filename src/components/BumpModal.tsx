@@ -159,8 +159,8 @@ function BumpModal({
 
 
   useEffect(() => {
-    trackBump("viewed", copy.variant);
-  }, [copy.variant]);
+    trackBump("viewed", copy.variant, { bump_position: bumpPosition });
+  }, [copy.variant, bumpPosition]);
 
 
   const finish = () => {
@@ -174,6 +174,7 @@ function BumpModal({
     setState("adding");
     trackBump("accepted", copy.variant, {
       offer: upgrade ? "month_30pack_upgrade" : "trial_3pack_1",
+      bump_position: bumpPosition,
     });
     await addBumpToCart({ variantId: upgrade ? MONTH_VARIANT_ID : TRIAL_VARIANT_FALLBACK });
     setState("added");
