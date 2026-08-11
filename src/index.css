@@ -2809,7 +2809,7 @@
   /* First viewport must show the full product loop, so the hero is packed
      tighter and the video is capped by viewport height rather than width. */
   .hero-tall {
-    padding-top: 14px;
+    padding-top: 42px;
     padding-bottom: 24px;
   }
   .hero-tall .hero-grid,
