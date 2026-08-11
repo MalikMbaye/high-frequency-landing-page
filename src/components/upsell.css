@@ -981,6 +981,21 @@
 .hfg-next {
   right: 8px;
 }
+.hfg-note {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--hfu-fg);
+  opacity: 0.45;
+}
+@media (max-width: 720px) {
+  .hfg-note {
+    font-size: 10.5px;
+    margin-top: 6px;
+  }
+}
 .hfg-rail {
   position: relative;
   display: flex;
