@@ -248,7 +248,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
             />
 
             <p className="hfg-note hfu-note-mobile">
-              AI-enhanced product images. Final packaging differs from what is shown.
+              AI-enhanced product images. Final packaging varies.
             </p>
           </div>
         </div>

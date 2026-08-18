@@ -87,7 +87,7 @@ export default function BumpGallery() {
         </div>
       </div>
 
-      <p className="hfg-note">AI-enhanced product images. Final packaging differs from what is shown.</p>
+      <p className="hfg-note">AI-enhanced product images. Final packaging varies.</p>
 
 
 
