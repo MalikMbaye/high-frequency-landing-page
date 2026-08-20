@@ -27,9 +27,9 @@ export const bumpVariantA: BumpCopy = {
     "A sacred healing secret from 16,000 feet, folded into golden honey. The old texts called it the destroyer of weakness.",
   body:
     "One golden stick, ten seconds, headphones on after. The sound tunes you. The mountain feeds you. That's the practice, complete.",
-  offer: "3 sticks for $1. This screen only, and they arrive tucked inside your headphone box.",
+  offer: "2 sticks for $1. This screen only, and they arrive tucked inside your headphone box.",
   detailLabel: "What's inside",
-  cta: "Add the 3-pack for $1",
+  cta: "Add the 2-pack for $1",
   ctaAdded: "Added \u2713",
   ctaSecondary: "No thanks, just the headphones",
   trustRow: "Ships free in your box \u00b7 30-day guarantee",
@@ -44,9 +44,9 @@ export const bumpVariantB: BumpCopy = {
     "Shilajit: gathered by hand above 16,000 feet for thousands of years. The Sanskrit name means destroyer of weakness.",
   body:
     "One golden stick, ten seconds, headphones on after. The sound tunes you. The mountain feeds you. That's the practice, complete.",
-  offer: "3 sticks for $1, this screen only. They ride inside your headphone box.",
+  offer: "2 sticks for $1, this screen only. They ride inside your headphone box.",
   detailLabel: "What's inside",
-  cta: "Add the 3-pack for $1",
+  cta: "Add the 2-pack for $1",
   ctaAdded: "Added \u2713",
   ctaSecondary: "No thanks, just the headphones",
   trustRow: "Ships free in your box \u00b7 30-day guarantee",

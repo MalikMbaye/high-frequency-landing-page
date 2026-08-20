@@ -34,7 +34,7 @@ export function showBumpModal(onContinue?: () => void): boolean {
 // 3-stick variant on the main honey product.
 const TRIAL_HANDLE = "high-frequency-honey-trial";
 const MONTH_HANDLE = "high-frequency-honey";
-const TRIAL_VARIANT_FALLBACK = "gid://shopify/ProductVariant/44712793964610"; // 3x stix
+const TRIAL_VARIANT_FALLBACK = "gid://shopify/ProductVariant/44712793964610"; // 2x stix (TODO: replace with 2-stick variant ID)
 const MONTH_VARIANT_ID = "gid://shopify/ProductVariant/44712941879362"; // 30x stix
 
 
@@ -175,7 +175,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
   const accept = async () => {
     setState("adding");
     trackBump("accepted", copy.variant, {
-      offer: upgrade ? "month_30pack_upgrade" : "trial_3pack_1",
+      offer: upgrade ? "month_30pack_upgrade" : "trial_2pack_1",
     });
     await addBumpToCart({ variantId: upgrade ? MONTH_VARIANT_ID : TRIAL_VARIANT_FALLBACK });
     setState("added");
@@ -214,7 +214,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
         <div className="hfu-topband">
           <p className="hfu-topband-h">Wait. Add this to your box for $1.</p>
           <p className="hfu-topband-sub">
-            3 sticks of High Frequency Honey, shipped free inside your headphones. You'll only see
+            2 sticks of High Frequency Honey, shipped free inside your headphones. You'll only see
             this once.
           </p>
         </div>
@@ -328,7 +328,7 @@ function BumpModal({ onClose, onContinue }: { onClose: () => void; onContinue?: 
           <button type="button" className="hfu-cta" onClick={accept} disabled={state !== "default"}>
             {state === "default" && (
               <span key={upgrade ? "up" : "trial"} className="hfu-cta-label">
-                {upgrade ? "Add the 30-day supply for $29.99" : "Add the 3-pack for $1"}
+                {upgrade ? "Add the 30-day supply for $29.99" : "Add the 2-pack for $1"}
               </span>
             )}
 
