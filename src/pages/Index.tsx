@@ -69,11 +69,15 @@ const Index = () => {
         <YouTubeShortsCarousel videos={shortsAfterFirstPDP} id="reviews" />
       </LazySection>
       <LazySection>
+        <WhyMoreThanOne />
+      </LazySection>
+      <LazySection>
         <WrongTeardown />
       </LazySection>
       <LazySection>
         <HowItWorks />
       </LazySection>
+
       <LazySection>
         <HemisphereSync />
       </LazySection>
