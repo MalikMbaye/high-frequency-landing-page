@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useBuyNow } from "@/hooks/useBuyNow";
+import { formatMoney } from "@/lib/packVariant";
 
 const StickyBuyBar = () => {
   const [show, setShow] = useState(false);
-  const { buyNow, isLoading } = useBuyNow();
+  const { buyNow, isLoading, price } = useBuyNow();
+
 
   useEffect(() => {
     const mobileQuery = window.matchMedia("(max-width: 720px)");
@@ -54,7 +56,7 @@ const StickyBuyBar = () => {
       id="stickyBuy"
       className={`sticky-buy-bar ${show ? "show" : ""}`}
     >
-      {isLoading ? <Loader2 className="animate-spin h-5 w-5" /> : "Get Your Headphones — $169"}
+      {isLoading ? <Loader2 className="animate-spin h-5 w-5" /> : `ADD TO CART · ${formatMoney(price)}`}
     </button>
   );
 };
