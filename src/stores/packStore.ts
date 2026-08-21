@@ -41,13 +41,22 @@ export const PACK_TIERS: PackTier[] = [
 
 interface PackState {
   selected: PackId;
+  quantity: number;
   setSelected: (id: PackId) => void;
+  setQuantity: (quantity: number) => void;
+  incrementQuantity: () => void;
+  decrementQuantity: () => void;
 }
 
 export const usePackStore = create<PackState>((set) => ({
   selected: "solo",
-  setSelected: (id) => set({ selected: id }),
+  quantity: 1,
+  setSelected: (id) => set({ selected: id, quantity: 1 }),
+  setQuantity: (quantity) => set({ quantity: Math.max(1, Math.min(10, quantity)) }),
+  incrementQuantity: () => set((state) => ({ quantity: Math.min(10, state.quantity + 1) })),
+  decrementQuantity: () => set((state) => ({ quantity: Math.max(1, state.quantity - 1) })),
 }));
 
 export const getPackTier = (id: PackId) =>
   PACK_TIERS.find((t) => t.id === id) ?? PACK_TIERS[0];
+

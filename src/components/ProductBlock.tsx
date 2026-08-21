@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Check, ChevronLeft, ChevronRight, Star, Loader2 } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Star, Loader2, Minus, Plus } from "lucide-react";
 
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
@@ -7,6 +7,7 @@ import { usePackStore, getPackTier, PACK_TIERS } from "@/stores/packStore";
 import { packPrice, resolvePackVariant, formatMoney } from "@/lib/packVariant";
 import DeliveryTimeline from "@/components/DeliveryTimeline";
 import { showBumpModal } from "@/components/BumpModal";
+
 
 
 
@@ -143,12 +144,18 @@ const ProductBlock = () => {
   const isCartLoading = useCartStore(state => state.isLoading);
   const selectedPack = usePackStore(state => state.selected);
   const setSelectedPack = usePackStore(state => state.setSelected);
+  const quantity = usePackStore(state => state.quantity);
+  const setQuantity = usePackStore(state => state.setQuantity);
+  const incrementQuantity = usePackStore(state => state.incrementQuantity);
+  const decrementQuantity = usePackStore(state => state.decrementQuantity);
   const tier = getPackTier(selectedPack);
   const selectedPrice = packPrice(product, tier);
+  const totalPrice = selectedPrice * quantity;
 
   const cycle = brandGallery;
   
   const thumbs = cycle.slice(1);
+
 
 
   useEffect(() => {
@@ -274,6 +281,29 @@ const ProductBlock = () => {
                 })}
               </div>
 
+              <div className="pdp-qty-row">
+                <span className="pdp-qty-label">Quantity</span>
+                <div className="pdp-qty">
+                  <button
+                    type="button"
+                    aria-label="Decrease quantity"
+                    onClick={decrementQuantity}
+                    disabled={quantity <= 1}
+                  >
+                    <Minus size={16} />
+                  </button>
+                  <span className="pdp-qty-value" aria-live="polite">{quantity}</span>
+                  <button
+                    type="button"
+                    aria-label="Increase quantity"
+                    onClick={incrementQuantity}
+                    disabled={quantity >= 10}
+                  >
+                    <Plus size={16} />
+                  </button>
+                </div>
+              </div>
+
               <button
                 className="pdp-cta"
               onClick={async (e) => {
@@ -287,7 +317,7 @@ const ProductBlock = () => {
                   variantId: selectedVariant.id,
                   variantTitle: selectedVariant.title,
                   price: selectedVariant.price,
-                  quantity: 1,
+                  quantity,
                   selectedOptions: selectedVariant.selectedOptions || []
                 });
 
@@ -297,10 +327,11 @@ const ProductBlock = () => {
               }}
               disabled={isCartLoading || !product}
             >
-              {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : `ADD TO CART · ${formatMoney(selectedPrice)}`}
+              {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : `ADD TO CART · ${formatMoney(totalPrice)}`}
             </button>
             <p className="pdp-guarantee-line">30-Day Money-Back Guarantee. Ships Worldwide.</p>
             </div>
+
 
 
             <DeliveryTimeline />
