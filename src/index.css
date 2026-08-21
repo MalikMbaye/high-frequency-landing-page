@@ -3070,9 +3070,9 @@
     height: 72px;
   }
   .pdp-purchase-card {
-    padding: 14px 16px;
-    gap: 12px;
-    border-radius: 16px;
+    padding: 12px 12px;
+    gap: 10px;
+    border-radius: 14px;
   }
   .pdp-purchase-name {
     font-size: 13px;
