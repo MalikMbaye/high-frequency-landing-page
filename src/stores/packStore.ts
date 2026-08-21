@@ -20,7 +20,7 @@ export const PACK_TIERS: PackTier[] = [
     id: "solo",
     name: "Solo",
     subLabel: "1 Headphone Set",
-    tagline: "Your daily reset",
+    tagline: "Frequency headphones powered by our app. Your daily reset in under 60 seconds",
     variantTitle: "1x High Frequency Headphones",
     sets: 1,
     fallbackPrice: 169,
