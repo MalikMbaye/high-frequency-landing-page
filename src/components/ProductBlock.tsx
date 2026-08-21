@@ -242,7 +242,7 @@ const ProductBlock = () => {
             </ul>
 
             <div className="pdp-purchase-card">
-              <p className="pack-microcopy">Choose your pack. Prices drop as you add sets.</p>
+              
 
               <div className="pack-cards" role="radiogroup" aria-label="Choose your pack">
                 {PACK_TIERS.map((t) => {
