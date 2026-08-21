@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type PackId = "solo" | "sync" | "triumph";
+export type PackId = "solo" | "sync";
 
 export interface PackTier {
   id: PackId;
@@ -36,17 +36,6 @@ export const PACK_TIERS: PackTier[] = [
     fallbackPrice: 299,
     compareAt: 694,
     badge: { label: "MOST POPULAR", tone: "purple" },
-  },
-  {
-    id: "triumph",
-    name: "Triumph",
-    subLabel: "3 Headphone Sets",
-    tagline: "Home. Work. Car. Never without it.",
-    variantTitle: "3x High Frequency Headphones",
-    sets: 3,
-    fallbackPrice: 444,
-    compareAt: 1041,
-    badge: { label: "BEST VALUE", tone: "gold" },
   },
 ];
 
