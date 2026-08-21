@@ -132,17 +132,21 @@ const ProductBlock = () => {
   const [index, setIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
   const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set());
-  const [quantity, setQuantity] = useState(1);
   const fadeTimer = useRef<number | null>(null);
 
 
   const { data: product } = useShopifyProductByHandle(LP_PRODUCT_HANDLE);
   const addItem = useCartStore(state => state.addItem);
   const isCartLoading = useCartStore(state => state.isLoading);
-  
+  const selectedPack = usePackStore(state => state.selected);
+  const setSelectedPack = usePackStore(state => state.setSelected);
+  const tier = getPackTier(selectedPack);
+  const selectedPrice = packPrice(product, tier);
+
   const cycle = brandGallery;
   
   const thumbs = cycle.slice(1);
+
 
   useEffect(() => {
     return () => {
