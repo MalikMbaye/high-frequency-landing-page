@@ -144,12 +144,18 @@ const ProductBlock = () => {
   const isCartLoading = useCartStore(state => state.isLoading);
   const selectedPack = usePackStore(state => state.selected);
   const setSelectedPack = usePackStore(state => state.setSelected);
+  const quantity = usePackStore(state => state.quantity);
+  const setQuantity = usePackStore(state => state.setQuantity);
+  const incrementQuantity = usePackStore(state => state.incrementQuantity);
+  const decrementQuantity = usePackStore(state => state.decrementQuantity);
   const tier = getPackTier(selectedPack);
   const selectedPrice = packPrice(product, tier);
+  const totalPrice = selectedPrice * quantity;
 
   const cycle = brandGallery;
   
   const thumbs = cycle.slice(1);
+
 
 
   useEffect(() => {
