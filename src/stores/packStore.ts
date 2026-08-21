@@ -30,7 +30,7 @@ export const PACK_TIERS: PackTier[] = [
     id: "sync",
     name: "Sync",
     subLabel: "2 Headphone Sets",
-    tagline: "Your second set: gift it to someone you love, or keep one ready at work and one at home.",
+    tagline: "Gift one to someone you love, or keep one ready at work and another at home.",
     variantTitle: "2x High Frequency Headphones",
     sets: 2,
     fallbackPrice: 299,
