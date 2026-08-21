@@ -1,0 +1,157 @@
+.wmo-section {
+  background: #0B0C18;
+  color: #F4F5FB;
+  padding: 72px 0;
+}
+
+.wmo-head {
+  max-width: 760px;
+  margin: 0 auto 44px;
+  text-align: center;
+}
+
+.wmo-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #A78BFA;
+  margin: 0 0 14px;
+  font-weight: 700;
+}
+
+.wmo-headline {
+  font-size: clamp(26px, 5vw, 44px);
+  line-height: 1.12;
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+
+.wmo-subhead {
+  font-size: clamp(15px, 2.2vw, 18px);
+  line-height: 1.55;
+  color: rgba(244, 245, 251, 0.72);
+  margin: 0;
+}
+
+.wmo-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.wmo-block {
+  display: grid;
+  gap: 22px;
+  align-items: center;
+}
+
+.wmo-media {
+  margin: 0;
+}
+
+.wmo-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wmo-media figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(244, 245, 251, 0.55);
+  text-align: center;
+}
+
+.wmo-copy h3 {
+  font-size: clamp(20px, 3.4vw, 28px);
+  line-height: 1.2;
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.wmo-copy p {
+  font-size: clamp(15px, 2vw, 17px);
+  line-height: 1.62;
+  color: rgba(244, 245, 251, 0.76);
+  margin: 0;
+}
+
+.wmo-teams {
+  margin-top: 52px;
+  padding: 20px 22px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wmo-teams p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(244, 245, 251, 0.68);
+}
+
+.wmo-teams-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: #A78BFA;
+  text-decoration: none;
+}
+
+.wmo-teams-link:hover {
+  text-decoration: underline;
+}
+
+.wmo-cta-wrap {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.wmo-cta {
+  display: inline-block;
+  padding: 16px 34px;
+  border-radius: 999px;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.wmo-cta:hover {
+  filter: brightness(1.08);
+}
+
+.wmo-guarantee {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: rgba(244, 245, 251, 0.55);
+}
+
+@media (min-width: 860px) {
+  .wmo-section {
+    padding: 96px 0;
+  }
+
+  .wmo-block {
+    grid-template-columns: 1.05fr 1fr;
+    gap: 44px;
+  }
+
+  .wmo-block.is-reversed .wmo-media {
+    order: 2;
+  }
+
+  .wmo-teams {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+}
