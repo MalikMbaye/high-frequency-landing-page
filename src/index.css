@@ -3083,12 +3083,13 @@
 .pdp-purchase-card {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 13px;
+  gap: 10px;
+  padding: 11px;
   background: #f5f1e8;
   border: 1px solid #e5dcc8;
-  border-radius: 14px;
+  border-radius: 12px;
 }
+
 .pdp-price-row {
   display: flex;
   align-items: center;
