@@ -231,26 +231,47 @@ const ProductBlock = () => {
               <li><span className="pdp-bullet-check"><Check size={12} /></span>Feel a Shift in Under 60 Seconds</li>
               <li><span className="pdp-bullet-check"><Check size={12} /></span>Builds a Habit, Not a Dependency</li>
               <li><span className="pdp-bullet-check"><Check size={12} /></span>Inspired by Decades of Frequency Research</li>
-              <li><span className="pdp-bullet-check"><Check size={12} /></span>Used in 200+ Countries Worldwide</li>
+              <li><span className="pdp-bullet-check"><Check size={12} /></span>Used by 100,000+ People in 25+ Countries</li>
             </ul>
 
             <div className="pdp-purchase-card">
-              <div className="pdp-price-row">
-                <span className="pdp-price-now">
-                  ${product ? Math.floor(parseFloat(product.node.priceRange.minVariantPrice.amount)) * quantity : 169 * quantity}
-                </span>
-                <span className="pdp-price-was">${347 * quantity}</span>
-                <span className="pdp-save-badge">SAVE $178 · 51%</span>
-              </div>
+              <p className="pack-microcopy">Choose your pack. Prices drop as you add sets.</p>
 
-              <div className="pdp-qty" role="group" aria-label="Quantity">
-                <button type="button" aria-label="Decrease quantity" onClick={() => setQuantity((q) => Math.max(1, q - 1))} disabled={quantity <= 1}>
-                  <Minus size={14} />
-                </button>
-                <span className="pdp-qty-value" aria-live="polite">{quantity}</span>
-                <button type="button" aria-label="Increase quantity" onClick={() => setQuantity((q) => Math.min(10, q + 1))}>
-                  <Plus size={14} />
-                </button>
+              <div className="pack-cards" role="radiogroup" aria-label="Choose your pack">
+                {PACK_TIERS.map((t) => {
+                  const price = packPrice(product, t);
+                  const perSet = price / t.sets;
+                  const isSelected = t.id === selectedPack;
+                  return (
+                    <button
+                      key={t.id}
+                      type="button"
+                      role="radio"
+                      aria-checked={isSelected}
+                      className={`pack-card ${isSelected ? "is-selected" : ""}`}
+                      onClick={() => setSelectedPack(t.id)}
+                    >
+                      {t.badge && (
+                        <span className={`pack-badge pack-badge-${t.badge.tone}`}>{t.badge.label}</span>
+                      )}
+                      <span className="pack-radio" aria-hidden="true" />
+                      <span className="pack-info">
+                        <span className="pack-name">
+                          {t.name} <span className="pack-sub">/ {t.subLabel}</span>
+                        </span>
+                        <span className="pack-tagline">{t.tagline}</span>
+                        <span className="pack-save">Save {formatMoney(t.compareAt - price)}</span>
+                      </span>
+                      <span className="pack-pricing">
+                        <span className="pack-compare">{formatMoney(t.compareAt)}</span>
+                        <span className="pack-price">{formatMoney(price)}</span>
+                        {t.sets > 1 && (
+                          <span className="pack-per">{formatMoney(Number(perSet.toFixed(2)))} per set</span>
+                        )}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
 
               <button
@@ -258,7 +279,7 @@ const ProductBlock = () => {
               onClick={async (e) => {
                 e.preventDefault();
                 if (!product) return;
-                const selectedVariant = product.node.variants.edges[0]?.node;
+                const selectedVariant = resolvePackVariant(product, tier);
                 if (!selectedVariant) return;
                 
                 await addItem({
@@ -266,7 +287,7 @@ const ProductBlock = () => {
                   variantId: selectedVariant.id,
                   variantTitle: selectedVariant.title,
                   price: selectedVariant.price,
-                  quantity,
+                  quantity: 1,
                   selectedOptions: selectedVariant.selectedOptions || []
                 });
 
@@ -276,9 +297,11 @@ const ProductBlock = () => {
               }}
               disabled={isCartLoading || !product}
             >
-              {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : "Add to Cart"}
+              {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : `ADD TO CART · ${formatMoney(selectedPrice)}`}
             </button>
+            <p className="pdp-guarantee-line">30-Day Money-Back Guarantee. Ships Worldwide.</p>
             </div>
+
 
             <DeliveryTimeline />
 
