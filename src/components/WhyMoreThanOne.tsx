@@ -1,25 +1,25 @@
 import "./why-more-than-one.css";
-import contextsAsset from "@/assets/packs/packs-contexts.png.asset.json";
-import giftAsset from "@/assets/packs/packs-gift.webp.asset.json";
-import coupleAsset from "@/assets/packs/packs-couple.webp.asset.json";
+import contextsImg from "@/assets/packs/packs-contexts.webp";
+import giftImg from "@/assets/packs/packs-gift.webp";
+import coupleImg from "@/assets/packs/packs-couple.webp";
 
 const blocks = [
   {
-    image: contextsAsset.url,
+    image: contextsImg,
     alt: "High Frequency Headphones resting on a desk, a car console, and a nightstand",
     header: "One for work. One for home. One for the car.",
     body: "Focus lives at your desk. Calm lives on your nightstand. Energy lives in the car before you walk into whatever is next. Keep a set in each place and the shift is always 60 seconds away. No packing it, no forgetting it, no going without it.",
     caption: "The Triumph Pack. Never more than an arm's reach from a reset.",
   },
   {
-    image: giftAsset.url,
+    image: giftImg,
     alt: "One person handing a set of High Frequency Headphones to a friend across a kitchen table",
     header: "The best gift you can give someone is a higher frequency.",
     body: "Every time someone tries this device for the first time, they feel it. We have recorded over 300 of those first reactions on camera. The eyes widen. The spine straightens. So we welcome it. Hand your second set to a friend, a parent, a colleague. Watch their face. That moment is the whole reason we built this.",
     caption: "The Sync Pack. One for you. One for someone you love.",
   },
   {
-    image: coupleAsset.url,
+    image: coupleImg,
     alt: "A couple relaxing on a sofa in the evening, both wearing High Frequency Headphones",
     header: "Two people. One frequency.",
     body: "Couples use these together at the end of the day. Same session, same state, same room. Ten minutes on Calm changes the entire tone of an evening. One of you shifting is good. Both of you shifting is better.",
