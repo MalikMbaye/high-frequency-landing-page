@@ -7,9 +7,9 @@ const blocks = [
   {
     image: contextsImg,
     alt: "High Frequency Headphones resting on a desk, a car console, and a nightstand",
-    header: "One for work. One for home. One for the car.",
-    body: "Focus lives at your desk. Calm lives on your nightstand. Energy lives in the car before you walk into whatever is next. Keep a set in each place and the shift is always 60 seconds away. No packing it, no forgetting it, no going without it.",
-    caption: "The Triumph Pack. Never more than an arm's reach from a reset.",
+    header: "One for work. One for home.",
+    body: "Focus lives at your desk. Calm lives on your nightstand. Keep a set in each place and the shift is always 60 seconds away. No packing it, no forgetting it, no going without it.",
+    caption: "The Sync Pack. Never more than an arm's reach from a reset.",
   },
   {
     image: giftImg,
@@ -35,7 +35,7 @@ const WhyMoreThanOne = () => (
         <h2 className="wmo-headline">One Changes Your State. Then You Realize Where Else You Need It.</h2>
         <p className="wmo-subhead">
           The moment you need a reset is rarely the moment your headphones are within reach. That is why we built the
-          Sync and Triumph packs.
+          Sync Pack.
         </p>
       </header>
 
@@ -57,7 +57,7 @@ const WhyMoreThanOne = () => (
       <div className="wmo-teams">
         <p>
           Sports teams, personal trainers, business owners, and companies order these in sets for their people. If your
-          team needs to shift states on demand, the Triumph Pack is the starting point.
+          team needs to shift states on demand, reach out and we will put a group order together.
         </p>
         <a className="wmo-teams-link" href="/contact">
           Ordering for a larger group? →
