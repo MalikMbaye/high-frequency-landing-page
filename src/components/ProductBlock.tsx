@@ -272,9 +272,6 @@ const ProductBlock = () => {
                       <span className="pack-pricing">
                         <span className="pack-compare">{formatMoney(t.compareAt)}</span>
                         <span className="pack-price">{formatMoney(price)}</span>
-                        {t.sets > 1 && (
-                          <span className="pack-per">{formatMoney(Number(perSet.toFixed(2)))} per set</span>
-                        )}
                       </span>
                     </button>
                   );
