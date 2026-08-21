@@ -13,8 +13,9 @@ export function useBuyNow() {
   const openDrawer = useCartStore((s) => s.openDrawer);
   const isLoading = useCartStore((s) => s.isLoading);
   const selected = usePackStore((s) => s.selected);
+  const quantity = usePackStore((s) => s.quantity);
   const tier = getPackTier(selected);
-  const price = packPrice(product, tier);
+  const price = packPrice(product, tier) * quantity;
 
   const buyNow = useCallback(
     async (e?: { preventDefault?: () => void }) => {
@@ -28,15 +29,16 @@ export function useBuyNow() {
         variantId: variant.id,
         variantTitle: variant.title,
         price: variant.price,
-        quantity: 1,
+        quantity,
         selectedOptions: variant.selectedOptions || [],
       });
 
       // Present the order bump first, then reveal the completed cart.
       if (!showBumpModal(openDrawer)) openDrawer();
     },
-    [product, addItem, openDrawer, tier]
+    [product, addItem, openDrawer, tier, quantity]
   );
 
   return { buyNow, isLoading, ready: !!product, price, tier };
 }
+
