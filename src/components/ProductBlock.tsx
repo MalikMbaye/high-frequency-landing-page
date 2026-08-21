@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Check, ChevronLeft, ChevronRight, Star, Loader2 } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Star, Loader2, Minus, Plus } from "lucide-react";
 
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
@@ -7,6 +7,7 @@ import { usePackStore, getPackTier, PACK_TIERS } from "@/stores/packStore";
 import { packPrice, resolvePackVariant, formatMoney } from "@/lib/packVariant";
 import DeliveryTimeline from "@/components/DeliveryTimeline";
 import { showBumpModal } from "@/components/BumpModal";
+
 
 
 
