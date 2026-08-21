@@ -245,9 +245,8 @@ const ProductBlock = () => {
               
 
               <div className="pack-cards" role="radiogroup" aria-label="Choose your pack">
-                {PACK_TIERS.map((t) => {
+              {PACK_TIERS.map((t) => {
                   const price = packPrice(product, t);
-                  const perSet = price / t.sets;
                   const isSelected = t.id === selectedPack;
                   return (
                     <button
