@@ -281,6 +281,29 @@ const ProductBlock = () => {
                 })}
               </div>
 
+              <div className="pdp-qty-row">
+                <span className="pdp-qty-label">Quantity</span>
+                <div className="pdp-qty">
+                  <button
+                    type="button"
+                    aria-label="Decrease quantity"
+                    onClick={decrementQuantity}
+                    disabled={quantity <= 1}
+                  >
+                    <Minus size={16} />
+                  </button>
+                  <span className="pdp-qty-value" aria-live="polite">{quantity}</span>
+                  <button
+                    type="button"
+                    aria-label="Increase quantity"
+                    onClick={incrementQuantity}
+                    disabled={quantity >= 10}
+                  >
+                    <Plus size={16} />
+                  </button>
+                </div>
+              </div>
+
               <button
                 className="pdp-cta"
               onClick={async (e) => {
@@ -294,7 +317,7 @@ const ProductBlock = () => {
                   variantId: selectedVariant.id,
                   variantTitle: selectedVariant.title,
                   price: selectedVariant.price,
-                  quantity: 1,
+                  quantity,
                   selectedOptions: selectedVariant.selectedOptions || []
                 });
 
@@ -304,10 +327,11 @@ const ProductBlock = () => {
               }}
               disabled={isCartLoading || !product}
             >
-              {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : `ADD TO CART · ${formatMoney(selectedPrice)}`}
+              {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : `ADD TO CART · ${formatMoney(totalPrice)}`}
             </button>
             <p className="pdp-guarantee-line">30-Day Money-Back Guarantee. Ships Worldwide.</p>
             </div>
+
 
 
             <DeliveryTimeline />
