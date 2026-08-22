@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import heroVideo from "@/assets/hero-headphones.mp4.asset.json";
 import heroPoster from "@/assets/hero-headphones-poster.jpg.asset.json";
 
 
 const Hero = () => {
+  const [videoReady, setVideoReady] = useState(false);
+
   return (
     <section
       className="section section-light hero hero-tall"
