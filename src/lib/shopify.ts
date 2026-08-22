@@ -240,9 +240,10 @@ export const PRODUCT_SELLING_PLANS_QUERY = `
 // Cart mutations
 const CART_QUERY = `
   query cart($id: ID!) {
-    cart(id: $id) { id totalQuantity }
+    cart(id: $id) { id totalQuantity checkoutUrl }
   }
 `;
+
 
 const CART_LINES_QUERY = `
   query cartLines($id: ID!) {
