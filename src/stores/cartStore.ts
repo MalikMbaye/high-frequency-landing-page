@@ -100,28 +100,37 @@ export const useCartStore = create<CartStore>()(
         };
         const existingItem = items.find((i) => i.variantId === item.variantId);
 
+        // Start a brand new Shopify cart and seed it with this line.
+        const startFreshCart = async () => {
+          const result = await createShopifyCart({ ...item, lineId: null });
+          if (!result) return false;
+          set({
+            cartId: result.cartId,
+            checkoutUrl: result.checkoutUrl,
+            items: [{ ...item, lineId: result.lineId }],
+          });
+          flash();
+          return true;
+        };
+
         set({ isLoading: true });
         try {
+          let ok = false;
           if (!cartId) {
-            const result = await createShopifyCart({ ...item, lineId: null });
-            if (result) {
-              set({
-                cartId: result.cartId,
-                checkoutUrl: result.checkoutUrl,
-                items: [{ ...item, lineId: result.lineId }],
-              });
-              flash();
-            }
+            ok = await startFreshCart();
           } else if (existingItem?.lineId) {
-            const newQuantity = existingItem.quantity + item.quantity;
-            const result = await updateShopifyCartLine(cartId, existingItem.lineId, newQuantity);
+            const result = await updateShopifyCartLine(cartId, existingItem.lineId, existingItem.quantity + item.quantity);
             if (result.success) {
+              const newQuantity = existingItem.quantity + item.quantity;
               set({
                 items: get().items.map((i) => (i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i)),
               });
               flash();
+              ok = true;
             } else if (result.cartNotFound) {
+              // Expired or already-checked-out cart: rebuild instead of failing.
               clearCart();
+              ok = await startFreshCart();
             }
           } else {
             const result = await addLineToShopifyCart(cartId, { ...item, lineId: null });
@@ -130,16 +139,21 @@ export const useCartStore = create<CartStore>()(
               const rest = get().items.filter((i) => i.variantId !== item.variantId);
               set({ items: [...rest, { ...item, lineId: result.lineId ?? null }] });
               flash();
+              ok = true;
             } else if (result.cartNotFound) {
               clearCart();
+              ok = await startFreshCart();
             }
           }
+          if (!ok) toast.error(CART_ERROR, { position: "top-center" });
         } catch (error) {
           console.error("Failed to add item:", error);
+          toast.error(CART_ERROR, { position: "top-center" });
         } finally {
           set({ isLoading: false });
         }
       },
+
 
       updateQuantity: async (variantId, quantity) => {
         if (quantity <= 0) {
