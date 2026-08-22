@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import YouTubeFacade from "@/components/YouTubeFacade";
+
 
 interface Props {
   videos: string[];
@@ -75,8 +77,8 @@ const YouTubeShortsCarousel = ({
               WebkitOverflowScrolling: "touch",
             }}
           >
-            {videos.map((url) => {
-              const id = getId(url);
+            {videos.map((url, i) => {
+              const vid = getId(url);
               return (
                 <div
                   key={url}
@@ -84,25 +86,22 @@ const YouTubeShortsCarousel = ({
                     flex: "0 0 auto",
                     scrollSnapAlign: "start",
                     width: "min(320px, 80vw)",
-                    aspectRatio: "9 / 16",
-                    background: "#000",
                     borderRadius: 16,
                     overflow: "hidden",
                     border: "1px solid rgba(0,0,0,0.08)",
                     boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
                   }}
                 >
-                  <iframe
-                    src={`https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&playsinline=1`}
-                    title={`YouTube Short ${id}`}
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    style={{ width: "100%", height: "100%", border: 0, display: "block" }}
+                  <YouTubeFacade
+                    videoId={vid}
+                    title={`High Frequency Headphones reaction video ${i + 1}`}
+                    aspectRatio="9 / 16"
+                    priority={i === 0}
                   />
                 </div>
               );
             })}
+
           </div>
         </div>
       </div>

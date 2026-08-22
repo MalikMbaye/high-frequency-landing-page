@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import heroVideo from "@/assets/hero-headphones.mp4.asset.json";
 import heroPoster from "@/assets/hero-headphones-poster.jpg.asset.json";
 
 
 const Hero = () => {
+  const [videoReady, setVideoReady] = useState(false);
+
   return (
     <section
       className="section section-light hero hero-tall"
@@ -27,29 +30,45 @@ const Hero = () => {
           </button>
         </div>
         <div className="hero-visual tier-2-visual">
-          <video
-            className="hero-video"
-            src={heroVideo.url}
-            poster={heroPoster.url}
-            autoPlay
-            loop
-            muted
-
-            playsInline
-            preload="auto"
-
-            ref={(el) => {
-              if (!el) return;
-              el.playbackRate = 0.5;
-              el.muted = true;
-              const tryPlay = () => el.play().catch(() => {});
-              tryPlay();
-              el.addEventListener("loadeddata", tryPlay, { once: true });
-              document.addEventListener("touchstart", tryPlay, { once: true, passive: true });
-            }}
-            aria-label="High Frequency Headphones rotating on a light background"
-          />
+          <div className="hero-video-frame">
+            {/* Poster shows instantly and stays until the video can actually
+                play, so the hero never renders as an empty box. */}
+            <img
+              src={heroPoster.url}
+              alt="High Frequency Headphones"
+              className="hero-video-poster"
+              fetchPriority="high"
+              decoding="async"
+              aria-hidden={videoReady}
+            />
+            {!videoReady && <span className="hero-video-spinner" aria-hidden="true" />}
+            <video
+              className="hero-video"
+              src={heroVideo.url}
+              poster={heroPoster.url}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              style={{ opacity: videoReady ? 1 : 0 }}
+              onCanPlay={() => setVideoReady(true)}
+              onPlaying={() => setVideoReady(true)}
+              ref={(el) => {
+                if (!el) return;
+                el.playbackRate = 0.5;
+                el.muted = true;
+                const tryPlay = () => el.play().catch(() => {});
+                tryPlay();
+                el.addEventListener("loadeddata", tryPlay, { once: true });
+                document.addEventListener("touchstart", tryPlay, { once: true, passive: true });
+                if (el.readyState >= 3) setVideoReady(true);
+              }}
+              aria-label="High Frequency Headphones rotating on a light background"
+            />
+          </div>
         </div>
+
 
       </div>
       <div className="hfh-container social-proof-strip">

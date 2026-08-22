@@ -1,5 +1,6 @@
 import { ArrowRight, Loader2 } from "lucide-react";
 import { useBuyNow } from "@/hooks/useBuyNow";
+import YouTubeFacade from "@/components/YouTubeFacade";
 
 const VideoProof = () => {
   const { buyNow, isLoading } = useBuyNow();
@@ -17,14 +18,14 @@ const VideoProof = () => {
             background: "var(--hfh-navy-deep)",
           }}
         >
-          <iframe
-            src="https://www.youtube.com/embed/CXjLAr6SPmE?rel=0&modestbranding=1&playsinline=1"
-            title="First-Reaction Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            style={{ width: "100%", aspectRatio: "9/16", border: 0, display: "block" }}
+          <YouTubeFacade
+            videoId="CXjLAr6SPmE"
+            title="First reaction to High Frequency Headphones"
+            aspectRatio="9 / 16"
+            priority
           />
         </div>
+
         <p className="video-caption">
           Real footage from an informal pilot session. No edits. No filters.
         </p>
