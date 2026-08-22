@@ -483,14 +483,15 @@ export const CartDrawer = () => {
                   type="button"
                   className="cd-checkout"
                   onClick={goToCheckout}
-                  disabled={isLoading || isSyncing || protectionBusy}
+                  disabled={isLoading || isSyncing || protectionBusy || checkoutBusy}
                 >
-                  {isLoading || isSyncing ? (
+                  {isLoading || isSyncing || checkoutBusy ? (
                     <Loader2 className="w-4 h-4 animate-spin mx-auto" />
                   ) : (
                     `CHECK OUT · $${grandTotal.toFixed(2)}`
                   )}
                 </button>
+
               </div>
             </>
           )}
