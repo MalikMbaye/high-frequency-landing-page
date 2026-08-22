@@ -20,12 +20,16 @@ export function useBuyNow() {
   const buyNow = useCallback(
     async (e?: { preventDefault?: () => void }) => {
       e?.preventDefault?.();
-      if (!product) return;
-      const variant = resolvePackVariant(product, tier);
-      if (!variant) return;
+      const variant = product ? resolvePackVariant(product, tier) : null;
+      if (!variant) {
+        // Product feed not ready / unreachable — say so instead of failing silently.
+        toast.error("Still loading the store. Please tap again in a moment.", { position: "top-center" });
+        refetch();
+        return;
+      }
 
       await addItem({
-        product,
+        product: product!,
         variantId: variant.id,
         variantTitle: variant.title,
         price: variant.price,
@@ -36,8 +40,9 @@ export function useBuyNow() {
       // Present the order bump first, then reveal the completed cart.
       if (!showBumpModal(openDrawer)) openDrawer();
     },
-    [product, addItem, openDrawer, tier, quantity]
+    [product, addItem, openDrawer, tier, quantity, refetch]
   );
+
 
   return { buyNow, isLoading, ready: !!product, price, tier };
 }
