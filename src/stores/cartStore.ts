@@ -199,6 +199,42 @@ export const useCartStore = create<CartStore>()(
       clearCart: () => set({ items: [], cartId: null, checkoutUrl: null, justAddedVariantId: null }),
       getCheckoutUrl: () => get().checkoutUrl,
 
+      resolveCheckoutUrl: async () => {
+        const { cartId, items, checkoutUrl } = get();
+        if (!cartId) return checkoutUrl;
+        try {
+          const live = await fetchLiveCheckoutUrl(cartId);
+          if (live) {
+            if (live !== checkoutUrl) set({ checkoutUrl: live });
+            return live;
+          }
+          // Cart expired or already completed — rebuild it from the local lines.
+          const snapshot = items;
+          get().clearCart();
+          if (snapshot.length === 0) return null;
+          const [first, ...rest] = snapshot;
+          const created = await createShopifyCart({ ...first, lineId: null });
+          if (!created) return null;
+          set({
+            cartId: created.cartId,
+            checkoutUrl: created.checkoutUrl,
+            items: [{ ...first, lineId: created.lineId }],
+          });
+          for (const line of rest) {
+            const added = await addLineToShopifyCart(created.cartId, { ...line, lineId: null });
+            if (added.success) {
+              set({ items: [...get().items, { ...line, lineId: added.lineId ?? null }] });
+            }
+          }
+          return created.checkoutUrl;
+        } catch (error) {
+          console.error("Failed to resolve checkout URL:", error);
+          return checkoutUrl;
+        }
+      },
+
+
+
       syncCart: async () => {
         const { cartId, isSyncing, clearCart } = get();
         if (!cartId || isSyncing) return;
