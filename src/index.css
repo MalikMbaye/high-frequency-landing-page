@@ -2873,10 +2873,13 @@
   .hero-image {
     max-width: 100%;
   }
-  .hero-video {
+  .hero-video-frame {
     max-width: min(100%, 42svh);
+  }
+  .hero-video {
     border-radius: 0;
   }
+
 
   .hero .pre-headline {
     font-size: 0.72rem;
