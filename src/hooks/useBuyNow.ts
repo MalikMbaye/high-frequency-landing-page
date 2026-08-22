@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { toast } from "sonner";
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
 import { usePackStore, getPackTier } from "@/stores/packStore";
@@ -8,8 +9,9 @@ import { showBumpModal } from "@/components/BumpModal";
 const LP_PRODUCT_HANDLE = "high-frequency-headphones-lp-test-169-99";
 
 export function useBuyNow() {
-  const { data: product } = useShopifyProductByHandle(LP_PRODUCT_HANDLE);
+  const { data: product, refetch } = useShopifyProductByHandle(LP_PRODUCT_HANDLE);
   const addItem = useCartStore((s) => s.addItem);
+
   const openDrawer = useCartStore((s) => s.openDrawer);
   const isLoading = useCartStore((s) => s.isLoading);
   const selected = usePackStore((s) => s.selected);
