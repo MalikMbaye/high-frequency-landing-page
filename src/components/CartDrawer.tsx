@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
@@ -203,7 +204,7 @@ export const CartDrawer = () => {
     updateQuantity,
     removeItem,
     addItem,
-    getCheckoutUrl,
+    resolveCheckoutUrl,
     syncCart,
     addProtectionLine,
     removeProtectionLine,
@@ -287,10 +288,25 @@ export const CartDrawer = () => {
     }
   };
 
-  const goToCheckout = () => {
-    const checkoutUrl = getCheckoutUrl();
-    if (checkoutUrl) window.location.href = checkoutUrl;
+  const [checkoutBusy, setCheckoutBusy] = useState(false);
+
+  const goToCheckout = async () => {
+    if (checkoutBusy) return;
+    setCheckoutBusy(true);
+    try {
+      const checkoutUrl = await resolveCheckoutUrl();
+      if (checkoutUrl) {
+        window.location.href = checkoutUrl;
+      } else {
+        toast.error("We couldn't open checkout. Please try again.", { position: "top-center" });
+        setCheckoutBusy(false);
+      }
+    } catch {
+      toast.error("We couldn't open checkout. Please try again.", { position: "top-center" });
+      setCheckoutBusy(false);
+    }
   };
+
 
   return (
     <Sheet open={isDrawerOpen} onOpenChange={(o) => (o ? openDrawer() : closeDrawer())}>
@@ -467,14 +483,15 @@ export const CartDrawer = () => {
                   type="button"
                   className="cd-checkout"
                   onClick={goToCheckout}
-                  disabled={isLoading || isSyncing || protectionBusy}
+                  disabled={isLoading || isSyncing || protectionBusy || checkoutBusy}
                 >
-                  {isLoading || isSyncing ? (
+                  {isLoading || isSyncing || checkoutBusy ? (
                     <Loader2 className="w-4 h-4 animate-spin mx-auto" />
                   ) : (
                     `CHECK OUT · $${grandTotal.toFixed(2)}`
                   )}
                 </button>
+
               </div>
             </>
           )}

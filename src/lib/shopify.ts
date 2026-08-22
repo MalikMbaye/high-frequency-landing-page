@@ -240,9 +240,10 @@ export const PRODUCT_SELLING_PLANS_QUERY = `
 // Cart mutations
 const CART_QUERY = `
   query cart($id: ID!) {
-    cart(id: $id) { id totalQuantity }
+    cart(id: $id) { id totalQuantity checkoutUrl }
   }
 `;
+
 
 const CART_LINES_QUERY = `
   query cartLines($id: ID!) {
@@ -418,6 +419,19 @@ export async function removeLineFromShopifyCart(
 export async function fetchCartStatus(cartId: string) {
   return storefrontApiRequest(CART_QUERY, { id: cartId });
 }
+
+/**
+ * Re-read the live checkout URL for a cart. Returns null when the cart no
+ * longer exists (expired or already completed), so callers can rebuild it
+ * instead of navigating to a dead checkout.
+ */
+export async function fetchLiveCheckoutUrl(cartId: string): Promise<string | null> {
+  const data = await storefrontApiRequest(CART_QUERY, { id: cartId });
+  const cart = data?.data?.cart;
+  if (!cart?.checkoutUrl || cart.totalQuantity === 0) return null;
+  return formatCheckoutUrl(cart.checkoutUrl);
+}
+
 
 type RawLineEdge = { node: { id: string; merchandise?: { id?: string }; attributes?: CartAttribute[] } };
 

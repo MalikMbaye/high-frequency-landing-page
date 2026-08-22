@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { toast } from "sonner";
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
 import { usePackStore, getPackTier } from "@/stores/packStore";
@@ -8,8 +9,9 @@ import { showBumpModal } from "@/components/BumpModal";
 const LP_PRODUCT_HANDLE = "high-frequency-headphones-lp-test-169-99";
 
 export function useBuyNow() {
-  const { data: product } = useShopifyProductByHandle(LP_PRODUCT_HANDLE);
+  const { data: product, refetch } = useShopifyProductByHandle(LP_PRODUCT_HANDLE);
   const addItem = useCartStore((s) => s.addItem);
+
   const openDrawer = useCartStore((s) => s.openDrawer);
   const isLoading = useCartStore((s) => s.isLoading);
   const selected = usePackStore((s) => s.selected);
@@ -20,12 +22,16 @@ export function useBuyNow() {
   const buyNow = useCallback(
     async (e?: { preventDefault?: () => void }) => {
       e?.preventDefault?.();
-      if (!product) return;
-      const variant = resolvePackVariant(product, tier);
-      if (!variant) return;
+      const variant = product ? resolvePackVariant(product, tier) : null;
+      if (!variant) {
+        // Product feed not ready / unreachable — say so instead of failing silently.
+        toast.error("Still loading the store. Please tap again in a moment.", { position: "top-center" });
+        refetch();
+        return;
+      }
 
       await addItem({
-        product,
+        product: product!,
         variantId: variant.id,
         variantTitle: variant.title,
         price: variant.price,
@@ -36,8 +42,9 @@ export function useBuyNow() {
       // Present the order bump first, then reveal the completed cart.
       if (!showBumpModal(openDrawer)) openDrawer();
     },
-    [product, addItem, openDrawer, tier, quantity]
+    [product, addItem, openDrawer, tier, quantity, refetch]
   );
+
 
   return { buyNow, isLoading, ready: !!product, price, tier };
 }
