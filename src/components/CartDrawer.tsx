@@ -287,10 +287,25 @@ export const CartDrawer = () => {
     }
   };
 
-  const goToCheckout = () => {
-    const checkoutUrl = getCheckoutUrl();
-    if (checkoutUrl) window.location.href = checkoutUrl;
+  const [checkoutBusy, setCheckoutBusy] = useState(false);
+
+  const goToCheckout = async () => {
+    if (checkoutBusy) return;
+    setCheckoutBusy(true);
+    try {
+      const checkoutUrl = await resolveCheckoutUrl();
+      if (checkoutUrl) {
+        window.location.href = checkoutUrl;
+      } else {
+        toast.error("We couldn't open checkout. Please try again.", { position: "top-center" });
+        setCheckoutBusy(false);
+      }
+    } catch {
+      toast.error("We couldn't open checkout. Please try again.", { position: "top-center" });
+      setCheckoutBusy(false);
+    }
   };
+
 
   return (
     <Sheet open={isDrawerOpen} onOpenChange={(o) => (o ? openDrawer() : closeDrawer())}>
