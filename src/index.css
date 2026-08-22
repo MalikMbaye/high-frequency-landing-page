@@ -564,31 +564,6 @@
     aspect-ratio: 1 / 1;
     margin-inline: auto;
   }
-  .hero-video-poster {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    z-index: 1;
-  }
-  .hero-video-spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 3;
-    width: 34px;
-    height: 34px;
-    margin: -17px 0 0 -17px;
-    border-radius: 50%;
-    border: 2.5px solid hsl(var(--muted));
-    border-top-color: var(--hfh-gold, hsl(var(--primary)));
-    animation: hfh-hero-spin 0.9s linear infinite;
-  }
-  @keyframes hfh-hero-spin {
-    to { transform: rotate(360deg); }
-  }
   .hero-video {
     position: absolute;
     inset: 0;
@@ -601,7 +576,6 @@
     border-radius: 0;
     background: transparent;
     box-shadow: none;
-    transition: opacity 0.45s ease;
   }
 
 
