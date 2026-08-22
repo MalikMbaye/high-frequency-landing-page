@@ -203,7 +203,7 @@ export const CartDrawer = () => {
     updateQuantity,
     removeItem,
     addItem,
-    getCheckoutUrl,
+    resolveCheckoutUrl,
     syncCart,
     addProtectionLine,
     removeProtectionLine,
