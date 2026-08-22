@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
+import { toast } from "sonner";
 import {
   CartItem,
   ShopifyProduct,
@@ -10,9 +11,12 @@ import {
   removeLineFromShopifyCart,
   fetchCartLines,
   fetchCartStatus,
+  fetchLiveCheckoutUrl,
 } from "@/lib/shopify";
 
 export type { CartItem, ShopifyProduct };
+
+const CART_ERROR = "We couldn't reach the store. Please try again.";
 
 interface CartStore {
   items: CartItem[];
@@ -33,7 +37,10 @@ interface CartStore {
   clearCart: () => void;
   syncCart: () => Promise<void>;
   getCheckoutUrl: () => string | null;
+  /** Verified checkout URL — refreshes or rebuilds the cart if the stored one is dead. */
+  resolveCheckoutUrl: () => Promise<string | null>;
 }
+
 
 export const useCartStore = create<CartStore>()(
   persist(
