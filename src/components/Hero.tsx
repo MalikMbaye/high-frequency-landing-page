@@ -91,18 +91,12 @@ const Hero = () => {
               loop
               muted
               playsInline
+              disableRemotePlayback
               preload="auto"
-              ref={(el) => {
-                if (!el) return;
-                el.playbackRate = 0.5;
-                el.muted = true;
-                const tryPlay = () => el.play().catch(() => {});
-                tryPlay();
-                el.addEventListener("loadeddata", tryPlay, { once: true });
-                document.addEventListener("touchstart", tryPlay, { once: true, passive: true });
-              }}
+              ref={videoRef}
               aria-label="High Frequency Headphones rotating on a light background"
             />
+
           </div>
         </div>
 
