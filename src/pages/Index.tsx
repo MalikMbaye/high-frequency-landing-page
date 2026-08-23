@@ -1,4 +1,5 @@
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
+import StickyBuyBar from "@/components/StickyBuyBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import VideoProof from "@/components/VideoProof";
@@ -29,7 +30,7 @@ const PriceReframe = lazy(() => import("@/components/PriceReframe"));
 const FAQ = lazy(() => import("@/components/FAQ"));
 const FounderStory = lazy(() => import("@/components/FounderStory"));
 const Footer = lazy(() => import("@/components/Footer"));
-const StickyBuyBar = lazy(() => import("@/components/StickyBuyBar"));
+
 
 const shortsAfterFirstPDP = [
   "https://www.youtube.com/watch?v=CXjLAr6SPmE",
@@ -134,9 +135,7 @@ const Index = () => {
       <LazySection>
         <Footer />
       </LazySection>
-      <Suspense fallback={null}>
-        <StickyBuyBar />
-      </Suspense>
+      <StickyBuyBar />
     </div>
   );
 };
