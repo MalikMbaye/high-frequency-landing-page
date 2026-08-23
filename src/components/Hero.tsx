@@ -1,9 +1,62 @@
 import { ArrowRight } from "lucide-react";
+import { useEffect, useRef } from "react";
 import heroVideo from "@/assets/hero-headphones.mp4.asset.json";
 import heroPoster from "@/assets/hero-headphones-poster.jpg.asset.json";
 
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+
+    // React does not render `muted` as a real attribute, and iOS Safari
+    // refuses to autoplay unless the attribute is present. Set it manually.
+    el.muted = true;
+    el.defaultMuted = true;
+    el.setAttribute("muted", "");
+    el.playbackRate = 0.5;
+
+    let cancelled = false;
+    const tryPlay = () => {
+      if (cancelled || !el.paused) return;
+      const p = el.play();
+      if (p) p.catch(() => {});
+    };
+
+    tryPlay();
+
+    const events = ["loadeddata", "canplay", "loadedmetadata", "stalled"] as const;
+    events.forEach((e) => el.addEventListener(e, tryPlay));
+
+    // Retry on any first user gesture and when the tab/section becomes visible.
+    const gestures = ["touchstart", "pointerdown", "click", "scroll"] as const;
+    gestures.forEach((e) =>
+      document.addEventListener(e, tryPlay, { passive: true })
+    );
+    document.addEventListener("visibilitychange", tryPlay);
+
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((en) => en.isIntersecting && tryPlay()),
+      { threshold: 0.1 }
+    );
+    io.observe(el);
+
+    // Safety net: a few retries in case decoding lags behind first paint.
+    const timers = [400, 1200, 2500].map((ms) => window.setTimeout(tryPlay, ms));
+
+    return () => {
+      cancelled = true;
+      events.forEach((e) => el.removeEventListener(e, tryPlay));
+      gestures.forEach((e) => document.removeEventListener(e, tryPlay));
+      document.removeEventListener("visibilitychange", tryPlay);
+      io.disconnect();
+      timers.forEach(clearTimeout);
+    };
+  }, []);
+
+
   return (
     <section
       className="section section-light hero hero-tall"
@@ -38,18 +91,12 @@ const Hero = () => {
               loop
               muted
               playsInline
+              disableRemotePlayback
               preload="auto"
-              ref={(el) => {
-                if (!el) return;
-                el.playbackRate = 0.5;
-                el.muted = true;
-                const tryPlay = () => el.play().catch(() => {});
-                tryPlay();
-                el.addEventListener("loadeddata", tryPlay, { once: true });
-                document.addEventListener("touchstart", tryPlay, { once: true, passive: true });
-              }}
+              ref={videoRef}
               aria-label="High Frequency Headphones rotating on a light background"
             />
+
           </div>
         </div>
 
