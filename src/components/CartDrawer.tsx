@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ShoppingCart, Minus, Plus, Loader2, Check } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
+import { trackBump } from "@/lib/bumpAnalytics";
 import {
   COVRLY_FUNCTIONS_BASE,
   SHOPIFY_STORE_PERMANENT_DOMAIN,
