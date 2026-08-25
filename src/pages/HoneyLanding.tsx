@@ -332,13 +332,20 @@ export default function HoneyLanding() {
     return shopifyImages.length ? shopifyImages : gallery;
   }, [products, activeOption]);
 
+  /** Live Shopify title/description for the selected option, with copy fallbacks. */
+  const activeProductTitle =
+    products[activeOption.id]?.node.title?.trim() || FALLBACK_TITLES[activeOption.id];
+  const activeProductDescription =
+    products[activeOption.id]?.node.description?.trim() || FALLBACK_DESCRIPTIONS[activeOption.id];
+
   useEffect(() => {
     setIndex(0);
   }, [selected]);
 
   useEffect(() => {
-    document.title = "High Frequency Honey — Shilajit Mineral Honey & Gummies";
-  }, []);
+    document.title = `${activeProductTitle} — High Frequency`;
+  }, [activeProductTitle]);
+
 
   const galleryRef = useRef<HTMLDivElement>(null);
   const step = (dir: number) => {
