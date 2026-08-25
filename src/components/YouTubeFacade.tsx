@@ -73,7 +73,7 @@ const YouTubeFacade = ({
     >
       {showPlayer ? (
         <iframe
-          src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1&autoplay=${active ? 1 : 0}`}
+          src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1&autoplay=${facade && active ? 1 : 0}`}
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
