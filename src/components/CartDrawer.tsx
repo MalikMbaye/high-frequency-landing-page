@@ -262,7 +262,23 @@ export const CartDrawer = () => {
     }
     return list;
   }, [quote.eligible, quote.loading, addons, items]);
-
+  // Impressions: one per add-on card per drawer session, so the accept rate has a denominator.
+  const shownRef = useRef<Set<string>>(new Set());
+  useEffect(() => {
+    if (!isDrawerOpen) {
+      shownRef.current.clear();
+      return;
+    }
+    for (const card of cards) {
+      if (card.kind !== "product" || !card.addon) continue;
+      if (shownRef.current.has(card.addon.variantId)) continue;
+      shownRef.current.add(card.addon.variantId);
+      trackBump("drawer_addon_shown", "cart_drawer", {
+        product: card.addon.title,
+        variant_id: card.addon.variantId,
+      });
+    }
+  }, [isDrawerOpen, cards]);
 
 
   const protectionCharge = quote.eligible && protectionOn ? quote.variantPrice : 0;
