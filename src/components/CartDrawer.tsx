@@ -270,6 +270,11 @@ export const CartDrawer = () => {
   const currency = items[0]?.price.currencyCode || "USD";
 
   const handleAddon = async (addon: AddonProduct, next: boolean) => {
+    trackBump(next ? "drawer_addon_on" : "drawer_addon_off", "cart_drawer", {
+      product: addon.title,
+      variant_id: addon.variantId,
+      price: addon.price.amount,
+    });
     setBusyVariant(addon.variantId);
     try {
       if (next) {
