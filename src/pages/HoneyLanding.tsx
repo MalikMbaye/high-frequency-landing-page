@@ -71,7 +71,23 @@ const OPTIONS: OptionSpec[] = [
   },
 ];
 
+const FALLBACK_TITLES: Record<OptionId, string> = {
+  honey: "High Frequency Honey",
+  gummies: "High Frequency Gummies",
+  bundle: "High Frequency Wellness Bundle",
+};
+
+const FALLBACK_DESCRIPTIONS: Record<OptionId, string> = {
+  honey:
+    "Sacred Himalayan shilajit folded into certified organic caramel honey. Ten seconds in the morning, 85+ ionic trace minerals, no caffeine.",
+  gummies:
+    "Tamarind multivitamin gummies carrying the same shilajit mineral load. Travel-proof, chewable, and built for the nightly wind-down.",
+  bundle:
+    "The full ritual: 30 honey stix for the morning and 60 tamarind multivitamin gummies for the night. The fuel behind every session.",
+};
+
 const money = (v: number) => `$${v.toFixed(2).replace(/\.00$/, "")}`;
+
 
 const gallery = [
   { src: honeyHero, alt: "High Frequency Honey stick with honey pouring out" },
