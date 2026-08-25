@@ -18,6 +18,7 @@ import HelpArticlePage from "./pages/help/HelpArticlePage";
 import HelpSearchPage from "./pages/help/HelpSearchPage";
 import EmailCapturePopup from "./components/EmailCapturePopup";
 import PostPurchaseUpsell from "./pages/PostPurchaseUpsell";
+import HoneyLanding from "./pages/HoneyLanding";
 import { BumpModalHost } from "./components/BumpModal";
 
 
@@ -39,6 +40,7 @@ const AppContent = () => {
         <Route path="/help/:sectionSlug" element={<HelpSectionPage />} />
         <Route path="/help/:sectionSlug/:articleSlug" element={<HelpArticlePage />} />
         <Route path="/upsell" element={<PostPurchaseUpsell />} />
+        <Route path="/honey" element={<HoneyLanding />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <MarketingOverlays />
