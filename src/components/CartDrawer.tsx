@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ShoppingCart, Minus, Plus, Loader2, Check } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
+import { trackBump } from "@/lib/bumpAnalytics";
 import {
   COVRLY_FUNCTIONS_BASE,
   SHOPIFY_STORE_PERMANENT_DOMAIN,
@@ -261,7 +262,23 @@ export const CartDrawer = () => {
     }
     return list;
   }, [quote.eligible, quote.loading, addons, items]);
-
+  // Impressions: one per add-on card per drawer session, so the accept rate has a denominator.
+  const shownRef = useRef<Set<string>>(new Set());
+  useEffect(() => {
+    if (!isDrawerOpen) {
+      shownRef.current.clear();
+      return;
+    }
+    for (const card of cards) {
+      if (card.kind !== "product" || !card.addon) continue;
+      if (shownRef.current.has(card.addon.variantId)) continue;
+      shownRef.current.add(card.addon.variantId);
+      trackBump("drawer_addon_shown", "cart_drawer", {
+        product: card.addon.title,
+        variant_id: card.addon.variantId,
+      });
+    }
+  }, [isDrawerOpen, cards]);
 
 
   const protectionCharge = quote.eligible && protectionOn ? quote.variantPrice : 0;
@@ -269,6 +286,11 @@ export const CartDrawer = () => {
   const currency = items[0]?.price.currencyCode || "USD";
 
   const handleAddon = async (addon: AddonProduct, next: boolean) => {
+    trackBump(next ? "drawer_addon_on" : "drawer_addon_off", "cart_drawer", {
+      product: addon.title,
+      variant_id: addon.variantId,
+      price: addon.price.amount,
+    });
     setBusyVariant(addon.variantId);
     try {
       if (next) {
@@ -445,7 +467,14 @@ export const CartDrawer = () => {
                         <ToggleSwitch
                           on={protectionOn}
                           busy={protectionBusy || quote.loading}
-                          onChange={setProtectionOn}
+                          onChange={(next) => {
+                            trackBump(
+                              next ? "drawer_protection_on" : "drawer_protection_off",
+                              "cart_drawer",
+                              { price: quote.variantPrice },
+                            );
+                            setProtectionOn(next);
+                          }}
                           label="Delivery protection"
                         />
                       </div>
