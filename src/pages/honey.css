@@ -240,6 +240,161 @@
 .hny-guarantee { margin: 8px 0 0; font-size: 11.5px; color: var(--hny-body); text-align: center; }
 
 /* ---------- Story sections ---------- */
+.hny-market,
+.hny-benefits,
+.hny-gummies,
+.hny-how,
+.hny-info-section {
+  padding: 56px 0;
+}
+
+.hny-market,
+.hny-gummies,
+.hny-info-section {
+  background: var(--hny-cream);
+}
+
+.hny-market-grid,
+.hny-gummies-grid,
+.hny-how-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 34px;
+  align-items: start;
+}
+
+.hny-market-card {
+  background: #fff;
+  border: 1px solid var(--hny-line);
+  border-radius: 14px;
+  padding: 26px;
+}
+
+.hny-market-card h2,
+.hny-section-head h2,
+.hny-gummies-copy h2,
+.hny-how h2 {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 8px 0 14px;
+}
+
+.hny-market-card p,
+.hny-section-head p,
+.hny-gummies-copy p,
+.hny-how p,
+.hny-bundle-box p {
+  color: var(--hny-body);
+  font-size: 15px;
+  line-height: 1.68;
+  margin: 0 0 12px;
+}
+
+.hny-section-head {
+  max-width: 690px;
+  margin: 0 0 24px;
+}
+
+.hny-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.hny-time-card,
+.hny-gummies-list article,
+.hny-bundle-box,
+.hny-info-acc {
+  border: 1px solid var(--hny-line);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.hny-time-card {
+  padding: 18px;
+}
+
+.hny-time-card span {
+  display: inline-block;
+  color: var(--hny-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.hny-time-card h3,
+.hny-gummies-list h3,
+.hny-bundle-box h3 {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.15;
+  margin: 0 0 8px;
+}
+
+.hny-time-card p,
+.hny-gummies-list p {
+  color: var(--hny-body);
+  font-size: 14px;
+  line-height: 1.58;
+  margin: 0;
+}
+
+.hny-gummies-list {
+  display: grid;
+  gap: 10px;
+}
+
+.hny-gummies-list article {
+  padding: 16px;
+}
+
+.hny-bundle-box {
+  padding: 24px;
+  background: #17130c;
+  color: #fff;
+}
+
+.hny-bundle-box p { color: #e8dcc9; }
+
+.hny-inline-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--hny-gold);
+  color: #fff;
+  font-weight: 800;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.hny-info-accs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.hny-info-acc {
+  padding: 0 16px;
+}
+
+.hny-info-acc summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 15px 0;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.hny-info-acc summary::-webkit-details-marker { display: none; }
+.hny-info-acc p { color: var(--hny-body); font-size: 14px; line-height: 1.62; margin: 0 0 16px; }
+
 .hny-story { padding: 52px 0; background: #fff; }
 .hny-story:nth-of-type(even) { background: var(--hny-cream); }
 .hny-story-grid {
@@ -324,11 +479,21 @@
 
 @media (max-width: 900px) {
   .hny-pdp-grid,
-  .hny-story-grid {
+  .hny-story-grid,
+  .hny-market-grid,
+  .hny-gummies-grid,
+  .hny-how-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 26px;
   }
+  .hny-timeline,
+  .hny-info-accs { grid-template-columns: minmax(0, 1fr); }
   .hny-story.is-reversed .hny-story-copy { order: 0; }
   .hny-story { padding: 40px 0; }
   .hny-pdp { padding: 24px 0 40px; }
+  .hny-market,
+  .hny-benefits,
+  .hny-gummies,
+  .hny-how,
+  .hny-info-section { padding: 40px 0; }
 }
