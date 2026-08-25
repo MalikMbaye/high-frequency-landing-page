@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Play } from "lucide-react";
 
 interface Props {
@@ -7,14 +7,20 @@ interface Props {
   /** Aspect ratio of the frame, e.g. "9 / 16" for Shorts */
   aspectRatio?: string;
   className?: string;
-  /** Eager-load the thumbnail (use for the first visible video only) */
+  /** Eager-load the iframe (use for the first visible video only) */
   priority?: boolean;
+  /**
+   * Use the lightweight thumbnail facade instead of the real iframe.
+   * Disabled by default on the main landing page so YouTube embeds are
+   * immediately visible and clickable.
+   */
+  facade?: boolean;
 }
 
 /**
- * Lightweight YouTube "facade": renders only a thumbnail + play button until
- * the user taps. The real iframe (and ~1-2MB of YouTube player JS) is loaded
- * on demand, which keeps page load fast even with a dozen videos on the page.
+ * YouTube embed. By default it renders the real iframe immediately so users
+ * see the actual YouTube player. Pass `facade` to fall back to the
+ * thumbnail + play-button placeholder for off-screen carousel items.
  */
 const YouTubeFacade = ({
   videoId,
@@ -22,11 +28,40 @@ const YouTubeFacade = ({
   aspectRatio = "9 / 16",
   className,
   priority = false,
+  facade = false,
 }: Props) => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(!facade);
+  const [inView, setInView] = useState(!facade || priority);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!facade) return;
+    const el = wrapperRef.current;
+    if (!el) return;
+
+    // Lazy-load the facade iframe only when the carousel item is near
+    // the viewport; keeps initial page weight low.
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "200px", threshold: 0.1 }
+    );
+    io.observe(el);
+
+    return () => io.disconnect();
+  }, [facade]);
+
+  const showPlayer = active || inView;
 
   return (
     <div
+      ref={wrapperRef}
       className={className}
       style={{
         position: "relative",
@@ -36,12 +71,13 @@ const YouTubeFacade = ({
         overflow: "hidden",
       }}
     >
-      {active ? (
+      {showPlayer ? (
         <iframe
-          src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1&autoplay=1`}
+          src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1&autoplay=${active ? 1 : 0}`}
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
+          loading={priority ? "eager" : "lazy"}
           style={{ width: "100%", height: "100%", border: 0, display: "block" }}
         />
       ) : (

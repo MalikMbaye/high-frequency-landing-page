@@ -97,6 +97,7 @@ const YouTubeShortsCarousel = ({
                     title={`High Frequency Headphones reaction video ${i + 1}`}
                     aspectRatio="9 / 16"
                     priority={i === 0}
+                    facade={i > 1}
                   />
                 </div>
               );
