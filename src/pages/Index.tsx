@@ -6,9 +6,9 @@ import ProductBlock from "@/components/ProductBlock";
 import TestimonialGallery from "@/components/TestimonialGallery";
 import WhatsInBox from "@/components/WhatsInBox";
 import LazySection from "@/components/LazySection";
+import YouTubeShortsCarousel from "@/components/YouTubeShortsCarousel";
 
 // Below-the-fold: code-split so the JS for these sections is fetched only when needed.
-const YouTubeShortsCarousel = lazy(() => import("@/components/YouTubeShortsCarousel"));
 const WrongTeardown = lazy(() => import("@/components/WrongTeardown"));
 const HowItWorks = lazy(() => import("@/components/HowItWorks"));
 const BeforeAfterScience = lazy(() => import("@/components/BeforeAfterScience"));
@@ -64,9 +64,7 @@ const Index = () => {
       {/* Below-the-fold: mount as user scrolls down. Each LazySection has its
           own Suspense boundary so loading one chunk does not collapse the
           others (which previously caused mid-scroll jumps to the top). */}
-      <LazySection>
-        <YouTubeShortsCarousel videos={shortsAfterFirstPDP} id="reviews" />
-      </LazySection>
+      <YouTubeShortsCarousel videos={shortsAfterFirstPDP} id="reviews" />
       <LazySection>
         <WhyMoreThanOne />
       </LazySection>
@@ -84,9 +82,7 @@ const Index = () => {
         <BeforeAfterScience />
       </LazySection>
 
-      <LazySection>
-        <YouTubeShortsCarousel videos={shortsAfterSecondPDP} />
-      </LazySection>
+      <YouTubeShortsCarousel videos={shortsAfterSecondPDP} />
       <LazySection>
         <Neuroplasticity />
       </LazySection>
@@ -118,9 +114,7 @@ const Index = () => {
       <LazySection>
         <ProductBlock />
       </LazySection>
-      <LazySection>
-        <YouTubeShortsCarousel videos={shortsAfterThirdPDP} />
-      </LazySection>
+      <YouTubeShortsCarousel videos={shortsAfterThirdPDP} />
       <LazySection>
         <PriceReframe />
       </LazySection>
