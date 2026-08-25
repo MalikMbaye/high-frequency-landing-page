@@ -2,7 +2,6 @@ import { lazy } from "react";
 import StickyBuyBar from "@/components/StickyBuyBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import VideoProof from "@/components/VideoProof";
 import ProductBlock from "@/components/ProductBlock";
 import TestimonialGallery from "@/components/TestimonialGallery";
 import WhatsInBox from "@/components/WhatsInBox";
@@ -57,7 +56,6 @@ const Index = () => {
       {/* Above-the-fold: render eagerly so the top paints instantly */}
       <Navbar />
       <Hero />
-      <VideoProof />
       <ProductBlock />
       <WhatsInBox />
       <TestimonialGallery />
