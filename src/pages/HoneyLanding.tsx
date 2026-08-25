@@ -71,7 +71,23 @@ const OPTIONS: OptionSpec[] = [
   },
 ];
 
+const FALLBACK_TITLES: Record<OptionId, string> = {
+  honey: "High Frequency Honey",
+  gummies: "High Frequency Gummies",
+  bundle: "High Frequency Wellness Bundle",
+};
+
+const FALLBACK_DESCRIPTIONS: Record<OptionId, string> = {
+  honey:
+    "Sacred Himalayan shilajit folded into certified organic caramel honey. Ten seconds in the morning, 85+ ionic trace minerals, no caffeine.",
+  gummies:
+    "Tamarind multivitamin gummies carrying the same shilajit mineral load. Travel-proof, chewable, and built for the nightly wind-down.",
+  bundle:
+    "The full ritual: 30 honey stix for the morning and 60 tamarind multivitamin gummies for the night. The fuel behind every session.",
+};
+
 const money = (v: number) => `$${v.toFixed(2).replace(/\.00$/, "")}`;
+
 
 const gallery = [
   { src: honeyHero, alt: "High Frequency Honey stick with honey pouring out" },
@@ -332,13 +348,20 @@ export default function HoneyLanding() {
     return shopifyImages.length ? shopifyImages : gallery;
   }, [products, activeOption]);
 
+  /** Live Shopify title/description for the selected option, with copy fallbacks. */
+  const activeProductTitle =
+    products[activeOption.id]?.node.title?.trim() || FALLBACK_TITLES[activeOption.id];
+  const activeProductDescription =
+    products[activeOption.id]?.node.description?.trim() || FALLBACK_DESCRIPTIONS[activeOption.id];
+
   useEffect(() => {
     setIndex(0);
   }, [selected]);
 
   useEffect(() => {
-    document.title = "High Frequency Honey — Shilajit Mineral Honey & Gummies";
-  }, []);
+    document.title = `${activeProductTitle} — High Frequency`;
+  }, [activeProductTitle]);
+
 
   const galleryRef = useRef<HTMLDivElement>(null);
   const step = (dir: number) => {
@@ -412,11 +435,9 @@ export default function HoneyLanding() {
                   <Star key={i} size={14} fill="currentColor" />
                 ))}
               </span>
-              <h1 className="hny-h1">High Frequency Honey</h1>
-              <p className="hny-sub">
-                Sacred Himalayan shilajit folded into certified organic caramel honey — and set into tamarind
-                multivitamin gummies. The mineral your brain runs on, in the formats you'll actually keep doing.
-              </p>
+              <h1 className="hny-h1">{activeProductTitle}</h1>
+              <p className="hny-sub">{activeProductDescription}</p>
+
 
               <ul className="hny-bullets">
                 <li><span className="hny-check"><Check size={12} /></span>85+ ionic trace minerals, 400mg per serving</li>
