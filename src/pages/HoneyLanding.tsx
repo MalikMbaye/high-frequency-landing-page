@@ -320,14 +320,31 @@ export default function HoneyLanding() {
   const activeOption = OPTIONS.find((o) => o.id === selected) ?? OPTIONS[0];
   const total = priceFor(activeOption) * quantity;
 
+  /** Shopify product images for the selected option, falling back to local art. */
+  const activeGallery = useMemo(() => {
+    const edges = products[activeOption.id]?.node.images?.edges ?? [];
+    const shopifyImages = edges
+      .filter((e) => !!e.node.url)
+      .map((e) => ({
+        src: e.node.url,
+        alt: e.node.altText || `${activeOption.name} — ${activeOption.subLabel}`,
+      }));
+    return shopifyImages.length ? shopifyImages : gallery;
+  }, [products, activeOption]);
+
+  useEffect(() => {
+    setIndex(0);
+  }, [selected]);
+
   useEffect(() => {
     document.title = "High Frequency Honey — Shilajit Mineral Honey & Gummies";
   }, []);
 
   const galleryRef = useRef<HTMLDivElement>(null);
   const step = (dir: number) => {
-    setIndex((i) => (i + dir + gallery.length) % gallery.length);
+    setIndex((i) => (i + dir + activeGallery.length) % activeGallery.length);
   };
+
 
   const handleAdd = async () => {
     const product = products[activeOption.id];
