@@ -364,7 +364,7 @@ export default function HoneyLanding() {
     openDrawer();
   };
 
-  const current = gallery[index];
+  const current = activeGallery[Math.min(index, activeGallery.length - 1)];
 
   return (
     <div className="hfhoney">
@@ -391,7 +391,7 @@ export default function HoneyLanding() {
                 </button>
               </div>
               <div className="hny-thumbs">
-                {gallery.map((g, i) => (
+                {activeGallery.map((g, i) => (
                   <button
                     key={g.src}
                     type="button"
