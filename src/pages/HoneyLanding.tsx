@@ -53,11 +53,11 @@ const OPTIONS: OptionSpec[] = [
   {
     id: "gummies",
     name: "The Night",
-    subLabel: "60 Tamarind Multivitamin Gummies",
+    subLabel: "30 Tamarind Multivitamin Gummies",
     tagline: "The travel-proof mineral dose for the gym bag, flight, hotel room, and wind-down.",
-    variantTitle: "2-Month Supply of Vitamins (60x Gummies)",
-    fallbackPrice: 66.66,
-    compareAt: 99.99,
+    variantTitle: "1-Month Supply of Vitamins (30x Gummies)",
+    fallbackPrice: 33.33,
+    compareAt: 59.99,
   },
   {
     id: "bundle",
