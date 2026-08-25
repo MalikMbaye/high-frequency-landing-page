@@ -435,11 +435,9 @@ export default function HoneyLanding() {
                   <Star key={i} size={14} fill="currentColor" />
                 ))}
               </span>
-              <h1 className="hny-h1">High Frequency Honey</h1>
-              <p className="hny-sub">
-                Sacred Himalayan shilajit folded into certified organic caramel honey — and set into tamarind
-                multivitamin gummies. The mineral your brain runs on, in the formats you'll actually keep doing.
-              </p>
+              <h1 className="hny-h1">{activeProductTitle}</h1>
+              <p className="hny-sub">{activeProductDescription}</p>
+
 
               <ul className="hny-bullets">
                 <li><span className="hny-check"><Check size={12} /></span>85+ ionic trace minerals, 400mg per serving</li>
