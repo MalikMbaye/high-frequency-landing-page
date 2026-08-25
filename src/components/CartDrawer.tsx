@@ -467,7 +467,14 @@ export const CartDrawer = () => {
                         <ToggleSwitch
                           on={protectionOn}
                           busy={protectionBusy || quote.loading}
-                          onChange={setProtectionOn}
+                          onChange={(next) => {
+                            trackBump(
+                              next ? "drawer_protection_on" : "drawer_protection_off",
+                              "cart_drawer",
+                              { price: quote.variantPrice },
+                            );
+                            setProtectionOn(next);
+                          }}
                           label="Delivery protection"
                         />
                       </div>
