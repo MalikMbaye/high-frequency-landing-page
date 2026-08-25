@@ -13,7 +13,7 @@ interface Props {
  * Each instance has its own Suspense boundary so a chunk loading below
  * does not collapse already-rendered sections above.
  */
-const LazySection = ({ children, minHeight = 400, rootMargin = "600px 0px" }: Props) => {
+const LazySection = ({ children, minHeight = 400, rootMargin }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -27,6 +27,13 @@ const LazySection = ({ children, minHeight = 400, rootMargin = "600px 0px" }: Pr
       return;
     }
 
+    // Desktop has bandwidth to spare: start mounting far earlier so images
+    // are decoded well before the section scrolls into view.
+    const isDesktop =
+      typeof window !== "undefined" &&
+      window.matchMedia("(min-width: 768px)").matches;
+    const margin = rootMargin ?? (isDesktop ? "2500px 0px" : "1200px 0px");
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -37,11 +44,20 @@ const LazySection = ({ children, minHeight = 400, rootMargin = "600px 0px" }: Pr
           }
         }
       },
-      { rootMargin }
+      { rootMargin: margin }
     );
     io.observe(el);
-    return () => io.disconnect();
+
+    // Safety net: once the page is idle, mount everything so nothing is
+    // ever caught half-loaded during a fast scroll.
+    const idleMount = window.setTimeout(() => setVisible(true), isDesktop ? 2000 : 5000);
+
+    return () => {
+      io.disconnect();
+      window.clearTimeout(idleMount);
+    };
   }, [visible, rootMargin]);
+
 
   return (
     <div ref={ref} style={!visible ? { minHeight } : undefined}>
