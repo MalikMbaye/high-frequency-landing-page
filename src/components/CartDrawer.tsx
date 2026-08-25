@@ -66,7 +66,7 @@ function useProtectionQuote(cartValue: number, enabled: boolean): ProtectionQuot
 // Add-on products resolved from Shopify by handle. Missing handles / sold-out
 // variants are skipped silently — no mock products ever render.
 // ---------------------------------------------------------------------------
-const ADDON_HANDLES = ["high-frequency-gummies"];
+const ADDON_HANDLES = ["high-frequency-honey", "high-frequency-gummies"];
 
 interface AddonProduct {
   product: ShopifyProduct;
