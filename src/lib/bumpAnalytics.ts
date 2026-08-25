@@ -11,7 +11,13 @@ export type BumpEvent =
   | "detail_opened"
   | "accordion_opened"
   | "upgrade_checked"
-  | "upgrade_unchecked";
+  | "upgrade_unchecked"
+  | "drawer_addon_shown"
+  | "drawer_addon_on"
+  | "drawer_addon_off"
+  | "drawer_protection_on"
+  | "drawer_protection_off";
+
 
 
 const SESSION_KEY = "hfh_bump_session";
