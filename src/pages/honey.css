@@ -1,0 +1,334 @@
+/* Standalone High Frequency Honey landing page. Scoped under .hfhoney. */
+
+.hfhoney {
+  --hny-ink: #0d0c0b;
+  --hny-body: #3f3b36;
+  --hny-line: #e6e0d6;
+  --hny-cream: #faf7f1;
+  --hny-gold: #b98829;
+  --hny-gold-soft: #f6ecd7;
+  background: #fff;
+  color: var(--hny-ink);
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+
+.hny-container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Nav ---------- */
+.hny-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hny-line);
+}
+.hny-brand img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+/* ---------- PDP ---------- */
+.hny-pdp {
+  padding: 40px 0 56px;
+  background: #fff;
+}
+.hny-pdp-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+.hny-main-image {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--hny-cream);
+  aspect-ratio: 1 / 1;
+}
+.hny-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hny-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--hny-line);
+  background: rgba(255, 255, 255, 0.9);
+  display: grid;
+  place-items: center;
+  color: var(--hny-ink);
+}
+.hny-arrow-prev { left: 10px; }
+.hny-arrow-next { right: 10px; }
+
+.hny-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+.hny-thumb {
+  border: 1px solid var(--hny-line);
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: var(--hny-cream);
+  padding: 0;
+}
+.hny-thumb.is-active { border-color: var(--hny-gold); }
+.hny-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.hny-info { display: flex; flex-direction: column; gap: 12px; }
+.hny-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hny-gold);
+  font-weight: 700;
+}
+.hny-stars { display: inline-flex; gap: 2px; color: var(--hny-gold); }
+.hny-h1 {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.hny-sub { color: var(--hny-body); font-size: 15px; line-height: 1.6; margin: 0; }
+
+.hny-bullets { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 8px; }
+.hny-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  color: var(--hny-ink);
+}
+.hny-check {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--hny-gold-soft);
+  color: var(--hny-gold);
+  display: grid;
+  place-items: center;
+  margin-top: 1px;
+}
+
+/* ---------- Purchase card ---------- */
+.hny-purchase {
+  margin-top: 6px;
+  border: 1px solid var(--hny-line);
+  border-radius: 14px;
+  padding: 14px;
+  background: var(--hny-cream);
+}
+.hny-options { display: grid; gap: 8px; }
+.hny-option {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  padding: 12px 12px;
+  border: 1px solid var(--hny-line);
+  border-radius: 11px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.hny-option.is-selected {
+  border-color: var(--hny-gold);
+  box-shadow: 0 0 0 1px var(--hny-gold) inset;
+}
+.hny-radio {
+  width: 17px;
+  height: 17px;
+  border-radius: 999px;
+  border: 1.5px solid #c9c2b6;
+  display: block;
+}
+.hny-option.is-selected .hny-radio {
+  border-color: var(--hny-gold);
+  background: radial-gradient(circle at center, var(--hny-gold) 0 42%, #fff 45%);
+}
+.hny-option-info { display: grid; gap: 3px; min-width: 0; }
+.hny-option-name { font-weight: 700; font-size: 14px; }
+.hny-option-sub { font-weight: 500; color: var(--hny-body); }
+.hny-option-tag { font-size: 12px; color: var(--hny-body); line-height: 1.4; }
+.hny-option-save { font-size: 11px; color: #6b6459; letter-spacing: 0.02em; }
+.hny-option-pricing { display: grid; justify-items: end; gap: 1px; }
+.hny-compare { font-size: 12px; color: #b4342c; text-decoration: line-through; }
+.hny-price { font-size: 17px; font-weight: 800; color: #1d7a45; }
+
+.hny-badge {
+  position: absolute;
+  top: -9px;
+  right: 10px;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: #fff;
+}
+.hny-badge-gold { background: var(--hny-gold); }
+.hny-badge-purple { background: #6d4bd6; }
+
+.hny-qty-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+.hny-qty-label { font-size: 13px; font-weight: 600; }
+.hny-qty {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--hny-line);
+  border-radius: 999px;
+  background: #fff;
+  overflow: hidden;
+}
+.hny-qty button {
+  width: 36px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: var(--hny-ink);
+}
+.hny-qty button:disabled { opacity: 0.35; }
+.hny-qty-value { min-width: 34px; text-align: center; font-weight: 700; font-size: 14px; }
+
+.hny-cta {
+  margin-top: 12px;
+  width: 100%;
+  min-height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--hny-ink);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-size: 14px;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+.hny-cta:hover { transform: translateY(-1px); }
+.hny-cta:disabled { opacity: 0.6; transform: none; }
+.hny-guarantee { margin: 8px 0 0; font-size: 11.5px; color: var(--hny-body); text-align: center; }
+
+/* ---------- Story sections ---------- */
+.hny-story { padding: 52px 0; background: #fff; }
+.hny-story:nth-of-type(even) { background: var(--hny-cream); }
+.hny-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 44px;
+  align-items: center;
+}
+.hny-story.is-reversed .hny-story-copy { order: 2; }
+.hny-story-copy h2 {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+}
+.hny-story-copy p { color: var(--hny-body); font-size: 15px; line-height: 1.68; margin: 0 0 12px; }
+.hny-story-media { margin: 0; border-radius: 14px; overflow: hidden; background: #f1ece3; }
+.hny-story-media img { width: 100%; display: block; }
+
+/* ---------- FAQ + closer ---------- */
+.hny-faq { padding: 52px 0 72px; background: #fff; }
+.hny-faq-title {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(22px, 3vw, 30px);
+  margin: 0 0 18px;
+  letter-spacing: -0.02em;
+}
+.hny-acc-list { border-top: 1px solid var(--hny-line); max-width: 780px; }
+.hny-acc { border-bottom: 1px solid var(--hny-line); }
+.hny-acc summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 0;
+  font-weight: 600;
+  font-size: 15px;
+}
+.hny-acc summary::-webkit-details-marker { display: none; }
+.hny-acc-icon {
+  position: relative;
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+}
+.hny-acc-icon::before,
+.hny-acc-icon::after {
+  content: "";
+  position: absolute;
+  background: var(--hny-gold);
+  inset: 50% 0 auto 0;
+  height: 1.5px;
+}
+.hny-acc-icon::after { transform: rotate(90deg); transition: opacity 0.15s ease; }
+.hny-acc[open] .hny-acc-icon::after { opacity: 0; }
+.hny-acc-body p { margin: 0 0 15px; color: var(--hny-body); font-size: 14.5px; line-height: 1.65; }
+
+.hny-final {
+  margin: 48px auto 0;
+  max-width: 620px;
+  text-align: center;
+}
+.hny-final h2 {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(24px, 3.4vw, 34px);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+.hny-final p { color: var(--hny-body); margin: 0 0 18px; }
+.hny-cta-wide { max-width: 420px; margin-inline: auto; }
+.hny-disclaimer {
+  margin: 34px auto 0;
+  max-width: 720px;
+  text-align: center;
+  font-size: 11px;
+  color: #8b847a;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .hny-pdp-grid,
+  .hny-story-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+  .hny-story.is-reversed .hny-story-copy { order: 0; }
+  .hny-story { padding: 40px 0; }
+  .hny-pdp { padding: 24px 0 40px; }
+}
