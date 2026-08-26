@@ -11,6 +11,8 @@ const Navbar = () => {
   const [dark, setDark] = useState(false);
   const { buyNow, isLoading } = useBuyNow();
   const openCart = useCartStore((s) => s.openDrawer);
+  const { pathname } = useLocation();
+  const isHoney = pathname.startsWith("/honey");
 
   useEffect(() => {
     const navHeight = 64;
