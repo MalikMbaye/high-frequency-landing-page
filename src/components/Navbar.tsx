@@ -13,7 +13,7 @@ const Navbar = () => {
   const { buyNow, isLoading } = useBuyNow();
   const openCart = useCartStore((s) => s.openDrawer);
   const { pathname } = useLocation();
-  const isHoney = pathname.startsWith("/honey");
+  const isHoney = pathname.startsWith("/highfrequencyhealth");
 
   useEffect(() => {
     const navHeight = 64;
@@ -73,7 +73,7 @@ const Navbar = () => {
       </div>
 
       <div className="nav-inner">
-        <a href={isHoney ? "/honey" : "/"} className="brand-mark" aria-label="High Frequency Headphones — home">
+        <a href={isHoney ? "/highfrequencyhealth" : "/"} className="brand-mark" aria-label="High Frequency Headphones — home">
           <img src={logoAsset.url} alt="High Frequency Headphones logo" className="brand-logo" />
         </a>
         <div className="nav-actions">

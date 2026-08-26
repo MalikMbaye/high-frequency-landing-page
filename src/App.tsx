@@ -40,7 +40,7 @@ const AppContent = () => {
         <Route path="/help/:sectionSlug" element={<HelpSectionPage />} />
         <Route path="/help/:sectionSlug/:articleSlug" element={<HelpArticlePage />} />
         <Route path="/upsell" element={<PostPurchaseUpsell />} />
-        <Route path="/honey" element={<HoneyLanding />} />
+        <Route path="/highfrequencyhealth" element={<HoneyLanding />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <MarketingOverlays />
