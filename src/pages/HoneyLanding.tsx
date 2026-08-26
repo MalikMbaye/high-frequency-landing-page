@@ -21,6 +21,7 @@ import honeyWave from "@/assets/honey/honey-wave.webp";
 import benefitTimelineAsset from "@/assets/honey/benefit-timeline.png.asset.json";
 import gummiesHeroAsset from "@/assets/honey/gummies-hero.png.asset.json";
 import fuelImageAsset from "@/assets/honey/honey-am-pm-ritual.png.asset.json";
+import fiveShiftsAsset from "@/assets/honey/honey-five-shifts.png.asset.json";
 
 const benefitTimeline = [
   {
@@ -183,8 +184,8 @@ const story = [
   {
     id: "two-rituals",
     title: "One you look forward to. One you never miss.",
-    image: honeyCup,
-    alt: "A warm cup with a honey stick beside it",
+    image: fiveShiftsAsset.url,
+    alt: "Honey stick and gummies with five benefit callouts",
     paras: [
       "Same mineral in both. Completely different reasons to own them.",
       "The honey is the morning. Golden, caramel, tied to your session, ten seconds start to finish. It's the one you actually want, which is why it builds the habit in the first place.",
