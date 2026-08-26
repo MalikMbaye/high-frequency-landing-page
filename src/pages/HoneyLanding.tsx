@@ -362,17 +362,9 @@ export default function HoneyLanding() {
   const activeContent = variantContent?.[activeOption.id];
   const total = priceFor(activeOption) * quantity;
 
-  /** Shopify product images for the selected option, falling back to local art. */
-  const activeGallery = useMemo(() => {
-    const edges = products[activeOption.id]?.node.images?.edges ?? [];
-    const shopifyImages = edges
-      .filter((e) => !!e.node.url)
-      .map((e) => ({
-        src: e.node.url,
-        alt: e.node.altText || `${activeOption.name} — ${activeOption.subLabel}`,
-      }));
-    return shopifyImages.length ? shopifyImages : gallery;
-  }, [products, activeOption]);
+  /** Manually curated gallery per variant — no Shopify image pulls. */
+  const activeGallery = useMemo(() => honeyGallery, []);
+
 
   useEffect(() => {
     setIndex(0);
