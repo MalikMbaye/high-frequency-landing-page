@@ -124,7 +124,7 @@ const gallery = [
 
 const marketplaceIntro = {
   eyebrow: "Introducing High Frequency Health",
-  title: "The practice, expanded",
+  title: "The fuel that raises your frequency",
   paras: [
     "We're not a tech company. We're a frequency company. We created High Frequency Health to continue our mission of raising the frequency of the world.",
     "The headphones were the first tool. They help you shift your state instantly. Every frequency you feel in those headphones is your neurons firing. Neurons fire by moving charged minerals across a membrane. So we went looking for one of the richest natural sources of those minerals on earth. We found it at 16,000 feet. It's called Shilajit: the mineral essence the Himalayas spend centuries making, pressed out of ancient plant matter between layers of rock. We turned it into a daily supplement that you can take to boost your energy, immune system, clarity and focus. It's one of our best creations yet. And we can't wait for you to try it.",
