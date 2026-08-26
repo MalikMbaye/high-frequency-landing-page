@@ -90,7 +90,7 @@ const OPTIONS: OptionSpec[] = [
   {
     id: "gummies",
     name: "Sacred Shilajit Multivitamins",
-    subLabel: "30 Tamarind Gummies",
+    subLabel: "60 Multivitamin Gummies",
     tagline: "The nightly mineral gummy. Travel-proof, zero added sugar, built for wind-down.",
     variantTitle: "1-Month Supply of Vitamins (30x Gummies)",
     fallbackPrice: 33.33,
