@@ -26,6 +26,8 @@ import labReportsAsset from "@/assets/honey/honey-lab-reports.png.asset.json";
 import sacredSecretHimalayasAsset from "@/assets/honey/sacred-secret-himalayas.png.asset.json";
 import honeySupplementFactsAsset from "@/assets/honey/honey-supplement-facts.png.asset.json";
 import gummiesMineralsAsset from "@/assets/honey/gummies-minerals.png.asset.json";
+import faqSignalAsset from "@/assets/honey/faq-tune-the-signal.png.asset.json";
+import faqGummiesAsset from "@/assets/honey/faq-gummies-desk.png.asset.json";
 
 
 const benefitTimeline = [
@@ -339,7 +341,7 @@ export default function HoneyLanding() {
   const [selected, setSelected] = useState<OptionId>("bundle");
   const [quantity, setQuantity] = useState(1);
   const [index, setIndex] = useState(0);
-  const [openFaq, setOpenFaq] = useState<Set<number>>(new Set());
+  const [openFaq, setOpenFaq] = useState<Set<string>>(new Set());
   const addItem = useCartStore((s) => s.addItem);
   const openDrawer = useCartStore((s) => s.openDrawer);
   const isCartLoading = useCartStore((s) => s.isLoading);
