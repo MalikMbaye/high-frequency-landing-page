@@ -707,7 +707,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 150px 24px 70px;
+  padding: 110px 24px 70px;
 }
 .hny-hero-eyebrow {
   display: inline-block;
@@ -789,5 +789,5 @@
     background:
       linear-gradient(0deg, rgba(8, 6, 3, 0.95) 0%, rgba(8, 6, 3, 0.72) 55%, rgba(8, 6, 3, 0.55) 100%);
   }
-  .hny-hero-inner { padding: 130px 20px 40px; }
+  .hny-hero-inner { padding: 100px 20px 40px; }
 }
