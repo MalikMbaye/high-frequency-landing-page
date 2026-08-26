@@ -31,6 +31,12 @@ export const honeyGallery: GalleryImage[] = [
   { src: img08.url, alt: "Your brain runs on minerals — High Frequency Honey stick", bg: "#0a0d1d" },
   { src: img09.url, alt: "The soil ran out. Your cells noticed.", bg: "#0a0e1c" },
   { src: img10.url, alt: "Sixty seconds to shift. Ninety days to compound. Week 1 to week 12 timeline", bg: "#080b16" },
+  { src: img11.url, alt: "Ten seconds, once a day: tear, squeeze, go — no water, no spoon, no prep", bg: "#efece3" },
+  { src: img12.url, alt: "Golden spoon of shilajit honey beside a raw resin stone", bg: "#0a0a0a" },
+  { src: img13.url, alt: "Honey stick torn open, pouring onto linen", bg: "#f0ece4" },
+  { src: img14.url, alt: "Try it for 30 days — full refund, no questions, no return shipping", bg: "#f2efe9" },
+  { src: img15.url, alt: "Man wearing High Frequency headphones opening a honey stick at his desk", bg: "#f4f4f4" },
+  { src: img16.url, alt: "Straight answers: AI-generated imagery, Bliss Bell partner packaging, 30-day full refund", bg: "#efece2" },
 ];
 
 import g01 from "@/assets/honey/pdp/gummies-01.webp.asset.json";
