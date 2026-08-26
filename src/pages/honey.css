@@ -262,6 +262,28 @@
   align-items: start;
 }
 
+.hny-market-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 44px;
+  align-items: center;
+}
+
+.hny-market-copy { max-width: 560px; }
+
+.hny-market-figure {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0e0d12;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
+}
+.hny-market-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .hny-gummies-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -291,6 +313,7 @@
 }
 
 .hny-market-card h2,
+.hny-market-copy h2,
 .hny-section-head h2,
 .hny-gummies-copy h2,
 .hny-how h2 {
@@ -302,6 +325,7 @@
 }
 
 .hny-market-card p,
+.hny-market-copy p,
 .hny-section-head p,
 .hny-gummies-copy p,
 .hny-how p,
@@ -624,11 +648,13 @@
   .hny-pdp-grid,
   .hny-story-grid,
   .hny-market-grid,
+  .hny-market-intro,
   .hny-gummies-hero,
   .hny-how-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 26px;
   }
+  .hny-market-copy { max-width: none; }
   .hny-gummies-hero { margin-bottom: 26px; }
   .hny-gummies-benefits,
   .hny-timeline,

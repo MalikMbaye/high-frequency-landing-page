@@ -31,6 +31,7 @@ import gummiesMineralsAsset from "@/assets/honey/gummies-minerals.webp.asset.jso
 import faqSignalAsset from "@/assets/honey/faq-tune-the-signal.webp.asset.json";
 import faqGummiesAsset from "@/assets/honey/faq-gummies-desk.webp.asset.json";
 import heroBgAsset from "@/assets/honey-hero-lifestyle.png.asset.json";
+import marketplaceRitualAsset from "@/assets/honey-marketplace-ritual.png.asset.json";
 
 
 const benefitTimeline = [
@@ -121,26 +122,16 @@ const gallery = [
   { src: honeyGuarantee, alt: "30 days, full refund guarantee" },
 ];
 
-const marketplaceIntro = [
-  {
-    eyebrow: "Introducing High Frequency Health",
-    title: "The practice, expanded",
-    paras: [
-      "We are building more than headphones. High Frequency Health is where the rest of the practice lives. Everything in it does one job: raise the signal your brain runs on.",
-      "The headphones were the first tool. They tune your state in under sixty seconds, and over 100,000 people have felt it. But a session ends and your brain keeps running.",
-      "This is the first product from High Frequency Health. You are seeing it before it goes anywhere else.",
-    ],
-  },
-  {
-    eyebrow: "The mineral behind the frequency",
-    title: "Where the charge comes from",
-    paras: [
-      "Every frequency you feel in those headphones is your neurons firing. Neurons fire by moving charged minerals across a membrane — that is what the signal physically is.",
-      "So we went looking for one of the richest natural sources of those minerals on earth. We found it at 16,000 feet.",
-      "Shilajit is a mineral essence the Himalayas spend centuries making, pressed out of ancient plant matter between layers of rock. Raw, it is bitter and hard to take. So we folded it into caramel honey and set it into a tamarind gummy.",
-    ],
-  },
-];
+const marketplaceIntro = {
+  eyebrow: "Introducing High Frequency Health",
+  title: "The practice, expanded",
+  paras: [
+    "We're not a tech company. We're a frequency company. We created High Frequency Health to continue our mission of raising the frequency of the world.",
+    "The headphones were the first tool. They help you shift your state instantly. Every frequency you feel in those headphones is your neurons firing. Neurons fire by moving charged minerals across a membrane. So we went looking for one of the richest natural sources of those minerals on earth. We found it at 16,000 feet. It's called Shilajit: the mineral essence the Himalayas spend centuries making, pressed out of ancient plant matter between layers of rock. We turned it into a daily supplement that you can take to boost your energy, immune system, clarity and focus. It's one of our best creations yet. And we can't wait for you to try it.",
+  ],
+  image: marketplaceRitualAsset.url,
+  alt: "High Frequency Honey stick being poured into a morning cup beside headphones and honeycomb",
+};
 
 const gummiesBenefits = [
   {
@@ -565,16 +556,23 @@ export default function HoneyLanding() {
         </section>
 
         <section className="hny-market" data-theme="light">
-          <div className="hny-container hny-market-grid">
-            {marketplaceIntro.map((block) => (
-              <article key={block.title} className="hny-market-card">
-                <span className="hny-eyebrow">{block.eyebrow}</span>
-                <h2>{block.title}</h2>
-                {block.paras.map((p) => (
+          <div className="hny-container">
+            <div className="hny-market-intro">
+              <div className="hny-market-copy">
+                <span className="hny-eyebrow">{marketplaceIntro.eyebrow}</span>
+                <h2>{marketplaceIntro.title}</h2>
+                {marketplaceIntro.paras.map((p) => (
                   <p key={p}>{p}</p>
                 ))}
-              </article>
-            ))}
+              </div>
+              <figure className="hny-market-figure">
+                <img
+                  src={marketplaceIntro.image}
+                  alt={marketplaceIntro.alt}
+                  loading="lazy"
+                />
+              </figure>
+            </div>
           </div>
         </section>
 
