@@ -578,17 +578,13 @@ export default function HoneyLanding() {
               <span className="hny-eyebrow">Product information</span>
               <h2>Ingredients, nutrition, testing, and safety</h2>
             </div>
-            <div className="hny-info-grid">
-              <div className="hny-info-column hny-info-gummies">
-                <figure className="hny-info-figure">
-                  <img
-                    src={gummiesMineralsAsset.url}
-                    alt="High Frequency Gummies — 85+ ionic trace minerals in two daily gummies"
-                    loading="lazy"
-                  />
-                </figure>
+
+            <div className="hny-info-row">
+              <div className="hny-info-copy">
+                <span className="hny-eyebrow">Honey sticks</span>
+                <h3>What's in the honey sticks</h3>
                 <div className="hny-info-accs">
-                  {gummiesPanels.map((panel, i) => (
+                  {honeyPanels.map((panel, i) => (
                     <details key={panel.q} className="hny-info-acc" open={i < 1}>
                       <summary>{panel.q}</summary>
                       <p>{panel.a}</p>
@@ -596,16 +592,28 @@ export default function HoneyLanding() {
                   ))}
                 </div>
               </div>
-              <div className="hny-info-column hny-info-honey">
-                <figure className="hny-info-figure">
-                  <img
-                    src={honeySupplementFactsAsset.url}
-                    alt="High Frequency Honey supplement facts panel — 1 stick, 30 servings, 400mg shilajit resin"
-                    loading="lazy"
-                  />
-                </figure>
+              <figure className="hny-info-figure">
+                <img
+                  src={honeySupplementFactsAsset.url}
+                  alt="High Frequency Honey supplement facts panel — 1 stick, 30 servings, 400mg shilajit resin"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+
+            <div className="hny-info-row is-reversed">
+              <figure className="hny-info-figure">
+                <img
+                  src={gummiesMineralsAsset.url}
+                  alt="High Frequency Gummies — 85+ ionic trace minerals in two daily gummies"
+                  loading="lazy"
+                />
+              </figure>
+              <div className="hny-info-copy">
+                <span className="hny-eyebrow">Multivitamin gummies</span>
+                <h3>What's in the gummies</h3>
                 <div className="hny-info-accs">
-                  {honeyPanels.map((panel, i) => (
+                  {gummiesPanels.map((panel, i) => (
                     <details key={panel.q} className="hny-info-acc" open={i < 1}>
                       <summary>{panel.q}</summary>
                       <p>{panel.a}</p>
