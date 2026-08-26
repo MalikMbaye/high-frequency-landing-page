@@ -11,6 +11,12 @@ import img07 from "@/assets/honey/pdp/honey-07.webp.asset.json";
 import img08 from "@/assets/honey/pdp/honey-08.webp.asset.json";
 import img09 from "@/assets/honey/pdp/honey-09.webp.asset.json";
 import img10 from "@/assets/honey/pdp/honey-10.webp.asset.json";
+import img11 from "@/assets/honey/pdp/honey-11.webp.asset.json";
+import img12 from "@/assets/honey/pdp/honey-12.webp.asset.json";
+import img13 from "@/assets/honey/pdp/honey-13.webp.asset.json";
+import img14 from "@/assets/honey/pdp/honey-14.webp.asset.json";
+import img15 from "@/assets/honey/pdp/honey-15.webp.asset.json";
+import img16 from "@/assets/honey/pdp/honey-16.webp.asset.json";
 
 export type GalleryImage = { src: string; alt: string; bg: string };
 
