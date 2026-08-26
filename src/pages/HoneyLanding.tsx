@@ -22,6 +22,7 @@ import benefitTimelineAsset from "@/assets/honey/benefit-timeline.png.asset.json
 import gummiesHeroAsset from "@/assets/honey/gummies-hero.png.asset.json";
 import fuelImageAsset from "@/assets/honey/honey-am-pm-ritual.png.asset.json";
 import fiveShiftsAsset from "@/assets/honey/honey-five-shifts.png.asset.json";
+import labReportsAsset from "@/assets/honey/honey-lab-reports.png.asset.json";
 import sacredSecretHimalayasAsset from "@/assets/honey/sacred-secret-himalayas.png.asset.json";
 
 const benefitTimeline = [
