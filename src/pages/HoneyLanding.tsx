@@ -32,7 +32,7 @@ import faqSignalAsset from "@/assets/honey/faq-tune-the-signal.webp.asset.json";
 import faqGummiesAsset from "@/assets/honey/faq-gummies-desk.webp.asset.json";
 import heroBgAsset from "@/assets/honey-hero-lifestyle.png.asset.json";
 import marketplaceRitualAsset from "@/assets/honey-marketplace-ritual.png.asset.json";
-import { honeyGallery } from "@/data/honeyGallery";
+import { honeyGallery, galleriesByOption } from "@/data/honeyGallery";
 
 
 
@@ -365,7 +365,7 @@ export default function HoneyLanding() {
   const total = priceFor(activeOption) * quantity;
 
   /** Manually curated gallery per variant — no Shopify image pulls. */
-  const activeGallery = useMemo(() => honeyGallery, []);
+  const activeGallery = useMemo(() => galleriesByOption[activeOption.id] ?? honeyGallery, [activeOption.id]);
 
 
   useEffect(() => {
