@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -40,7 +40,8 @@ const AppContent = () => {
         <Route path="/help/:sectionSlug" element={<HelpSectionPage />} />
         <Route path="/help/:sectionSlug/:articleSlug" element={<HelpArticlePage />} />
         <Route path="/upsell" element={<PostPurchaseUpsell />} />
-        <Route path="/honey" element={<HoneyLanding />} />
+        <Route path="/highfrequencyhealth" element={<HoneyLanding />} />
+        <Route path="/honey" element={<Navigate to="/highfrequencyhealth" replace />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <MarketingOverlays />
