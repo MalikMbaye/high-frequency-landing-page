@@ -62,6 +62,7 @@ const benefitTimeline = [
 /** Shopify handles for the three purchase options. */
 const HANDLES = {
   honey: "high-frequency-honey",
+  trial: "high-frequency-honey",
   gummies: "high-frequency-gummies",
   bundle: "high-frequency-wellness-bundle",
 } as const;
