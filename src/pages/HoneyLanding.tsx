@@ -31,6 +31,7 @@ import honeySupplementFactsAsset from "@/assets/honey/honey-supplement-facts.web
 import gummiesMineralsAsset from "@/assets/honey/gummies-minerals.webp.asset.json";
 import faqSignalAsset from "@/assets/honey/faq-tune-the-signal.webp.asset.json";
 import faqGummiesAsset from "@/assets/honey/faq-gummies-desk.webp.asset.json";
+import heroBgAsset from "@/assets/honey-hero.png.asset.json";
 
 
 const benefitTimeline = [
@@ -658,7 +659,7 @@ export default function HoneyLanding() {
         </section>
 
         {story.map((s, i) => (
-          <section key={s.id} className={`hny-story ${i % 2 === 1 ? "is-reversed" : ""}`} data-theme="light">
+          <section key={s.id} id={s.id === "lab-reports" ? "science" : undefined} className={`hny-story ${i % 2 === 1 ? "is-reversed" : ""}`} data-theme="light">
             <div className="hny-container hny-story-grid">
               <div className="hny-story-copy">
                 <h2>{s.title}</h2>
