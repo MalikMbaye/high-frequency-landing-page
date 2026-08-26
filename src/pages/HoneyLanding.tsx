@@ -430,7 +430,7 @@ export default function HoneyLanding() {
       </header>
 
       <section className="hny-hero" aria-label="High Frequency Health">
-        <div className="hny-hero-bg" aria-hidden="true" />
+        <div className="hny-hero-bg" style={{ backgroundImage: `url(${heroBgAsset.url})` }} aria-hidden="true" />
         <div className="hny-hero-inner">
           <span className="hny-hero-eyebrow">The High Frequency Marketplace</span>
           <h1 className="hny-hero-title">
