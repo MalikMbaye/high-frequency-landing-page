@@ -499,23 +499,36 @@ export default function HoneyLanding() {
 
         <section className="hny-benefits" data-theme="light">
           <div className="hny-container">
-            <div className="hny-section-head">
-              <span className="hny-eyebrow">Product benefits</span>
-              <h2>What compounds, and when</h2>
-              <p>
-                This is a compounding mineral, never a stimulant. Coffee borrows energy and bills you at 2 PM. Minerals
-                build it.
-              </p>
+            <div className="hny-benefits-grid">
+              <div className="hny-benefits-left">
+                <div className="hny-section-head">
+                  <span className="hny-eyebrow">Product benefits</span>
+                  <h2>What compounds, and when</h2>
+                  <p>
+                    This is a compounding mineral, never a stimulant. Coffee borrows energy and bills you at 2 PM. Minerals
+                    build it.
+                  </p>
+                </div>
+                <div className="hny-timeline">
+                  {benefitTimeline.map((item) => (
+                    <article key={item.week} className="hny-time-card">
+                      <span>{item.week}</span>
+                      <h3>{item.title}</h3>
+                      <p>{item.body}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+              <figure className="hny-timeline-figure">
+                <img
+                  src={benefitTimelineAsset.url}
+                  alt="Product benefits timeline: Week 1 energy and sleep, Week 2 focus holds, Week 4 faster recovery, Week 12 the full compound"
+                  width="1080"
+                  height="1080"
+                  loading="lazy"
+                />
+              </figure>
             </div>
-            <figure className="hny-timeline-figure">
-              <img
-                src={benefitTimelineAsset.url}
-                alt="Product benefits timeline: Week 1 energy and sleep, Week 2 focus holds, Week 4 faster recovery, Week 12 the full compound"
-                width="1080"
-                height="1080"
-                loading="lazy"
-              />
-            </figure>
           </div>
         </section>
 
