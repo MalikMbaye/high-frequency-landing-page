@@ -353,11 +353,12 @@ export default function HoneyLanding() {
   const isCartLoading = useCartStore((s) => s.isLoading);
 
   const honey = useShopifyProductByHandle(HANDLES.honey);
+  const trial = useShopifyProductByHandle(HANDLES.trial);
   const gummies = useShopifyProductByHandle(HANDLES.gummies);
   const bundle = useShopifyProductByHandle(HANDLES.bundle);
   const products = useMemo(
-    () => ({ honey: honey.data, gummies: gummies.data, bundle: bundle.data }),
-    [honey.data, gummies.data, bundle.data]
+    () => ({ honey: honey.data, trial: trial.data, gummies: gummies.data, bundle: bundle.data }),
+    [honey.data, trial.data, gummies.data, bundle.data]
   );
 
   const priceFor = (opt: OptionSpec) => {
