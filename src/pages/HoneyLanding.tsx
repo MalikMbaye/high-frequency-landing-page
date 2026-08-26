@@ -140,10 +140,6 @@ const gummiesBenefits = [
     body: "Purified resin supports mineral absorption and a quieter head. In practice, that reads as sharper focus and less afternoon fog.",
   },
   {
-    title: "Deep sleep and recovery",
-    body: "Magnesium and trace minerals support the pathways your body uses to power down, with the nightly gummy built for consistency.",
-  },
-  {
     title: "Strength and recovery",
     body: "Trace minerals support protein synthesis and muscle repair, so the ritual keeps building past the first few weeks.",
   },
