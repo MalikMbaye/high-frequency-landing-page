@@ -51,7 +51,7 @@ const Track = () => {
   return (
     <div className="trk">
       <div className="trk-wrap">
-        <a href="/" className="trk-back">
+        <a href="/highfrequencyhealth" className="trk-back">
           <ArrowLeft size={16} /> Back to High Frequency Headphones
         </a>
 

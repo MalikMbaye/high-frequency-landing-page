@@ -18,7 +18,7 @@ const ShippingPolicy = () => {
       >
         <div className="hfh-container policy-page" style={{ maxWidth: 820 }}>
           <a
-            href="/"
+            href="/highfrequencyhealth"
             style={{
               display: "inline-flex",
               alignItems: "center",
