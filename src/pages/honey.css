@@ -60,9 +60,10 @@
 .hny-main-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
+
 .hny-arrow {
   position: absolute;
   top: 50%;
@@ -94,7 +95,7 @@
   padding: 0;
 }
 .hny-thumb.is-active { border-color: var(--hny-gold); }
-.hny-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hny-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
 .hny-info { display: flex; flex-direction: column; gap: 12px; }
 .hny-eyebrow {

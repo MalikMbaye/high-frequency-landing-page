@@ -32,6 +32,8 @@ import faqSignalAsset from "@/assets/honey/faq-tune-the-signal.webp.asset.json";
 import faqGummiesAsset from "@/assets/honey/faq-gummies-desk.webp.asset.json";
 import heroBgAsset from "@/assets/honey-hero-lifestyle.png.asset.json";
 import marketplaceRitualAsset from "@/assets/honey-marketplace-ritual.png.asset.json";
+import { honeyGallery } from "@/data/honeyGallery";
+
 
 
 const benefitTimeline = [
@@ -362,17 +364,9 @@ export default function HoneyLanding() {
   const activeContent = variantContent?.[activeOption.id];
   const total = priceFor(activeOption) * quantity;
 
-  /** Shopify product images for the selected option, falling back to local art. */
-  const activeGallery = useMemo(() => {
-    const edges = products[activeOption.id]?.node.images?.edges ?? [];
-    const shopifyImages = edges
-      .filter((e) => !!e.node.url)
-      .map((e) => ({
-        src: e.node.url,
-        alt: e.node.altText || `${activeOption.name} — ${activeOption.subLabel}`,
-      }));
-    return shopifyImages.length ? shopifyImages : gallery;
-  }, [products, activeOption]);
+  /** Manually curated gallery per variant — no Shopify image pulls. */
+  const activeGallery = useMemo(() => honeyGallery, []);
+
 
   useEffect(() => {
     setIndex(0);
@@ -439,7 +433,7 @@ export default function HoneyLanding() {
         <section className="hny-pdp" data-theme="light" id="buy">
           <div className="hny-container hny-pdp-grid">
             <div className="hny-gallery" ref={galleryRef}>
-              <div className="hny-main-image">
+              <div className="hny-main-image" style={{ background: current.bg }}>
                 <img src={current.src} alt={current.alt} />
                 <button type="button" className="hny-arrow hny-arrow-prev" aria-label="Previous image" onClick={() => step(-1)}>
                   <ChevronLeft size={16} />
@@ -456,11 +450,13 @@ export default function HoneyLanding() {
                     className={`hny-thumb ${i === index ? "is-active" : ""}`}
                     aria-label={`View image ${i + 1}`}
                     onClick={() => setIndex(i)}
+                    style={{ background: g.bg }}
                   >
                     <img src={g.src} alt="" />
                   </button>
                 ))}
               </div>
+
             </div>
 
             <div className="hny-info">
