@@ -211,14 +211,10 @@ const story = [
   },
 ];
 
-const infoPanels = [
+const honeyPanels = [
   {
     q: "What's in the honey sticks?",
     a: "Organic honey, purified Himalayan shilajit resin (400mg), and natural caramel flavor. Contains honey. No corn syrup, no artificial sweeteners, no fillers.",
-  },
-  {
-    q: "What's in the gummies?",
-    a: "Tamarind multivitamin gummies infused with purified Himalayan shilajit. Vegan, gluten free, non-GMO, no preservatives, 20 calories and 1g of sugar per serving with none added.",
   },
   {
     q: "Nutrition, per honey stick",
@@ -237,6 +233,26 @@ const infoPanels = [
     a: "Product renders are accurate on format, dose, and count. Your sticks may ship in Bliss Bell partner packaging while High Frequency packaging is in production. Same formula, same 400mg, same facility. Ships free inside your headphone box. 30 days, full refund, no questions.",
   },
 ];
+
+const gummiesPanels = [
+  {
+    q: "What's in the gummies?",
+    a: "Tamarind multivitamin gummies infused with purified Himalayan shilajit. Vegan, gluten free, non-GMO, no preservatives, 20 calories and 1g of sugar per serving with none added.",
+  },
+  {
+    q: "How we verify it",
+    a: "Every batch is tested before it ships. The 400mg dose is confirmed by lab panel. Fulvic acid is verified at 75%+, DBP authenticity is verified, and heavy metals test Non-Detect for lead, mercury, arsenic, and cadmium.",
+  },
+  {
+    q: "Before you take it",
+    a: "Adults 18 and over. Talk to your doctor first if you are pregnant, nursing, trying to conceive, on prescription medication, or managing a diagnosed condition. Shilajit contains iron and may not suit people with iron-overload conditions. Contains honey, so not for infants under 12 months. If you are managing blood sugar, note the 6.6g of honey sugar per stick.",
+  },
+  {
+    q: "Images, packaging, and guarantee",
+    a: "Product renders are accurate on format, dose, and count. Your sticks may ship in Bliss Bell partner packaging while High Frequency packaging is in production. Same formula, same 400mg, same facility. Ships free inside your headphone box. 30 days, full refund, no questions.",
+  },
+];
+
 
 const faqs = [
   {
