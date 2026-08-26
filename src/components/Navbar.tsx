@@ -73,7 +73,7 @@ const Navbar = () => {
       </div>
 
       <div className="nav-inner">
-        <a href={isHoney ? "/honey" : "/highfrequencyhealth"} className="brand-mark" aria-label="High Frequency Headphones — home">
+        <a href={isHoney ? "/honey" : "/"} className="brand-mark" aria-label="High Frequency Headphones — home">
           <img src={logoAsset.url} alt="High Frequency Headphones logo" className="brand-logo" />
         </a>
         <div className="nav-actions">

@@ -29,7 +29,7 @@ const Contact = () => {
       >
         <div className="hfh-container" style={{ maxWidth: 640 }}>
           <a
-            href="/highfrequencyhealth"
+            href="/"
             style={{
               display: "inline-flex",
               alignItems: "center",
