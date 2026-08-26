@@ -556,16 +556,23 @@ export default function HoneyLanding() {
         </section>
 
         <section className="hny-market" data-theme="light">
-          <div className="hny-container hny-market-grid">
-            {marketplaceIntro.map((block) => (
-              <article key={block.title} className="hny-market-card">
-                <span className="hny-eyebrow">{block.eyebrow}</span>
-                <h2>{block.title}</h2>
-                {block.paras.map((p) => (
+          <div className="hny-container">
+            <div className="hny-market-intro">
+              <div className="hny-market-copy">
+                <span className="hny-eyebrow">{marketplaceIntro.eyebrow}</span>
+                <h2>{marketplaceIntro.title}</h2>
+                {marketplaceIntro.paras.map((p) => (
                   <p key={p}>{p}</p>
                 ))}
-              </article>
-            ))}
+              </div>
+              <figure className="hny-market-figure">
+                <img
+                  src={marketplaceIntro.image}
+                  alt={marketplaceIntro.alt}
+                  loading="lazy"
+                />
+              </figure>
+            </div>
           </div>
         </section>
 
