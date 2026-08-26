@@ -808,6 +808,47 @@ export default function HoneyLanding() {
           </div>
         </section>
       </main>
+
+      {modalOpen && activeContent && (
+        <div className="hny-modal-backdrop" onClick={() => setModalOpen(false)}>
+          <div
+            className="hny-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label={activeContent.modalTitle}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button type="button" className="hny-modal-close" aria-label="Close" onClick={() => setModalOpen(false)}>
+              <X size={18} />
+            </button>
+            <div className="hny-modal-scroll">
+              <h3 className="hny-modal-title">{activeContent.modalTitle}</h3>
+              <div className="hny-modal-body">
+                {activeContent.modalBody.map((block, i) =>
+                  block.startsWith("• ") ? (
+                    <p key={i} className="hny-modal-bullet">{block}</p>
+                  ) : (
+                    <p key={i}>{block}</p>
+                  )
+                )}
+              </div>
+            </div>
+            <div className="hny-modal-footer">
+              <button
+                type="button"
+                className="hny-cta hny-cta-wide"
+                disabled={isCartLoading}
+                onClick={() => {
+                  trackBump("modal_cta_click", activeOption.id);
+                  void handleAdd();
+                }}
+              >
+                {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : `ADD TO CART · ${money(total)}`}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
