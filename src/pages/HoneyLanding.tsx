@@ -32,6 +32,8 @@ import faqSignalAsset from "@/assets/honey/faq-tune-the-signal.webp.asset.json";
 import faqGummiesAsset from "@/assets/honey/faq-gummies-desk.webp.asset.json";
 import heroBgAsset from "@/assets/honey-hero-lifestyle.png.asset.json";
 import marketplaceRitualAsset from "@/assets/honey-marketplace-ritual.png.asset.json";
+import { honeyGallery } from "@/data/honeyGallery";
+
 
 
 const benefitTimeline = [
