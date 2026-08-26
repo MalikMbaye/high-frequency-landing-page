@@ -31,6 +31,7 @@ import honeySupplementFactsAsset from "@/assets/honey/honey-supplement-facts.web
 import gummiesMineralsAsset from "@/assets/honey/gummies-minerals.webp.asset.json";
 import faqSignalAsset from "@/assets/honey/faq-tune-the-signal.webp.asset.json";
 import faqGummiesAsset from "@/assets/honey/faq-gummies-desk.webp.asset.json";
+import heroBgAsset from "@/assets/honey-hero.png.asset.json";
 
 
 const benefitTimeline = [
@@ -428,6 +429,30 @@ export default function HoneyLanding() {
         </div>
       </header>
 
+      <section className="hny-hero" aria-label="High Frequency Health">
+        <div className="hny-hero-bg" style={{ backgroundImage: `url(${heroBgAsset.url})` }} aria-hidden="true" />
+        <div className="hny-hero-inner">
+          <span className="hny-hero-eyebrow">The High Frequency Marketplace</span>
+          <h1 className="hny-hero-title">
+            High Frequency Health starts with the mineral your brain runs on.
+          </h1>
+          <p className="hny-hero-sub">
+            Sacred Himalayan shilajit — 85+ ionic trace minerals and lab-verified 75%+ fulvic acid — folded
+            into golden morning honey sticks and nightly tamarind gummies. Ten seconds a day to fuel the
+            signal behind every session.
+          </p>
+          <div className="hny-hero-ctas">
+            <a href="#buy" className="hny-hero-cta">Shop the ritual</a>
+            <a href="#science" className="hny-hero-cta-ghost">The science ↓</a>
+          </div>
+          <div className="hny-hero-badges">
+            <span>85+ trace minerals</span>
+            <span>75%+ fulvic acid</span>
+            <span>No caffeine, no crash</span>
+          </div>
+        </div>
+      </section>
+
       <main>
         <section className="hny-pdp" data-theme="light" id="buy">
           <div className="hny-container hny-pdp-grid">
@@ -463,7 +488,7 @@ export default function HoneyLanding() {
                   <Star key={i} size={14} fill="currentColor" />
                 ))}
               </span>
-              <h1 className="hny-h1">High Frequency Honey</h1>
+              <h1 className="hny-h1">{activeOption.name}</h1>
               <p className={`hny-sub hny-desc ${descVisible ? "is-visible" : ""}`}>
                 {variantContent?.[activeOption.id]?.short ??
                   "Sacred Himalayan shilajit folded into certified organic caramel honey — and set into tamarind multivitamin gummies. The mineral your brain runs on, in the formats you'll actually keep doing."}
@@ -634,7 +659,7 @@ export default function HoneyLanding() {
         </section>
 
         {story.map((s, i) => (
-          <section key={s.id} className={`hny-story ${i % 2 === 1 ? "is-reversed" : ""}`} data-theme="light">
+          <section key={s.id} id={s.id === "lab-reports" ? "science" : undefined} className={`hny-story ${i % 2 === 1 ? "is-reversed" : ""}`} data-theme="light">
             <div className="hny-container hny-story-grid">
               <div className="hny-story-copy">
                 <h2>{s.title}</h2>
