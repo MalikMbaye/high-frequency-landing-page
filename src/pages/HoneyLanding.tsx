@@ -62,6 +62,7 @@ const benefitTimeline = [
 /** Shopify handles for the three purchase options. */
 const HANDLES = {
   honey: "high-frequency-honey",
+  trial: "high-frequency-honey",
   gummies: "high-frequency-gummies",
   bundle: "high-frequency-wellness-bundle",
 } as const;
@@ -89,6 +90,16 @@ const OPTIONS: OptionSpec[] = [
     variantTitle: "1-Month Supply (30x High Frequency Honey Stix)",
     fallbackPrice: 33.33,
     compareAt: 59.99,
+  },
+  {
+    id: "trial",
+    name: "Try High Frequency Honey",
+    subLabel: "2 Honey Stix",
+    tagline: "Two sticks for $1.97. Feel the mineral before you commit.",
+    variantTitle: "1-Day Supply (2x High Frequency Honey Stix)",
+    fallbackPrice: 1.97,
+    compareAt: 9.99,
+    badge: { label: "TRY IT", tone: "purple" },
   },
   {
     id: "gummies",
@@ -342,11 +353,12 @@ export default function HoneyLanding() {
   const isCartLoading = useCartStore((s) => s.isLoading);
 
   const honey = useShopifyProductByHandle(HANDLES.honey);
+  const trial = useShopifyProductByHandle(HANDLES.trial);
   const gummies = useShopifyProductByHandle(HANDLES.gummies);
   const bundle = useShopifyProductByHandle(HANDLES.bundle);
   const products = useMemo(
-    () => ({ honey: honey.data, gummies: gummies.data, bundle: bundle.data }),
-    [honey.data, gummies.data, bundle.data]
+    () => ({ honey: honey.data, trial: trial.data, gummies: gummies.data, bundle: bundle.data }),
+    [honey.data, trial.data, gummies.data, bundle.data]
   );
 
   const priceFor = (opt: OptionSpec) => {

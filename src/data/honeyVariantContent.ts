@@ -13,7 +13,7 @@ export interface HoneyVariantContent {
   fourthCheck: string;
 }
 
-export const HONEY_VARIANT_CONTENT: Record<"honey" | "gummies" | "bundle", HoneyVariantContent> = {
+export const HONEY_VARIANT_CONTENT: Record<"honey" | "gummies" | "bundle" | "trial", HoneyVariantContent> = {
   honey: {
     short:
       "Sacred Himalayan shilajit folded into certified organic caramel honey. Your brain is an electrical organ, and every session burns the minerals it fires with. One golden stick refills them in ten seconds, right before the headphones go on.",
@@ -28,6 +28,21 @@ export const HONEY_VARIANT_CONTENT: Record<"honey" | "gummies" | "bundle", Honey
       "Tune the signal. Feed the signal.",
     ],
     fourthCheck: "Ten seconds every morning, headphones on after",
+  },
+  trial: {
+    short:
+      "Two honey sticks for $1.97 — the fastest way to feel what 400mg of sacred Himalayan shilajit does before the headphones even go on. Tear, squeeze, ten seconds. No caffeine. No crash.",
+    modalTitle: "Try High Frequency Honey — 2 sticks",
+    modalBody: [
+      "This is the sample. Two High Frequency Honey Stix, one low-risk price, so you can feel the mineral before you buy the month.",
+      "Each stick carries 400mg of sacred Himalayan shilajit — 85+ ionic trace minerals with lab-verified 75%+ fulvic acid — folded into certified organic caramel honey. Tear it, squeeze it, ten seconds once a day.",
+      "No caffeine. Nothing spikes, nothing crashes. The shift is quiet at first: steadier energy, deeper focus, less afternoon drag.",
+      "In the pack: 2 High Frequency Honey Stix.",
+      "The guarantee: 30 days, full refund. If you don't feel the difference, email us and we refund every cent.",
+      "These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.",
+      "Tune the signal. Feed the signal.",
+    ],
+    fourthCheck: "Two sticks. One low-risk try.",
   },
   gummies: {
     short:
