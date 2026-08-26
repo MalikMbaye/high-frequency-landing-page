@@ -14,7 +14,7 @@ const ShopifyInstalled = () => {
           High Frequency Headphones is now connected to your Shopify store. You're all set to capture emails directly into your customer list.
         </p>
         <a
-          href="/"
+          href="/highfrequencyhealth"
           className="inline-flex items-center justify-center px-6 py-3 bg-[#00D4FF] text-[#0B0F19] font-semibold rounded-lg hover:bg-[#00D4FF]/90 transition-colors"
         >
           Back to Store
