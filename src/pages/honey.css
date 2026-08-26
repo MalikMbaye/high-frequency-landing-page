@@ -386,7 +386,7 @@
 }
 
 .hny-time-card h3,
-.hny-gummies-list h3,
+.hny-gummies-benefits h3,
 .hny-bundle-box h3 {
   font-family: "Space Grotesk", system-ui, sans-serif;
   font-size: 18px;
@@ -395,20 +395,24 @@
 }
 
 .hny-time-card p,
-.hny-gummies-list p {
+.hny-gummies-benefits p {
   color: var(--hny-body);
   font-size: 14px;
   line-height: 1.58;
   margin: 0;
 }
 
-.hny-gummies-list {
+.hny-gummies-benefits {
   display: grid;
-  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
 }
 
-.hny-gummies-list article {
+.hny-gummies-benefits article {
   padding: 16px;
+  border: 1px solid var(--hny-line);
+  border-radius: 14px;
+  background: #fff;
 }
 
 .hny-bundle-box {
