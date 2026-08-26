@@ -206,17 +206,6 @@ const story = [
       "Heavy metals: lead, mercury, arsenic, and cadmium are Non-Detect. Full mineral panel, zero hidden fillers, zero mycotoxins. Made in a GMP, ISO, and HACCP certified facility.",
     ],
   },
-  {
-    id: "power-supply",
-    title: "You bought the switch. This is the power supply.",
-    image: honeySteamingCup,
-    alt: "Golden honey stick stirred into a warm morning drink",
-    paras: [
-      "Your headphones shift your state in under sixty seconds. That shift runs on energy, and your cells make energy out of minerals.",
-      "Here is the full day. Morning: tear a golden honey stick, ten seconds, headphones on, focus frequency. Night: one gummy, calm frequency, wind down into sleep that actually repairs you.",
-      "Two rituals. Nothing to measure. Nothing to remember. Tune the signal. Feed the signal.",
-    ],
-  },
 ];
 
 const infoPanels = [
