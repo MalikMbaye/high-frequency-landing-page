@@ -428,6 +428,30 @@ export default function HoneyLanding() {
         </div>
       </header>
 
+      <section className="hny-hero" aria-label="High Frequency Health">
+        <div className="hny-hero-bg" aria-hidden="true" />
+        <div className="hny-hero-inner">
+          <span className="hny-hero-eyebrow">The High Frequency Marketplace</span>
+          <h1 className="hny-hero-title">
+            High Frequency Health starts with the mineral your brain runs on.
+          </h1>
+          <p className="hny-hero-sub">
+            Sacred Himalayan shilajit — 85+ ionic trace minerals and lab-verified 75%+ fulvic acid — folded
+            into golden morning honey sticks and nightly tamarind gummies. Ten seconds a day to fuel the
+            signal behind every session.
+          </p>
+          <div className="hny-hero-ctas">
+            <a href="#buy" className="hny-hero-cta">Shop the ritual</a>
+            <a href="#science" className="hny-hero-cta-ghost">The science ↓</a>
+          </div>
+          <div className="hny-hero-badges">
+            <span>85+ trace minerals</span>
+            <span>75%+ fulvic acid</span>
+            <span>No caffeine, no crash</span>
+          </div>
+        </div>
+      </section>
+
       <main>
         <section className="hny-pdp" data-theme="light" id="buy">
           <div className="hny-container hny-pdp-grid">
@@ -463,7 +487,7 @@ export default function HoneyLanding() {
                   <Star key={i} size={14} fill="currentColor" />
                 ))}
               </span>
-              <h1 className="hny-h1">High Frequency Honey</h1>
+              <h1 className="hny-h1">{activeOption.name}</h1>
               <p className={`hny-sub hny-desc ${descVisible ? "is-visible" : ""}`}>
                 {variantContent?.[activeOption.id]?.short ??
                   "Sacred Himalayan shilajit folded into certified organic caramel honey — and set into tamarind multivitamin gummies. The mineral your brain runs on, in the formats you'll actually keep doing."}
