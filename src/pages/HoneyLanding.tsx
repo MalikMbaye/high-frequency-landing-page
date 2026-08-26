@@ -686,33 +686,92 @@ export default function HoneyLanding() {
 
         <section className="hny-faq" data-theme="light">
           <div className="hny-container">
-            <h2 className="hny-faq-title">Questions</h2>
-            <div className="hny-acc-list">
-              {faqs.map((f, i) => (
-                <details
-                  key={f.q}
-                  className="hny-acc"
-                  open={openFaq.has(i)}
-                  onToggle={(e) => {
-                    const el = e.currentTarget;
-                    setOpenFaq((prev) => {
-                      const next = new Set(prev);
-                      if (el.open) next.add(i);
-                      else next.delete(i);
-                      return next;
-                    });
-                  }}
-                >
-                  <summary>
-                    <span>{f.q}</span>
-                    <span className="hny-acc-icon" aria-hidden="true" />
-                  </summary>
-                  <div className="hny-acc-body">
-                    <p>{f.a}</p>
-                  </div>
-                </details>
-              ))}
+            <h2 className="hny-faq-title">Questions, answered</h2>
+
+            <div className="hny-faq-row">
+              <div className="hny-faq-copy">
+                <span className="hny-eyebrow">The practice &amp; the honey</span>
+                <div className="hny-acc-list">
+                  {[...faqsShared, ...faqsHoney].map((f, i) => {
+                    const key = `a-${i}`;
+                    return (
+                      <details
+                        key={f.q}
+                        className="hny-acc"
+                        open={openFaq.has(key)}
+                        onToggle={(e) => {
+                          const el = e.currentTarget;
+                          setOpenFaq((prev) => {
+                            const next = new Set(prev);
+                            if (el.open) next.add(key);
+                            else next.delete(key);
+                            return next;
+                          });
+                        }}
+                      >
+                        <summary>
+                          <span>{f.q}</span>
+                          <span className="hny-acc-icon" aria-hidden="true" />
+                        </summary>
+                        <div className="hny-acc-body">
+                          <p>{f.a}</p>
+                        </div>
+                      </details>
+                    );
+                  })}
+                </div>
+              </div>
+              <figure className="hny-info-figure hny-faq-figure">
+                <img
+                  src={faqSignalAsset.url}
+                  alt="Morning ritual — High Frequency Honey stick and headphones, tune the signal, feed the signal"
+                  loading="lazy"
+                />
+              </figure>
             </div>
+
+            <div className="hny-faq-row is-reversed">
+              <figure className="hny-info-figure hny-faq-figure">
+                <img
+                  src={faqGummiesAsset.url}
+                  alt="High Frequency Gummies jar beside frequency headphones and the app on a phone"
+                  loading="lazy"
+                />
+              </figure>
+              <div className="hny-faq-copy">
+                <span className="hny-eyebrow">The gummies &amp; the ritual</span>
+                <div className="hny-acc-list">
+                  {faqsGummies.map((f, i) => {
+                    const key = `b-${i}`;
+                    return (
+                      <details
+                        key={f.q}
+                        className="hny-acc"
+                        open={openFaq.has(key)}
+                        onToggle={(e) => {
+                          const el = e.currentTarget;
+                          setOpenFaq((prev) => {
+                            const next = new Set(prev);
+                            if (el.open) next.add(key);
+                            else next.delete(key);
+                            return next;
+                          });
+                        }}
+                      >
+                        <summary>
+                          <span>{f.q}</span>
+                          <span className="hny-acc-icon" aria-hidden="true" />
+                        </summary>
+                        <div className="hny-acc-body">
+                          <p>{f.a}</p>
+                        </div>
+                      </details>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
 
             <div className="hny-final">
               <h2>One mineral. Two rituals.</h2>
