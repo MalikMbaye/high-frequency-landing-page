@@ -20,6 +20,7 @@ import honeyCup from "@/assets/honey/honey-cup.webp";
 import honeyWave from "@/assets/honey/honey-wave.webp";
 import benefitTimelineAsset from "@/assets/honey/benefit-timeline.png.asset.json";
 import gummiesHeroAsset from "@/assets/honey/gummies-hero.png.asset.json";
+import fuelImageAsset from "@/assets/honey/honey-am-pm-ritual.png.asset.json";
 
 const benefitTimeline = [
   {
@@ -160,8 +161,8 @@ const story = [
   {
     id: "fuel",
     title: "The fuel your brain is quietly running out of",
-    image: honeyDipperWood,
-    alt: "Raw mineral resin beside pouring honey",
+    image: fuelImageAsset.url,
+    alt: "AM honey stick and PM gummies ritual split image",
     paras: [
       "Here's what almost nobody knows: your brain runs on minerals. Every thought, every meditation, every focused hour burns them. And modern food, grown in tired soil, barely delivers them anymore.",
       "That's the real story behind the afternoon crash and the fog. Coffee can't fix it, because coffee borrows energy and bills you later. Minerals build energy from the inside.",
