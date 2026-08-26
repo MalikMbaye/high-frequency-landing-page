@@ -55,7 +55,6 @@ const Navbar = () => {
 
   return (
     <header className={`top-nav ${dark ? "dark" : ""}`} id="topNav">
-      <StockBanner />
       {/* Utility strip — secondary, low-emphasis links */}
       <div className="nav-utility-bar">
         <div className="nav-utility-inner">
@@ -71,21 +70,18 @@ const Navbar = () => {
       </div>
 
       <div className="nav-inner">
-        <a href="#hero" className="brand-mark" aria-label="High Frequency Headphones — home">
+        <a href={isHoney ? "/honey" : "/"} className="brand-mark" aria-label="High Frequency Headphones — home">
           <img src={logoAsset.url} alt="High Frequency Headphones logo" className="brand-logo" />
         </a>
-        <nav className="nav-links" aria-label="Primary">
-          <a href="#how-it-works">How it Works</a>
-          <a href="#product">Product</a>
-          <a href="#app">App</a>
-          <a href="#reviews">Video Reviews</a>
-          <a href="#testimonials">Testimonials</a>
-        </nav>
         <div className="nav-actions">
           <CartDrawer />
-          <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-sm">
-            {isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}
-          </button>
+          {isHoney ? (
+            <a href="#buy" className="btn btn-purple btn-sm">ORDER NOW</a>
+          ) : (
+            <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-sm">
+              {isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}
+            </button>
+          )}
           <button
             type="button"
             className="nav-toggle"
