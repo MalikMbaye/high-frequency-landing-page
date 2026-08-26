@@ -31,7 +31,7 @@ import honeySupplementFactsAsset from "@/assets/honey/honey-supplement-facts.web
 import gummiesMineralsAsset from "@/assets/honey/gummies-minerals.webp.asset.json";
 import faqSignalAsset from "@/assets/honey/faq-tune-the-signal.webp.asset.json";
 import faqGummiesAsset from "@/assets/honey/faq-gummies-desk.webp.asset.json";
-import heroBgAsset from "@/assets/honey-hero.png.asset.json";
+import heroBgAsset from "@/assets/honey-hero-lifestyle.png.asset.json";
 
 
 const benefitTimeline = [
@@ -432,23 +432,22 @@ export default function HoneyLanding() {
       <section className="hny-hero" aria-label="High Frequency Health">
         <div className="hny-hero-bg" style={{ backgroundImage: `url(${heroBgAsset.url})` }} aria-hidden="true" />
         <div className="hny-hero-inner">
-          <span className="hny-hero-eyebrow">The High Frequency Marketplace</span>
+          <span className="hny-hero-eyebrow">High Frequency Health</span>
           <h1 className="hny-hero-title">
-            High Frequency Health starts with the mineral your brain runs on.
+            Raise Your Frequency with Sacred Himalayan Shilajit
           </h1>
           <p className="hny-hero-sub">
-            Sacred Himalayan shilajit — 85+ ionic trace minerals and lab-verified 75%+ fulvic acid — folded
-            into golden morning honey sticks and nightly tamarind gummies. Ten seconds a day to fuel the
-            signal behind every session.
+            Shilajit is a mineral-rich resin from the Himalayas that supports all-day energy, sharper focus,
+            deeper sleep, and faster recovery. We put a full 400mg dose into a caramel honey stick and a
+            tamarind gummy. Take it daily to start seeing results in the first week.
           </p>
           <div className="hny-hero-ctas">
-            <a href="#buy" className="hny-hero-cta">Shop the ritual</a>
-            <a href="#science" className="hny-hero-cta-ghost">The science ↓</a>
+            <a href="#buy" className="hny-hero-cta">Order Now</a>
           </div>
           <div className="hny-hero-badges">
-            <span>85+ trace minerals</span>
-            <span>75%+ fulvic acid</span>
-            <span>No caffeine, no crash</span>
+            <span>Feel it in week one</span>
+            <span>Lab-tested every batch</span>
+            <span>30-day money-back guarantee</span>
           </div>
         </div>
       </section>
