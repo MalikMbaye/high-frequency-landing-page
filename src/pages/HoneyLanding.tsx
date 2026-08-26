@@ -19,6 +19,7 @@ import honeyGoldSpoon from "@/assets/honey/honey-gold-spoon.webp";
 import honeyCup from "@/assets/honey/honey-cup.webp";
 import honeyWave from "@/assets/honey/honey-wave.webp";
 import benefitTimelineAsset from "@/assets/honey/benefit-timeline.png.asset.json";
+import gummiesHeroAsset from "@/assets/honey/gummies-hero.png.asset.json";
 
 const benefitTimeline = [
   {
@@ -137,10 +138,6 @@ const gummiesBenefits = [
   {
     title: "Mental clarity and focus",
     body: "Purified resin supports mineral absorption and a quieter head. In practice, that reads as sharper focus and less afternoon fog.",
-  },
-  {
-    title: "Deep sleep and recovery",
-    body: "Magnesium and trace minerals support the pathways your body uses to power down, with the nightly gummy built for consistency.",
   },
   {
     title: "Strength and recovery",
@@ -533,22 +530,31 @@ export default function HoneyLanding() {
         </section>
 
         <section className="hny-gummies" data-theme="light">
-          <div className="hny-container hny-gummies-grid">
-            <div className="hny-gummies-copy">
-              <span className="hny-eyebrow">High Frequency Gummies</span>
-              <h2>Your brain runs on minerals.</h2>
-              <p>
-                Every thought, every meditation, every locked-in work block burns them. Modern food, grown in tired soil,
-                barely delivers them anymore. That shortage is the real story behind the 2 PM collapse and the fog that
-                shows up right when you need to think clearly.
-              </p>
-              <p>
-                The gummies make the supply portable: purified Himalayan resin sourced above 16,000 feet, standardized to
-                75%+ fulvic acid, with 85+ ionic trace minerals. Natural tamarind flavor, low sugar, vegan, gluten free,
-                non-GMO, and no preservatives.
-              </p>
+          <div className="hny-container">
+            <div className="hny-gummies-hero">
+              <div className="hny-gummies-copy">
+                <span className="hny-eyebrow">High Frequency Gummies</span>
+                <h2>Your brain runs on minerals.</h2>
+                <p>
+                  Every thought, every meditation, every locked-in work block burns them. Modern food, grown in tired soil,
+                  barely delivers them anymore. That shortage is the real story behind the 2 PM collapse and the fog that
+                  shows up right when you need to think clearly.
+                </p>
+                <p>
+                  The gummies make the supply portable: purified Himalayan resin sourced above 16,000 feet, standardized to
+                  75%+ fulvic acid, with 85+ ionic trace minerals. Natural tamarind flavor, low sugar, vegan, gluten free,
+                  non-GMO, and no preservatives.
+                </p>
+              </div>
+              <figure className="hny-gummies-figure">
+                <img
+                  src={gummiesHeroAsset.url}
+                  alt="High Frequency Gummies jar — one daily vitamin from 16,000 ft"
+                  loading="lazy"
+                />
+              </figure>
             </div>
-            <div className="hny-gummies-list">
+            <div className="hny-gummies-benefits">
               {gummiesBenefits.map((benefit) => (
                 <article key={benefit.title}>
                   <h3>{benefit.title}</h3>
