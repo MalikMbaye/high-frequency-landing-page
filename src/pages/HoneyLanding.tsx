@@ -206,17 +206,6 @@ const story = [
       "Heavy metals: lead, mercury, arsenic, and cadmium are Non-Detect. Full mineral panel, zero hidden fillers, zero mycotoxins. Made in a GMP, ISO, and HACCP certified facility.",
     ],
   },
-  {
-    id: "power-supply",
-    title: "You bought the switch. This is the power supply.",
-    image: honeySteamingCup,
-    alt: "Golden honey stick stirred into a warm morning drink",
-    paras: [
-      "Your headphones shift your state in under sixty seconds. That shift runs on energy, and your cells make energy out of minerals.",
-      "Here is the full day. Morning: tear a golden honey stick, ten seconds, headphones on, focus frequency. Night: one gummy, calm frequency, wind down into sleep that actually repairs you.",
-      "Two rituals. Nothing to measure. Nothing to remember. Tune the signal. Feed the signal.",
-    ],
-  },
 ];
 
 const infoPanels = [
@@ -563,31 +552,6 @@ export default function HoneyLanding() {
           </section>
         ))}
 
-        <section className="hny-how" data-theme="light">
-          <div className="hny-container hny-how-grid">
-            <div>
-              <span className="hny-eyebrow">How to use it</span>
-              <h2>Ten seconds, once a day</h2>
-              <p>
-                Tear the stick at the top notch. No scissors, no measuring, no mess. Squeeze it straight into your mouth,
-                or stir it into tea, coffee, or warm water. Caramel first, then something mineral underneath.
-              </p>
-              <p>
-                Then put the headphones on. Ten seconds of honey, sixty seconds of frequency. Morning works best, or
-                about thirty minutes before a workout. The only thing that really matters is doing it daily.
-              </p>
-            </div>
-            <div className="hny-bundle-box">
-              <span className="hny-eyebrow">Wellness Bundle</span>
-              <h3>Morning stick. Nightly gummy.</h3>
-              <p>
-                The bundle is the full day: golden honey in the morning, tamarind gummy at night. Same mountain mineral in
-                both. Different hour, different job.
-              </p>
-              <a href="#buy" className="hny-inline-cta">Choose the full ritual</a>
-            </div>
-          </div>
-        </section>
 
         <section className="hny-info-section" data-theme="light">
           <div className="hny-container">
