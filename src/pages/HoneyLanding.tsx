@@ -22,6 +22,7 @@ import benefitTimelineAsset from "@/assets/honey/benefit-timeline.png.asset.json
 import gummiesHeroAsset from "@/assets/honey/gummies-hero.png.asset.json";
 import fuelImageAsset from "@/assets/honey/honey-am-pm-ritual.png.asset.json";
 import fiveShiftsAsset from "@/assets/honey/honey-five-shifts.png.asset.json";
+import sacredSecretHimalayasAsset from "@/assets/honey/sacred-secret-himalayas.png.asset.json";
 
 const benefitTimeline = [
   {
@@ -173,8 +174,8 @@ const story = [
   {
     id: "sacred",
     title: "A sacred secret, kept by the Himalayas",
-    image: honeyGoldSpoon,
-    alt: "Dark mineral resin on a brass spoon",
+    image: sacredSecretHimalayasAsset.url,
+    alt: "Three ingredients: mountain mineral resin, organic honey, and natural caramel",
     paras: [
       "High above the tree line, a rare black substance seeps out of sun-warmed rock. Locals have climbed to gather it by hand for thousands of years. The old Sanskrit texts named it the destroyer of weakness.",
       "The mountains spend centuries pressing ancient plants between layers of rock until they become a dense mineral essence — one of the richest natural sources of trace minerals on earth. 85+ of them, in the ionic form your cells absorb directly.",
