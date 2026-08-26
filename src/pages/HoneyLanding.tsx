@@ -511,6 +511,25 @@ export default function HoneyLanding() {
                   {OPTIONS.map((opt) => {
                     const price = priceFor(opt);
                     const isSel = opt.id === selected;
+                    if (opt.id === "trial") {
+                      return (
+                        <button
+                          key={opt.id}
+                          type="button"
+                          role="radio"
+                          aria-checked={isSel}
+                          className={`hny-option hny-option-trial ${isSel ? "is-selected" : ""}`}
+                          onClick={() => {
+                            setSelected(opt.id);
+                            setQuantity(1);
+                          }}
+                        >
+                          <span className="hny-radio" aria-hidden="true" />
+                          <span className="hny-trial-text">Just try it for a dollar</span>
+                          <span className="hny-trial-meta">2 sticks · {money(price)}</span>
+                        </button>
+                      );
+                    }
                     return (
                       <button
                         key={opt.id}
