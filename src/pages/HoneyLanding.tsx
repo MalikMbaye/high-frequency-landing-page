@@ -194,17 +194,6 @@ const story = [
     ],
   },
   {
-    id: "week-four",
-    title: "Most people quit at week four. The result lands at week twelve.",
-    image: honeyFacts,
-    alt: "Supplement facts panel",
-    paras: [
-      "That's the whole reason the full ritual exists as one box instead of two separate purchases.",
-      "A single month ends right as the good part begins. Energy in week one is nice. Clarity in week two is better. Almost nobody gets to the part that matters, because they run out somewhere around week four and never reorder.",
-      "Sixty gummies and thirty sticks carries you past that gap.",
-    ],
-  },
-  {
     id: "lab-reports",
     title: "Ancient secret. Modern lab reports.",
     image: honeyIngredients,
