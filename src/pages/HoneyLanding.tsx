@@ -7,8 +7,7 @@ import type { HoneyVariantContent } from "@/data/honeyVariantContent";
 
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
-import { CartDrawer } from "@/components/CartDrawer";
-import logoAsset from "@/assets/hfh-logo.png.asset.json";
+import Navbar from "@/components/Navbar";
 import "@/pages/honey.css";
 
 import honeyHero from "@/assets/honey/honey-hero.webp";
@@ -420,16 +419,9 @@ export default function HoneyLanding() {
 
   return (
     <div className="hfhoney">
-      <header className="hny-nav">
-        <a href="/" className="hny-brand" aria-label="High Frequency">
-          <img src={logoAsset.url} alt="High Frequency logo" />
-        </a>
-        <div className="hny-nav-actions">
-          <CartDrawer />
-        </div>
-      </header>
+      <Navbar />
 
-      <section className="hny-hero" aria-label="High Frequency Health">
+      <section className="hny-hero" data-theme="dark" aria-label="High Frequency Health">
         <div className="hny-hero-bg" style={{ backgroundImage: `url(${heroBgAsset.url})` }} aria-hidden="true" />
         <div className="hny-hero-inner">
           <span className="hny-hero-eyebrow">High Frequency Health</span>
