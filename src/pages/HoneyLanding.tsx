@@ -24,6 +24,9 @@ import fuelImageAsset from "@/assets/honey/honey-am-pm-ritual.png.asset.json";
 import fiveShiftsAsset from "@/assets/honey/honey-five-shifts.png.asset.json";
 import labReportsAsset from "@/assets/honey/honey-lab-reports.png.asset.json";
 import sacredSecretHimalayasAsset from "@/assets/honey/sacred-secret-himalayas.png.asset.json";
+import honeySupplementFactsAsset from "@/assets/honey/honey-supplement-facts.png.asset.json";
+import gummiesMineralsAsset from "@/assets/honey/gummies-minerals.png.asset.json";
+
 
 const benefitTimeline = [
   {
@@ -208,14 +211,10 @@ const story = [
   },
 ];
 
-const infoPanels = [
+const honeyPanels = [
   {
     q: "What's in the honey sticks?",
     a: "Organic honey, purified Himalayan shilajit resin (400mg), and natural caramel flavor. Contains honey. No corn syrup, no artificial sweeteners, no fillers.",
-  },
-  {
-    q: "What's in the gummies?",
-    a: "Tamarind multivitamin gummies infused with purified Himalayan shilajit. Vegan, gluten free, non-GMO, no preservatives, 20 calories and 1g of sugar per serving with none added.",
   },
   {
     q: "Nutrition, per honey stick",
@@ -234,6 +233,26 @@ const infoPanels = [
     a: "Product renders are accurate on format, dose, and count. Your sticks may ship in Bliss Bell partner packaging while High Frequency packaging is in production. Same formula, same 400mg, same facility. Ships free inside your headphone box. 30 days, full refund, no questions.",
   },
 ];
+
+const gummiesPanels = [
+  {
+    q: "What's in the gummies?",
+    a: "Tamarind multivitamin gummies infused with purified Himalayan shilajit. Vegan, gluten free, non-GMO, no preservatives, 20 calories and 1g of sugar per serving with none added.",
+  },
+  {
+    q: "How we verify it",
+    a: "Every batch is tested before it ships. The 400mg dose is confirmed by lab panel. Fulvic acid is verified at 75%+, DBP authenticity is verified, and heavy metals test Non-Detect for lead, mercury, arsenic, and cadmium.",
+  },
+  {
+    q: "Before you take it",
+    a: "Adults 18 and over. Talk to your doctor first if you are pregnant, nursing, trying to conceive, on prescription medication, or managing a diagnosed condition. Shilajit contains iron and may not suit people with iron-overload conditions. Contains honey, so not for infants under 12 months. If you are managing blood sugar, note the 6.6g of honey sugar per stick.",
+  },
+  {
+    q: "Images, packaging, and guarantee",
+    a: "Product renders are accurate on format, dose, and count. Your sticks may ship in Bliss Bell partner packaging while High Frequency packaging is in production. Same formula, same 400mg, same facility. Ships free inside your headphone box. 30 days, full refund, no questions.",
+  },
+];
+
 
 const faqs = [
   {
@@ -559,16 +578,45 @@ export default function HoneyLanding() {
               <span className="hny-eyebrow">Product information</span>
               <h2>Ingredients, nutrition, testing, and safety</h2>
             </div>
-            <div className="hny-info-accs">
-              {infoPanels.map((panel, i) => (
-                <details key={panel.q} className="hny-info-acc" open={i < 2}>
-                  <summary>{panel.q}</summary>
-                  <p>{panel.a}</p>
-                </details>
-              ))}
+            <div className="hny-info-grid">
+              <div className="hny-info-column hny-info-gummies">
+                <figure className="hny-info-figure">
+                  <img
+                    src={gummiesMineralsAsset.url}
+                    alt="High Frequency Gummies — 85+ ionic trace minerals in two daily gummies"
+                    loading="lazy"
+                  />
+                </figure>
+                <div className="hny-info-accs">
+                  {gummiesPanels.map((panel, i) => (
+                    <details key={panel.q} className="hny-info-acc" open={i < 1}>
+                      <summary>{panel.q}</summary>
+                      <p>{panel.a}</p>
+                    </details>
+                  ))}
+                </div>
+              </div>
+              <div className="hny-info-column hny-info-honey">
+                <figure className="hny-info-figure">
+                  <img
+                    src={honeySupplementFactsAsset.url}
+                    alt="High Frequency Honey supplement facts panel — 1 stick, 30 servings, 400mg shilajit resin"
+                    loading="lazy"
+                  />
+                </figure>
+                <div className="hny-info-accs">
+                  {honeyPanels.map((panel, i) => (
+                    <details key={panel.q} className="hny-info-acc" open={i < 1}>
+                      <summary>{panel.q}</summary>
+                      <p>{panel.a}</p>
+                    </details>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
+
 
         <section className="hny-faq" data-theme="light">
           <div className="hny-container">
