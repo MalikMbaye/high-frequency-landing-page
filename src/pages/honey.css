@@ -60,9 +60,10 @@
 .hny-main-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
+
 .hny-arrow {
   position: absolute;
   top: 50%;
