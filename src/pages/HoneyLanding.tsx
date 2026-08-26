@@ -266,20 +266,8 @@ const faqsShared = [
     a: "No. There's no caffeine and nothing that spikes. It works inside your mitochondria, the part of every cell that produces ATP, so energy arrives from the inside instead of being borrowed. That's why there's no jitters and no 2 PM bill coming due. It's fuel, not a stimulant.",
   },
   {
-    q: "When will I feel something?",
-    a: "Week one is energy and sleep — steadier through the day, deeper at night, usually between day five and seven. Week two is clarity: the fog thins and focus holds through the afternoon. Weeks four through eight bring faster recovery and less soreness between workouts. By week twelve the full compound effect lands. Nothing spikes on day one — it builds like a practice, because it is one.",
-  },
-  {
     q: "Is there real research behind this?",
     a: "Yes. Energy: Joukar et al. 2014; Carrasco-Gallardo et al. 2012. Focus and cognition: Surapaneni et al. 2009; Stohs 2014. Sleep: Shevtsov et al. 2003; Bhattacharyya et al. 2009. Strength and recovery: Keller et al. 2019, a double-blind randomized controlled trial. And a 90-day double-blind, placebo-controlled study published in Andrologia (Pandit et al. 2016, n=96) measured total testosterone up 20% and free testosterone up 19% at the same dose in every serving. The mechanisms — mitochondrial energy, mineral absorption, clarity — aren't sex-specific, so the benefits apply to men and women.",
-  },
-  {
-    q: "How do I know it's real and safe?",
-    a: "Every batch is third-party tested before it ships. Fulvic acid verified at 75%+, against the 10–20% industry average. Authenticity confirmed by DBP marker — the test most brands skip because their product would fail it. Heavy metals (lead, mercury, arsenic, cadmium): all Non-Detect. Full mineral panel, zero hidden fillers, zero mycotoxins. Made in a GMP, ISO, and HACCP certified facility. Certificates available on request for every batch.",
-  },
-  {
-    q: "Who should not take it?",
-    a: "Adults 18 and over. Talk to your doctor first if you're pregnant, nursing, trying to conceive, on prescription medication, or managing a diagnosed condition. Shilajit contains iron and may not suit people with iron-overload conditions. The honey contains honey, so it's not for infants under 12 months. If you manage blood sugar, note the 6.6g of honey sugar per stick.",
   },
   {
     q: "Why honey sticks and gummies instead of raw resin or capsules?",
@@ -293,14 +281,6 @@ const faqsShared = [
 
 const faqsHoney = [
   {
-    q: "What's in each honey stick?",
-    a: "Organic honey, purified Himalayan shilajit resin (400mg), natural caramel flavor. No corn syrup, no artificial sweeteners, no fillers. The 400mg dose is confirmed by lab panel, not by the label printer.",
-  },
-  {
-    q: "What's the nutrition per stick?",
-    a: "25 calories per 8g stick, 30 sticks per box. 0g fat, 8mg sodium, 6.6g total carbohydrates, 6.6g sugars — all of it from the organic honey, 13% daily value. 400mg shilajit resin per stick.",
-  },
-  {
     q: "How do I take the honey?",
     a: "Tear the stick at the top notch — no scissors, no measuring, no mess. Squeeze it straight into your mouth, or stir it into tea, coffee, or warm water. Caramel first, then something mineral underneath. Morning works best, or about thirty minutes before a workout. Then headphones on: ten seconds of honey, sixty seconds of frequency.",
   },
@@ -308,17 +288,9 @@ const faqsHoney = [
     q: "What if I miss a day?",
     a: "Just continue the next one. Don't double up. The only thing that really matters is doing it daily, because the benefits compound rather than arriving all at once.",
   },
-  {
-    q: "Why does my packaging look different from the renders?",
-    a: "Product images on this page are AI-generated renders, accurate on format, dose, and count. Your sticks ship in Bliss Bell packaging — Bliss Bell is our partner brand and produces this with us. High Frequency packaging is in production and hasn't shipped yet. Same formula, same 400mg, same facility.",
-  },
 ];
 
 const faqsGummies = [
-  {
-    q: "What's in each gummy serving?",
-    a: "Two gummies carry 400mg of purified Himalayan resin sourced above 16,000 feet, standardized to 75%+ fulvic acid, with 85+ ionic trace minerals. Natural tamarind flavor. 20 calories and 1g of sugar per serving — none of it added. Vegan, gluten free, non-GMO, no preservatives.",
-  },
   {
     q: "When should I take the gummies?",
     a: "Anytime, but they're built for the evening and the road. One gummy ritual at night pairs with a calm frequency session and wind-down into sleep that actually repairs you. They're also the travel-proof dose: gym bag, flight, hotel room, the day you skipped breakfast and left at seven. Zero mess, exact dose, no sugar spike before bed.",
