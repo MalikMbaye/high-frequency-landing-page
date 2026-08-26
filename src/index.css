@@ -78,7 +78,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;
+    scroll-padding-top: 130px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -97,7 +97,7 @@
     line-height: 1.6;
     color: var(--hfh-near-black);
     background: var(--hfh-white);
-    padding-top: 92px;
+    padding-top: 122px;
     overflow-x: hidden;
   }
   html {

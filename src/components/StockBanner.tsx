@@ -1,13 +1,12 @@
 /**
- * Back-in-stock announcement banner.
- * Rendered as the first child of the fixed header so it sits above the menu.
+ * Promotional banner — rendered as the first child of the fixed header.
  */
 const StockBanner = () => {
   return (
     <div className="stock-banner" role="status">
       <span className="stock-banner-dot" aria-hidden="true" />
       <span className="stock-banner-text">
-        Back in stock — order now for expedited shipping
+        Use code FUEL50 at checkout for 30% off
       </span>
     </div>
   );
