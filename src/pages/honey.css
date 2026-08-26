@@ -783,11 +783,11 @@
   backdrop-filter: blur(8px);
 }
 @media (max-width: 640px) {
-  .hny-hero { min-height: 100svh; align-items: flex-end; }
+  .hny-hero { min-height: 82svh; align-items: flex-end; }
   .hny-hero-bg { background-position: 72% center; }
   .hny-hero-bg::after {
     background:
-      linear-gradient(0deg, rgba(8, 6, 3, 0.95) 0%, rgba(8, 6, 3, 0.55) 55%, rgba(8, 6, 3, 0.15) 100%);
+      linear-gradient(0deg, rgba(8, 6, 3, 0.95) 0%, rgba(8, 6, 3, 0.72) 55%, rgba(8, 6, 3, 0.55) 100%);
   }
-  .hny-hero-inner { padding: 90px 20px 48px; }
+  .hny-hero-inner { padding: 60px 20px 40px; }
 }
