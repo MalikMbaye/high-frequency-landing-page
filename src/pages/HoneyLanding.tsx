@@ -123,12 +123,12 @@ const gallery = [
 
 const marketplaceIntro = [
   {
-    eyebrow: "Introducing the High Frequency Marketplace",
+    eyebrow: "Introducing High Frequency Health",
     title: "The practice, expanded",
     paras: [
-      "We are building more than headphones. The High Frequency Marketplace is where the rest of the practice lives. Everything in it does one job: raise the signal your brain runs on.",
+      "We are building more than headphones. High Frequency Health is where the rest of the practice lives. Everything in it does one job: raise the signal your brain runs on.",
       "The headphones were the first tool. They tune your state in under sixty seconds, and over 100,000 people have felt it. But a session ends and your brain keeps running.",
-      "This is the first product in the marketplace. You are seeing it before it goes anywhere else.",
+      "This is the first product from High Frequency Health. You are seeing it before it goes anywhere else.",
     ],
   },
   {
