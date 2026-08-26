@@ -433,7 +433,7 @@ export default function HoneyLanding() {
         <section className="hny-pdp" data-theme="light" id="buy">
           <div className="hny-container hny-pdp-grid">
             <div className="hny-gallery" ref={galleryRef}>
-              <div className="hny-main-image">
+              <div className="hny-main-image" style={{ background: current.bg }}>
                 <img src={current.src} alt={current.alt} />
                 <button type="button" className="hny-arrow hny-arrow-prev" aria-label="Previous image" onClick={() => step(-1)}>
                   <ChevronLeft size={16} />
@@ -450,11 +450,13 @@ export default function HoneyLanding() {
                     className={`hny-thumb ${i === index ? "is-active" : ""}`}
                     aria-label={`View image ${i + 1}`}
                     onClick={() => setIndex(i)}
+                    style={{ background: g.bg }}
                   >
                     <img src={g.src} alt="" />
                   </button>
                 ))}
               </div>
+
             </div>
 
             <div className="hny-info">
