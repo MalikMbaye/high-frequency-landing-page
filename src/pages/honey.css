@@ -28,19 +28,15 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 16px 20px;
-  background: transparent;
-  border-bottom: none;
-}
-.hny-nav-actions svg,
-.hny-nav-actions button {
-  color: #f6efdf;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hny-line);
 }
 .hny-brand img {
   height: 30px;
   width: auto;
   display: block;
-  filter: brightness(0) invert(1) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
 }
 
 /* ---------- PDP ---------- */
