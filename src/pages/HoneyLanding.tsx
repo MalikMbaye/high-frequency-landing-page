@@ -484,15 +484,15 @@ export default function HoneyLanding() {
                 build it.
               </p>
             </div>
-            <div className="hny-timeline">
-              {benefitTimeline.map((item) => (
-                <article key={item.week} className="hny-time-card">
-                  <span>{item.week}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </article>
-              ))}
-            </div>
+            <figure className="hny-timeline-figure">
+              <img
+                src={benefitTimelineAsset.url}
+                alt="Product benefits timeline: Week 1 energy and sleep, Week 2 focus holds, Week 4 faster recovery, Week 12 the full compound"
+                width="1080"
+                height="1080"
+                loading="lazy"
+              />
+            </figure>
           </div>
         </section>
 
