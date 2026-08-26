@@ -545,7 +545,7 @@ export default function HoneyLanding() {
                 <button type="button" className="hny-cta" onClick={handleAdd} disabled={isCartLoading}>
                   {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : `ADD TO CART · ${money(total)}`}
                 </button>
-                <p className="hny-guarantee">30-Day Money-Back Guarantee · Ships in 5–10 business days</p>
+                <p className="hny-guarantee">30-Day Money-Back Guarantee</p>
               </div>
             </div>
           </div>
