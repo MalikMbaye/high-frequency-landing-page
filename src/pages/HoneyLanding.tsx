@@ -92,16 +92,6 @@ const OPTIONS: OptionSpec[] = [
     compareAt: 59.99,
   },
   {
-    id: "trial",
-    name: "Try High Frequency Honey",
-    subLabel: "2 Honey Stix",
-    tagline: "Two sticks for $1.97. Feel the mineral before you commit.",
-    variantTitle: "1-Day Supply (2x High Frequency Honey Stix)",
-    fallbackPrice: 1.97,
-    compareAt: 9.99,
-    badge: { label: "TRY IT", tone: "purple" },
-  },
-  {
     id: "gummies",
     name: "Sacred Shilajit Multivitamins",
     subLabel: "60 Multivitamin Gummies",
@@ -119,6 +109,16 @@ const OPTIONS: OptionSpec[] = [
     fallbackPrice: 55.55,
     compareAt: 99.99,
     badge: { label: "BEST VALUE", tone: "gold" },
+  },
+  {
+    id: "trial",
+    name: "Try High Frequency Honey",
+    subLabel: "2 Honey Stix",
+    tagline: "Two sticks for $1.97. Feel the mineral before you commit.",
+    variantTitle: "1-Day Supply (2x High Frequency Honey Stix)",
+    fallbackPrice: 1.97,
+    compareAt: 9.99,
+    badge: { label: "TRY IT", tone: "purple" },
   },
 ];
 
@@ -511,6 +511,25 @@ export default function HoneyLanding() {
                   {OPTIONS.map((opt) => {
                     const price = priceFor(opt);
                     const isSel = opt.id === selected;
+                    if (opt.id === "trial") {
+                      return (
+                        <button
+                          key={opt.id}
+                          type="button"
+                          role="radio"
+                          aria-checked={isSel}
+                          className={`hny-option hny-option-trial ${isSel ? "is-selected" : ""}`}
+                          onClick={() => {
+                            setSelected(opt.id);
+                            setQuantity(1);
+                          }}
+                        >
+                          <span className="hny-radio" aria-hidden="true" />
+                          <span className="hny-trial-text">Just try it for a dollar</span>
+                          <span className="hny-trial-meta">2 sticks · {money(price)}</span>
+                        </button>
+                      );
+                    }
                     return (
                       <button
                         key={opt.id}

@@ -196,6 +196,27 @@
 .hny-badge-gold { background: var(--hny-gold); }
 .hny-badge-purple { background: #6d4bd6; }
 
+/* Compact trial CTA */
+.hny-option-trial {
+  grid-template-columns: auto 1fr auto;
+  padding: 10px 12px;
+  gap: 10px;
+}
+.hny-option-trial .hny-option-info,
+.hny-option-trial .hny-option-pricing { display: none; }
+.hny-trial-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--hny-ink);
+  text-align: left;
+}
+.hny-trial-meta {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--hny-gold);
+  white-space: nowrap;
+}
+
 .hny-qty-row {
   display: flex;
   align-items: center;
