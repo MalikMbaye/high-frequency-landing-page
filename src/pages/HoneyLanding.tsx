@@ -368,6 +368,7 @@ export default function HoneyLanding() {
   }
 
   const activeOption = OPTIONS.find((o) => o.id === selected) ?? OPTIONS[0];
+  const activeContent = variantContent?.[activeOption.id];
   const total = priceFor(activeOption) * quantity;
 
   /** Shopify product images for the selected option, falling back to local art. */
