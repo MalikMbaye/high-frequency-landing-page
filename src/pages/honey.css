@@ -255,12 +255,32 @@
 }
 
 .hny-market-grid,
-.hny-gummies-grid,
 .hny-how-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 34px;
   align-items: start;
+}
+
+.hny-gummies-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 44px;
+  align-items: center;
+  margin-bottom: 44px;
+}
+
+.hny-gummies-figure {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0e0d12;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
+}
+.hny-gummies-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .hny-market-card {
