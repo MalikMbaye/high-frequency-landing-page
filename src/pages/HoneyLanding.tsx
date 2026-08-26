@@ -92,6 +92,16 @@ const OPTIONS: OptionSpec[] = [
     compareAt: 59.99,
   },
   {
+    id: "trial",
+    name: "Try High Frequency Honey",
+    subLabel: "2 Honey Stix",
+    tagline: "Two sticks for $1.97. Feel the mineral before you commit.",
+    variantTitle: "1-Day Supply (2x High Frequency Honey Stix)",
+    fallbackPrice: 1.97,
+    compareAt: 9.99,
+    badge: { label: "TRY IT", tone: "purple" },
+  },
+  {
     id: "gummies",
     name: "Sacred Shilajit Multivitamins",
     subLabel: "60 Multivitamin Gummies",
