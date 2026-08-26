@@ -7,13 +7,14 @@ import TestimonialGallery from "@/components/TestimonialGallery";
 import WhatsInBox from "@/components/WhatsInBox";
 import LazySection from "@/components/LazySection";
 import YouTubeShortsCarousel from "@/components/YouTubeShortsCarousel";
+import WhyMoreThanOne from "@/components/WhyMoreThanOne";
 
 // Below-the-fold: code-split so the JS for these sections is fetched only when needed.
 const WrongTeardown = lazy(() => import("@/components/WrongTeardown"));
 const HowItWorks = lazy(() => import("@/components/HowItWorks"));
 const BeforeAfterScience = lazy(() => import("@/components/BeforeAfterScience"));
 const HemisphereSync = lazy(() => import("@/components/HemisphereSync"));
-const WhyMoreThanOne = lazy(() => import("@/components/WhyMoreThanOne"));
+
 
 
 const Neuroplasticity = lazy(() => import("@/components/Neuroplasticity"));
