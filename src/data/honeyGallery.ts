@@ -77,6 +77,7 @@ export const bundleGallery: GalleryImage[] = [
 
 export const galleriesByOption: Record<string, GalleryImage[]> = {
   honey: honeyGallery,
+  trial: honeyGallery,
   gummies: gummiesGallery,
   bundle: bundleGallery,
 };
