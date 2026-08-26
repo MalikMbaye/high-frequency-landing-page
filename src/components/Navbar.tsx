@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Menu, X, Loader2, HelpCircle, User, ShoppingCart } from "lucide-react";
 import { CartDrawer } from "./CartDrawer";
-import StockBanner from "./StockBanner";
 import { useBuyNow } from "@/hooks/useBuyNow";
 import { useCartStore } from "@/stores/cartStore";
 import logoAsset from "@/assets/hfh-logo.png.asset.json";
-
-const APP_LINK = "https://highfrequency.onelink.me/lwuw/mkogg00s";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
