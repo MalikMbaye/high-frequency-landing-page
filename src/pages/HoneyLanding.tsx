@@ -304,7 +304,7 @@ const faqsGummies = [
 ];
 
 export default function HoneyLanding() {
-  const [selected, setSelected] = useState<OptionId>("bundle");
+  const [selected, setSelected] = useState<OptionId>("honey");
   const [quantity, setQuantity] = useState(1);
   const [index, setIndex] = useState(0);
   const [openFaq, setOpenFaq] = useState<Set<string>>(new Set());
