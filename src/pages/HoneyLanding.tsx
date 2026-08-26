@@ -26,6 +26,8 @@ import labReportsAsset from "@/assets/honey/honey-lab-reports.png.asset.json";
 import sacredSecretHimalayasAsset from "@/assets/honey/sacred-secret-himalayas.png.asset.json";
 import honeySupplementFactsAsset from "@/assets/honey/honey-supplement-facts.png.asset.json";
 import gummiesMineralsAsset from "@/assets/honey/gummies-minerals.png.asset.json";
+import faqSignalAsset from "@/assets/honey/faq-tune-the-signal.png.asset.json";
+import faqGummiesAsset from "@/assets/honey/faq-gummies-desk.png.asset.json";
 
 
 const benefitTimeline = [
@@ -254,26 +256,84 @@ const gummiesPanels = [
 ];
 
 
-const faqs = [
+const faqsShared = [
   {
-    q: "What exactly is in it?",
-    a: "Purified Himalayan mineral resin folded into certified organic caramel honey for the morning and set into a tamarind multivitamin gummy for the night. Every batch is independently tested, heavy metals Non-Detect.",
+    q: "What is shilajit, exactly?",
+    a: "A mineral essence the Himalayas spend centuries pressing out of ancient plant matter between layers of rock. It seeps from sun-warmed cliffs above 16,000 feet, where it's gathered by hand the way it has been for thousands of years. The old Sanskrit name translates to \"destroyer of weakness.\" It carries 85+ trace minerals in ionic form — the charged form your cells absorb directly — plus fulvic acid, which helps your cells turn fuel into energy.",
   },
   {
-    q: "How do I take it?",
-    a: "Morning: tear one stick, ten seconds, straight or stirred into tea, coffee, or warm water. Night: take the gummy ritual when you want the travel-proof dose. Nothing to measure, nothing to remember.",
-  },
-  {
-    q: "Is it a stimulant?",
-    a: "No. There is no caffeine and nothing that spikes. It's fuel, not a stimulant — which is why there's no crash on the other side of it.",
+    q: "Is it a stimulant? Will I crash?",
+    a: "No. There's no caffeine and nothing that spikes. It works inside your mitochondria, the part of every cell that produces ATP, so energy arrives from the inside instead of being borrowed. That's why there's no jitters and no 2 PM bill coming due. It's fuel, not a stimulant.",
   },
   {
     q: "When will I feel something?",
-    a: "Most people notice steadier energy and deeper sleep somewhere between day five and day seven, and clearer focus in the second week. It compounds from there.",
+    a: "Week one is energy and sleep — steadier through the day, deeper at night, usually between day five and seven. Week two is clarity: the fog thins and focus holds through the afternoon. Weeks four through eight bring faster recovery and less soreness between workouts. By week twelve the full compound effect lands. Nothing spikes on day one — it builds like a practice, because it is one.",
+  },
+  {
+    q: "Is there real research behind this?",
+    a: "Yes. Energy: Joukar et al. 2014; Carrasco-Gallardo et al. 2012. Focus and cognition: Surapaneni et al. 2009; Stohs 2014. Sleep: Shevtsov et al. 2003; Bhattacharyya et al. 2009. Strength and recovery: Keller et al. 2019, a double-blind randomized controlled trial. And a 90-day double-blind, placebo-controlled study published in Andrologia (Pandit et al. 2016, n=96) measured total testosterone up 20% and free testosterone up 19% at the same dose in every serving. The mechanisms — mitochondrial energy, mineral absorption, clarity — aren't sex-specific, so the benefits apply to men and women.",
+  },
+  {
+    q: "How do I know it's real and safe?",
+    a: "Every batch is third-party tested before it ships. Fulvic acid verified at 75%+, against the 10–20% industry average. Authenticity confirmed by DBP marker — the test most brands skip because their product would fail it. Heavy metals (lead, mercury, arsenic, cadmium): all Non-Detect. Full mineral panel, zero hidden fillers, zero mycotoxins. Made in a GMP, ISO, and HACCP certified facility. Certificates available on request for every batch.",
+  },
+  {
+    q: "Who should not take it?",
+    a: "Adults 18 and over. Talk to your doctor first if you're pregnant, nursing, trying to conceive, on prescription medication, or managing a diagnosed condition. Shilajit contains iron and may not suit people with iron-overload conditions. The honey contains honey, so it's not for infants under 12 months. If you manage blood sugar, note the 6.6g of honey sugar per stick.",
+  },
+  {
+    q: "Why honey sticks and gummies instead of raw resin or capsules?",
+    a: "Because this compound only pays you back on the days you take it. Raw resin is bitter and hard to take; capsules are forgettable. The honey is the one you actually look forward to — golden, caramel, ten seconds, tied to your morning session. The gummies are the one you never miss — gym bag, 6 AM flight, hotel room, zero mess, exact dose. Owning both means there are no bad weeks.",
   },
   {
     q: "Shipping & guarantee",
-    a: "Ships from our U.S. fulfillment center in 5–10 business days. 30 days, full refund, no questions.",
+    a: "Ships from our U.S. fulfillment center in 5–10 business days, free inside your headphone box when ordered together. 30 days, full refund, no questions, no return shipping — same as the headphones.",
+  },
+];
+
+const faqsHoney = [
+  {
+    q: "What's in each honey stick?",
+    a: "Organic honey, purified Himalayan shilajit resin (400mg), natural caramel flavor. No corn syrup, no artificial sweeteners, no fillers. The 400mg dose is confirmed by lab panel, not by the label printer.",
+  },
+  {
+    q: "What's the nutrition per stick?",
+    a: "25 calories per 8g stick, 30 sticks per box. 0g fat, 8mg sodium, 6.6g total carbohydrates, 6.6g sugars — all of it from the organic honey, 13% daily value. 400mg shilajit resin per stick.",
+  },
+  {
+    q: "How do I take the honey?",
+    a: "Tear the stick at the top notch — no scissors, no measuring, no mess. Squeeze it straight into your mouth, or stir it into tea, coffee, or warm water. Caramel first, then something mineral underneath. Morning works best, or about thirty minutes before a workout. Then headphones on: ten seconds of honey, sixty seconds of frequency.",
+  },
+  {
+    q: "What if I miss a day?",
+    a: "Just continue the next one. Don't double up. The only thing that really matters is doing it daily, because the benefits compound rather than arriving all at once.",
+  },
+  {
+    q: "Why does my packaging look different from the renders?",
+    a: "Product images on this page are AI-generated renders, accurate on format, dose, and count. Your sticks ship in Bliss Bell packaging — Bliss Bell is our partner brand and produces this with us. High Frequency packaging is in production and hasn't shipped yet. Same formula, same 400mg, same facility.",
+  },
+];
+
+const faqsGummies = [
+  {
+    q: "What's in each gummy serving?",
+    a: "Two gummies carry 400mg of purified Himalayan resin sourced above 16,000 feet, standardized to 75%+ fulvic acid, with 85+ ionic trace minerals. Natural tamarind flavor. 20 calories and 1g of sugar per serving — none of it added. Vegan, gluten free, non-GMO, no preservatives.",
+  },
+  {
+    q: "When should I take the gummies?",
+    a: "Anytime, but they're built for the evening and the road. One gummy ritual at night pairs with a calm frequency session and wind-down into sleep that actually repairs you. They're also the travel-proof dose: gym bag, flight, hotel room, the day you skipped breakfast and left at seven. Zero mess, exact dose, no sugar spike before bed.",
+  },
+  {
+    q: "Honey in the morning, gummies at night — do I need both?",
+    a: "Same mountain mineral in both, different hour, different job. The honey builds the habit because it's the one you actually want. The gummies cover everything the morning doesn't — travel, the gym, the chaotic days. You can start with either. The bundle exists because most people end up wanting both.",
+  },
+  {
+    q: "Is one month enough to feel the full effect?",
+    a: "Honestly, no. A single month ends right as the good part begins. Energy in week one is nice, clarity in week two is better — but the number the study actually measured came at ninety days, and most people never get there because they run out around week four. That's why the 2-month supply and the bundle exist: they carry you past the gap.",
+  },
+  {
+    q: "How does it work with the headphones?",
+    a: "The headphones shift your state in under sixty seconds — that's the instant side. That shift runs on energy, and your cells make energy out of minerals. The gummies and honey are the side that builds underneath it, one morning and one night at a time. Tune the signal. Feed the signal.",
   },
 ];
 
@@ -281,7 +341,7 @@ export default function HoneyLanding() {
   const [selected, setSelected] = useState<OptionId>("bundle");
   const [quantity, setQuantity] = useState(1);
   const [index, setIndex] = useState(0);
-  const [openFaq, setOpenFaq] = useState<Set<number>>(new Set());
+  const [openFaq, setOpenFaq] = useState<Set<string>>(new Set());
   const addItem = useCartStore((s) => s.addItem);
   const openDrawer = useCartStore((s) => s.openDrawer);
   const isCartLoading = useCartStore((s) => s.isLoading);
@@ -628,33 +688,92 @@ export default function HoneyLanding() {
 
         <section className="hny-faq" data-theme="light">
           <div className="hny-container">
-            <h2 className="hny-faq-title">Questions</h2>
-            <div className="hny-acc-list">
-              {faqs.map((f, i) => (
-                <details
-                  key={f.q}
-                  className="hny-acc"
-                  open={openFaq.has(i)}
-                  onToggle={(e) => {
-                    const el = e.currentTarget;
-                    setOpenFaq((prev) => {
-                      const next = new Set(prev);
-                      if (el.open) next.add(i);
-                      else next.delete(i);
-                      return next;
-                    });
-                  }}
-                >
-                  <summary>
-                    <span>{f.q}</span>
-                    <span className="hny-acc-icon" aria-hidden="true" />
-                  </summary>
-                  <div className="hny-acc-body">
-                    <p>{f.a}</p>
-                  </div>
-                </details>
-              ))}
+            <h2 className="hny-faq-title">Questions, answered</h2>
+
+            <div className="hny-faq-row">
+              <div className="hny-faq-copy">
+                <span className="hny-eyebrow">The practice &amp; the honey</span>
+                <div className="hny-acc-list">
+                  {[...faqsShared, ...faqsHoney].map((f, i) => {
+                    const key = `a-${i}`;
+                    return (
+                      <details
+                        key={f.q}
+                        className="hny-acc"
+                        open={openFaq.has(key)}
+                        onToggle={(e) => {
+                          const el = e.currentTarget;
+                          setOpenFaq((prev) => {
+                            const next = new Set(prev);
+                            if (el.open) next.add(key);
+                            else next.delete(key);
+                            return next;
+                          });
+                        }}
+                      >
+                        <summary>
+                          <span>{f.q}</span>
+                          <span className="hny-acc-icon" aria-hidden="true" />
+                        </summary>
+                        <div className="hny-acc-body">
+                          <p>{f.a}</p>
+                        </div>
+                      </details>
+                    );
+                  })}
+                </div>
+              </div>
+              <figure className="hny-info-figure hny-faq-figure">
+                <img
+                  src={faqSignalAsset.url}
+                  alt="Morning ritual — High Frequency Honey stick and headphones, tune the signal, feed the signal"
+                  loading="lazy"
+                />
+              </figure>
             </div>
+
+            <div className="hny-faq-row is-reversed">
+              <figure className="hny-info-figure hny-faq-figure">
+                <img
+                  src={faqGummiesAsset.url}
+                  alt="High Frequency Gummies jar beside frequency headphones and the app on a phone"
+                  loading="lazy"
+                />
+              </figure>
+              <div className="hny-faq-copy">
+                <span className="hny-eyebrow">The gummies &amp; the ritual</span>
+                <div className="hny-acc-list">
+                  {faqsGummies.map((f, i) => {
+                    const key = `b-${i}`;
+                    return (
+                      <details
+                        key={f.q}
+                        className="hny-acc"
+                        open={openFaq.has(key)}
+                        onToggle={(e) => {
+                          const el = e.currentTarget;
+                          setOpenFaq((prev) => {
+                            const next = new Set(prev);
+                            if (el.open) next.add(key);
+                            else next.delete(key);
+                            return next;
+                          });
+                        }}
+                      >
+                        <summary>
+                          <span>{f.q}</span>
+                          <span className="hny-acc-icon" aria-hidden="true" />
+                        </summary>
+                        <div className="hny-acc-body">
+                          <p>{f.a}</p>
+                        </div>
+                      </details>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
 
             <div className="hny-final">
               <h2>One mineral. Two rituals.</h2>
