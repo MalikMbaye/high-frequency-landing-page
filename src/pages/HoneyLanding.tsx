@@ -106,29 +106,6 @@ const marketplaceIntro = [
   },
 ];
 
-const benefitTimeline = [
-  {
-    week: "Week 1",
-    title: "Energy and sleep",
-    body: "Steadier energy through the day, deeper sleep at night. The afternoon crash starts to fade.",
-  },
-  {
-    week: "Week 2",
-    title: "Clarity",
-    body: "The fog lifts. Focus holds through the afternoon without rescue coffee.",
-  },
-  {
-    week: "Week 4",
-    title: "Recovery",
-    body: "Faster recovery between workouts. More output, less soreness.",
-  },
-  {
-    week: "Weeks 8–12",
-    title: "Compound effect",
-    body: "The full arc lands later because this is a compounding mineral, never a stimulant. Nothing spikes. Nothing crashes.",
-  },
-];
-
 const gummiesBenefits = [
   {
     title: "Energy and stamina",
