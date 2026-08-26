@@ -18,6 +18,7 @@ import honeySteamingCup from "@/assets/honey/honey-steaming-cup.webp";
 import honeyGoldSpoon from "@/assets/honey/honey-gold-spoon.webp";
 import honeyCup from "@/assets/honey/honey-cup.webp";
 import honeyWave from "@/assets/honey/honey-wave.webp";
+import benefitTimelineAsset from "@/assets/honey/benefit-timeline.png.asset.json";
 import gummiesHeroAsset from "@/assets/honey/gummies-hero.png.asset.json";
 
 const benefitTimeline = [
