@@ -303,6 +303,25 @@
   gap: 12px;
 }
 
+.hny-timeline-figure {
+  margin: 0 0 26px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0e0d12;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
+}
+.hny-timeline-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .hny-timeline-figure {
+    margin-bottom: 22px;
+  }
+}
+
 .hny-time-card,
 .hny-gummies-list article,
 .hny-bundle-box,

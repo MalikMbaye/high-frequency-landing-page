@@ -18,6 +18,7 @@ import honeySteamingCup from "@/assets/honey/honey-steaming-cup.webp";
 import honeyGoldSpoon from "@/assets/honey/honey-gold-spoon.webp";
 import honeyCup from "@/assets/honey/honey-cup.webp";
 import honeyWave from "@/assets/honey/honey-wave.webp";
+import benefitTimelineAsset from "@/assets/honey/benefit-timeline.png.asset.json";
 
 /** Shopify handles for the three purchase options. */
 const HANDLES = {
@@ -102,29 +103,6 @@ const marketplaceIntro = [
       "So we went looking for one of the richest natural sources of those minerals on earth. We found it at 16,000 feet.",
       "Shilajit is a mineral essence the Himalayas spend centuries making, pressed out of ancient plant matter between layers of rock. Raw, it is bitter and hard to take. So we folded it into caramel honey and set it into a tamarind gummy.",
     ],
-  },
-];
-
-const benefitTimeline = [
-  {
-    week: "Week 1",
-    title: "Energy and sleep",
-    body: "Steadier energy through the day, deeper sleep at night. The afternoon crash starts to fade.",
-  },
-  {
-    week: "Week 2",
-    title: "Clarity",
-    body: "The fog lifts. Focus holds through the afternoon without rescue coffee.",
-  },
-  {
-    week: "Week 4",
-    title: "Recovery",
-    body: "Faster recovery between workouts. More output, less soreness.",
-  },
-  {
-    week: "Weeks 8–12",
-    title: "Compound effect",
-    body: "The full arc lands later because this is a compounding mineral, never a stimulant. Nothing spikes. Nothing crashes.",
   },
 ];
 
@@ -506,15 +484,15 @@ export default function HoneyLanding() {
                 build it.
               </p>
             </div>
-            <div className="hny-timeline">
-              {benefitTimeline.map((item) => (
-                <article key={item.week} className="hny-time-card">
-                  <span>{item.week}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </article>
-              ))}
-            </div>
+            <figure className="hny-timeline-figure">
+              <img
+                src={benefitTimelineAsset.url}
+                alt="Product benefits timeline: Week 1 energy and sleep, Week 2 focus holds, Week 4 faster recovery, Week 12 the full compound"
+                width="1080"
+                height="1080"
+                loading="lazy"
+              />
+            </figure>
           </div>
         </section>
 
