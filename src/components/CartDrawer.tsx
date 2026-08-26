@@ -66,7 +66,16 @@ function useProtectionQuote(cartValue: number, enabled: boolean): ProtectionQuot
 // Add-on products resolved from Shopify by handle. Missing handles / sold-out
 // variants are skipped silently — no mock products ever render.
 // ---------------------------------------------------------------------------
-const ADDON_HANDLES = ["high-frequency-honey", "high-frequency-gummies"];
+interface AddonSpec {
+  handle: string;
+  /** Preferred Shopify variant id. If unavailable the first in-stock variant is used. */
+  preferredVariantId?: string;
+}
+
+const ADDON_SPECS: AddonSpec[] = [
+  { handle: "high-frequency-honey", preferredVariantId: "gid://shopify/ProductVariant/44712941879362" }, // 30x stix
+  { handle: "high-frequency-gummies" },
+];
 
 interface AddonProduct {
   product: ShopifyProduct;
@@ -80,18 +89,22 @@ interface AddonProduct {
 
 function useAddonProducts(enabled: boolean) {
   return useQuery({
-    queryKey: ["cart-addons", ADDON_HANDLES],
+    queryKey: ["cart-addons", ADDON_SPECS.map((s) => s.handle)],
     enabled,
     staleTime: 5 * 60_000,
     retry: false,
     queryFn: async (): Promise<AddonProduct[]> => {
       const results = await Promise.all(
-        ADDON_HANDLES.map(async (handle) => {
+        ADDON_SPECS.map(async (spec) => {
           try {
-            const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
+            const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle: spec.handle });
             const node = data?.data?.product;
             if (!node) return null;
-            const variant = (node.variants?.edges ?? []).map((e: { node: AddonVariant }) => e.node).find((v: AddonVariant) => v.availableForSale);
+            const variants = (node.variants?.edges ?? []).map((e: { node: AddonVariant }) => e.node);
+            let variant = variants.find((v: AddonVariant) => v.id === spec.preferredVariantId && v.availableForSale);
+            if (!variant) {
+              variant = variants.find((v: AddonVariant) => v.availableForSale);
+            }
             if (!variant) return null;
             return {
               product: { node } as ShopifyProduct,
