@@ -194,17 +194,6 @@ const story = [
     ],
   },
   {
-    id: "weeks",
-    title: "It builds week by week, just like your practice",
-    image: honeyWave,
-    alt: "Gold waveform across matte black",
-    paras: [
-      "Week one is energy and sleep. Steadier through the day, deeper at night, usually between day five and day seven. The 2 PM collapse goes quiet.",
-      "Week two is clarity. The fog thins, focus holds on its own, and the afternoon stops needing rescue. Weeks four through eight bring the physical side: faster recovery between sessions, less soreness, more output from the same training.",
-      "By week twelve the full effect lands. Nothing spikes. Nothing crashes. It compounds.",
-    ],
-  },
-  {
     id: "week-four",
     title: "Most people quit at week four. The result lands at week twelve.",
     image: honeyFacts,
