@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Menu, X, Loader2, HelpCircle, User, ShoppingCart } from "lucide-react";
 import { CartDrawer } from "./CartDrawer";
-import StockBanner from "./StockBanner";
 import { useBuyNow } from "@/hooks/useBuyNow";
 import { useCartStore } from "@/stores/cartStore";
 import logoAsset from "@/assets/hfh-logo.png.asset.json";
-
-const APP_LINK = "https://highfrequency.onelink.me/lwuw/mkogg00s";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
   const { buyNow, isLoading } = useBuyNow();
   const openCart = useCartStore((s) => s.openDrawer);
+  const { pathname } = useLocation();
+  const isHoney = pathname.startsWith("/honey");
 
   useEffect(() => {
     const navHeight = 64;
@@ -55,7 +55,6 @@ const Navbar = () => {
 
   return (
     <header className={`top-nav ${dark ? "dark" : ""}`} id="topNav">
-      <StockBanner />
       {/* Utility strip — secondary, low-emphasis links */}
       <div className="nav-utility-bar">
         <div className="nav-utility-inner">
@@ -71,21 +70,18 @@ const Navbar = () => {
       </div>
 
       <div className="nav-inner">
-        <a href="#hero" className="brand-mark" aria-label="High Frequency Headphones — home">
+        <a href={isHoney ? "/honey" : "/"} className="brand-mark" aria-label="High Frequency Headphones — home">
           <img src={logoAsset.url} alt="High Frequency Headphones logo" className="brand-logo" />
         </a>
-        <nav className="nav-links" aria-label="Primary">
-          <a href="#how-it-works">How it Works</a>
-          <a href="#product">Product</a>
-          <a href="#app">App</a>
-          <a href="#reviews">Video Reviews</a>
-          <a href="#testimonials">Testimonials</a>
-        </nav>
         <div className="nav-actions">
           <CartDrawer />
-          <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-sm">
-            {isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}
-          </button>
+          {isHoney ? (
+            <a href="#buy" className="btn btn-purple btn-sm">ORDER NOW</a>
+          ) : (
+            <button type="button" onClick={() => buyNow()} disabled={isLoading} className="btn btn-purple btn-sm">
+              {isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}
+            </button>
+          )}
           <button
             type="button"
             className="nav-toggle"
@@ -98,15 +94,6 @@ const Navbar = () => {
       </div>
 
       <div className={`mobile-menu ${open ? "open" : ""}`}>
-        <span className="mm-eyebrow">Explore</span>
-        <nav className="mm-primary" aria-label="Mobile primary">
-          <a href="#how-it-works" onClick={closeMenu}>How it Works</a>
-          <a href="#product" onClick={closeMenu}>Product</a>
-          <a href="#app" onClick={closeMenu}>App</a>
-          <a href="#reviews" onClick={closeMenu}>Video Reviews</a>
-          <a href="#testimonials" onClick={closeMenu}>Testimonials</a>
-        </nav>
-        <div className="mm-divider" />
         <div className="mm-utility">
           <a href="/track" onClick={closeMenu}>
             <User size={16} aria-hidden="true" />
@@ -121,9 +108,13 @@ const Navbar = () => {
             Cart
           </button>
         </div>
-        <button type="button" onClick={() => { closeMenu(); buyNow(); }} disabled={isLoading} className="btn btn-purple mm-cta">
-          {isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}
-        </button>
+        {isHoney ? (
+          <a href="#buy" onClick={closeMenu} className="btn btn-purple mm-cta">ORDER NOW</a>
+        ) : (
+          <button type="button" onClick={() => { closeMenu(); buyNow(); }} disabled={isLoading} className="btn btn-purple mm-cta">
+            {isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : "ORDER NOW"}
+          </button>
+        )}
       </div>
     </header>
   );
