@@ -647,11 +647,13 @@
   .hny-pdp-grid,
   .hny-story-grid,
   .hny-market-grid,
+  .hny-market-intro,
   .hny-gummies-hero,
   .hny-how-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 26px;
   }
+  .hny-market-copy { max-width: none; }
   .hny-gummies-hero { margin-bottom: 26px; }
   .hny-gummies-benefits,
   .hny-timeline,
