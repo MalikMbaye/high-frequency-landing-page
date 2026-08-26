@@ -543,11 +543,13 @@
   .hny-pdp-grid,
   .hny-story-grid,
   .hny-market-grid,
-  .hny-gummies-grid,
+  .hny-gummies-hero,
   .hny-how-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 26px;
   }
+  .hny-gummies-hero { margin-bottom: 26px; }
+  .hny-gummies-benefits,
   .hny-timeline,
   .hny-info-accs { grid-template-columns: minmax(0, 1fr); }
   .hny-story.is-reversed .hny-story-copy { order: 0; }
