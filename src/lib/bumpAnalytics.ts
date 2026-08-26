@@ -16,7 +16,9 @@ export type BumpEvent =
   | "drawer_addon_on"
   | "drawer_addon_off"
   | "drawer_protection_on"
-  | "drawer_protection_off";
+  | "drawer_protection_off"
+  | "desc_readmore_open"
+  | "modal_cta_click";
 
 
 

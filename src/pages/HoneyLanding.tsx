@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Check, ChevronLeft, ChevronRight, Loader2, Minus, Plus, Star } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Loader2, Minus, Plus, Star, X } from "lucide-react";
 import { toast } from "sonner";
+
+import { trackBump } from "@/lib/bumpAnalytics";
+import type { HoneyVariantContent } from "@/data/honeyVariantContent";
 
 import { useShopifyProductByHandle } from "@/hooks/useShopifyProductByHandle";
 import { useCartStore } from "@/stores/cartStore";
@@ -314,6 +317,33 @@ export default function HoneyLanding() {
   const [quantity, setQuantity] = useState(1);
   const [index, setIndex] = useState(0);
   const [openFaq, setOpenFaq] = useState<Set<string>>(new Set());
+  const [modalOpen, setModalOpen] = useState(false);
+  const [descVisible, setDescVisible] = useState(true);
+  // Lazy-loaded so the long-form modal copy stays out of the initial HTML.
+  const [variantContent, setVariantContent] = useState<Record<OptionId, HoneyVariantContent> | null>(null);
+
+  useEffect(() => {
+    void import("@/data/honeyVariantContent").then((m) => setVariantContent(m.HONEY_VARIANT_CONTENT));
+  }, []);
+
+  // 150ms crossfade on the dynamic description when the variant changes.
+  useEffect(() => {
+    setDescVisible(false);
+    const t = setTimeout(() => setDescVisible(true), 150);
+    return () => clearTimeout(t);
+  }, [selected]);
+
+  // ESC closes the modal; lock body scroll while it's open.
+  useEffect(() => {
+    if (!modalOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setModalOpen(false);
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [modalOpen]);
   const addItem = useCartStore((s) => s.addItem);
   const openDrawer = useCartStore((s) => s.openDrawer);
   const isCartLoading = useCartStore((s) => s.isLoading);
@@ -338,6 +368,7 @@ export default function HoneyLanding() {
   }
 
   const activeOption = OPTIONS.find((o) => o.id === selected) ?? OPTIONS[0];
+  const activeContent = variantContent?.[activeOption.id];
   const total = priceFor(activeOption) * quantity;
 
   /** Shopify product images for the selected option, falling back to local art. */
@@ -433,16 +464,31 @@ export default function HoneyLanding() {
                 ))}
               </span>
               <h1 className="hny-h1">High Frequency Honey</h1>
-              <p className="hny-sub">
-                Sacred Himalayan shilajit folded into certified organic caramel honey — and set into tamarind
-                multivitamin gummies. The mineral your brain runs on, in the formats you'll actually keep doing.
+              <p className={`hny-sub hny-desc ${descVisible ? "is-visible" : ""}`}>
+                {variantContent?.[activeOption.id]?.short ??
+                  "Sacred Himalayan shilajit folded into certified organic caramel honey — and set into tamarind multivitamin gummies. The mineral your brain runs on, in the formats you'll actually keep doing."}
+                {activeContent && (
+                  <>
+                    {" "}
+                    <button
+                      type="button"
+                      className="hny-readmore"
+                      onClick={() => {
+                        setModalOpen(true);
+                        trackBump("desc_readmore_open", activeOption.id);
+                      }}
+                    >
+                      Read more →
+                    </button>
+                  </>
+                )}
               </p>
 
               <ul className="hny-bullets">
                 <li><span className="hny-check"><Check size={12} /></span>85+ ionic trace minerals, 400mg per serving</li>
                 <li><span className="hny-check"><Check size={12} /></span>Lab-verified 75%+ fulvic acid, heavy metals Non-Detect</li>
                 <li><span className="hny-check"><Check size={12} /></span>No caffeine. Nothing spikes, nothing crashes</li>
-                <li><span className="hny-check"><Check size={12} /></span>Ten seconds in the morning. Two gummies at night</li>
+                <li><span className="hny-check"><Check size={12} /></span>{activeContent?.fourthCheck ?? "Ten seconds in the morning. Two gummies at night"}</li>
               </ul>
 
               <div className="hny-purchase">
@@ -762,6 +808,47 @@ export default function HoneyLanding() {
           </div>
         </section>
       </main>
+
+      {modalOpen && activeContent && (
+        <div className="hny-modal-backdrop" onClick={() => setModalOpen(false)}>
+          <div
+            className="hny-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label={activeContent.modalTitle}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button type="button" className="hny-modal-close" aria-label="Close" onClick={() => setModalOpen(false)}>
+              <X size={18} />
+            </button>
+            <div className="hny-modal-scroll">
+              <h3 className="hny-modal-title">{activeContent.modalTitle}</h3>
+              <div className="hny-modal-body">
+                {activeContent.modalBody.map((block, i) =>
+                  block.startsWith("• ") ? (
+                    <p key={i} className="hny-modal-bullet">{block}</p>
+                  ) : (
+                    <p key={i}>{block}</p>
+                  )
+                )}
+              </div>
+            </div>
+            <div className="hny-modal-footer">
+              <button
+                type="button"
+                className="hny-cta hny-cta-wide"
+                disabled={isCartLoading}
+                onClick={() => {
+                  trackBump("modal_cta_click", activeOption.id);
+                  void handleAdd();
+                }}
+              >
+                {isCartLoading ? <Loader2 className="animate-spin h-5 w-5" /> : `ADD TO CART · ${money(total)}`}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
