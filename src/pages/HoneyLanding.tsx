@@ -197,9 +197,9 @@ const story = [
   },
   {
     id: "lab-reports",
-    title: "Ancient secret. Modern lab reports.",
-    image: honeyIngredients,
-    alt: "Honey sticks and purified Himalayan mineral resin ingredients",
+    title: "Ancient secrets verified by modern science.",
+    image: labReportsAsset.url,
+    alt: "Gummies with zero sugar, zero filler, and over 85 essential vitamins and minerals",
     paras: [
       "Most of what gets sold online is fake or watered down. Every batch of ours is third-party tested before it ships.",
       "Fulvic acid verifies above 75%, against the 10 to 20% you find in a generic capsule. Authenticity is confirmed by DBP marker, which most brands never test for.",
