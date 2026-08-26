@@ -51,7 +51,29 @@ export const gummiesGallery: GalleryImage[] = [
   { src: g10.url, alt: "Woman in headphones taking a gummy at her table in the evening", bg: "#241d1a" },
 ];
 
-export const bundleGallery: GalleryImage[] = [honeyGallery[0], gummiesGallery[0], ...honeyGallery.slice(1), ...gummiesGallery.slice(1)];
+import b01 from "@/assets/honey/pdp/bundle-01.webp.asset.json";
+import b02 from "@/assets/honey/pdp/bundle-02.webp.asset.json";
+import b03 from "@/assets/honey/pdp/bundle-03.webp.asset.json";
+import b04 from "@/assets/honey/pdp/bundle-04.webp.asset.json";
+import b05 from "@/assets/honey/pdp/bundle-05.webp.asset.json";
+import b06 from "@/assets/honey/pdp/bundle-06.webp.asset.json";
+import b07 from "@/assets/honey/pdp/bundle-07.webp.asset.json";
+import b08 from "@/assets/honey/pdp/bundle-08.webp.asset.json";
+import b09 from "@/assets/honey/pdp/bundle-09.webp.asset.json";
+import b10 from "@/assets/honey/pdp/bundle-10.webp.asset.json";
+
+export const bundleGallery: GalleryImage[] = [
+  { src: b01.url, alt: "Headphones, High Frequency Honey stick and gummies jar — wear it, hear it, fuel it", bg: "#08091a" },
+  { src: b02.url, alt: "One mineral, two rituals: the honey you look forward to, the gummies you never miss", bg: "#09091a" },
+  { src: b03.url, alt: "One ritual, five shifts: energy, focus, recovery, sleep, 85+ trace minerals", bg: "#08091a" },
+  { src: b04.url, alt: "Week 1 energy and sleep, week 2 focus, week 4 recovery, week 12 the full compound", bg: "#07081a" },
+  { src: b05.url, alt: "Purity you can verify: 75%+ fulvic acid, tested every batch, heavy metals non-detect, GMP ISO HACCP", bg: "#07081a" },
+  { src: b06.url, alt: "The High Frequency ritual: 30 honey sticks, 60 gummies, the 30-day protocol", bg: "#07081a" },
+  { src: b07.url, alt: "Sixty days, no gaps — the jar outlasts the box", bg: "#07081a" },
+  { src: b08.url, alt: "Borrowed energy crashes at 2 PM. Built energy: no spike, no crash.", bg: "#12121c" },
+  { src: b09.url, alt: "The study ran ninety days — most people stop before week 12", bg: "#07081a" },
+  { src: b10.url, alt: "Tune the signal, feed the signal: honey at the desk, gummies at night", bg: "#1c1a18" },
+];
 
 export const galleriesByOption: Record<string, GalleryImage[]> = {
   honey: honeyGallery,

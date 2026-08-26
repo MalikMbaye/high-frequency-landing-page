@@ -105,8 +105,8 @@ const OPTIONS: OptionSpec[] = [
     subLabel: "30 Honey Stix + 60 Gummies",
     tagline: "Honey by morning, gummies by night. The fuel behind every session.",
     variantTitle: "30 Honey Stix + 60 Tamarind Multivitamin Gummies",
-    fallbackPrice: 66.66,
-    compareAt: 133.32,
+    fallbackPrice: 55.55,
+    compareAt: 99.99,
     badge: { label: "BEST VALUE", tone: "gold" },
   },
 ];
