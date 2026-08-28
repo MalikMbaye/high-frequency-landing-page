@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, Link2, PackageSearch } from "lucide-react";
+import { ChevronDown, Link2, PackageSearch, ShieldCheck } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { HelpFaq, SUPPORT_EMAIL, mentionsOrders, slugify } from "@/lib/helpCenter";
 
@@ -10,6 +10,17 @@ export const TrackOrderNudge = () => (
     <span>
       Want a live status? <a href="/track">Track your order here</a> — enter the email you used at
       checkout and we'll show your current stage and delivery estimate.
+    </span>
+  </p>
+);
+
+/** Shipping protection claim pointer for lost / stolen / damaged orders. */
+export const ClaimsNudge = () => (
+  <p className="hc-track-nudge">
+    <ShieldCheck size={15} aria-hidden="true" />
+    <span>
+      Lost, stolen, or damaged? <a href="/claims">File a shipping protection claim</a> and we'll
+      reship your order.
     </span>
   </p>
 );
@@ -60,6 +71,7 @@ export const FaqAccordion = ({ faqs }: { faqs: HelpFaq[] }) => {
               <div className="hc-faq-a" id={`${id}-panel`}>
                 <Markdown>{f.a}</Markdown>
                 {mentionsOrders(f.q, f.a) && <TrackOrderNudge />}
+                {/\b(lost|stolen|damaged|defective|claim)\b/i.test(`${f.q} ${f.a}`) && <ClaimsNudge />}
                 <a className="hc-permalink" href={`#${id}`}>
                   <Link2 size={12} style={{ display: "inline", marginRight: 4 }} />
                   Link to this answer
@@ -84,6 +96,9 @@ export const StillStuck = () => (
       <a className="hc-btn" href={`mailto:${SUPPORT_EMAIL}`}>
         Email support
       </a>
+      <a className="hc-btn hc-btn-ghost" href="/claims">
+        Returns &amp; claims
+      </a>
       <a href="/help/contact" style={{ fontSize: 14, color: "var(--hc-mute)" }}>
         More ways to get help
       </a>
@@ -98,8 +113,13 @@ export const OrderTrackerCallout = () => (
       Enter your order number and the email you used at checkout. Your stage, delivery estimate, and
       live carrier link update automatically.
     </p>
-    <a className="hc-btn" href="/track">
-      Open the order tracker
-    </a>
+    <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+      <a className="hc-btn" href="/track">
+        Open the order tracker
+      </a>
+      <a className="hc-btn-ghost hc-btn" href="/claims">
+        Returns &amp; claims
+      </a>
+    </div>
   </section>
 );

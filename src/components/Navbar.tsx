@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Menu, X, Loader2, HelpCircle, User, ShoppingCart } from "lucide-react";
+import { Menu, X, Loader2, HelpCircle, User, ShoppingCart, ShieldCheck } from "lucide-react";
 import { CartDrawer } from "./CartDrawer";
 import { useBuyNow } from "@/hooks/useBuyNow";
 import { useCartStore } from "@/stores/cartStore";
@@ -65,6 +65,10 @@ const Navbar = () => {
             <User size={14} aria-hidden="true" />
             My Order
           </a>
+          <a href="/claims">
+            <ShieldCheck size={14} aria-hidden="true" />
+            Returns &amp; Claims
+          </a>
           <a href="/help">
             <HelpCircle size={14} aria-hidden="true" />
             Help Center
@@ -101,6 +105,10 @@ const Navbar = () => {
           <a href="/track" onClick={closeMenu}>
             <User size={16} aria-hidden="true" />
             My Order
+          </a>
+          <a href="/claims" onClick={closeMenu}>
+            <ShieldCheck size={16} aria-hidden="true" />
+            Returns &amp; Claims
           </a>
           <a href="/help" onClick={closeMenu}>
             <HelpCircle size={16} aria-hidden="true" />

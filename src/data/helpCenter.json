@@ -761,6 +761,11 @@
           "slug": "disputes",
           "title": "Before you file a chargeback",
           "body": "Contact us first. Every email gets a response within 24 hours, and we offer full refunds within the 30-day window.\n\nA chargeback filed before you have contacted us slows the resolution down for everyone, including you. In almost every case we can sort it out faster than the dispute process can.\n\nEmail Hello@highfrequencyhw.com with your order number and what went wrong."
+        },
+        {
+          "slug": "shipping-protection-claims",
+          "title": "Shipping protection claims (lost, stolen, damaged)",
+          "body": "Shipping protection is an optional add-on at checkout. If you selected it, it shows as a line item on your order confirmation email, and it covers three things: a parcel lost in transit, a parcel stolen after it was marked delivered, and a unit that arrives damaged or non-functional.\n\n**File your claim here:** [Returns & claims](/claims) — that page walks you through it and links straight to the claim form at [covrly.claimsorted.com/submit-a-claim](https://covrly.claimsorted.com/submit-a-claim).\n\n**Have these ready**\n\n- Your order number (from the confirmation email)\n- Your tracking link or tracking number, or a screenshot of the carrier page\n- Photos of the unit, box, and shipping label if the item arrived damaged\n- A short description of what happened and when you noticed\n\n**How it works**\n\n1. Open the claim form and locate your purchase with the store name plus order number.\n2. Submit one issue per claim. If several items were hit by the same delivery problem, include them all in that single submission.\n3. Upload your proof while you are in the form. Missing files are the most common cause of delay.\n4. Once approved, a replacement ships out and you get a new tracking number by email.\n\nMost claims are reviewed in 1 to 3 business days. File within 30 days of the delivery date (or the last tracking update on a lost parcel), and within 60 days for damaged or defective units.\n\nNo shipping protection on the order? Email Hello@highfrequencyhw.com with your order number and what happened. We still help, it just is not automatic and carrier claims take longer.\n\nIf you simply want your money back rather than a replacement, that is the 30-day money-back guarantee, covered by the shipping and return policy."
         }
       ],
       "faqs": [
@@ -875,6 +880,26 @@
         {
           "q": "How do I contact you about an order?",
           "a": "Email Hello@highfrequencyhw.com. Put your order number in the subject line for the fastest response. We reply within 24 hours, Monday through Friday."
+        },
+        {
+          "q": "My package says delivered but it was stolen. What do I do?",
+          "a": "If you added shipping protection at checkout, file a claim at [Returns & claims](/claims) with your order number and tracking screenshot. Porch theft is covered and a replacement ships once the claim is approved."
+        },
+        {
+          "q": "My order arrived damaged. How do I get a replacement?",
+          "a": "Take photos of the unit, the box, and the shipping label, then file a claim at [Returns & claims](/claims). Damaged or defective claims are accepted within 60 days of delivery."
+        },
+        {
+          "q": "My tracking has not moved and the package looks lost. What now?",
+          "a": "File a shipping protection claim at [Returns & claims](/claims) with your tracking number. If the carrier cannot locate the parcel, we reship your order at no cost."
+        },
+        {
+          "q": "How long does a shipping protection claim take?",
+          "a": "Most claims are reviewed within 1 to 3 business days. Complete submissions with tracking and photos attached move fastest. If anything is missing, we email you a clear list of what we need."
+        },
+        {
+          "q": "Where do I submit a claim?",
+          "a": "Start at [Returns & claims](/claims), which links to our claim form at [covrly.claimsorted.com/submit-a-claim](https://covrly.claimsorted.com/submit-a-claim)."
         }
       ]
     },
