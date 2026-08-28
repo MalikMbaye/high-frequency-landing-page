@@ -14,6 +14,17 @@ export const TrackOrderNudge = () => (
   </p>
 );
 
+/** Shipping protection claim pointer for lost / stolen / damaged orders. */
+export const ClaimsNudge = () => (
+  <p className="hc-track-nudge">
+    <ShieldCheck size={15} aria-hidden="true" />
+    <span>
+      Lost, stolen, or damaged? <a href="/claims">File a shipping protection claim</a> and we'll
+      reship your order.
+    </span>
+  </p>
+);
+
 export const Markdown = ({ children }: { children: string }) => (
   <div className="hc-prose">
     <ReactMarkdown>{children}</ReactMarkdown>
@@ -83,6 +94,9 @@ export const StillStuck = () => (
     <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
       <a className="hc-btn" href={`mailto:${SUPPORT_EMAIL}`}>
         Email support
+      </a>
+      <a className="hc-btn hc-btn-ghost" href="/claims">
+        Returns &amp; claims
       </a>
       <a href="/help/contact" style={{ fontSize: 14, color: "var(--hc-mute)" }}>
         More ways to get help
