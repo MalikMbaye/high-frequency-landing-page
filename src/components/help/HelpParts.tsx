@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, Link2, PackageSearch } from "lucide-react";
+import { ChevronDown, Link2, PackageSearch, ShieldCheck } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { HelpFaq, SUPPORT_EMAIL, mentionsOrders, slugify } from "@/lib/helpCenter";
 
@@ -98,8 +98,13 @@ export const OrderTrackerCallout = () => (
       Enter your order number and the email you used at checkout. Your stage, delivery estimate, and
       live carrier link update automatically.
     </p>
-    <a className="hc-btn" href="/track">
-      Open the order tracker
-    </a>
+    <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+      <a className="hc-btn" href="/track">
+        Open the order tracker
+      </a>
+      <a className="hc-btn-ghost hc-btn" href="/claims">
+        Returns &amp; claims
+      </a>
+    </div>
   </section>
 );
