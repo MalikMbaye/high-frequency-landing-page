@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import ShopifyInstalled from "./pages/ShopifyInstalled";
 import Track from "./pages/Track";
+import Claims from "./pages/Claims";
 import TrackResult from "./pages/TrackResult";
 import NotFound from "./pages/NotFound";
 import HelpHome from "./pages/help/HelpHome";
@@ -35,6 +36,9 @@ const AppContent = () => {
         <Route path="/shopify-installed" element={<ShopifyInstalled />} />
         <Route path="/track" element={<Track />} />
         <Route path="/track/result" element={<TrackResult />} />
+        <Route path="/claims" element={<Claims />} />
+        <Route path="/returns" element={<Navigate to="/claims" replace />} />
+        <Route path="/submit-a-claim" element={<Navigate to="/claims" replace />} />
         <Route path="/help" element={<HelpHome />} />
         <Route path="/help/search" element={<HelpSearchPage />} />
         <Route path="/help/:sectionSlug" element={<HelpSectionPage />} />
