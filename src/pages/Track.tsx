@@ -93,6 +93,19 @@ const Track = () => {
 
           {error && <p className="trk-error">{error}</p>}
         </div>
+
+        <div className="trk-card">
+          <h2 className="clm-h2" style={{ marginBottom: 8 }}>
+            Refunds and claims
+          </h2>
+          <p className="clm-fineprint" style={{ marginTop: 0, marginBottom: 14 }}>
+            Order lost, stolen after delivery, or arrived damaged? If you added shipping
+            protection at checkout, file a claim and we'll reship it.
+          </p>
+          <a className="clm-link" href="/claims">
+            Start a return or claim →
+          </a>
+        </div>
       </div>
     </div>
   );
