@@ -65,8 +65,8 @@ const HollywoodReporter = () => {
       {/* Above-the-fold: render eagerly so the top paints instantly */}
       <Navbar />
       <Hero />
-      <ProductBlock />
       <YouTubeShortsCarousel videos={shortsAfterBox} layout="grid" />
+      <ProductBlock />
       <HollywoodReporterPress />
       <WhatsInBox />
       <Captivation />
