@@ -179,7 +179,7 @@ const Captivation = () => {
           {endorsers.map((p) => {
             const isVideo = p.asset_type === "video";
             return (
-              <article className={`tctu-tile ${isVideo ? "is-tall" : "is-short"}`} key={p.handle}>
+              <article className="tctu-tile" key={p.handle}>
                 <div className="tctu-tile-media">
                   <img className="tctu-tile-img" src={p.image} alt={p.name} loading="lazy" draggable={false} />
                   <span className="tctu-tile-chip">{p.tag}</span>
