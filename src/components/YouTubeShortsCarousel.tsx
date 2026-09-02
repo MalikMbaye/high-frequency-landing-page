@@ -106,12 +106,14 @@ const YouTubeShortsCarousel = ({
           -webkit-overflow-scrolling: touch;
         }
         .shorts-grid {
-          display: grid;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
           gap: 20px;
           padding: 8px 0;
-          align-items: start;
+          align-items: flex-start;
         }
+        .shorts-grid .shorts-video { flex: 0 0 calc((100% - 60px) / 4); max-width: calc((100% - 60px) / 4); }
         .shorts-video {
           min-width: 0;
           overflow: hidden;
@@ -125,10 +127,26 @@ const YouTubeShortsCarousel = ({
           width: min(320px, 80vw);
         }
         @media (max-width: 900px) {
-          .shorts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+          .shorts-grid { gap: 14px; }
+          .shorts-grid .shorts-video { flex: 0 0 calc((100% - 14px) / 2); max-width: calc((100% - 14px) / 2); }
         }
         @media (max-width: 520px) {
-          .shorts-grid { grid-template-columns: 1fr; gap: 18px; }
+          .shorts-grid {
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 12px;
+            padding-bottom: 12px;
+          }
+          .shorts-grid .shorts-video {
+            flex: 0 0 calc((100% - 12px) / 2);
+            max-width: calc((100% - 12px) / 2);
+            scroll-snap-align: center;
+          }
+          .shorts-grid::-webkit-scrollbar { height: 6px; }
+          .shorts-grid::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
         }
         .ig-scroller::-webkit-scrollbar { height: 8px; }
         .ig-scroller::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 4px; }
