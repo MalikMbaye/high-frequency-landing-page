@@ -20,6 +20,7 @@ import HelpSearchPage from "./pages/help/HelpSearchPage";
 import EmailCapturePopup from "./components/EmailCapturePopup";
 import PostPurchaseUpsell from "./pages/PostPurchaseUpsell";
 import HoneyLanding from "./pages/HoneyLanding";
+import HollywoodReporter from "./pages/HollywoodReporter";
 import { BumpModalHost } from "./components/BumpModal";
 
 
@@ -46,6 +47,7 @@ const AppContent = () => {
         <Route path="/upsell" element={<PostPurchaseUpsell />} />
         <Route path="/highfrequencyhealth" element={<HoneyLanding />} />
         <Route path="/honey" element={<Navigate to="/highfrequencyhealth" replace />} />
+        <Route path="/hollywood-reporter" element={<HollywoodReporter />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <MarketingOverlays />
