@@ -3069,8 +3069,19 @@
     font-size: 14px;
   }
   .tctu-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
+  .tctu-tile-name {
+    font-size: 16px;
+  }
+  .tctu-tile-followers strong {
+    font-size: 15px;
+  }
+  .tctu-tile-desc {
+    font-size: 13px;
+  }
+
   .pdp-section {
     padding: 56px 0;
   }
