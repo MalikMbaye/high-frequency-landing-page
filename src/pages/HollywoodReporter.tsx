@@ -6,6 +6,7 @@ import HollywoodReporterPress from "@/components/HollywoodReporterPress";
 import ProductBlock from "@/components/ProductBlock";
 import TestimonialGallery from "@/components/TestimonialGallery";
 import WhatsInBox from "@/components/WhatsInBox";
+import Captivation from "@/components/Captivation";
 import LazySection from "@/components/LazySection";
 import YouTubeShortsCarousel from "@/components/YouTubeShortsCarousel";
 import WhyMoreThanOne from "@/components/WhyMoreThanOne";
@@ -68,6 +69,7 @@ const HollywoodReporter = () => {
       <ProductBlock />
       <HollywoodReporterPress />
       <WhatsInBox />
+      <Captivation />
       <TestimonialGallery />
 
       {/* Below-the-fold: mount as user scrolls down. Each LazySection has its
