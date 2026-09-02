@@ -67,8 +67,8 @@ const Hero = () => {
       <div className="hfh-container hero-grid">
         <div className="hero-copy">
           <p className="pre-headline">Used by 100,000+ people in every country on earth. Inspired by decades of frequency research.</p>
-          <h1 className="display-headline">FEEL A SHIFT IN UNDER 60 SECONDS</h1>
-          <p className="subhead">Frequency headphones that help you shift your brain state on demand. Focus. Calm. Energy. Flow. No jitters. No crash. No subscription.</p>
+          <h1 className="display-headline">ALL OF THE HIGH. NONE OF THE SIDE EFFECTS.</h1>
+          <p className="subhead">No substance, same shift. Frequency headphones that influence your brain waves to focus, calm, energy, or flow in under 60 seconds.</p>
           <button
             type="button"
             onClick={() => {
