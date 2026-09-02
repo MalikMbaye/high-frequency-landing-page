@@ -37,6 +37,15 @@ const shortsAfterFirstPDP = [
   "https://www.youtube.com/shorts/ab0egzOwL4w",
   "https://www.youtube.com/shorts/ZZc5cOMMu3A",
 ];
+const shortsAfterBox = [
+  "https://www.youtube.com/shorts/6v5PvPTl2Ic",
+  "https://www.youtube.com/shorts/qWse__HjCvw",
+  "https://www.youtube.com/shorts/c4iz9tFwj40",
+  "https://www.youtube.com/shorts/jQ5BOHd62zg",
+  "https://www.youtube.com/shorts/p_GaR-Ll02A",
+  "https://www.youtube.com/shorts/lbHDsCC6XFY",
+  "https://www.youtube.com/shorts/TzhYmjFAwVk",
+];
 const shortsAfterSecondPDP = [
   "https://www.youtube.com/shorts/HLye0rMR7m0",
   "https://www.youtube.com/shorts/vld_AHcHY7s",
@@ -59,6 +68,7 @@ const HollywoodReporter = () => {
       <HollywoodReporterPress />
       <ProductBlock />
       <WhatsInBox />
+      <YouTubeShortsCarousel videos={shortsAfterBox} />
       <Captivation />
       <TestimonialGallery />
 
