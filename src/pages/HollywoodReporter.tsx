@@ -61,7 +61,7 @@ const Fallback = ({ h = 400 }: { h?: number }) => <div style={{ minHeight: h }} 
 
 const HollywoodReporter = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background page-thr">
       {/* Above-the-fold: render eagerly so the top paints instantly */}
       <Navbar />
       <Hero />

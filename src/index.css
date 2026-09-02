@@ -4333,3 +4333,13 @@ body:has(.cd-panel[data-state="open"]) {
 .clm-faq details[open] summary::after { content: "–"; }
 .clm-faq details p { font-size: 14.5px; line-height: 1.65; color: #474d63; margin: 10px 0 0; }
 .clm-final { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
+
+/* Hollywood Reporter page: tighten the gap between the hero and the
+   "Trusted by the Top 1%" section that follows it. */
+.page-thr .hero-tall {
+  min-height: auto;
+  padding-bottom: 24px;
+}
+.page-thr .hero-tall + section {
+  padding-top: 24px;
+}
