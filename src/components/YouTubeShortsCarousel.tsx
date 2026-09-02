@@ -9,7 +9,7 @@ interface Props {
   subtitle?: string;
   theme?: "light" | "dark";
   id?: string;
-  layout?: "carousel" | "grid";
+  layout?: "carousel" | "grid" | "row";
 }
 
 const getId = (url: string) => {
@@ -49,7 +49,7 @@ const YouTubeShortsCarousel = ({
         )}
 
         <div className="shorts-wrap">
-          {layout === "carousel" && (
+          {layout !== "grid" && (
             <>
               <button
                 type="button"
@@ -72,7 +72,7 @@ const YouTubeShortsCarousel = ({
 
           <div
             ref={scrollerRef}
-            className={layout === "grid" ? "shorts-grid" : "ig-scroller shorts-scroller"}
+            className={layout === "grid" ? "shorts-grid" : layout === "row" ? "shorts-row" : "ig-scroller shorts-scroller"}
           >
             {videos.map((url, i) => {
               const vid = getId(url);
@@ -105,6 +105,30 @@ const YouTubeShortsCarousel = ({
           padding: 8px 4px 24px;
           -webkit-overflow-scrolling: touch;
         }
+        .shorts-row {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 20px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          padding: 8px 0 16px;
+          align-items: flex-start;
+        }
+        .shorts-row .shorts-video {
+          flex: 0 0 calc((100% - 40px) / 3);
+          max-width: calc((100% - 40px) / 3);
+          scroll-snap-align: start;
+        }
+        .shorts-row::-webkit-scrollbar { height: 8px; }
+        .shorts-row::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 4px; }
+        @media (max-width: 900px) {
+          .shorts-row { gap: 14px; }
+          .shorts-row .shorts-video {
+            flex: 0 0 calc((100% - 14px) / 2);
+            max-width: calc((100% - 14px) / 2);
+          }
+        }
         .shorts-grid {
           display: flex;
           flex-wrap: wrap;
@@ -127,11 +151,59 @@ const YouTubeShortsCarousel = ({
           width: min(320px, 80vw);
         }
         @media (max-width: 900px) {
-          .shorts-grid { gap: 14px; }
+          .shorts-row {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 20px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          padding: 8px 0 16px;
+          align-items: flex-start;
+        }
+        .shorts-row .shorts-video {
+          flex: 0 0 calc((100% - 40px) / 3);
+          max-width: calc((100% - 40px) / 3);
+          scroll-snap-align: start;
+        }
+        .shorts-row::-webkit-scrollbar { height: 8px; }
+        .shorts-row::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 4px; }
+        @media (max-width: 900px) {
+          .shorts-row { gap: 14px; }
+          .shorts-row .shorts-video {
+            flex: 0 0 calc((100% - 14px) / 2);
+            max-width: calc((100% - 14px) / 2);
+          }
+        }
+        .shorts-grid { gap: 14px; }
           .shorts-grid .shorts-video { flex: 0 0 calc((100% - 14px) / 2); max-width: calc((100% - 14px) / 2); }
         }
         @media (max-width: 520px) {
-          .shorts-grid {
+          .shorts-row {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 20px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          padding: 8px 0 16px;
+          align-items: flex-start;
+        }
+        .shorts-row .shorts-video {
+          flex: 0 0 calc((100% - 40px) / 3);
+          max-width: calc((100% - 40px) / 3);
+          scroll-snap-align: start;
+        }
+        .shorts-row::-webkit-scrollbar { height: 8px; }
+        .shorts-row::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 4px; }
+        @media (max-width: 900px) {
+          .shorts-row { gap: 14px; }
+          .shorts-row .shorts-video {
+            flex: 0 0 calc((100% - 14px) / 2);
+            max-width: calc((100% - 14px) / 2);
+          }
+        }
+        .shorts-grid {
             flex-wrap: nowrap;
             justify-content: flex-start;
             overflow-x: auto;

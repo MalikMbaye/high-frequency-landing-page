@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { useCartSync } from "@/hooks/useCartSync";
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
+import Partner from "./pages/Partner";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import ShopifyInstalled from "./pages/ShopifyInstalled";
 import Track from "./pages/Track";
@@ -33,6 +34,7 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/partner" element={<Partner />} />
         <Route path="/shipping-policy" element={<ShippingPolicy />} />
         <Route path="/shopify-installed" element={<ShopifyInstalled />} />
         <Route path="/track" element={<Track />} />
