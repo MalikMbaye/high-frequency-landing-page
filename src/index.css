@@ -3214,15 +3214,19 @@
     font-size: 14px;
   }
   .tctu-track {
-    grid-auto-flow: row;
-    grid-template-rows: none;
-    grid-auto-rows: auto;
-    grid-auto-columns: auto;
-    grid-template-columns: 1fr;
-    overflow-x: visible;
-    padding: 4px 16px 8px;
-    gap: 20px;
-    cursor: default;
+    grid-auto-flow: column;
+    grid-template-rows: 420px;
+    grid-auto-rows: none;
+    grid-auto-columns: 260px;
+    grid-template-columns: none;
+    overflow-x: auto;
+    padding: 4px 16px 12px;
+    gap: 16px;
+    cursor: grab;
+    scroll-snap-type: x mandatory;
+  }
+  .tctu-track:active {
+    cursor: grabbing;
   }
   .tctu-arrow {
     display: none;
@@ -3231,12 +3235,8 @@
   .tctu-carousel::after {
     display: none;
   }
-  .tctu-tile.is-tall .tctu-tile-media {
+  .tctu-tile-media {
     aspect-ratio: 4 / 5;
-    flex: 0 0 auto;
-  }
-  .tctu-tile.is-short .tctu-tile-media {
-    aspect-ratio: 1 / 1;
     flex: 0 0 auto;
   }
   .tctu-tile-desc {
