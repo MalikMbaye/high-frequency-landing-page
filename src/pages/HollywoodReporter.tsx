@@ -72,7 +72,7 @@ const HollywoodReporter = () => {
         subtitle={
           <>
             Experience The Viral Frequency Tech Trusted By Pro Athletes And CEOs.{" "}
-            <a href="mailto:j@highfrequencyhw.com" className="link-underline">
+            <a href="mailto:j@highfrequencyhw.com">
               Contact us to learn more
             </a>
           </>
