@@ -39,20 +39,16 @@ const Partner = () => {
     });
     setSubmitting(false);
     if (error) {
-      toast.error("Something went wrong. Please email us directly.");
-    } else {
-      toast.success("Thanks — we received your inquiry.");
+      toast.error("Something went wrong. Please email us directly at " + RECIPIENT);
+      return;
     }
-    const subject = encodeURIComponent(
-      `Partnership inquiry — ${company.trim().slice(0, 80) || name.trim().slice(0, 80) || "website"}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${name.trim().slice(0, 100)}\nEmail: ${email.trim().slice(0, 255)}\nCompany / Brand: ${company
-        .trim()
-        .slice(0, 120)}\n\n${message.trim().slice(0, 2000)}`
-    );
-    window.location.href = `mailto:${RECIPIENT}?subject=${subject}&body=${body}`;
+    toast.success("Thanks — we received your inquiry. We'll be in touch.");
+    setName("");
+    setEmail("");
+    setCompany("");
+    setMessage("");
   };
+
 
   return (
     <div className="min-h-screen bg-background">
