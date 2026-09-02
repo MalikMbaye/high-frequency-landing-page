@@ -1768,17 +1768,38 @@
   .tctu-carousel {
     position: relative;
     width: 100%;
+    overflow: hidden;
+  }
+  .tctu-carousel::before,
+  .tctu-carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 72px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .tctu-carousel::before {
+    left: 0;
+    background: linear-gradient(to right, #0f1b3d 30%, rgba(15, 27, 61, 0));
+  }
+  .tctu-carousel::after {
+    right: 0;
+    background: linear-gradient(to left, #0f1b3d 30%, rgba(15, 27, 61, 0));
   }
   .tctu-track {
     display: grid;
     grid-auto-flow: column;
     grid-template-rows: 470px 470px;
-    grid-auto-columns: 300px;
+    grid-auto-columns: 340px;
     gap: 24px;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-snap-type: x proximity;
-    padding: 4px 48px 12px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scroll-padding-left: 72px;
+    padding: 4px 72px 12px;
     scrollbar-width: none;
     cursor: grab;
     align-items: stretch;
@@ -1814,10 +1835,10 @@
     transform: translateY(-50%) scale(1.06);
   }
   .tctu-arrow-left {
-    left: 18px;
+    left: 14px;
   }
   .tctu-arrow-right {
-    right: 18px;
+    right: 14px;
   }
   .tctu-play {
     position: absolute;
@@ -3206,6 +3227,10 @@
     cursor: default;
   }
   .tctu-arrow {
+    display: none;
+  }
+  .tctu-carousel::before,
+  .tctu-carousel::after {
     display: none;
   }
   .tctu-tile.is-tall .tctu-tile-media {
