@@ -55,9 +55,9 @@ const HollywoodReporter = () => {
       {/* Above-the-fold: render eagerly so the top paints instantly */}
       <Navbar />
       <Hero />
-      <Captivation />
       <ProductBlock />
       <WhatsInBox />
+      <Captivation />
       <TestimonialGallery />
 
       {/* Below-the-fold: mount as user scrolls down. Each LazySection has its
