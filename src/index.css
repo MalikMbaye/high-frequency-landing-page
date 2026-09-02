@@ -2975,8 +2975,8 @@
     top: auto;
   }
   .tctu-track {
-    grid-auto-columns: 260px;
-    grid-template-rows: 420px 420px;
+    grid-auto-columns: 280px;
+    grid-template-rows: 480px;
   }
 
 }
