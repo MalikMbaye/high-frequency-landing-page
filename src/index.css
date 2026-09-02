@@ -1909,8 +1909,8 @@
   }
   .tctu-tile-media {
     position: relative;
-    flex: 1 1 auto;
-    min-height: 0;
+    flex: 0 0 auto;
+    aspect-ratio: 4 / 5;
     border-radius: 24px;
     overflow: hidden;
     background: #16224a;
@@ -1980,8 +1980,6 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-  }
-  .tctu-tile-desc {
     flex: 0 0 auto;
     min-height: 66px;
   }
