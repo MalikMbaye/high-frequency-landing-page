@@ -68,9 +68,17 @@ const HollywoodReporter = () => {
       <YouTubeShortsCarousel
         videos={shortsAfterBox}
         layout="row"
-        title="Experience The Viral Frequency Tech Trusted By Pro Athletes And CEOs."
-        subtitle="Real reactions, first listen. Interested in collaborating? Partner with us at j@highfrequencyhw.com."
+        title="Trusted by the Top 1%"
+        subtitle={
+          <>
+            Experience The Viral Frequency Tech Trusted By Pro Athletes And CEOs.{" "}
+            <a href="mailto:j@highfrequencyhw.com">
+              Contact us to learn more
+            </a>
+          </>
+        }
       />
+
       <ProductBlock />
       <HollywoodReporterPress />
       <WhatsInBox />
