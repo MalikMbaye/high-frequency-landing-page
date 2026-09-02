@@ -1791,8 +1791,8 @@
   .tctu-track {
     display: grid;
     grid-auto-flow: column;
-    grid-template-rows: 470px 470px;
-    grid-auto-columns: 340px;
+    grid-template-rows: 520px;
+    grid-auto-columns: 320px;
     gap: 24px;
     overflow-x: auto;
     overflow-y: hidden;
