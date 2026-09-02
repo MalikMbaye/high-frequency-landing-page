@@ -39,30 +39,23 @@ const Captivation = () => {
 
         <div className="tctu-grid">
           {cards.map((c) => (
-            <article className="tctu-card" key={c.handle}>
-              <div className="tctu-card-top">
-                <span className="tctu-ig">Instagram profile</span>
-                <span className="tctu-dot" aria-hidden="true"></span>
-              </div>
-              <div className="tctu-divider"></div>
-              <div className="tctu-profile">
-                <img className="tctu-avatar tctu-avatar-photo" src={c.photo} alt={c.name} loading="lazy" />
-                <div className="tctu-identity">
-                  <span className="tctu-name">{c.name}</span>
-                  <span className="tctu-handle">{c.handle}</span>
-                  <span className="tctu-cat">{c.cat}</span>
+            <article className="tctu-tile" key={c.handle}>
+              <div className="tctu-tile-media">
+                <img className="tctu-tile-img" src={c.photo} alt={c.name} loading="lazy" />
+                <span className="tctu-tile-chip">{c.cat}</span>
+                <div className="tctu-tile-overlay">
+                  <span className="tctu-tile-name">{c.name}</span>
+                  <span className="tctu-tile-handle">{c.handle}</span>
+                  <span className="tctu-tile-followers">
+                    <strong>{c.followers}</strong> followers
+                  </span>
                 </div>
               </div>
-
-              <div className="tctu-followers">
-                <span className="tctu-follow-num">{c.followers}</span>
-                <span className="tctu-follow-label">followers</span>
-              </div>
-              <div className="tctu-divider"></div>
-              <p className="tctu-desc">{c.desc}</p>
+              <p className="tctu-tile-desc">{c.desc}</p>
             </article>
           ))}
         </div>
+
       </div>
     </section>
   );
