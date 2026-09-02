@@ -3,12 +3,8 @@
    ============================================================ */
 
 .press-feature {
-  background: linear-gradient(
-    180deg,
-    var(--hfh-navy-deep) 0%,
-    var(--hfh-navy) 100%
-  );
-  color: var(--hfh-white);
+  background: #f6f4f0;
+  color: #14161a;
 }
 
 .press-feature-inner {
@@ -22,7 +18,7 @@
   align-items: center;
   gap: 16px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   align-self: flex-start;
 }
 
@@ -31,7 +27,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--hfh-gold);
+  color: #6b6b6b;
 }
 
 .thr-logo {
@@ -90,14 +86,14 @@
   font-size: 1.1rem;
   line-height: 1.4;
   margin: 0;
-  color: var(--hfh-gold-soft);
+  color: #4a4a4a;
 }
 
 .press-feature-body {
   font-size: 1rem;
   line-height: 1.6;
   margin: 0;
-  color: rgba(255, 255, 255, 0.85);
+  color: #3a3d42;
 }
 
 .press-feature-ctas {
@@ -110,7 +106,7 @@
 .press-feature-visual img {
   width: 100%;
   border-radius: 12px;
-  box-shadow: var(--hfh-shadow-dark);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
 }
 
 @media (max-width: 900px) {

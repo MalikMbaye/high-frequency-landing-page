@@ -4,7 +4,7 @@ import "./press-feature.css";
 
 const HollywoodReporterPress = () => {
   return (
-    <section className="section press-feature" data-theme="dark">
+    <section className="section press-feature" data-theme="light">
       <div className="hfh-container press-feature-inner">
         <div className="press-banner">
           <span className="press-banner-label">As seen in</span>
@@ -18,20 +18,16 @@ const HollywoodReporterPress = () => {
         <div className="press-feature-grid">
           <div className="press-feature-copy">
             <h2 className="press-feature-headline">
-              High Frequency Highway Lands in The Hollywood Reporter
+              High Frequency Highway Appears in The Hollywood Reporter
             </h2>
             <p className="press-feature-dek">
-              The September 2 issue, taken over by The Harvard Lampoon for the
-              first spoof edition in eighteen years.
+              September 2, 2026 — the Harvard Lampoon takeover issue.
             </p>
             <p className="press-feature-body">
-              High Frequency Highway appears in the September 2 issue of{" "}
-              <em>The Hollywood Reporter</em>. The issue is unusual: The Harvard
-              Lampoon took over the magazine for a full parody edition,
-              polybagged with the real one and mailed to the same subscriber
-              list. Our full-page ad runs inside — a photograph of nine
-              numbered items laid out on a steel evidence table. Eight of them
-              have side effects.
+              The Harvard Lampoon took over the September 2 issue for a full
+              parody edition, its first in eighteen years. Our full-page ad runs
+              inside: nine numbered items on a steel evidence table. Eight of
+              them have side effects.
             </p>
             <div className="press-feature-ctas">
               <a
