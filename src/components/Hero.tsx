@@ -69,35 +69,38 @@ const Hero = () => {
           <p className="pre-headline">Used by 100,000+ people in every country on earth. Inspired by decades of frequency research.</p>
           <h1 className="display-headline">ALL OF THE HIGH. NONE OF THE SIDE EFFECTS.</h1>
           <p className="subhead">No substance, same shift. Frequency headphones that influence your brain waves to focus, calm, energy, or flow in under 60 seconds.</p>
-          <button
-            type="button"
-            onClick={() => {
-              document.getElementById("buy")?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="btn btn-purple btn-lg"
-          >
-            <>Get Your Headphones <ArrowRight size={18} /></>
-          </button>
-          <a
-            href="/partner"
-            className="hero-partner-link"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              marginTop: 18,
-              fontSize: 14,
-              fontWeight: 600,
-              letterSpacing: 0.4,
-              textDecoration: "underline",
-              textUnderlineOffset: 4,
-              color: "inherit",
-              opacity: 0.75,
-            }}
-          >
-            <Mail size={14} aria-hidden="true" />
-            Partner with us
-          </a>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+            <button
+              type="button"
+              onClick={() => {
+                document.getElementById("buy")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="btn btn-purple btn-lg"
+            >
+              <>Get Your Headphones <ArrowRight size={18} /></>
+            </button>
+            <a
+              href="/partner"
+              className="hero-partner-link"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                marginTop: 14,
+                fontSize: 14,
+                fontWeight: 600,
+                letterSpacing: 0.4,
+                textDecoration: "underline",
+                textUnderlineOffset: 4,
+                color: "inherit",
+                opacity: 0.75,
+              }}
+            >
+              <Mail size={14} aria-hidden="true" />
+              Partner with us
+            </a>
+          </div>
+
         </div>
         <div className="hero-visual tier-2-visual">
           <div className="hero-video-frame">
