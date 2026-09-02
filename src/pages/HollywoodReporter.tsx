@@ -2,6 +2,7 @@ import { lazy } from "react";
 import StickyBuyBar from "@/components/StickyBuyBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import HollywoodReporterPress from "@/components/HollywoodReporterPress";
 import Captivation from "@/components/Captivation";
 import ProductBlock from "@/components/ProductBlock";
 import TestimonialGallery from "@/components/TestimonialGallery";
@@ -55,6 +56,7 @@ const HollywoodReporter = () => {
       {/* Above-the-fold: render eagerly so the top paints instantly */}
       <Navbar />
       <Hero />
+      <HollywoodReporterPress />
       <ProductBlock />
       <WhatsInBox />
       <Captivation />
