@@ -1,6 +1,7 @@
 import thrHero from "@/assets/thr-hero.webp.asset.json";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ExternalLink, Mail } from "lucide-react";
 import "./press-feature.css";
+
 
 const HollywoodReporterPress = () => {
   return (
