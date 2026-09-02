@@ -1888,7 +1888,7 @@
   .tctu-tile-media {
     position: relative;
     aspect-ratio: 3 / 4;
-    border-radius: 18px;
+    border-radius: 24px;
     overflow: hidden;
     background: #16224a;
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
@@ -1952,7 +1952,17 @@
     margin: 0;
     font-size: 14px;
     line-height: 1.55;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.65);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .tctu-tile.is-tall .tctu-tile-media {
+    aspect-ratio: 4 / 5;
+  }
+  .tctu-tile.is-short .tctu-tile-media {
+    aspect-ratio: 1 / 1;
   }
 
   .tctu-card-top {
@@ -2945,8 +2955,8 @@
     position: static;
     top: auto;
   }
-  .tctu-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .tctu-track {
+    grid-auto-columns: 260px;
   }
 
 }
@@ -3183,9 +3193,18 @@
   .tctu-micro {
     font-size: 14px;
   }
-  .tctu-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+  .tctu-track {
+    grid-auto-flow: row;
+    grid-template-rows: none;
+    grid-auto-columns: auto;
+    grid-template-columns: 1fr;
+    overflow-x: visible;
+    padding: 4px 16px 8px;
+    gap: 20px;
+    cursor: default;
+  }
+  .tctu-arrow {
+    display: none;
   }
   .tctu-tile-name {
     font-size: 16px;
