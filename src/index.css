@@ -1822,6 +1822,10 @@
     justify-content: center;
     overflow: hidden;
   }
+  .tctu-avatar-photo {
+    object-fit: cover;
+    background: #eeedfe;
+  }
   .tctu-avatar-initials {
     background: #eeedfe;
     color: #a855f7;
@@ -1829,6 +1833,7 @@
     font-weight: 600;
     letter-spacing: 0.5px;
   }
+
   .tctu-identity {
     display: flex;
     flex-direction: column;
