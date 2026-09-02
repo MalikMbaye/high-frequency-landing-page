@@ -3,7 +3,6 @@ import StickyBuyBar from "@/components/StickyBuyBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import HollywoodReporterPress from "@/components/HollywoodReporterPress";
-import Captivation from "@/components/Captivation";
 import ProductBlock from "@/components/ProductBlock";
 import TestimonialGallery from "@/components/TestimonialGallery";
 import WhatsInBox from "@/components/WhatsInBox";
@@ -69,7 +68,6 @@ const HollywoodReporter = () => {
       <ProductBlock />
       <HollywoodReporterPress />
       <WhatsInBox />
-      <Captivation />
       <TestimonialGallery />
 
       {/* Below-the-fold: mount as user scrolls down. Each LazySection has its
