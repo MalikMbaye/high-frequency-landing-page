@@ -2833,12 +2833,7 @@
   .tctu-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .tctu-card,
-  .tctu-card:nth-child(5),
-  .tctu-card:nth-child(6),
-  .tctu-card:nth-child(7) {
-    grid-column: span 1;
-  }
+
 }
 
 @media (max-width: 720px) {
