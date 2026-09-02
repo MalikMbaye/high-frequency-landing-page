@@ -69,7 +69,6 @@ const HollywoodReporter = () => {
       <ProductBlock />
       <HollywoodReporterPress />
       <WhatsInBox />
-      <Captivation />
       <TestimonialGallery />
 
       {/* Below-the-fold: mount as user scrolls down. Each LazySection has its
