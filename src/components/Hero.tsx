@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import { useEffect, useRef } from "react";
 import heroVideo from "@/assets/hero-headphones.mp4.asset.json";
 import heroPoster from "@/assets/hero-headphones-poster.jpg.asset.json";
@@ -82,8 +82,10 @@ const Hero = () => {
             href="/partner"
             className="hero-partner-link"
             style={{
-              display: "inline-block",
-              marginTop: 14,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              marginTop: 18,
               fontSize: 14,
               fontWeight: 600,
               letterSpacing: 0.4,
@@ -93,6 +95,7 @@ const Hero = () => {
               opacity: 0.75,
             }}
           >
+            <Mail size={14} aria-hidden="true" />
             Partner with us
           </a>
         </div>
