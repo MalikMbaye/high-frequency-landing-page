@@ -1,4 +1,6 @@
 import { useState, FormEvent } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 import { ArrowLeft, Mail } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -22,18 +24,31 @@ const Partner = () => {
   const [company, setCompany] = useState("");
   const [message, setMessage] = useState("");
 
-  const onSubmit = (e: FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(
-      `Partnership inquiry — ${company.trim().slice(0, 80) || name.trim().slice(0, 80) || "website"}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${name.trim().slice(0, 100)}\nEmail: ${email.trim().slice(0, 255)}\nCompany / Brand: ${company
-        .trim()
-        .slice(0, 120)}\n\n${message.trim().slice(0, 2000)}`
-    );
-    window.location.href = `mailto:${RECIPIENT}?subject=${subject}&body=${body}`;
+    const cleanEmail = email.trim().slice(0, 255);
+    if (!cleanEmail) return;
+    setSubmitting(true);
+    const { error } = await supabase.from("partner_inquiries").insert({
+      name: name.trim().slice(0, 100) || null,
+      email: cleanEmail,
+      company: company.trim().slice(0, 120) || null,
+      message: message.trim().slice(0, 2000) || null,
+    });
+    setSubmitting(false);
+    if (error) {
+      toast.error("Something went wrong. Please email us directly at " + RECIPIENT);
+      return;
+    }
+    toast.success("Thanks — we received your inquiry. We'll be in touch.");
+    setName("");
+    setEmail("");
+    setCompany("");
+    setMessage("");
   };
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -73,10 +88,9 @@ const Partner = () => {
 
           <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             <label style={labelStyle}>
-              <span style={labelText}>NAME</span>
+              <span style={labelText}>NAME (OPTIONAL)</span>
               <input
                 type="text"
-                required
                 maxLength={100}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -97,7 +111,7 @@ const Partner = () => {
             </label>
 
             <label style={labelStyle}>
-              <span style={labelText}>COMPANY / BRAND</span>
+              <span style={labelText}>COMPANY / BRAND (OPTIONAL)</span>
               <input
                 type="text"
                 maxLength={120}
@@ -108,9 +122,8 @@ const Partner = () => {
             </label>
 
             <label style={labelStyle}>
-              <span style={labelText}>WHAT DO YOU HAVE IN MIND?</span>
+              <span style={labelText}>WHAT DO YOU HAVE IN MIND? (OPTIONAL)</span>
               <textarea
-                required
                 rows={6}
                 maxLength={2000}
                 value={message}
@@ -121,10 +134,11 @@ const Partner = () => {
 
             <button
               type="submit"
+              disabled={submitting}
               className="btn btn-purple btn-lg"
               style={{ alignSelf: "flex-start", display: "inline-flex", alignItems: "center", gap: 8 }}
             >
-              <Mail size={18} /> Send Partnership Inquiry
+              <Mail size={18} /> {submitting ? "Sending…" : "Send Partnership Inquiry"}
             </button>
           </form>
         </div>

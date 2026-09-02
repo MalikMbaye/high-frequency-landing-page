@@ -157,6 +157,33 @@ export type Database = {
           },
         ]
       }
+      partner_inquiries: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string
+          id: string
+          message: string | null
+          name: string | null
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          message?: string | null
+          name?: string | null
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string | null
+          name?: string | null
+        }
+        Relationships: []
+      }
       popup_dismissals: {
         Row: {
           dismissed_at: string
