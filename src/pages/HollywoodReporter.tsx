@@ -65,7 +65,12 @@ const HollywoodReporter = () => {
       {/* Above-the-fold: render eagerly so the top paints instantly */}
       <Navbar />
       <Hero />
-      <YouTubeShortsCarousel videos={shortsAfterBox} layout="grid" />
+      <YouTubeShortsCarousel
+        videos={shortsAfterBox}
+        layout="row"
+        title="Experience The Viral Frequency Tech Trusted By Pro Athletes And CEOs."
+        subtitle="Real reactions, first listen. Interested in collaborating? Partner with us at j@highfrequencyhw.com."
+      />
       <ProductBlock />
       <HollywoodReporterPress />
       <WhatsInBox />

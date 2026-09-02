@@ -78,6 +78,23 @@ const Hero = () => {
           >
             <>Get Your Headphones <ArrowRight size={18} /></>
           </button>
+          <a
+            href="/partner"
+            className="hero-partner-link"
+            style={{
+              display: "inline-block",
+              marginTop: 14,
+              fontSize: 14,
+              fontWeight: 600,
+              letterSpacing: 0.4,
+              textDecoration: "underline",
+              textUnderlineOffset: 4,
+              color: "inherit",
+              opacity: 0.75,
+            }}
+          >
+            Partner with us
+          </a>
         </div>
         <div className="hero-visual tier-2-visual">
           <div className="hero-video-frame">
