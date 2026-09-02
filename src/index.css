@@ -1760,11 +1760,126 @@
     margin: 0;
     line-height: 1.5;
   }
-  .tctu-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+  .tctu-header-wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
   }
+  .tctu-carousel {
+    position: relative;
+    width: 100%;
+  }
+  .tctu-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: auto auto;
+    grid-auto-columns: 300px;
+    gap: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    padding: 4px 48px 12px;
+    scrollbar-width: none;
+    cursor: grab;
+    align-items: start;
+  }
+  .tctu-track::-webkit-scrollbar {
+    display: none;
+  }
+  .tctu-track:active {
+    cursor: grabbing;
+  }
+  .tctu-track > .tctu-tile {
+    scroll-snap-align: start;
+  }
+  .tctu-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 46px;
+    height: 46px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f1b3d;
+    background: rgba(255, 255, 255, 0.94);
+    border: none;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .tctu-arrow:hover {
+    transform: translateY(-50%) scale(1.06);
+  }
+  .tctu-arrow-left {
+    left: 18px;
+  }
+  .tctu-arrow-right {
+    right: 18px;
+  }
+  .tctu-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f1b3d;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .tctu-play:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+    background: #ffffff;
+  }
+  .tctu-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(4, 8, 20, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .tctu-lightbox-frame {
+    width: min(420px, 92vw);
+    aspect-ratio: 9 / 16;
+    max-height: 88vh;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+  }
+  .tctu-lightbox-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .tctu-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+  }
+
   .tctu-tile {
     display: flex;
     flex-direction: column;
