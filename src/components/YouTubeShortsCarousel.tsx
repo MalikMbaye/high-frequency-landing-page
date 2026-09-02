@@ -9,6 +9,7 @@ interface Props {
   subtitle?: string;
   theme?: "light" | "dark";
   id?: string;
+  layout?: "carousel" | "grid";
 }
 
 const getId = (url: string) => {
@@ -22,6 +23,7 @@ const YouTubeShortsCarousel = ({
   subtitle,
   theme = "light",
   id,
+  layout = "carousel",
 }: Props) => {
   const scrollerRef = useRef<HTMLDivElement>(null);
 
@@ -46,51 +48,38 @@ const YouTubeShortsCarousel = ({
           <p className={`section-sub ${theme === "dark" ? "light" : ""}`}>{subtitle}</p>
         )}
 
-        <div style={{ position: "relative", marginTop: 24 }}>
-          <button
-            type="button"
-            aria-label="Scroll left"
-            onClick={() => scrollBy(-1)}
-            className="ig-arrow ig-arrow-left"
-          >
-            <ArrowLeft size={20} />
-          </button>
-          <button
-            type="button"
-            aria-label="Scroll right"
-            onClick={() => scrollBy(1)}
-            className="ig-arrow ig-arrow-right"
-          >
-            <ArrowRight size={20} />
-          </button>
+        <div className="shorts-wrap">
+          {layout === "carousel" && (
+            <>
+              <button
+                type="button"
+                aria-label="Scroll left"
+                onClick={() => scrollBy(-1)}
+                className="ig-arrow ig-arrow-left"
+              >
+                <ArrowLeft size={20} />
+              </button>
+              <button
+                type="button"
+                aria-label="Scroll right"
+                onClick={() => scrollBy(1)}
+                className="ig-arrow ig-arrow-right"
+              >
+                <ArrowRight size={20} />
+              </button>
+            </>
+          )}
 
           <div
             ref={scrollerRef}
-            className="ig-scroller"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: 20,
-              overflowX: "auto",
-              scrollSnapType: "x mandatory",
-              padding: "8px 4px 24px",
-              WebkitOverflowScrolling: "touch",
-            }}
+            className={layout === "grid" ? "shorts-grid" : "ig-scroller shorts-scroller"}
           >
             {videos.map((url, i) => {
               const vid = getId(url);
               return (
                 <div
                   key={url}
-                  style={{
-                    flex: "0 0 auto",
-                    scrollSnapAlign: "start",
-                    width: "min(320px, 80vw)",
-                    borderRadius: 16,
-                    overflow: "hidden",
-                    border: "1px solid rgba(0,0,0,0.08)",
-                    boxShadow: "0 4px 24px rgba(0,0,0,0.12)",
-                  }}
+                  className="shorts-video"
                 >
                   <YouTubeFacade
                     videoId={vid}
@@ -106,6 +95,41 @@ const YouTubeShortsCarousel = ({
       </div>
 
       <style>{`
+        .shorts-wrap { position: relative; margin-top: 24px; }
+        .shorts-scroller {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          padding: 8px 4px 24px;
+          -webkit-overflow-scrolling: touch;
+        }
+        .shorts-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 20px;
+          padding: 8px 0;
+          align-items: start;
+        }
+        .shorts-video {
+          min-width: 0;
+          overflow: hidden;
+          border-radius: 8px;
+          border: 1px solid hsl(var(--border));
+          box-shadow: var(--hfh-shadow-dark);
+        }
+        .shorts-scroller .shorts-video {
+          flex: 0 0 auto;
+          scroll-snap-align: start;
+          width: min(320px, 80vw);
+        }
+        @media (max-width: 900px) {
+          .shorts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        }
+        @media (max-width: 520px) {
+          .shorts-grid { grid-template-columns: 1fr; gap: 18px; }
+        }
         .ig-scroller::-webkit-scrollbar { height: 8px; }
         .ig-scroller::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 4px; }
       `}</style>

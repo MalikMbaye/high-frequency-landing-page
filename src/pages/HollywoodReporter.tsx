@@ -68,7 +68,7 @@ const HollywoodReporter = () => {
       <HollywoodReporterPress />
       <ProductBlock />
       <WhatsInBox />
-      <YouTubeShortsCarousel videos={shortsAfterBox} />
+      <YouTubeShortsCarousel videos={shortsAfterBox} layout="grid" />
       <Captivation />
       <TestimonialGallery />
 
