@@ -2,15 +2,15 @@ import { useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import YouTubeFacade from "@/components/YouTubeFacade";
 
-
 interface Props {
   videos: string[];
   title?: string;
-  subtitle?: string;
+  subtitle?: React.ReactNode;
   theme?: "light" | "dark";
   id?: string;
   layout?: "carousel" | "grid" | "row";
 }
+
 
 const getId = (url: string) => {
   const m = url.match(/shorts\/([A-Za-z0-9_-]+)/) || url.match(/v=([A-Za-z0-9_-]+)/);
