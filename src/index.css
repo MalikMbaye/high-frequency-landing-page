@@ -1772,7 +1772,7 @@
   .tctu-track {
     display: grid;
     grid-auto-flow: column;
-    grid-template-rows: auto auto;
+    grid-template-rows: 470px 470px;
     grid-auto-columns: 300px;
     gap: 24px;
     overflow-x: auto;
@@ -1781,7 +1781,7 @@
     padding: 4px 48px 12px;
     scrollbar-width: none;
     cursor: grab;
-    align-items: start;
+    align-items: stretch;
   }
   .tctu-track::-webkit-scrollbar {
     display: none;
@@ -1884,10 +1884,12 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
+    height: 100%;
   }
   .tctu-tile-media {
     position: relative;
-    aspect-ratio: 3 / 4;
+    flex: 1 1 auto;
+    min-height: 0;
     border-radius: 24px;
     overflow: hidden;
     background: #16224a;
@@ -1958,11 +1960,9 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  .tctu-tile.is-tall .tctu-tile-media {
-    aspect-ratio: 4 / 5;
-  }
-  .tctu-tile.is-short .tctu-tile-media {
-    aspect-ratio: 1 / 1;
+  .tctu-tile-desc {
+    flex: 0 0 auto;
+    min-height: 66px;
   }
 
   .tctu-card-top {
@@ -2957,6 +2957,7 @@
   }
   .tctu-track {
     grid-auto-columns: 260px;
+    grid-template-rows: 420px 420px;
   }
 
 }
@@ -3196,6 +3197,7 @@
   .tctu-track {
     grid-auto-flow: row;
     grid-template-rows: none;
+    grid-auto-rows: auto;
     grid-auto-columns: auto;
     grid-template-columns: 1fr;
     overflow-x: visible;
@@ -3205,6 +3207,17 @@
   }
   .tctu-arrow {
     display: none;
+  }
+  .tctu-tile.is-tall .tctu-tile-media {
+    aspect-ratio: 4 / 5;
+    flex: 0 0 auto;
+  }
+  .tctu-tile.is-short .tctu-tile-media {
+    aspect-ratio: 1 / 1;
+    flex: 0 0 auto;
+  }
+  .tctu-tile-desc {
+    min-height: 0;
   }
   .tctu-tile-name {
     font-size: 16px;
