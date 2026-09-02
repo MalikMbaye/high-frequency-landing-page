@@ -20,6 +20,7 @@ import HelpSearchPage from "./pages/help/HelpSearchPage";
 import EmailCapturePopup from "./components/EmailCapturePopup";
 import PostPurchaseUpsell from "./pages/PostPurchaseUpsell";
 import HoneyLanding from "./pages/HoneyLanding";
+import HollywoodReporter from "./pages/HollywoodReporter";
 import { BumpModalHost } from "./components/BumpModal";
 
 
