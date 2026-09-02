@@ -146,7 +146,7 @@ const Captivation = () => {
           <span className="tctu-eyebrow">HIGH FREQUENCY HIGHWAY</span>
           <h2 className="tctu-headline">They Came To Us.</h2>
           <p className="tctu-stat">98.9M+ combined Instagram followers</p>
-          <p className="tctu-sub">Social proof you can see. Names, faces, and what they said.</p>
+          <p className="tctu-sub">Supporters of the technology</p>
         </header>
       </div>
 
