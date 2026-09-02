@@ -22,7 +22,7 @@ const Captivation = () => {
     <section className="section they-came-to-us" data-theme="dark">
       <div className="tctu-container">
         <header className="tctu-header">
-          <span className="tctu-eyebrow">HIGH FREQUENCY HEADPHONES</span>
+          <span className="tctu-eyebrow">HIGH FREQUENCY HIGHWAY</span>
           <h2 className="tctu-headline">They Came To Us.</h2>
           <p className="tctu-stat">98.9M+ combined Instagram followers</p>
           <p className="tctu-sub">Social proof you can see — with context, not just names.</p>

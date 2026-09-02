@@ -8,7 +8,6 @@ import WhatsInBox from "@/components/WhatsInBox";
 import LazySection from "@/components/LazySection";
 import YouTubeShortsCarousel from "@/components/YouTubeShortsCarousel";
 import WhyMoreThanOne from "@/components/WhyMoreThanOne";
-import Captivation from "@/components/Captivation";
 
 // Below-the-fold: code-split so the JS for these sections is fetched only when needed.
 const WrongTeardown = lazy(() => import("@/components/WrongTeardown"));
@@ -57,7 +56,6 @@ const HollywoodReporter = () => {
       <Hero />
       <ProductBlock />
       <WhatsInBox />
-      <Captivation />
       <TestimonialGallery />
 
       {/* Below-the-fold: mount as user scrolls down. Each LazySection has its
