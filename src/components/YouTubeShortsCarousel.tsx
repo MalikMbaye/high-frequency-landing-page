@@ -1,15 +1,16 @@
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import YouTubeFacade from "@/components/YouTubeFacade";
 
 interface Props {
   videos: string[];
   title?: string;
-  subtitle?: React.ReactNode;
+  subtitle?: ReactNode;
   theme?: "light" | "dark";
   id?: string;
   layout?: "carousel" | "grid" | "row";
 }
+
 
 
 const getId = (url: string) => {
