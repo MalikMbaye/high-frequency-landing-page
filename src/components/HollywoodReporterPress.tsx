@@ -31,26 +31,19 @@ const HollywoodReporterPress = () => {
               them have side effects.
             </p>
             <div className="press-feature-ctas">
+              <a href="/partner" className="btn btn-purple">
+                <Mail size={16} /> Partner with us
+              </a>
               <a
-                href="https://www.hollywoodreporter.com/news/general-news/editors-letter-thr-staff-awards-1236653231/"
+                href="https://www.hollywoodreporter.com/news/general-news/harvard-lampoon-parody-thr-1236686808/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-purple"
-              >
-                Read the editor&apos;s letter <ExternalLink size={16} />
-              </a>
-              <button
-                type="button"
-                onClick={() =>
-                  document
-                    .getElementById("buy")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
                 className="btn btn-outline"
               >
-                See the ad <ArrowRight size={16} />
-              </button>
+                Press release <ExternalLink size={16} />
+              </a>
             </div>
+
           </div>
 
           <div className="press-feature-visual">
