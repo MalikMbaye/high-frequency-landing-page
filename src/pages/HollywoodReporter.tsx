@@ -79,8 +79,8 @@ const HollywoodReporter = () => {
         }
       />
 
-      <ProductBlock />
       <Captivation />
+      <ProductBlock />
       <HollywoodReporterPress />
       <WhatsInBox />
       <TestimonialGallery />
