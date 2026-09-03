@@ -1,5 +1,5 @@
 import { useRef, useState, useCallback } from "react";
-import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, X, ChevronDown, ChevronUp } from "lucide-react";
 import willAsset from "@/assets/celebs/headshot_05_will_i_am.jpg.asset.json";
 import everetteAsset from "@/assets/celebs/headshot_02_everette_taylor.png.asset.json";
 import kyrieAsset from "@/assets/celebs/headshot_08_kyrie_irving.jpg.asset.json";
@@ -113,7 +113,17 @@ const endorsers: Endorser[] = [
 const Captivation = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const [lightbox, setLightbox] = useState<Endorser | null>(null);
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: 0 });
+
+  const toggleExpand = (handle: string) => {
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      if (next.has(handle)) next.delete(handle);
+      else next.add(handle);
+      return next;
+    });
+  };
 
   const scrollBy = (dir: -1 | 1) => {
     const el = trackRef.current;
@@ -144,7 +154,6 @@ const Captivation = () => {
       <div className="tctu-header-wrap">
         <header className="tctu-header">
           <span className="tctu-eyebrow">FOLLOWERS OF THE MOVEMENT</span>
-          <h2 className="tctu-headline">They Came To Us.</h2>
           <p className="tctu-stat">98.9M+ combined Instagram followers</p>
           <p className="tctu-sub">Supporters of the technology</p>
         </header>
@@ -178,6 +187,7 @@ const Captivation = () => {
         >
           {endorsers.map((p) => {
             const isVideo = p.asset_type === "video";
+            const isExpanded = expanded.has(p.handle);
             return (
               <article className="tctu-tile" key={p.handle}>
                 <div className="tctu-tile-media">
@@ -196,15 +206,29 @@ const Captivation = () => {
                       <Play size={26} fill="currentColor" />
                     </button>
                   )}
-                  <div className="tctu-tile-overlay">
+                  <div className={`tctu-tile-overlay ${isExpanded ? "expanded" : ""}`}>
                     <span className="tctu-tile-name">{p.name}</span>
                     <span className="tctu-tile-handle">{p.handle}</span>
                     <span className="tctu-tile-followers">
                       <strong>{p.followers}</strong> followers
                     </span>
+                    <div className="tctu-tile-proof">
+                      <p>{p.proof}</p>
+                    </div>
+                    <button
+                      type="button"
+                      className="tctu-tile-expand"
+                      aria-label={isExpanded ? "Show less" : "Read more"}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleExpand(p.handle);
+                      }}
+                    >
+                      {isExpanded ? "Show less" : "Read more"}
+                      {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                    </button>
                   </div>
                 </div>
-                <p className="tctu-tile-desc">{p.proof}</p>
               </article>
             );
           })}

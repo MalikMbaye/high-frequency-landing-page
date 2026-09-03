@@ -1944,11 +1944,16 @@
   .tctu-tile-overlay {
     position: absolute;
     inset: auto 0 0 0;
-    padding: 20px 18px 18px;
+    padding: 20px 18px 16px;
     display: flex;
     flex-direction: column;
     gap: 2px;
-    background: linear-gradient(to top, rgba(6, 11, 28, 0.92) 0%, rgba(6, 11, 28, 0.6) 45%, rgba(6, 11, 28, 0) 100%);
+    background: linear-gradient(to top, rgba(6, 11, 28, 0.95) 0%, rgba(6, 11, 28, 0.75) 50%, rgba(6, 11, 28, 0) 100%);
+    transition: background 0.3s ease;
+  }
+  .tctu-tile-overlay.expanded {
+    background: linear-gradient(to top, rgba(6, 11, 28, 0.98) 0%, rgba(6, 11, 28, 0.92) 60%, rgba(6, 11, 28, 0.7) 100%);
+    padding-top: 40px;
   }
   .tctu-tile-name {
     font-size: 20px;
@@ -1971,17 +1976,41 @@
     color: #ffffff;
     margin-right: 4px;
   }
-  .tctu-tile-desc {
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.55;
-    color: var(--hfh-grey-text);
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+  .tctu-tile-proof {
+    max-height: 0;
     overflow: hidden;
-    flex: 0 0 auto;
-    min-height: 66px;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.25s ease;
+    margin-top: 0;
+  }
+  .tctu-tile-overlay.expanded .tctu-tile-proof {
+    max-height: 220px;
+    opacity: 1;
+    margin-top: 10px;
+  }
+  .tctu-tile-proof p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .tctu-tile-expand {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: color 0.2s ease;
+    align-self: flex-start;
+  }
+  .tctu-tile-expand:hover {
+    color: #ffffff;
   }
 
   .tctu-card-top {
@@ -3243,17 +3272,14 @@
     aspect-ratio: 4 / 5;
     flex: 0 0 auto;
   }
-  .tctu-tile-desc {
-    min-height: 0;
-  }
   .tctu-tile-name {
     font-size: 16px;
   }
   .tctu-tile-followers strong {
     font-size: 15px;
   }
-  .tctu-tile-desc {
-    font-size: 13px;
+  .tctu-tile-proof p {
+    font-size: 12.5px;
   }
 
   .pdp-section {
