@@ -140,7 +140,7 @@ const Captivation = () => {
   }, []);
 
   return (
-    <section className="section they-came-to-us" data-theme="dark">
+    <section className="section they-came-to-us" data-theme="light">
       <div className="tctu-header-wrap">
         <header className="tctu-header">
           <span className="tctu-eyebrow">FOLLOWERS OF THE MOVEMENT</span>
