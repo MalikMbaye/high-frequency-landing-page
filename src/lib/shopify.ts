@@ -1,3 +1,4 @@
+import { attributionCartAttributes, withAttributionParams } from "@/lib/attribution";
 import { toast } from "sonner";
 
 const SHOPIFY_API_VERSION = "2025-07";
@@ -302,11 +303,12 @@ function formatCheckoutUrl(checkoutUrl: string): string {
   try {
     const url = new URL(checkoutUrl);
     url.searchParams.set("channel", "online_store");
-    return url.toString();
+    return withAttributionParams(url.toString());
   } catch {
     return checkoutUrl;
   }
 }
+
 
 interface UserError {
   field: string[] | null;
@@ -336,6 +338,7 @@ export async function createShopifyCart(
 ): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
   const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
     input: {
+      attributes: attributionCartAttributes(),
       lines: [
         {
           quantity: item.quantity,
@@ -345,6 +348,7 @@ export async function createShopifyCart(
       ],
     },
   });
+
 
   if (data?.data?.cartCreate?.userErrors?.length > 0) {
     console.error("Cart creation failed:", data.data.cartCreate.userErrors);
