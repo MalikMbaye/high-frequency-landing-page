@@ -1,5 +1,5 @@
 import { useRef, useState, useCallback } from "react";
-import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, X, ChevronDown, ChevronUp } from "lucide-react";
 import willAsset from "@/assets/celebs/headshot_05_will_i_am.jpg.asset.json";
 import everetteAsset from "@/assets/celebs/headshot_02_everette_taylor.png.asset.json";
 import kyrieAsset from "@/assets/celebs/headshot_08_kyrie_irving.jpg.asset.json";
