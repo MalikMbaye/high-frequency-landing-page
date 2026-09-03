@@ -3272,17 +3272,14 @@
     aspect-ratio: 4 / 5;
     flex: 0 0 auto;
   }
-  .tctu-tile-desc {
-    min-height: 0;
-  }
   .tctu-tile-name {
     font-size: 16px;
   }
   .tctu-tile-followers strong {
     font-size: 15px;
   }
-  .tctu-tile-desc {
-    font-size: 13px;
+  .tctu-tile-proof p {
+    font-size: 12.5px;
   }
 
   .pdp-section {
