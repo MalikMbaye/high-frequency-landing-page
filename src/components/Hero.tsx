@@ -4,7 +4,7 @@ import heroVideo from "@/assets/hero-headphones.mp4.asset.json";
 import heroPoster from "@/assets/hero-headphones-poster.jpg.asset.json";
 
 
-const Hero = () => {
+const Hero = ({ variant = "home" }: { variant?: "home" | "press" }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -67,8 +67,8 @@ const Hero = () => {
       <div className="hfh-container hero-grid">
         <div className="hero-copy">
           <p className="pre-headline">Used by 100,000+ people in every country on earth. Inspired by decades of frequency research.</p>
-          <h1 className="display-headline">ALL OF THE HIGH. NONE OF THE SIDE EFFECTS.</h1>
-          <p className="subhead">No substance, same shift. Frequency headphones that influence your brain waves to focus, calm, energy, or flow in under 60 seconds.</p>
+          <h1 className="display-headline">{variant === "press" ? "ALL OF THE HIGH. NONE OF THE SIDE EFFECTS." : "FEEL A SHIFT IN UNDER 60 SECONDS"}</h1>
+          <p className="subhead">{variant === "press" ? "No substance, same shift. Frequency headphones that influence your brain waves to focus, calm, energy, or flow in under 60 seconds." : "Frequency headphones that help you shift your brain state on demand. Focus. Calm. Energy. Flow. No jitters. No crash. No subscription."}</p>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
             <button
               type="button"
@@ -79,6 +79,7 @@ const Hero = () => {
             >
               <>Get Your Headphones <ArrowRight size={18} /></>
             </button>
+            {variant === "press" && (
             <a
               href="/partner"
               className="hero-partner-link"
@@ -99,6 +100,7 @@ const Hero = () => {
               <Mail size={14} aria-hidden="true" />
               Partner with us
             </a>
+            )}
           </div>
 
         </div>

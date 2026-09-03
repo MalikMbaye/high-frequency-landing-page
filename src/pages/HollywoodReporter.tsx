@@ -64,7 +64,7 @@ const HollywoodReporter = () => {
     <div className="min-h-screen bg-background page-thr">
       {/* Above-the-fold: render eagerly so the top paints instantly */}
       <Navbar />
-      <Hero />
+      <Hero variant="press" />
       <YouTubeShortsCarousel
         videos={shortsAfterBox}
         layout="row"
