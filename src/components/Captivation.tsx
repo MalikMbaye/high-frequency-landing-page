@@ -113,7 +113,17 @@ const endorsers: Endorser[] = [
 const Captivation = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const [lightbox, setLightbox] = useState<Endorser | null>(null);
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: 0 });
+
+  const toggleExpand = (handle: string) => {
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      if (next.has(handle)) next.delete(handle);
+      else next.add(handle);
+      return next;
+    });
+  };
 
   const scrollBy = (dir: -1 | 1) => {
     const el = trackRef.current;
