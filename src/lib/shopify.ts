@@ -302,11 +302,12 @@ function formatCheckoutUrl(checkoutUrl: string): string {
   try {
     const url = new URL(checkoutUrl);
     url.searchParams.set("channel", "online_store");
-    return url.toString();
+    return withAttributionParams(url.toString());
   } catch {
     return checkoutUrl;
   }
 }
+
 
 interface UserError {
   field: string[] | null;
