@@ -154,7 +154,6 @@ const Captivation = () => {
       <div className="tctu-header-wrap">
         <header className="tctu-header">
           <span className="tctu-eyebrow">FOLLOWERS OF THE MOVEMENT</span>
-          <h2 className="tctu-headline">They Came To Us.</h2>
           <p className="tctu-stat">98.9M+ combined Instagram followers</p>
           <p className="tctu-sub">Supporters of the technology</p>
         </header>
