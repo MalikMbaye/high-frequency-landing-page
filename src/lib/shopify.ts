@@ -1,3 +1,4 @@
+import { attributionCartAttributes, withAttributionParams } from "@/lib/attribution";
 import { toast } from "sonner";
 
 const SHOPIFY_API_VERSION = "2025-07";
