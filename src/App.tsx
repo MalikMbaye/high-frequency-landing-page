@@ -18,7 +18,6 @@ import HelpHome from "./pages/help/HelpHome";
 import HelpSectionPage from "./pages/help/HelpSectionPage";
 import HelpArticlePage from "./pages/help/HelpArticlePage";
 import HelpSearchPage from "./pages/help/HelpSearchPage";
-import EmailCapturePopup from "./components/EmailCapturePopup";
 import PostPurchaseUpsell from "./pages/PostPurchaseUpsell";
 import HoneyLanding from "./pages/HoneyLanding";
 import HollywoodReporter from "./pages/HollywoodReporter";
@@ -69,8 +68,7 @@ const MarketingOverlays = () => {
     window.dispatchEvent(new Event("hfh:splash-done"));
   }, [pathname]);
 
-  if (pathname.startsWith("/help")) return null;
-  return <EmailCapturePopup />;
+  return null;
 };
 
 const App = () => (
