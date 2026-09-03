@@ -187,6 +187,7 @@ const Captivation = () => {
         >
           {endorsers.map((p) => {
             const isVideo = p.asset_type === "video";
+            const isExpanded = expanded.has(p.handle);
             return (
               <article className="tctu-tile" key={p.handle}>
                 <div className="tctu-tile-media">
@@ -205,15 +206,29 @@ const Captivation = () => {
                       <Play size={26} fill="currentColor" />
                     </button>
                   )}
-                  <div className="tctu-tile-overlay">
+                  <div className={`tctu-tile-overlay ${isExpanded ? "expanded" : ""}`}>
                     <span className="tctu-tile-name">{p.name}</span>
                     <span className="tctu-tile-handle">{p.handle}</span>
                     <span className="tctu-tile-followers">
                       <strong>{p.followers}</strong> followers
                     </span>
+                    <div className="tctu-tile-proof">
+                      <p>{p.proof}</p>
+                    </div>
+                    <button
+                      type="button"
+                      className="tctu-tile-expand"
+                      aria-label={isExpanded ? "Show less" : "Read more"}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleExpand(p.handle);
+                      }}
+                    >
+                      {isExpanded ? "Show less" : "Read more"}
+                      {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                    </button>
                   </div>
                 </div>
-                <p className="tctu-tile-desc">{p.proof}</p>
               </article>
             );
           })}
