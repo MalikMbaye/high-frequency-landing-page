@@ -338,6 +338,7 @@ export async function createShopifyCart(
 ): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
   const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
     input: {
+      attributes: attributionCartAttributes(),
       lines: [
         {
           quantity: item.quantity,
@@ -347,6 +348,7 @@ export async function createShopifyCart(
       ],
     },
   });
+
 
   if (data?.data?.cartCreate?.userErrors?.length > 0) {
     console.error("Cart creation failed:", data.data.cartCreate.userErrors);
